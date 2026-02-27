@@ -1,6 +1,6 @@
 ---
-title: "Data Visualization"
-subtitle: "Use R, ggplot2, and the principles of graphic design to create beautiful and truthful visualizations of data"
+title: "CLIL Seminar: Data Science and Text Analysis"
+subtitle: "An introduction to data science methods and statistical thinking using R"
 details: |
   151F403 • Spring 2026<br>International Social Sciences<br>Gakushuin University
 sidebar: false
