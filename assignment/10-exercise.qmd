@@ -1,0 +1,110 @@
+---
+title: "Enhancing graphics"
+date: "2026-06-17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = "center")
+```
+
+For this exercise you'll practice using vector editing software to enhance and refine a plot to make it publication-worthy. You'll use data on state-level spending on children from 1997–2016. The data was collected by the [Urban Institute](https://datacatalog.urban.org/dataset/state-state-spending-kids-dataset) from a variety of government sources. You already used this data [in Exercise 6](/assignment/06-exercise.qmd).
+
+You don't need to worry about any data manipuluation or code or anything. I've given you all the code you need to run. Instead, your job is to take a ggplot plot and enhance it, following the guidelines from an [organizational visual style guide](https://urbaninstitute.github.io/graphics-styleguide/). You'll use [Illustrator, Inkscape, or some other vector editing program](/resource/graphics-editors.qmd) to recreate this image:
+
+![](/projects/10-exercise/img/enhanced-plot.svg){width="90%" fig-align="center" .shadow style="padding: 1em;"}
+
+
+::: {.callout-important}
+### Check the example!
+
+The example page for this week will be helpful!
+
+- [{{< fa laptop-code >}} Enhancing graphics](/example/10-example.qmd)
+:::
+
+As always, if you're struggling, *please* use ouR Questions on Moodle and talk to me and your classmates! Don't suffer in silence!
+
+
+## Instructions
+
+::: {.callout-warning}
+#### Attention!
+
+The instructions for this are a little different from past exercises. Read everything below carefully!
+:::
+
+### 1. Getting started
+
+1. The plot uses the Lato font for all text elements. [Download it from Google Fonts](https://fonts.google.com/specimen/Lato) and install it on your computer. If you're on Windows, right click on the font file and install it as an administrator.
+
+2. Open the project either on your computer or in Posit.cloud
+
+   - [{{< fa file-archive >}} `10-exercise.zip`](/projects/10-exercise.zip): If you're using R on your own computer, download this file, [*unzip it*](/resource/unzipping.qmd), and double click on the file named `10-exercise.Rproj`
+   - [{{< fa cloud >}} Posit.cloud project](https://posit.cloud/spaces/737277/content/11693239): Use this link if you're using Posit.cloud in your browser
+
+3. Rename the Quarto file named `your-name_exercise-10.qmd` to something that matches your name and open it in RStudio.
+
+4. Run the chunks in the document to generate `base_plot.pdf` and `base_plot.svg`. You don't need to write or modify any code.
+
+### 2. Enhancing and refining
+
+Once you have a base plot file, you'll use a vector editing program (see [this page](/resource/graphics-editors.qmd) for more information about what's available---there's a free option!) to enhance and refine it.
+
+You should follow the guidelines in [the Urban Institute's data visaulization style guide](https://urbaninstitute.github.io/graphics-styleguide/). In particular, pay attention to these sections:
+
+- [Chart typography and sizing](https://urbaninstitute.github.io/graphics-styleguide/#typography)
+- [Chart parts](https://urbaninstitute.github.io/graphics-styleguide/#chart-parts), especially the "In print" section
+- [Color](https://urbaninstitute.github.io/graphics-styleguide/#color)
+- [Line charts](https://urbaninstitute.github.io/graphics-styleguide/#line-charts)
+
+::: {.callout-note}
+### Browse the style guide
+
+Also, glance through that style guide in general. They talk about almost everything we've covered (or will cover) in this class, including good design principles, different chart types, specific rules and guidelines to follow with different types of plots, etc. It's a really neat example of all this data visualization stuff in the real world!
+:::
+
+To save on typing, I've included all the text and and other files you need in a folder named "assets" inside the main project. Open `assets/details-and-content.md` to access all the text and use the fake Shmurban Shminstitute logo (`assets/fake-logo.svg`).
+
+Edit the base plot in Illustrator, Inkscape, or some other vector editing program. **Do not use Canva**—it is not a vector editing program. Here are some helpful resources and instructions for Illustrator and Inkscape:
+
+::: {.panel-tabset}
+
+### If you're using Illustrator
+
+- Create a new document that is 6.25 inches wide and some number of inches tall (this is adjustable later, so you don't need to be exact).
+- Open **the PDF** `base_plot.pdf` in as a separate document in Illustrator.
+- Select all the elements in `base_plot.pdf`, copy them, and paste them into your new empty document. Do all your design and enhancing work in this new document, ***not*** in `base_plot.pdf`, since that will get overwritten every time you re-render the Quarto document.
+- Make all your edits and add the logo and do whatever else you want to follow the organizational style guide and generaly enhance the plot.
+- Before exporting the finished version, make sure you resize your artboard to match the size of the plot ([see this short tutorial](https://www.youtube.com/watch?v=kT7tQzEq-VU)). The final plot should be 6.25 inches wide and the height of the content in the image (this will vary depending on how you lay out the text).
+- Go to File > Export > Export for Screens… to export your artboard to both PDF and high resolution PNG ([see this short tutorial](https://www.youtube.com/watch?v=ds8vl3ovzmQ)).
+
+### If you're using Inkscape
+
+- Create a new document. Use the "document pages" tool at the bottom of the side toolbar to change its dimensions to 6.25 inches wide and some number of inches tall (like 6 or7;  this is adjustable later, so you don't need to be exact). [See this short tutorial for how to do this](https://www.youtube.com/watch?v=7o0KdLifHbQ).
+- Open **the SVG** `base_plot.svg` in as a separate document in Inkscape
+- Select all the elements in `base_plot.svg`, copy them, and paste them into your new empty document. Do all your design and enhancing work in this new document, ***not*** in `base_plot.svg`, since that will get overwritten every time you re-render the Quarto document.
+- Make all your edits and add the logo and do whatever else you want to follow the organizational style guide and generaly enhance the plot.
+- Before exporting the finished version, make sure you resize your document to match the size of the plot. The final plot should be 6.25 inches wide and the height of the content in the image (this will vary depending on how you lay out the text). Use the "document pages" tool to either type in a new height or drag the handles of the page to resize it. [Again, see this short tutorial](https://www.youtube.com/watch?v=7o0KdLifHbQ)
+- Go to File > Export and then select the "Batch Export" tab to export your document to both PDF and high resolution PNG ([see timestamp 2:15ish here for how](https://www.youtube.com/watch?v=v__sdJBfu7k))
+
+:::
+
+### 3. Finishing up
+
+1. Place the exported image in the same folder as your `.qmd` file and include it in your document. Add images with Markdown syntax like this (This is not R code! Don't put this in an R chunk!):
+
+   ```{.default}
+   blah blah here's some text
+
+   ![Some sort of caption](name-of-file.png)
+
+   blah blah here's some more text
+   ```
+
+2. Render your Quarto document as a Typst (pdf), PDF, or Word version.
+
+3. Upload **three (3) things** to Moodle:
+
+   - Your rendered `.qmd` file with your check-in and the exported image included in it
+   - A standalone PNG version of your exported image
+   - A standalone PDF version of your exported image

@@ -1,0 +1,75 @@
+---
+title: "Graphics editors"
+subtitle: "Alternatives to Adobe programs"
+---
+
+For [exercise 10](/assignment/10-exercise.qmd), [mini-project 2](/assignment/02-mini-project.qmd), and your [final project](/assignment/final-project.qmd), you'll create plots in R, export them as PDFs, and then edit, enhance, and lay out those PDFs using some sort of graphics editor. 
+
+In the past, I've had students use Adobe Illustrator for this, since GSU provided free student access to [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html), which includes Illustrator. The most common Creative Cloud programs people use for data visualization-related work are:
+
+- [Photoshop](https://www.adobe.com/products/photoshop.html): edit photos and other bitmap images
+- [Illustrator](https://www.adobe.com/products/illustrator.html): edit vector images
+- [InDesign](https://www.adobe.com/products/indesign.html): lay out text and images for books, magazines, brochures, posters, and all other printed things
+
+However, *GSU no longer provides off-campus access to Adobe software.* If you're faculty or staff, [you can still access Creative Cloud for free](https://technology.gsu.edu/technology-services/productivity-collaboration/adobe-creative-cloud/); if you're a student [you have to use an on-campus computer lab](https://technology.gsu.edu/technology-services/productivity-collaboration/adobe-creative-cloud/).
+
+This is sad because knowing how to use programs like Illustrator is *incredibly* valuable. Even if you never touch R again after this class, the graphic design programs included in Creative Cloud are industry-standard and used literally everywhere, and knowing how to use them is an important skill!
+
+There are some alternative options though.
+
+### Creative Cloud as a student
+
+You can use the whole Creative Cloud Suite for [$20/month as a student](https://www.adobe.com/creativecloud/buy/students.html), and they have a 14-day free trial. Creative Cloud is a subscription service, so you can subscribe on and off as often as you want.
+
+
+### Affinity Studio
+
+[Affinity](https://www.affinity.studio/) is a smaller rival to Adobe and they have their own (***free!***) program for graphic design-related tasks named [Affinity Studio](https://www.affinity.studio/). Affinity Studio has three modes that are general equivalents of the core Adobe programs:
+
+- [Vector mode](https://www.affinity.studio/graphic-design-software) = Illustrator
+- [Pixel mode](https://www.affinity.studio/photo-editing-software) = Photoshop
+- [Layout mode](https://www.affinity.studio/page-layout-software) = InDesign
+
+![Affinity modes](img/affinity-modes.png){width="50%"}
+
+
+### Open source alternatives
+
+The open source community has created **free** programs that are rough equivalents of these core Adobe programs too:
+
+- [GIMP](https://www.gimp.org/) = Photoshop
+- [Inkscape](https://inkscape.org/) = Illustrator
+- [Scribus](https://www.scribus.net/) = InDesign
+
+These are all free and they work on macOS and Windows (and Linux if you're into that), but they can be a ~~little~~ lot rough around the edges and tricky to work with. Adobe, Affinity, and other companies have full time developers focused on making good user interfaces and experiences; these open source clones do not. You can make the same kind of output with GIMP, Inkscape, and Scribus that you can with Adobe Creative Cloud and Affinity Studio, but there's a bit of an extra learning curve (and a lot of bumps along the way). 
+
+But you can't beat free.
+
+
+### Summary
+
+```{r comparison-table, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(tinytable)
+
+tribble(
+  ~`File type`, ~Adobe, ~`Affinity Studio`, ~`Open source`,
+  "Bitmaps", "[Photoshop](https://www.adobe.com/products/photoshop.html)", "[Pixel mode](https://www.affinity.studio/photo-editing-software)", "[GIMP](https://www.gimp.org/)",
+  "Vectors", "[Illustrator](https://www.adobe.com/products/illustrator.html)", "[Vector mode](https://www.affinity.studio/graphic-design-software)", "[Inkscape](https://inkscape.org/)",
+  "Layout", "[InDesign](https://www.adobe.com/products/indesign.html)", "[Layout mode](https://www.affinity.studio/page-layout-software)", "[Scribus](https://www.scribus.net/)",
+  "Cost", "$$$<br><span class='smaller-note'>Monthly Creative Cloud subscription</span>", "Free", "Free",
+  "Notes", "Industry standard", "Free", "Free, but rough learning curve"
+) |>
+  tt(width = c(15, 85 / 3, 85 / 3, 85 / 3)) |>
+  format_tt(j = 2:4, markdown = TRUE) |>
+  style_tt(j = 1, bold = TRUE) |>
+  style_tt(i = 4, line = "t", line_color = "#D3D3D3", line_width = 0.1) |> 
+style_tt(
+  j = 2:4,
+  align = "c",
+  bootstrap_css_rule = "
+    .smaller-note {
+      font-size: 0.7em;
+    }"
+)
+```

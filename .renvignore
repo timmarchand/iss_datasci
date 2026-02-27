@@ -1,0 +1,17 @@
+# Ignore site output
+_site/
+files/
+slides/*_files/
+
+# Ignore Quarto stuff
+_extensions/
+_freeze/
+.quarto/
+html/
+
+# Ignore {targets} output
+_targets/
+
+# Ignore miscellaneous stuff
+.vscode/
+typst-pdf-stuff/

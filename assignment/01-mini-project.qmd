@@ -1,0 +1,165 @@
+---
+title: "Mini project 1"
+date: "2026-04-29"
+format: 
+  html: 
+    include-in-header: 
+      - text: |
+          <style>
+          .table-sm {
+            font-size: 0.7em;
+          }
+          </style
+---
+
+Though measles was officially eradicated in the United States in 2000, beginning in 2025 [it has seen a resurgence throughout the country](https://en.wikipedia.org/wiki/2025_Southwest_United_States_measles_outbreak) thanks to declining vaccination rates and anti-vaccination campaigns. The disease also continues to be a threat across the world.
+
+The World Health Organization (WHO) tracks the prevalence of a whole host of diseases, including measles. For this first mini project, you will use R, {ggplot2}, and {dplyr} to make **one plot** that tells an interesting story from the WHO data on measles and rubella.
+
+**Don't worry!** You're not completely on your own! I've given you some starter code!
+
+## The data
+
+This data comes from the WHO and was collected and cleaned up [as part of #TidyTuesday in June 2025](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-06-24/readme.md). The annual contains [19 columns](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-06-24/readme.md#cases_yearcsv):
+
+|variable                                                          |description                           |
+|:-----------------------------------------------------------------|:-------------------------------------|
+|`region`                                                          |Region name  |
+|`country`                                                         |Country name |
+|`iso3`                                                            |Three letter country code |
+|`year`                                                            |Year |
+|`total_population`                                                |Country population |
+|`annualized_population_most_recent_year_only`                     |Annualized population 2025 |
+|`total_suspected_measles_rubella_cases`                           |Suspected measles/rubella cases: A suspected case is one in which a patient with fever and maculopapular (non-vesicular) rash, or in whom a health-care worker suspects measles (or rubella) |
+|`measles_total`                                                   |Total measles cases: the sum of clinically-compatible, epidemiologically linked and laboratory-confirmed cases |
+|`measles_lab_confirmed`                                           |Laboratory-confirmed measles cases: A suspected case of measles that has been confirmed positive by testing in a proficient laboratory, and vaccine-associated illness has been ruled out |
+|`measles_epi_linked`                                              |Epidemiologically-linked measles cases: A suspected case of measles that has not been confirmed by a laboratory, but was geographically and temporally related with dates of rash onset occurring 7–23 days apart from a laboratory-confirmed case or another epidemiologically linked measles case |
+|`measles_clinical`                                                |Clinically-compatible measles cases: A suspected case with fever and maculopapular (non-vesicular) rash and at least one of cough, coryza or conjunctivitis, but no adequate clinical specimen was taken and the case has not been linked epidemiologically to a laboratory-confirmed case of measles or other communicable disease |
+|`measles_incidence_rate_per_1000000_total_population`             |Measles cases per million population |
+|`rubella_total`                                                   |Total rubella cases |
+|`rubella_lab_confirmed`                                           |Laboratory-confirmed rubella cases |
+|`rubella_epi_linked`                                              |Epidemiologically-linked rubella cases |
+|`rubella_clinical`                                                |Clinically-compatible rubella cases |
+|`rubella_incidence_rate_per_1000000_total_population`             |Rubella cases per million population |
+|`discarded_cases`                                                 |Discarded cases: A suspected case that has been investigated and discarded as a non-measles (and non-rubella) |
+|`discarded_non_measles_rubella_cases_per_100000_total_population` |Discarded cases per million population |
+
+: Columns in data {.striped .sm tbl-colwidths="[50,50]"}
+
+\ 
+
+There are [6 WHO regions](https://en.wikipedia.org/wiki/List_of_WHO_regions), and in the data they're recorded as cryptic acronyms:
+
+| `region` | Full region                  |
+|:---------|:-----------------------------|
+| AFRO     | African Region               |
+| AMRO     | Region of the Americas       |
+| EMRO     | Eastern Mediterranean Region |
+| EURO     | European Region              |
+| SEARO    | South-East Asian Region      |
+| WPRO     | Western Pacific Region       |
+
+## Possible questions to explore
+
+For this mini project, you will create **one (1) plot**. But with so many columns and rows in this data, it can be intimidating to know how to start! Here are some possible questions you might try to explore:
+
+- How have global measles cases changed over time?
+- Are there differences in measles and rubella trends?
+- Which regions or countries consistently report the highest measles burden (or incidence rates per million people)? Consider comparing all six WHO regions over time, or comparing a handful of countries you're interested in.
+- Does the ratio of laboratory-confirmed cases to total cases reveal differences in healthcare capacity across countries?
+- …or anything else!
+
+## Instructions
+
+1. Open the project either on your computer or in Posit.cloud
+
+   - [{{< fa file-archive >}} `01-mini-project.zip`](/projects/01-mini-project.zip): If you're using R on your own computer, download this file, [*unzip it*](/resource/unzipping.qmd), and double click on the file named `01-mini-project.Rproj`
+   - [{{< fa cloud >}} Posit.cloud project](https://posit.cloud/spaces/737277/content/11693249): Use this link if you're using Posit.cloud in your browser
+
+2. Rename the Quarto file named `your-name_mini-project-1.qmd` to something that matches your name and open it in RStudio.
+
+3. Explore the data and summarize it somehow. The raw data has 2,382 rows (for 194 countries across 14 years), which means you'll need to aggregate the data (`filter()`, `group_by()`, and `summarize()` will be your friends).
+
+4. Create ***one*** appropriate visualization based on the data you summarized. **Just make one plot**. That's all. **One**.
+
+5. Write a memo (no word limit) explaining your process. I'm specifically looking for a discussion of the following:
+
+   - What story are you telling with your new graphic?
+   - How did you apply the principles of CRAP?
+   - How did you apply Kieran Healy's principles of great visualizations or Alberto Cairo's five qualities of great visualizations?
+
+   You can approach this in a couple different ways—you can write the memo and then include the full figure and code at the end, or you can write the memo in an incremental way, describing the different steps of creating the figure, ultimately arriving at a clean final figure.
+
+6. Upload the following **three (3) outputs** to Moodle:
+
+   1. A PDF or Word file of your memo with your final code and graphic embedded in it, rendered with Quarto.
+
+   2. A standalone PNG version of your graphic. Include something like this near the end of your Quarto file:
+
+      ```{.r}
+      ggsave(plot_name, filename = "blah.png", width = XX, height = XX)
+      ```
+
+   3. A standalone PDF version of your graphic. Include something like this near the end of your Quarto file:
+ 
+      ```{.r}
+      ggsave(plot_name, filename = "blah.pdf", width = XX, height = XX)
+      ```
+
+You will be graded based on completion using the standard ✓ system, but I'll provide comments on how you use R and {ggplot2}, how well you apply the principles of CRAP, *The Truthful Art*, and *Effective Data Visualization*, and how appropriate the graph is for the data and the story you're telling. I will use [this rubric](/files/projects/01-mini-project_rubric.xlsx) to make comments and provide you with a simulated grade.
+
+- [{{< fa file-excel >}} `01-mini-project_rubric.xlsx`](/files/projects/01-mini-project_rubric.xlsx)
+
+For this mini project, I am less concerned with detailed graphic design principles—select appropriate colors, change fonts if you're brave, and choose a nice ggplot theme and make some adjustments like moving the legend around (`theme(legend.position = "bottom")`).
+
+**Please seek out help when you need it!** You know enough R (and have enough examples of code from class and your readings) to be able to do this. Your project has to be turned in individually, and your visualization should be your own (i.e. if you work with others, don't all turn in the same graph), but you should work with others! Reach out to me for help too—I'm here to help!
+
+***You can do this.***
+
+## Example code
+
+I've provided some starter code below. Lots of it is already in the Quarto file too.
+
+```{.r}
+library(tidyverse)
+
+measles_raw <- read_csv("data/measles_cases_year.csv")
+
+# Create a new column with nicer region names. See the official WHO regions:
+# https://en.wikipedia.org/wiki/List_of_WHO_regions
+measles <- measles_raw |> 
+  mutate(region_nice = case_match(region,
+    "AFRO" ~ "Africa",
+    "AMRO" ~ "Americas",
+    "EMRO" ~ "Eastern Mediterranean",
+    "EURO" ~ "Europe",
+    "SEARO" ~ "South-East Asia",
+    "WPRO" ~ "Western Pacific"
+  ))
+```
+
+You'll need to summarize the data with functions from {dplyr}, including stuff like `count()`, `arrange()`, `filter()`, `group_by()`, `summarize()`, and `mutate()`. Here are some examples of ways to summarize the data:
+
+```{.r}
+# Total cases by region
+measles |> 
+  group_by(year, region_nice) |> 
+  summarize(total_cases = sum(measles_total))
+
+# Cases in some countries
+measles |> 
+  filter(country %in% c("Algeria", "Chile", "Iraq", "Estonia"))
+
+# Ratio of lab-confirmed to total cases
+measles |> 
+  mutate(ratio_lab_total = measles_lab_confirmed / measles_total)
+
+# Assign a summarized data frame to an object to use it in a plot
+cases_by_region <- measles |> 
+  group_by(year, region) |> 
+  summarize(total_cases = sum(measles_total))
+
+ggplot(cases_by_region, aes(x = year, y = total_cases, fill = region)) +
+  geom_col() +
+  facet_wrap(vars(region))
+```

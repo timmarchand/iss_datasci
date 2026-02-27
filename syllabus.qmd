@@ -1,0 +1,315 @@
+---
+title: Syllabus
+pdf-title: "Data Visualization with R"
+pdf-subtitle: "Data Visualisation and Analysis • Spring 2026"
+pdf-note: |
+  The full version of the course syllabus, schedule, and all course materials is available online at <https://timmarchand.github.io/ISS_dataviz/>.
+pdf-header-left: ISS_dataviz
+pdf-header-right: Spring 2026
+pdf-footer-left: Data Visualisation and Analysis
+reference-location: margin
+format: 
+  html: default
+  typst:
+    output-file: "ISS-DATAVIZ-MARCHAND-SP26.pdf"
+---
+
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(tinytable)
+
+knitr::opts_chunk$set(fig.align = "center")
+```
+
+:::::: {.grid .course-details .course-details-smaller}
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+### Instructor
+
+-   [{{< fa user >}}]{.fa-li} [{{< var instructor.name >}}]({{< var instructor.url >}})
+-   [{{< fa university >}}]{.fa-li} {{< var instructor.office >}}
+-   [{{< fa envelope >}}]{.fa-li} <a href='mailto:{{< var instructor.email >}}'>{{< var instructor.email >}}</a>
+:::
+
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+### Course details
+
+-   [{{< fa calendar >}}]{.fa-li} {{< var course.days >}}
+-   [{{< fa calendar-alt >}}]{.fa-li} {{< var course.dates >}}
+-   [{{< fa clock >}}]{.fa-li} {{< var course.time >}}
+-   [{{< fa location-dot >}}]{.fa-li} {{< var course.location >}}
+:::
+
+::: {.g-col-12 .g-col-md-4 .contact-policy}
+### Contacting me
+
+- [{{< fa envelope >}}]{.fa-li} <a href='mailto:{{< var instructor.email >}}'>{{< var instructor.email >}}</a>
+- [{{< fa calendar-check >}}]{.fa-li} [Schedule an appointment]({{< var instructor.appointment_url >}})
+- [{{< fa graduation-cap >}}]{.fa-li} [Moodle]({{< var course.moodle >}})
+:::
+::::::
+
+## Course objectives
+
+This course offers an in-depth exploration of data visualisation and analysis techniques for the social sciences. It covers a range of topics including data types, sources, and the practical application of various visualisation tools such as charts, graphs, and maps. 
+
+As well as equipping the students with the skills to produce publication-ready plots, emphasis is placed on interpreting social science data accurately and ethically. The course methodology includes practical exercises, project work, and group discussions to reinforce learning. It builds upon foundational knowledge in social sciences, enhancing students' ability to present and analyse data effectively.
+
+## Course introduction
+
+**Data rarely speaks for itself.** On their own, the facts contained in raw data are difficult to understand, and in the absence of beauty and order, it is impossible to understand the truth that the data shows.
+
+In this class, you'll learn how to use industry-standard graphic and data design techniques to create beautiful, understandable visualizations and uncover truth in data.
+
+By the end of this course, you will become (1) literate in data and graphic design principles, and (2) an ethical data communicator, by producing beautiful, powerful, and clear visualizations of your own data. Specifically, you should:
+
+-   Understand the principles of data and graphic design
+-   Evaluate the credibility, ethics, and aesthetics of data visualizations
+-   Create well-designed data visualizations with appropriate tools
+-   Share data and graphics in open forums
+-   Feel comfortable with R
+-   Be curious and confident in consuming and producing data visualizations
+
+This class will expose you to [R](https://cran.r-project.org/)—one of the most popular, sought-after, and in-demand statistical programming languages. Armed with the foundation of R skills you'll learn in this class, you'll know enough to be able to find how to visualize and analyze any sort of data-based question in the future.
+
+### Mandatory Registration Requirement
+Attendance at the first course meeting is mandatory. Prior to that, students must email an academic self-introduction with the subject line, "Data Visualisation and Analysis" to the instructor at `tim.marchand@gakushuin.ac.jp` before the first class meeting. 
+
+This should include a brief outline of your undergraduate studies, goals you wish to achieve during this graduate program, area(s) of interest in the social sciences, and specific reasons for enrolling in this course.
+
+**You will be required to bring your computer (PC or Mac) to every class meeting.**
+
+## Important pep talk!
+
+I *promise* you can succeed in this class.
+
+Learning R can be difficult at first—it's like learning a new language, just like Spanish, French, or Chinese. Hadley Wickham—the chief data scientist at RStudio and the author of some amazing R packages you'll be using like {ggplot2}—[made this wise observation](https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/):
+
+> It's easy when you start out programming to get really frustrated and think, "Oh it's me, I'm really stupid," or, "I'm not made out to program." But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It's just a natural part of programming. So, it happens to everyone and gets less and less over time. Don't blame yourself. Just take a break, do something fun, and then come back and try again later.
+
+Even experienced programmers find themselves bashing their heads against seemingly intractable errors. If you're finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, e-mail me, etc.
+
+```{r}
+#| include: false
+#| eval: false
+
+# https://twitter.com/allison_horst/status/1213275783675822080
+```
+
+![](/files/img/syllabus/hosrt_error_tweet.png){width="60%" fig-align="center"}
+
+![Alison Horst: Gator error](/files/img/syllabus/gator_error.jpg)
+
+## Course materials
+
+All of the readings and software in this class are **free**. There are free online versions of all the textbooks, R and RStudio are inherently free, and you can use [free vector editing software](/resource/graphics-editors.qmd).
+
+### Books, articles, and other materials
+
+We'll rely heavily on these books, which are all available online (**for free!**). I recommend getting the printed versions of these books if you are interested, but it is not required.
+
+-   Alberto Cairo, *The Truthful Art: Data, Charts, and Maps for Communication* (Berkeley, California: New Riders, 2016). \$20 used, \$50 new at [Amazon](https://www.amazon.com/Truthful-Art-Data-Charts-Communication/dp/0321934075).
+
+    A **free** eBook version is available through GSU's library through O'Reilly's Higher Education database. The easiest way to access it is to visit a special URL (<http://go.oreilly.com/georgia-state-university>), log in with your GSU account, and then search for "The Truthful Art".
+
+-   Kieran Healy, *Data Visualization: A Practical Introduction* (Princeton: Princeton University Press, 2018), <http://socviz.co/>. [**FREE** online](http://socviz.co/); \$20 used, \$40 new at [Amazon](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624/).
+
+-   Claus E. Wilke, *Fundamentals of Data Visualization* (Sebastopol, California: O’Reilly Media, 2018), <https://serialmentor.com/dataviz/>. [**FREE** online](https://clauswilke.com/dataviz/); \$36 used, \$50 new at [Amazon](https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089). An eBook version is also available through [the O'Reilly database](http://go.oreilly.com/georgia-state-university), but you can just use [the online version](https://clauswilke.com/dataviz/).
+
+There will occasionally be additional articles and videos to read and watch. When this happens, links to these other resources will be included on the content page for that session.
+
+### R and RStudio
+
+You will do all of your analysis with the open source (and free!) programming language [R](https://cran.r-project.org/). You will use [RStudio](https://www.rstudio.com/) as the main program to access R. **Think of R as an engine and RStudio as a car dashboard**—R handles all the calculations produces the actual statistics and graphical output, while RStudio provides a nice interface for running R code.
+
+R is free, but it can sometimes be a pain to install and configure. To make life easier, you can (and should!) use the free [Posit.cloud](http://posit.cloud/) service, which lets you run a full instance of RStudio in your web browser. This means you won't have to install anything on your computer to get started with R! 
+
+Posit.cloud is convenient, but it can be slow and it is not designed to be able to handle larger datasets or more complicated analysis and graphics. You also can't use your own custom fonts with Posit.cloud. Over the course of the semester, you'll probably want to get around to installing R, RStudio, and other R packages on your computer and wean yourself off of Posit.cloud. This isn't 100% necessary, but it's helpful.
+
+You can [find instructions for installing R, RStudio, and all the tidyverse packages here.](/resource/install.qmd)
+
+### Online help
+
+Data science and statistical programming can be difficult. Computers are stupid and little errors in your code can cause hours of headache (even if you've been doing this stuff for years!).
+
+Fortunately there are tons of online resources to help you with this.
+
+#### Online communities
+
+If you use Bluesky or Mastodon or Threads or LinkedIn, post R-related questions and content with `#rstats`. The R community is exceptionally generous and helpful.
+
+Searching for help with R on Google can sometimes be tricky because the program name is, um, a single letter. Google is generally smart enough to figure out what you mean when you search for "r scatterplot", but if it does struggle, try searching for "rstats" instead (e.g. "rstats scatterplot"). Also, since most of your R work will deal with {ggplot2}, it's often easier to just search for that instead of the letter "r" (e.g. "ggplot scatterplot").
+
+You can also check out the [Posit Community](https://community.rstudio.com/), a forum specifically designed for people using RStudio and the tidyverse (i.e. you).
+
+## AI, LLMs, BS, and vibe coding
+
+I *highly recommend* **not** using ChatGPT or similar large language models (LLMs) in this class.
+
+I am deeply opposed to LLMs for writing.
+
+I am a little more lenient using LLMs in coding, but I am deeply opposed to them for beginners at code. 
+
+By definition, LLMs and other AI tools cannot produce truth (or even lies). They generate [bullshit](https://doi.org/10.1007/s10676-024-09775-5)[^1]—a formal philosophical term that refers to text or speech that has no regard for truth [@HicksHumphriesSlater:2024; @Frankfurt:2005].
+
+[^1]: As a faculty member at Gakushuin University, it is not my habit to swear or curse, but in this case, the word has a formal philosophical meaning [@Frankfurt:2005], so it doesn't count :)
+
+[Please read this](/resource/ai-bs.qmd) to better understand how LLMs circumvent the writing and learning process.
+
+**Do not replace the important work of writing with AI BS slop.** The point of writing is to help crystalize your thinking. Chugging out words that make it look like you read and understood the content will not help you learn. Chugging out code that you hope works is [vibe coding](https://www.npr.org/2025/05/30/nx-s1-5413387/vibe-coding-ai-software-development) and it will not help you learn.
+
+A key theme of the class is the search for truth. Generating useless content will not help with that.
+
+The main exception to my opposition to LLMs is using Gen AI to help understand any error messages that R might produce when you code. In that case, I'd recommend Claude over the others (a lot of its background coding is done in R, unlike other chatbots which tend to use Python).
+
+In your session check-ins and assignments, I want to see good engagement with the readings. I want to see your thinking process. I want to see you make connections between the readings. I want to see your personal insights. I don't want to see a bunch of words that look like a human wrote them. That's not useful for future-you. That's not useful for me. That's a waste of time.
+
+I will not spend time trying to guess if your assignments are AI-generated.[^2] If you do turn in AI-produced content, I won't automatically give you a zero, with one exception: *if your work contains fake data, it will receive a zero*. I'll grade your work based on its own merits. I've found that AI-produced content will typically earn a ✓− (50%) or lower on my check-based grading system without me even needing to look for clues that it might have come from an LLM. Remember that text generated by these platforms is philosophical bullshit. Since it has nothing to do with truth, it will not—by definition—earn good grades.
+
+[^2]: There are tools that purport to be able to identify the percentage of a given text that is AI, but they do not work and result in all sorts of false positives.
+
+## Course schedule
+
+We meet in person every Thursday during the 3rd period on the Mejiro Campus. 
+
+This is a hands-on, synchronous course. Our time together will consist of lectures and discussions about the principles of data visualisation, followed directly by coding practice in class. Because of this, **you are required to bring your computer (PC or Mac) to every class meeting**.
+
+Each week revolves around a central theme and includes (1) a set of foundational readings, (2) an interactive coding lesson, and (3) reference examples with reproducible code. The [schedule page](/schedule.qmd) provides an overview of all these moving parts.
+
+To succeed in this course, I recommend following this general process for each session:
+
+-   **Before class:** Complete the assigned readings on the content page ({{< fa book-open-reader >}}) to understand the core design and ethical principles for that week.
+-   **During class:** Participate in the discussion and work through the coding lesson ({{< fa chalkboard-teacher >}}) and examples ({{< fa laptop-code >}}).
+-   **After class:** Spend an absolute minimum of 1.5 hours on coding practice and reflection. You will use this time to build your chart gallery and script portfolio, and work on your research project. Expect to spend more time outside of class as we approach the end of the semester.
+
+
+## Assignments and grades
+
+You can find descriptions for all the assignments on the [assignments page](/assignment/index.qmd).
+
+```{r assignments-grades, include=FALSE}
+assignments <- tribble(
+  ~Points,  ~Assignment,
+  20      , "Presentation, participation, and weekly tasks",
+  40      , "Chart gallery and script portfolio",
+  40      , "Research project"
+) |>
+  mutate(Percent = Points / sum(Points)) |> 
+  select(Assignment, Points, Percent) |> 
+  janitor::adorn_totals(where = "row")
+
+grading <- tribble(
+  ~Grade, ~Range,  ~Grade1, ~Range1,
+  "S",  "90–100%", "C",  "60–69%",
+  "A",  "80–89%",  "F",  "< 60%",
+  "B",  "70–79%",  "",   ""
+)
+```
+
+::: centered-table
+```{r show-assignments-table, echo=FALSE}
+assignments |>
+  tt() |> 
+  style_tt(line = "b", line_width = 0.05, line_color = "#d3d8dc") |> 
+  style_tt(i = 4, bold = TRUE, line = "t", line_width = 0.1, line_color = "#d3d8dc") |>
+  format_tt(j = 3, fn = scales::label_percent()) |> 
+  format_tt(escape = TRUE)
+```
+:::
+
+::: centered-table
+```{r show-grades-table, echo=FALSE}
+grading |>
+  setNames(c("Grade", "Range", "Grade", "Range")) |> 
+  tt() |> 
+  style_tt(line = "b", line_width = 0.05, line_color = "#d3d8dc") |> 
+  style_tt(i = 1, line = "t", line_width = 0.1, line_color = "#d3d8dc") |> 
+  style_tt(j = 2, bootstrap_css = "border-right: 0.1em dashed #d3d8dc;")
+```
+:::
+
+:::: {.content-visible when-format="typst"}
+## Schedule
+
+::: schedule-table
+```{r}
+#| label: schedule-table
+#| warning: false
+#| message: false
+#| echo: false
+
+schedule <- read_csv(here::here("data/schedule.csv")) |>
+  mutate(session = case_when(
+    is.na(session) & str_detect(title, "session") ~ lag(session),
+    is.na(session) ~ glue::glue("Thing {row_number()}"),
+    .default = session
+  )) |> 
+  mutate(
+    deadline_actual = update(
+      date,
+      hour = hour(deadline),
+      minute = minute(deadline)
+    ),
+    deadline_nice = format(deadline_actual, "%I:%M %p"),
+    date_nice = case_when(
+      is.na(end_date) ~ format(date, "%B %e"),
+      !is.na(end_date) ~ glue::glue('{format(date, "%B %e")}–{format(end_date, "%B %e")}')
+    )
+  ) |>
+  mutate(
+    title = case_when(
+      str_detect(content, "class") ~ glue::glue("*{title}*"),
+      !is.na(deadline) ~ glue::glue("{title} _(due by {deadline_nice})_"),
+      .default = title
+    )
+  ) |>
+  select(group, session, date_nice, title)
+
+# Figure out alternating topics for special styling
+tbl_data <- schedule |>
+  group_by(session) |>
+  mutate(
+    is_first = row_number() == 1,
+    session = case_when(
+      str_starts(session, "Thing") ~ "Project",
+      is_first ~ session,
+      .default = ""
+    )
+  ) |>
+  ungroup() |>
+  # Add new rows for the group rows so that the row index values match the tt() table
+  reframe(
+    session = c(NA, session),
+    date_nice = c(NA, date_nice),
+    title = c(NA, title),
+    is_first = c(NA, is_first),
+    .by = group
+  ) |>
+  mutate(row_id = row_number()) |>
+  # Now that we have the correct row numbers, get rid of those placeholder rows
+  drop_na(is_first) |>
+  # Find which subgroup rows cluster together and mark their oddness/evenness
+  mutate(
+    session_sequential = cumsum(is_first),
+    session_highlight = session_sequential %% 2
+  ) |> 
+    # Typst doesn't like #TidyTuesday
+  mutate(title = str_replace(title, "#TidyTuesday", "\\\\#TidyTuesday"))
+
+# Extract the rows that should be highlighted
+highlight_rows <- tbl_data |>
+  filter(session_highlight == 1) |>
+  pull(row_id)
+
+# Make the table
+tbl_data |>
+  select(session, date_nice, title) |>
+  tt(colnames = FALSE) |>
+  group_tt(i = tbl_data$group) |>
+  style_tt("groupi", bold = TRUE, line = "b", line_width = 0.05) |>
+  style_tt(i = highlight_rows, background = "#eeeeee") |>
+  format_tt(j = 3, markdown = TRUE)
+```
+:::
+::::
+
+**Acknowledgments**: This course is a derivative of [PMAP 8551](https://datavizsp26.classes.andrewheiss.com/) designed by Andrew Heiss at Georgia State University. I have adapted the materials for the ISS context at Gakushuin University.

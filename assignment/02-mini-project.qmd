@@ -1,0 +1,216 @@
+---
+title: "Mini project 2"
+date: "2026-05-27"
+---
+
+As of 2024, there are nearly 31 million refugees around the world. Refugee services and care remain a critical—but underfunded and often politically unpopular—public policy issue.
+
+The [UN Relief Agency](https://www.unhcr.org/), or UNHCR,^[Formerly known as the UN High Commissioner for Refugees; they changed their name but kept the acronym.] oversees and protects refugees. They collect [detailed data](https://www.unhcr.org/refugee-statistics/methodology) on the number of forcibly displaced and stateless people around the world.
+
+The [{refugees} R package](https://populationstatistics.github.io/refugees/index.html) provides access to eight different datasets from the UNHCR and other refugee-focused agencies. You'll be working with just one of them: `population`. This contains data on forcibly displaced and stateless persons by year, including refugees, asylum-seekers, returned refugees, internally displaced persons (IDPs), and stateless persons from 1951--2024.
+
+For this mini project, you will use R, {ggplot2}, {dplyr}, and an external [vector editing program](/resource/graphics-editors.qmd) like Inkscape, Affinity, or Adobe Illustrator create **one plot** that tells an interesting story from this UNHCR data. Full detailed instructions are included below.
+
+**Don't worry!** You're not completely on your own! I've given you clean data, some starter code, and some possible ideas for summarizing and aggregating the data.
+
+## The data
+
+This UNHCR data contains [19 columns](https://populationstatistics.github.io/refugees/reference/population.html). There were 16 columns in the original data. [I used this code](https://github.com/andrewheiss/dataviz-projects_02-mini-project/blob/main/build_data.R) to add 3 more for you : `date` (useful for plotting), `coo_region`, and `coa_region`.
+
+| Variable            | Description                                                    |
+|:--------------------|:---------------------------------------------------------------|
+| `year`              | The year (numeric, like 2020, 2021, etc.)                      |
+| `date`^†^           | The date (a date, like 2020-01-01, 2021-01-01, etc.)^†^        |
+| `coo_name`          | Country of origin name                                         |
+| `coo`               | Country of origin UNHCR code                                   |
+| `coo_iso`           | Country of origin ISO code                                     |
+| `coo_region`^†^     | Country of origin UNCHR region^†^                              |
+| `coa_name`          | Country of asylum name                                         |
+| `coa`               | Country of asylum UNHCR code                                   |
+| `coa_iso`           | Country of asylum ISO code                                     |
+| `coa_region`^†^     | Country of asylum UNCHR region^†^                              |
+| `refugees`          | The number of refugees                                         |
+| `asylum_seekers`    | The number of asylum-seekers                                   |
+| `returned_refugees` | The number of returned refugees                                |
+| `idps`              | The number of internally displaced persons                     |
+| `returned_idps`     | The number of returned internally displaced persons            |
+| `stateless`         | The number of stateless persons                                |
+| `ooc`               | The number of others of concern to UNHCR                       |
+| `oip`               | The number of other people in need of international protection |
+| `hst`               | The number of host community members                           |
+
+: Columns in data. † = I added this column for you. {.striped .sm tbl-colwidths="[30,70]"}
+
+::: {.callout-note}
+#### Definitions
+
+- A **country of origin** (`coo`) is a country that sends out refugees, or one that refugees *leave*.
+- A **country of asylum** (`coa`) is a country that receives refugees, or one that refugees *enter*.
+
+For example, in 2015, 115,604 refugees left Syria (`coo`) and entered Germany (`coa`):
+
+```{.r}
+unhcr_refugees |> 
+  filter(coo_iso == "SYR", coa_iso == "DEU", year == 2015)
+#> year              2015
+#> coo_name          "Syrian Arab Rep."
+#> coo_iso           "SYR"
+#> coo_region        "Middle East and North Africa"
+#> coa_name          "Germany"
+#> coa_iso           "DEU"
+#> coa_region        "Europe"
+#> refugees          115604
+#> asylum_seekers    81582
+#> returned_refugees 0
+```
+:::
+
+## Your general job
+
+For this mini project, you will use R, {ggplot2}, {dplyr}, and an external [vector editing program](/resource/graphics-editors.qmd) like Inkscape, Affinity, or Adobe Illustrator create **one well-designed, enhanced plot** that tells an interesting story from this UNHCR data. Specifically, you need to do these things:
+
+1. Create a plot in R with {ggplot2} that shows something interesting from some aggregated or summarized version of the UNHCR data.
+
+2. Save that plot as a PDF or SVG with `ggsave()` (just like in Exercise 10).
+
+3. Open that exported plot in a vector editing program like Inkscape, Affinity, or Illustrator and add annotations and captions and other details to enhance and polish it and make it publication-worthy (just like in Exercise 10). Make sure you create a clear narrative/story.
+
+I'd recommend doing as much polishing and refining as you can in R—make adjustments to the colors, scales, labels, grid lines, and even fonts, etc. Use the vector editing program to add annotations, change colors and fonts, and other final enhancements.
+
+## Full instructions
+
+1. Open the project either on your computer or in Posit.cloud
+
+   - [{{< fa file-archive >}} `02-mini-project.zip`](/projects/02-mini-project.zip): If you're using R on your own computer, download this file, [*unzip it*](/resource/unzipping.qmd), and double click on the file named `02-mini-project.Rproj`
+   - [{{< fa cloud >}} Posit.cloud project](https://posit.cloud/spaces/737277/content/11693253): Use this link if you're using Posit.cloud in your browser
+
+2. Rename the Quarto file named `your-name_mini-project-2.qmd` to something that matches your name and open it in RStudio.
+
+3. Explore the data and summarize it somehow. The raw data has more than 130,000 rows, which means you'll need to aggregate the data (`filter()`, `group_by()`, and `summarize()` will be your friends). I include some ideas below.
+
+4. Create ***one*** appropriate time-based visualization based on the data you summarized. **Just make one plot**. That's all. **One**.
+
+5. Save that plot as a PDF or SVG with `ggsave()`
+
+6. Open that exported plot in a vector editing program like Inkscape, Affinity, or Illustrator and add annotations and captions and other details to enhance and polish it and make it publication-worthy. Make sure you create a clear narrative/story.
+
+7. Write a memo (no word limit) explaining your process. I'm specifically looking for a discussion of the following:
+
+   - What story are you telling with your new graphic?
+   - How did you apply the principles of CRAP?
+   - How did you apply Kieran Healy's principles of great visualizations or Alberto Cairo's five qualities of great visualizations?
+
+   You can approach this in a couple different ways—you can write the memo and then include the full figure and code at the end, or you can write the memo in an incremental way, describing the different steps of creating the figure, ultimately arriving at a clean final figure.
+
+8. Upload the following **three (3) outputs** to Moodle:
+
+   1. A PDF or Word file of your memo with your your final code, intermediate graphic (the one you create in R), and final graphic (the one you enhance) embedded in it, rendered with Quarto. Remember to use `![Caption](figure_file_name.pdf)` to include external images in Markdown
+
+   2. A standalone PNG version of your final graphic. You'll export this from the vector editing application.
+
+   3. A standalone PDF version of your graphic. You'll export this from the vector editing application.
+
+You will be graded based on completion using the standard ✓ system, but I'll provide comments on how you use R and {ggplot2}, how well you apply the principles of CRAP, *The Truthful Art*, and *Effective Data Visualization*, and how appropriate the graph is for the data and the story you're telling. I will use [this rubric](/files/projects/02-mini-project_rubric.xlsx) to make comments and provide you with a simulated grade.
+
+- [{{< fa file-excel >}} `02-mini-project_rubric.xlsx`](/files/projects/02-mini-project_rubric.xlsx)
+
+For this assignment, I am more concerned with the design. Choose good colors. Choose good, clean fonts. Use the heck out of `theme()`. Add informative design elements in Illustrator/Inkscape/Affinity. Make it look beautiful and CRAPpy. Refer to [the design resources here](/resource/design.qmd).
+
+**Please seek out help when you need it!** You know enough R (and have enough examples of code from class and your readings) to be able to do this. Your project has to be turned in individually, and your visualization should be your own (i.e. if you work with others, don't all turn in the same graph), but you should work with others! Reach out to me for help too—I'm here to help!
+
+***You can do this.***
+
+## Data to possibly use in your plot
+
+::: {.callout-important}
+#### Data quality
+
+Though the data goes back to 1951, many earlier numbers are loose estimates. For example, the number of refugees in the United States is a constant 500,000 (± 1–2,000) every year from 1951 to 1977; it starts showing actual numbers in 1978.
+
+I'd recommend filtering the data for your visualization to start later than 1951 (like 1980, or 1990, or 2000, or whatever makes sense for the story you're telling).
+:::
+
+This data is *incredibly* rich and can be aggregated and collapsed and reshaped and visualized in all sorts of interesting ways. Here are some possible ideas:
+
+- Total refugees/asylum seekers/IDPs in one country of asylum (or more) over time
+- Total refugees/asylum seekers/IDPs from multiple countries of origin over time
+- Top N countries of origin in one country of asylum (or top N countries of asylum that one country of origin sends people to)—this could be used in something like a bump chart
+- Flows of refugees between regions over time (i.e. how many refugees from East Africa end up in Europe vs. the Americas vs. Asia, etc.)
+- Changes in counts of refugees sent or received in a country (or countries), so you can see when there are spikes and drops
+
+You can visualize this stuff in many different ways! A line chart, a slope graph, a bump chart, a map, and so on. Do something neat!
+
+Here are some examples of using different {dplyr} functions to filter, group, and summarize the data. **PLEASE DON'T USE THESE VERBATIM.** I don't want to see a plot showing the count of refugees in Spain since 1990 or a plot of asylum seekers from Cambodia and Myanmar since 2000 in your final project (since I show that exact code below). Use these as general ideas.
+
+```{r}
+#| label: load-data-packages-real
+#| include: false
+
+library(tidyverse)
+unhcr_refugees <- read_csv(here::here(
+  "projects/02-mini-project/data/unhcr_refugees.csv"
+))
+```
+
+```{r}
+#| label: load-data-packages-fake
+#| eval: false
+
+library(tidyverse)
+unhcr_refugees <- read_csv("data/unhcr_refugees.csv")
+```
+
+**Total refugees in Spain every year since 1990**
+
+```{r}
+#| collapse: true
+
+refugees_in_spain <- unhcr_refugees |> 
+  filter(coa_iso == "ESP", year >= 1990) |> 
+  group_by(year) |> 
+  summarize(total = sum(refugees))
+refugees_in_spain
+```
+
+**Changes in the total number of refugees in Spain every year since 1990**
+
+```{r}
+#| collapse: true
+
+refugees_in_spain_diff <- unhcr_refugees |> 
+  filter(coa_iso == "ESP", year >= 1990) |> 
+  group_by(year) |> 
+  summarize(total = sum(refugees)) |> 
+  mutate(diff = total - lag(total))  # Subtract the previous value from each value
+refugees_in_spain_diff
+```
+
+**Total asylum seekers from Cambodia and Myanmar over time**
+
+```{r}
+#| warning: false
+#| message: false
+#| collapse: true
+
+refugees_from_se_asia <- unhcr_refugees |> 
+  filter(coo_name %in% c("Cambodia", "Myanmar"), year >= 2000) |> 
+  group_by(coo_name, year) |> 
+  summarize(total = sum(asylum_seekers))
+refugees_from_se_asia
+```
+
+**Top 5 countries of origin in France** (could be used in something like a bump chart)
+
+```{r}
+#| warning: false
+#| message: false
+#| collapse: true
+
+top_coos_in_france <- unhcr_refugees |> 
+  filter(coa_name == "France", year >= 2014) |> 
+  group_by(year, coo_name) |> 
+  summarize(total = sum(refugees)) |> 
+  group_by(year) |> 
+  slice_max(total, n = 5)
+top_coos_in_france
+```

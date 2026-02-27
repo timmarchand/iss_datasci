@@ -1,0 +1,40 @@
+---
+title: "Interactivity"
+date: "2026-06-24"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = "center")
+```
+
+::: {.callout-warning}
+### THIS IS DIFFERENT!!!
+
+**This exercise is different from all your past work!** That's on purpose! Only HTML output can handle interactivity and dashboards—PDFs and Word files are static document formats that don't allow Javascript.
+:::
+
+For this exercise you'll get to practice making interactive plots and dashboards! You'll do it by creating a Quarto website and publishing it on the internet. That might sound intimidating and hard, but **don't worry!** Thanks to Quarto (and the starter code and detailed instructions I provide), it should be fairly straightforward.
+
+Complete instructions for the different tasks are [at this website](https://andrewheiss.quarto.pub/datavizsp26_11-exercise-recreate/). Use the top navigation bar there to look at the different pages:
+
+- [{{< fa arrow-up-right-from-square >}} Exercise 11 data description](https://andrewheiss.quarto.pub/datavizsp26_11-exercise-recreate/)
+- [{{< fa arrow-up-right-from-square >}} Exercise 11 instructions + how to submit](https://andrewheiss.quarto.pub/datavizsp26_11-exercise-recreate/instructions.html)
+
+::: {.callout-important}
+### Check the example!
+
+The example page for this week will be helpful!
+
+- [{{< fa laptop-code >}} Interactivity](/example/11-example.qmd)
+:::
+
+## Instructions
+
+1. Open the project either on your computer or in Posit.cloud
+
+   - [{{< fa file-archive >}} `11-exercise.zip`](/projects/11-exercise.zip): If you're using R on your own computer, download this file, [*unzip it*](/resource/unzipping.qmd), and double click on the file named `11-exercise.Rproj`
+   - [{{< fa cloud >}} Posit.cloud project](https://posit.cloud/spaces/737277/content/11693240): Use this link if you're using Posit.cloud in your browser
+
+2. Follow [the instructions here](https://andrewheiss.quarto.pub/datavizsp26_11-exercise-recreate/instructions.html) and complete the different tasks in the different `.qmd` files. Check [the data description](https://andrewheiss.quarto.pub/datavizsp26_11-exercise-recreate/) to learn more about what all the columns mean.
+
+3. When you're all done, [follow the instructions about publishing the site](https://andrewheiss.quarto.pub/datavizsp26_11-exercise-recreate/instructions.html#publishing-the-site-and-submitting-to-Moodle). **Do not try to render as PDF or Word.** In Moodle, paste the URL of your website into the submission form.

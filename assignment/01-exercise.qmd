@@ -1,0 +1,57 @@
+---
+title: "Introduction to R and the tidyverse"
+date: "2026-04-15"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = "center")
+```
+
+::: {.callout-important}
+
+Before starting this exercise, make sure you complete everything at [the lesson for this week](/lesson/01-lesson.qmd), especially the Posit Primers.
+:::
+
+## Instructions
+
+1. Open the project either on your computer ([follow these instructions to get started!](/resource/install.qmd)) or in Posit.cloud
+
+   - [{{< fa file-archive >}} `01-exercise.zip`](/projects/01-exercise.zip): If you're using R on your own computer, download this file, [*unzip it*](/resource/unzipping.qmd), and double click on the file named `01-exercise.Rproj`
+   - [{{< fa cloud >}} Posit.cloud project](https://posit.cloud/spaces/737277/content/11683166): Use this link if you're using Posit.cloud in your browser
+
+2. Rename the Quarto file named `your-name_exercise-1.qmd` to something that matches your name and open it in RStudio.
+
+3. Complete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document—don't try to write everything from scratch!
+
+4. When you're all done, click on the "Render" button at the top of the editing window and create a Typst (pdf), PDF, or Word version of your document. Upload that file to Moodle. **Do not upload a rendered HTML file** (they don't work on Moodle).
+
+```{r render-button, echo=FALSE, out.width="50%", indent="   ", fig.align="center"}
+knitr::include_graphics("/files/img/assignments/render-button.png", error = FALSE)
+```
+
+## Tips
+
+:::: {.callout-tip}
+### File organization
+
+You'll be doing this same process for all your future exercises. Each exercise will involve a Quarto file. 
+
+You can either create individual projects for each assignment and mini-project (recommended!):
+
+::: {layout="[39.5,-1,60]"}
+
+![Individual folders for each project on macOS](/files/img/reference/rproj-multiple-folders-macos.png)
+
+![Individual folders for each project on Windows](/files/img/reference/rproj-multiple-folders-windows.png)
+:::
+
+Or you can create a new RStudio Project directory for all your work (not recommended!):
+
+::: {layout="[53,-1,39]"}
+
+![One folder for everything on macOS](/files/img/reference/rproj-one-folder-macos.png)
+
+![One folder for everything on Windows](/files/img/reference/rproj-one-folder-windows.png)
+:::
+
+::::
