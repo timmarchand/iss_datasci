@@ -1,6 +1,5 @@
 project:
   type: website
-  pre-render: data/extract-news-headings.R
   render:
     - "*.qmd"
     - "!slides/"
@@ -16,109 +15,83 @@ project:
     - "slides/css/"
     - "slides/*_files/"
   preview:
-    port: 3333
+    port: 3334
 
 execute:
-  freeze: auto  # Re-render only when source changes
+  freeze: auto
 
 bibliography: files/bib/readings.bib
 csl: files/bib/chicago-author-date.csl
 
 website:
-  title: "ISS Data Visualiation and Analysis"
-  description: "Course materials for ISS Data Visualization and Analysis Course at Gakushuin University"
-  site-url: "https://timmarchand.github.io/ISS_dataviz/"
-  repo-url: "https://github.com/timmarchand/ISS_dataviz"
-  
+  title: "CLIL Seminar: Data Science"
+  description: "Course materials for ISS Data Science Course at Gakushuin University"
+  site-url: "https://timmarchand.github.io/ISS_datasci/"
+  repo-url: "https://github.com/timmarchand/ISS_datasci"
 
   draft-mode: unlinked
 
-  # announcement:
-  #   icon: calendar-check
-  #   dismissable: true
-  #   content: "**Reminder!** The final deadline for all assignments other than the final project is **Tuesday, December 9 at 11:59 PM**"
-  #   type: danger
-  #   position: below-navbar
-
   favicon: "/files/favicon-512.png"
-
 
   page-navigation: true
 
-  navbar:
-    pinned: true
-    background: "#003366"
-    right:
-      - syllabus.qmd
-      - schedule.qmd
-      - text: "Content"
-        file: content/index.qmd
-      - text: "Lessons"
-        file: lesson/index.qmd
-      - text: "Examples"
-        file: example/index.qmd
-      - text: "Assignments"
-        file: assignment/index.qmd
-      - text: "Resources"
-        file: resource/index.qmd
-      - icon: mortarboard-fill
-        href: "https://moodle.univ.gakushuin.ac.jp/course/view.php?id=26121"
-        aria-label: Moodle
-      # - text: "News"
-      #   file: news/index.qmd
-      # - icon: discord
-      #   href: "https://discord.com/"
-      #   aria-label: Discord
-      # - icon: cloud-fill
-      #   href: "https://posit.cloud"
-      #   aria-label: Posit.cloud
-
+navbar:
+  pinned: true
+  background: "#1a4d2e"
+  right:
+    - syllabus.qmd
+    - schedule.qmd
+    - text: "Lessons"
+      file: lesson/index.qmd
+    - text: "Examples"
+      file: example/index.qmd
+    - text: "Assignments"
+      file: assignment/index.qmd
+    - text: "Resources"
+      file: resource/index.qmd
+    - icon: mortarboard-fill
+      href: "https://moodle.univ.gakushuin.ac.jp/course/view.php?id=26121"
+      aria-label: Moodle
+      
   sidebar:
-    - title: "Classes and readings"
-      style: "docked"
-      search: false
-      background: light
+    - title: "Lessons"
       contents:
         - section: "Overview"
           contents:
-            - content/index.qmd
+            - lesson/index.qmd
         - section: "Foundations"
           contents:
-            - text: "1: Truth, beauty, and data + the tidyverse"
-              file: content/01-content.qmd
-            - text: "2: Graphic design"
-              file: content/02-content.qmd
-            - text: "3: Mapping data to graphics"
-              file: content/03-content.qmd
-        - section: "Core types of graphics"
+            - text: "1: Course introduction, data types, R and RStudio"
+              file: lesson/01-lesson.qmd
+            - text: "2: R basics 1 — Vectors, data frames, lists, basic scripts"
+              file: lesson/02-lesson.qmd
+            - text: "3: R basics 2 — Data visualisation"
+              file: lesson/03-lesson.qmd
+        - section: "Core concepts"
           contents:
-            - text: "4: Amounts and proportions"
-              file: content/04-content.qmd
-            - text: "5: Themes"
-              file: content/05-content.qmd
-            - text: "6: Uncertainty"
-              file: content/06-content.qmd
-            - text: "7: Relationships"
-              file: content/07-content.qmd
-            - text: "8: Comparisons"
-              file: content/08-content.qmd
-            - text: "9: Annotations"
-              file: content/09-content.qmd
-        - section: "Special applications"
+            - text: "4: Sampling and probability"
+              file: lesson/04-lesson.qmd
+            - text: "5: Visualising probability"
+              file: lesson/05-lesson.qmd
+            - text: "6: Manipulating data 1 — Data project intro"
+              file: lesson/06-lesson.qmd
+            - text: "7: Manipulating data 2"
+              file: lesson/07-lesson.qmd
+            - text: "8: Variable associations 1"
+              file: lesson/08-lesson.qmd
+            - text: "9: Variable associations 2"
+              file: lesson/09-lesson.qmd
+        - section: "Advanced topics"
           contents:
-            - text: "10: Enhancing graphics"
-              file: content/10-content.qmd
-            - text: "11: Interactivity"
-              file: content/11-content.qmd
-            - text: "12: Space"
-              file: content/12-content.qmd
-            - text: "13: Time"
-              file: content/13-content.qmd
-            - text: "14: Text"
-              file: content/14-content.qmd
-            - text: "15: Truth, beauty, and data revisited"
-              file: content/15-content.qmd
-    
+            - text: "10: Regression modelling 1"
+              file: lesson/10-lesson.qmd
+            - text: "11: Regression modelling 2"
+              file: lesson/11-lesson.qmd
+            - text: "12: Text as data"
+              file: lesson/12-lesson.qmd
+            - text: "13: Data project completion and course review"
+              file: lesson/13-lesson.qmd
+              
     - title: "Examples"
       contents:
         - section: "Overview"
@@ -126,172 +99,102 @@ website:
             - example/index.qmd
         - section: "Foundations"
           contents:
-            - text: "1: Introduction to R and the tidyverse"
+            - text: "1: Course introduction, data types, R and RStudio"
               file: example/01-example.qmd
-            - text: "2: Graphic design"
+            - text: "2: R basics 1 — Vectors, data frames, lists, basic scripts"
               file: example/02-example.qmd
-            - text: "3: Mapping data to graphics"
+            - text: "3: R basics 2 — Data visualisation"
               file: example/03-example.qmd
-        - section: "Core types of graphics"
+        - section: "Core concepts"
           contents:
-            - text: "4: Amounts and proportions"
+            - text: "4: Sampling and probability"
               file: example/04-example.qmd
-            - text: "5: Themes"
+            - text: "5: Visualising probability"
               file: example/05-example.qmd
-            - text: "6: Uncertainty"
+            - text: "6: Manipulating data 1 — Data project intro"
               file: example/06-example.qmd
-            - text: "7: Relationships"
+            - text: "7: Manipulating data 2"
               file: example/07-example.qmd
-            - text: "8: Comparisons"
+            - text: "8: Variable associations 1"
               file: example/08-example.qmd
-            - text: "9: Annotations"
+            - text: "9: Variable associations 2"
               file: example/09-example.qmd
-        - section: "Special applications"
+        - section: "Advanced topics"
           contents:
-            - text: "10: Enhancing graphics"
+            - text: "10: Regression modelling 1"
               file: example/10-example.qmd
-            - text: "11: Interactivity"
+            - text: "11: Regression modelling 2"
               file: example/11-example.qmd
-            - text: "12: Space"
+            - text: "12: Text as data"
               file: example/12-example.qmd
-            - text: "13: Time"
+            - text: "13: Data project completion and course review"
               file: example/13-example.qmd
-            - text: "14: Text"
-              file: example/14-example.qmd
-            - text: "15: Truth, beauty, and data revisited"
-              file: example/15-example.qmd
+
+    - title: "Assignments"   
+
 
     - title: "Assignments"
       contents:
         - section: "Overview"
           contents:
             - assignment/index.qmd
-        - section: "General assignments"
-          contents:
-            - assignment/session-check-in.qmd
-            - text: "#TidyTuesday"
-              file: assignment/tidy-tuesday.qmd
-        - section: "Projects"
-          contents:
-            - text: "Mini project 1"
-              file: assignment/01-mini-project.qmd
-            - text: "Mini project 2"
-              file: assignment/02-mini-project.qmd
-            - text: "Final project"
-              file: assignment/final-project.qmd
         - section: "Exercises"
           contents:
-            - text: "1: Introduction to R and the tidyverse"
+            - text: "1: Course introduction, data types, R and RStudio"
               file: assignment/01-exercise.qmd
-            - text: "2: Graphic design"
+            - text: "2: R basics 1"
               file: assignment/02-exercise.qmd
-            - text: "3: Mapping data to graphics"
+            - text: "3: R basics 2"
               file: assignment/03-exercise.qmd
-            - text: "4: Amounts and proportions"
+            - text: "4: Sampling and probability"
               file: assignment/04-exercise.qmd
-            - text: "5: Themes"
+            - text: "5: Visualising probability"
               file: assignment/05-exercise.qmd
-            - text: "6: Uncertainty"
+            - text: "6: Manipulating data 1"
               file: assignment/06-exercise.qmd
-            - text: "7: Relationships"
+            - text: "7: Manipulating data 2"
               file: assignment/07-exercise.qmd
-            - text: "8: Comparisons"
+            - text: "8: Variable associations 1"
               file: assignment/08-exercise.qmd
-            - text: "9: Annotations"
+            - text: "9: Variable associations 2"
               file: assignment/09-exercise.qmd
-            - text: "10: Enhancing graphics"
+            - text: "10: Regression modelling 1"
               file: assignment/10-exercise.qmd
-            - text: "11: Interactivity"
+            - text: "11: Regression modelling 2"
               file: assignment/11-exercise.qmd
-            - text: "12: Space"
+            - text: "12: Text as data"
               file: assignment/12-exercise.qmd
-            - text: "13: Time"
+            - text: "13: Data project completion"
               file: assignment/13-exercise.qmd
-            - text: "14: Text"
-              file: assignment/14-exercise.qmd
-            - text: "15: Truth, beauty, and data revisited"
-              file: assignment/15-exercise.qmd
-    
-    - title: "Classes and readings"
-      contents:
-        - section: "Overview"
-          contents:
-            - lesson/index.qmd
-        - section: "Foundations"
-          contents:
-            - text: "1: Truth, beauty, and data + the tidyverse"
-              file: lesson/01-lesson.qmd
-            - text: "2: Graphic design"
-              file: lesson/02-lesson.qmd
-            - text: "3: Mapping data to graphics"
-              file: lesson/03-lesson.qmd
-        - section: "Core types of graphics"
-          contents:
-            - text: "4: Amounts and proportions"
-              file: lesson/04-lesson.qmd
-            - text: "5: Themes"
-              file: lesson/05-lesson.qmd
-            - text: "6: Uncertainty"
-              file: lesson/06-lesson.qmd
-            - text: "7: Relationships"
-              file: lesson/07-lesson.qmd
-            - text: "8: Comparisons"
-              file: lesson/08-lesson.qmd
-            - text: "9: Annotations"
-              file: lesson/09-lesson.qmd
-        - section: "Special applications"
-          contents:
-            - text: "10: Enhancing graphics"
-              file: lesson/10-lesson.qmd
-            - text: "11: Interactivity"
-              file: lesson/11-lesson.qmd
-            - text: "12: Space"
-              file: lesson/12-lesson.qmd
-            - text: "13: Time"
-              file: lesson/13-lesson.qmd
-            - text: "14: Text"
-              file: lesson/14-lesson.qmd
-            - text: "15: Truth, beauty, and data revisited"
-              file: lesson/15-lesson.qmd
-    
+
     - title: "Resources"
       contents:
         - section: "Resources"
           contents:
             - resource/index.qmd
-            - resource/ai-bs.qmd
-            - resource/colors.qmd
-            - resource/design.qmd
-            - resource/graphics-editors.qmd
-            - resource/visualization.qmd
             - resource/r.qmd
-            - resource/style.qmd
-            - resource/data.qmd
-            - resource/citations.qmd
-        - section: "Guides"
-          contents:
             - resource/install.qmd
             - resource/markdown.qmd
             - resource/quarto.qmd
             - resource/pipes.qmd
             - resource/unzipping.qmd
 
-
 page-footer:
-    left: |
-      Content {{< fa brands creative-commons >}} 2026 by [Tim Marchand](your_url) <br>
-      Adapted from [Andrew Heiss's Data Visualization course](https://datavizsp26.classes.andrewheiss.com/)
-    right: |
-      Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)<br>
-      [View the source at {{< fa brands github >}} GitHub]({{< var course.github >}})
-      
+  left: |
+    Content {{< fa brands creative-commons >}} 2026 by [Tim Marchand](your_url) <br>
+    Adapted from [Andrew Heiss's Data Visualization course](https://datavizsp26.classes.andrewheiss.com/)
+  right: |
+    Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)<br>
+    [View the source at {{< fa brands github >}} GitHub]({{< var course.github >}})
+
 format:
   html:
+    include-before-body: html/goatcounter.html
     theme:
       - litera
       - html/custom.scss
     toc: true
     highlight-style: monokai
 
-language: 
+language:
   draft: "This is a draft—the full FAQ post isn't finished yet."

@@ -8,7 +8,10 @@ webr:
   packages:
     - ggplot2
     - dplyr
+    - tidyr
+    - readr
     - scales
+    - broom
     - gapminder
   cell-options:
     editor-font-scale: 0.8
@@ -17,15 +20,13 @@ webr:
     out-width: "100%"
 ---
 
-Each class session has an interactive lesson that you will work through ***after*** doing the readings and watching the lecture. These lessons are a central part of the class—they will teach you how to use {ggplot2} and other packages in the tidyverse to create beautiful and truthful visualizations with R.
+Each class session has an interactive lesson that you will work through ***after*** doing the readings. These lessons are a central part of the class—they will teach you how to use R and the tidyverse to work with, analyse, and visualise data.
 
 Interactive code sections look like this. Make changes in the text box and click on the green "Run Code" button to see the results. Sometimes there will be a tab with a hint or solution.
 
 :::: {.callout-important}
-
 ### Your turn
-
-Modify the code here to show the relationship between health and wealth for 2002 instead of 2007.
+Modify the code here to show only countries in Asia, and change the variable on the x-axis to `lifeExp`.
 
 ::: {.panel-tabset}
 ## {{< fa code >}}&ensp;Interactive editor
@@ -35,24 +36,25 @@ gapminder_filtered <- gapminder |>
   filter(year == 2007)
 
 ggplot(data = gapminder_filtered,
-       mapping = aes(x = gdpPercap, y = lifeExp, 
-                     size = pop, color = continent)) +
+       mapping = aes(x = gdpPercap, y = pop, 
+                     color = continent)) +
   geom_point() + 
   scale_x_log10(labels = scales::dollar_format(accuracy = 1)) +
-  scale_size_continuous(labels = scales::label_comma()) +
+  scale_y_continuous(labels = scales::label_comma()) +
   scale_color_viridis_d(option = "plasma") +
-  labs(x = "GDP per capita", y = "Life expectancy",
-       title = "Health and wealth are strongly related",
-       subtitle = "142 countries; 2007 only", caption = "Source: The Gapminder Project",
-       color = "Continent", size = "Population") +
+  labs(x = "GDP per capita", y = "Population",
+       title = "Exploring the Gapminder dataset",
+       subtitle = "142 countries; 2007 only",
+       caption = "Source: The Gapminder Project",
+       color = "Continent") +
   theme_bw()
 ```
 
 ## {{< fa lightbulb >}}&ensp;Hint
 
-**Hint:** You'll want to change something in the code that creates `gapminder_filtered`. The text in the subtitle won't change automatically, so you'll want to edit that too.
-:::
+**Hint:** You'll want to filter by `continent == "Asia"` when creating `gapminder_filtered`, and change `x = gdpPercap` to `x = lifeExp` in the `aes()` call. You may also want to remove the `scale_x_log10()` line since life expectancy doesn't need a log scale.
 
+:::
 ::::
 
-If you're curious how this works, each interactive code section uses [the amazing {quarto-webr} package](https://quarto-webr.thecoatlessprofessor.com/) to run R directly in your browser.
+If you're curious how this works, each interactive code section uses [the amazing {quarto-webr} package](https://quarto-webr.thecoatlessprofessor.com/) to run R directly in your browser—no installation needed!
