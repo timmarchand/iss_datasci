@@ -75,15 +75,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-1b3db88def35042d172274863c1cdcf0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b1f62f485a7cda7a085365e09233727d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-287ec9963c820a89ec78f0ff1b22324a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -109,11 +109,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CLIL Seminar: Data Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../lesson/index.html"> 
+<span class="menu-text">Lessons</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../example/index.html"> 
+<span class="menu-text">Examples</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assignment/index.html"> 
+<span class="menu-text">Assignments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resource/index.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://moodle.univ.gakushuin.ac.jp/course/view.php?id=26121"> <i class="bi bi-mortarboard-fill" role="img" aria-label="Moodle">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -227,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plot_sequential</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-sequential-base" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="70%">
+<div id="fig-sequential-base" class="quarto-float quarto-figure quarto-figure-center anchored" width="70%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sequential-base-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="colors_files/figure-html/fig-sequential-base-1.png" id="fig-sequential-base" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:70.0%">
@@ -245,7 +295,7 @@ Figure&nbsp;1
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plot_sequential <span class="sc">+</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_distiller</span>(<span class="at">palette =</span> <span class="st">"RdPu"</span>, <span class="at">direction =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-sequential-rdpu" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="70%">
+<div id="fig-sequential-rdpu" class="quarto-float quarto-figure quarto-figure-center anchored" width="70%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sequential-rdpu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="colors_files/figure-html/fig-sequential-rdpu-1.png" id="fig-sequential-rdpu" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:70.0%">
@@ -273,7 +323,7 @@ Figure&nbsp;2
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This doesn't show up as diverging</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plot_diverging</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-diverging-base" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="70%">
+<div id="fig-diverging-base" class="quarto-float quarto-figure quarto-figure-center anchored" width="70%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-diverging-base-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="colors_files/figure-html/fig-diverging-base-1.png" id="fig-diverging-base" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:70.0%">
@@ -291,7 +341,7 @@ Figure&nbsp;3
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plot_diverging <span class="sc">+</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"RdYlBu"</span>, <span class="at">direction =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-diverging-RdYlBu" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="70%">
+<div id="fig-diverging-RdYlBu" class="quarto-float quarto-figure quarto-figure-center anchored" width="70%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-diverging-RdYlBu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="colors_files/figure-html/fig-diverging-RdYlBu-1.png" id="fig-diverging-RdYlBu" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:70.0%">
@@ -321,7 +371,7 @@ Figure&nbsp;4
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plot_sequential <span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_distiller</span>(<span class="at">palette =</span> <span class="st">"RdBu"</span>, <span class="at">direction =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-diverging-sequential" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="70%">
+<div id="fig-diverging-sequential" class="quarto-float quarto-figure quarto-figure-center anchored" width="70%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-diverging-sequential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="colors_files/figure-html/fig-diverging-sequential-1.png" id="fig-diverging-sequential" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:70.0%">
@@ -347,7 +397,7 @@ Figure&nbsp;5
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plot_qualitative</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-qualitative-base" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="70%">
+<div id="fig-qualitative-base" class="quarto-float quarto-figure quarto-figure-center anchored" width="70%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-qualitative-base-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="colors_files/figure-html/fig-qualitative-base-1.png" id="fig-qualitative-base" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:70.0%">
@@ -365,7 +415,7 @@ Figure&nbsp;6
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plot_qualitative <span class="sc">+</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-qualitative-viridis" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="70%">
+<div id="fig-qualitative-viridis" class="quarto-float quarto-figure quarto-figure-center anchored" width="70%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-qualitative-viridis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="colors_files/figure-html/fig-qualitative-viridis-1.png" id="fig-qualitative-viridis" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:70.0%">
