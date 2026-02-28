@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R and the tidyverse – CLIL Seminar: Data Science</title>
+<title>Course Introduction: R and RStudio – CLIL Seminar: Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -318,7 +318,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#basic-process-for-working-with-rstudio" id="toc-basic-process-for-working-with-rstudio" class="nav-link active" data-scroll-target="#basic-process-for-working-with-rstudio">Basic process for working with RStudio</a></li>
+  <li><a href="#vectors-data-frames-and-lists" id="toc-vectors-data-frames-and-lists" class="nav-link active" data-scroll-target="#vectors-data-frames-and-lists">Vectors, data frames and lists</a></li>
+  <li><a href="#the-tibble-package" id="toc-the-tibble-package" class="nav-link" data-scroll-target="#the-tibble-package">The tibble package</a></li>
+  <li><a href="#rmarkdown" id="toc-rmarkdown" class="nav-link" data-scroll-target="#rmarkdown">RMarkdown</a></li>
+  <li><a href="#r-tips-getting-started" id="toc-r-tips-getting-started" class="nav-link" data-scroll-target="#r-tips-getting-started">R tips: Getting started</a></li>
   </ul>
 </nav>
     </div>
@@ -328,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../example/01-example.html">Foundations</a></li><li class="breadcrumb-item"><a href="../example/01-example.html">1: Course introduction, data types, R and RStudio</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Introduction to R and the tidyverse</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Course Introduction: R and RStudio</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -339,7 +342,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="date-block bg-example text-white p-2">
     <!-- <div class="quarto-title-meta-heading">Published</div> -->
     <div class="quarto-title-meta-contents">
-      <p class="date">Example for Thursday, April 16, 2026–Wednesday, April 22, 2026</p>
+      <p class="date">Example for Tuesday, April 14, 2026–Monday, April 20, 2026</p>
     </div>
   </div>
     
@@ -351,16 +354,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="basic-process-for-working-with-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="basic-process-for-working-with-rstudio">Basic process for working with RStudio</h2>
-<p>For this example, I’m going to create a new RStudio project, download some data, put the data in the project, and make a graph of it using R Markdown. You’ll follow this same process any time you start a new project or exercise.</p>
-<p>To follow along, download this CSV file here (you may need to right click on it and select “Save As…”):</p>
-<ul>
-<li><a href="../files/data/package_data/gapminder.csv"><i class="fa-solid fa-file-csv" aria-label="file-csv"></i> <code>gapminder.csv</code></a></li>
-</ul>
-<p>Here’s a video walkthrough of how to get started:</p>
+<p>The videos below are selected to support and extend the concepts covered in <a href="../lesson/01-lesson.html">this week’s lesson</a> and <a href="https://r4np.com">r4np reading</a>. Watch them before or after working through the exercises.</p>
+<hr>
+<section id="vectors-data-frames-and-lists" class="level2">
+<h2 class="anchored" data-anchor-id="vectors-data-frames-and-lists">Vectors, data frames and lists</h2>
+<p>A clear introduction to the three core data structures you will use constantly in R.</p>
 <div class="ratio ratio-16x9">
-<iframe src="https://www.youtube.com/embed/kXlZbDZpfR0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0">
+<iframe src="https://www.youtube-nocookie.com/embed/XHAm_V-KZE8?start=11" title="Vectors, data frames and lists" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</div>
+<hr>
+</section>
+<section id="the-tibble-package" class="level2">
+<h2 class="anchored" data-anchor-id="the-tibble-package">The tibble package</h2>
+<p>How tibbles differ from base R data frames, and why the tidyverse prefers them.</p>
+<div class="ratio ratio-16x9">
+<iframe src="https://www.youtube-nocookie.com/embed/EBk6PnvE1R4" title="The tibble package" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</div>
+<hr>
+</section>
+<section id="rmarkdown" class="level2">
+<h2 class="anchored" data-anchor-id="rmarkdown">RMarkdown</h2>
+<p>An introduction to RMarkdown — the predecessor to Quarto — which shares the same core concepts of mixing code and text.</p>
+<div class="ratio ratio-16x9">
+<iframe src="https://www.youtube-nocookie.com/embed/u4ZdvYXjsIo?start=11" title="RMarkdown" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</div>
+<hr>
+</section>
+<section id="r-tips-getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="r-tips-getting-started">R tips: Getting started</h2>
+<p>Practical tips for setting up and navigating R and RStudio efficiently.</p>
+<div class="ratio ratio-16x9">
+<iframe src="https://www.youtube-nocookie.com/embed/Hdro0ILcD-w" title="R tips: Getting started" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
 </iframe>
 </div>
 
@@ -834,24 +861,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Introduction to R and the tidyverse"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2026-04-16"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date_end:</span><span class="co"> "2026-04-22"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Course Introduction: R and RStudio"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2026-04-14"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date_end:</span><span class="co"> "2026-04-20"</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Basic process for working with RStudio</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>The videos below are selected to support and extend the concepts covered in <span class="co">[</span><span class="ot">this week's lesson</span><span class="co">](/lesson/01-lesson.qmd)</span> and <span class="co">[</span><span class="ot">r4np reading</span><span class="co">](https://r4np.com)</span>. Watch them before or after working through the exercises.</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>For this example, I'm going to create a new RStudio project, download some data, put the data in the project, and make a graph of it using R Markdown. You'll follow this same process any time you start a new project or exercise.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>To follow along, download this CSV file here (you may need to right click on it and select "Save As…"):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vectors, data frames and lists</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">{{&lt; fa file-csv &gt;}} `gapminder.csv`</span><span class="co">](../files/data/package_data/gapminder.csv)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>A clear introduction to the three core data structures you will use constantly in R.</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Here's a video walkthrough of how to get started:</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"ratio ratio-16x9"</span><span class="dt">&gt;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">iframe</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://www.youtube.com/embed/kXlZbDZpfR0"</span><span class="ot"> allow</span><span class="op">=</span><span class="st">"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"</span><span class="ot"> allowfullscreen</span><span class="op">=</span><span class="st">""</span><span class="ot"> frameborder</span><span class="op">=</span><span class="st">"0"</span><span class="dt">&gt;&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>::: {.ratio .ratio-16x9}</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">iframe</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://www.youtube-nocookie.com/embed/XHAm_V-KZE8?start=11"</span><span class="ot"> title</span><span class="op">=</span><span class="st">"Vectors, data frames and lists"</span><span class="ot"> frameborder</span><span class="op">=</span><span class="st">"0"</span><span class="ot"> allow</span><span class="op">=</span><span class="st">"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"</span><span class="ot"> allowfullscreen</span><span class="dt">&gt;&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## The tibble package</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>How tibbles differ from base R data frames, and why the tidyverse prefers them.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>::: {.ratio .ratio-16x9}</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">iframe</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://www.youtube-nocookie.com/embed/EBk6PnvE1R4"</span><span class="ot"> title</span><span class="op">=</span><span class="st">"The tibble package"</span><span class="ot"> frameborder</span><span class="op">=</span><span class="st">"0"</span><span class="ot"> allow</span><span class="op">=</span><span class="st">"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"</span><span class="ot"> allowfullscreen</span><span class="dt">&gt;&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## RMarkdown</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>An introduction to RMarkdown — the predecessor to Quarto — which shares the same core concepts of mixing code and text.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>::: {.ratio .ratio-16x9}</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">iframe</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://www.youtube-nocookie.com/embed/u4ZdvYXjsIo?start=11"</span><span class="ot"> title</span><span class="op">=</span><span class="st">"RMarkdown"</span><span class="ot"> frameborder</span><span class="op">=</span><span class="st">"0"</span><span class="ot"> allow</span><span class="op">=</span><span class="st">"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"</span><span class="ot"> allowfullscreen</span><span class="dt">&gt;&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## R tips: Getting started</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Practical tips for setting up and navigating R and RStudio efficiently.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>::: {.ratio .ratio-16x9}</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">iframe</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://www.youtube-nocookie.com/embed/Hdro0ILcD-w"</span><span class="ot"> title</span><span class="op">=</span><span class="st">"R tips: Getting started"</span><span class="ot"> frameborder</span><span class="op">=</span><span class="st">"0"</span><span class="ot"> allow</span><span class="op">=</span><span class="st">"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"</span><span class="ot"> allowfullscreen</span><span class="dt">&gt;&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
