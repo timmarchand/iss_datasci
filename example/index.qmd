@@ -6,4 +6,4 @@
   
   Visit this section alongside the lesson for each week. The videos are a great way to see concepts explained from a different angle, and to get a sense of how working data scientists and statisticians think about the problems you are tackling.
   
-  You do not need to watch every video — focus on the ones most relevant to what you are finding challenging or interesting that week.
+  You should watch the videos before writing your weekly reflctions, but you do not need to watch every minute of every video. Simply focus on what is most relevant to what you are finding challenging or interesting that week. 
