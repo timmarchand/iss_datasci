@@ -1,41 +1,28 @@
 ---
-title: "Graphic design"
-date: "2026-04-23"
-date_end: "2026-04-29"
+title: "R Basics 1: Data Frames and dplyr"
+date: "2026-04-21"
+date_end: "2026-04-27"
 ---
 
-For this example, I'm going to critique and improve this random flyer I found posted in the BYU library in September 2018:
+The videos below are selected to support and extend the concepts covered in [this week's lesson](/lesson/02-lesson.qmd) and [r4np reading](https://r4np.com). Watch them before or after working through the exercises.
 
-```{r safe-kids-bad, echo=FALSE, out.width="50%", fig.align="center"}
-knitr::include_graphics("/projects/02-example/original-from-hbll.jpg", error = FALSE)
-```
+---
 
-It's not the best designed poster, but it's incredibly typical of what you see in the real world. By applying the principles of CRAP, we can improve the poster significantly.
+## The 5 verbs of dplyr
 
-If you download and unzip this file, you can follow along too (but you don't have to—you can just sit back and enjoy the ride).
+A concise walkthrough of filter, select, mutate, summarise, and arrange — the foundation of data manipulation in R.
 
-- [{{< fa file-archive >}} `02-example.zip`](/projects/02-example.zip)
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/sVISY_27znA" title="The 5 verbs of dplyr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
 
-## Critique
+---
 
-<div class="ratio ratio-16x9">
-<iframe src="https://www.youtube-nocookie.com/embed/K0sd-j6eMiI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0"></iframe>
-</div>
+## Writing your own functions in R
 
-## Redesign in Canva
+How to create reusable functions in R, including how to use arguments and return values.
 
-<div class="ratio ratio-16x9">
-<iframe src="https://www.youtube.com/embed/G1857weuvIc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0"></iframe>
-</div>
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/p8tAQx7ijXE" title="Writing your own functions in R" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
 
-## Redesign in Illustrator
-
-<div class="ratio ratio-16x9">
-<iframe src="https://www.youtube.com/embed/5Z8FQtDVlYQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0"></iframe>
-</div>
-
-## Final versions
-
-```{r safe-kids-finished, echo=FALSE, out.width="100%"}
-knitr::include_graphics("/files/img/examples/combined-output@2x.png", error = FALSE)
-```
