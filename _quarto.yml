@@ -42,7 +42,7 @@ website:
       - schedule.qmd
       - text: "Lessons"
         file: lesson/index.qmd
-      - text: "Examples"
+      - text: "Videos"
         file: example/index.qmd
       - text: "Assignments"
         file: assignment/index.qmd
