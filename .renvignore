@@ -15,3 +15,7 @@ _targets/
 # Ignore miscellaneous stuff
 .vscode/
 typst-pdf-stuff/
+_mothballed/
+R/tar_data.R
+projects/11-exercise/
+projects/12-exercise/
