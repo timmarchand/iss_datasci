@@ -1,5 +1,5 @@
 ---
-  title: Video Examples
+  title: Videos
 ---
   
   This section contains curated videos to support and extend what you are learning each week. They cover key concepts in statistics, R programming, and data visualisation — selected to complement the [r4np readings](https://r4np.com){target="_blank"} and the interactive lesson materials.
