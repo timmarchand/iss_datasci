@@ -892,11 +892,311 @@
     ]
   },
   {
+    "objectID": "content/index.html",
+    "href": "content/index.html",
+    "title": "Content",
+    "section": "",
+    "text": "This section contains the core reading and slides for each week. Before coming to class, work through the relevant chapter(s) from the textbook and review any slides provided.\nThe main textbook for this course is R for Non-Programmers by Daniel Dauber — a free, openly available online book written specifically for social science students with no prior programming experience.\n\n\n\n\n\n\nTipHow to use this section\n\n\n\n\nRead the assigned r4np chapter(s) before the lesson\nReview the slides if available\nThen work through the interactive lesson and videos for the week",
+    "crumbs": [
+      "Content",
+      "Overview",
+      "Content"
+    ]
+  },
+  {
+    "objectID": "content/12-content.html",
+    "href": "content/12-content.html",
+    "title": "Text as Data",
+    "section": "",
+    "text": "In our final topic week, we explore how text can be treated as data. We cover importing text, basic string manipulation with stringr, and an introduction to regular expressions — skills that open the door to a wide range of text analysis applications.",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Text as Data"
+    ]
+  },
+  {
+    "objectID": "content/12-content.html#overview",
+    "href": "content/12-content.html#overview",
+    "title": "Text as Data",
+    "section": "",
+    "text": "In our final topic week, we explore how text can be treated as data. We cover importing text, basic string manipulation with stringr, and an introduction to regular expressions — skills that open the door to a wide range of text analysis applications.",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Text as Data"
+    ]
+  },
+  {
+    "objectID": "content/12-content.html#readings",
+    "href": "content/12-content.html#readings",
+    "title": "Text as Data",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\nComplete the following chapter(s) from R for Non-Programmers before the lesson this week:\n\n\n\nChapter 14: Mixed-methods research: Analysing qualitative data in R",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Text as Data"
+    ]
+  },
+  {
+    "objectID": "content/12-content.html#slides",
+    "href": "content/12-content.html#slides",
+    "title": "Text as Data",
+    "section": "Slides",
+    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here. If you would like to download them, use the link below.",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Text as Data"
+    ]
+  },
+  {
+    "objectID": "content/10-content.html",
+    "href": "content/10-content.html",
+    "title": "Regression Modelling 1",
+    "section": "",
+    "text": "We introduce simple linear regression — one of the most important tools in data science. We look at how to fit a model with a single numerical predictor, interpret the output, and assess model fit using R-squared and residual plots.",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Regression Modelling 1"
+    ]
+  },
+  {
+    "objectID": "content/10-content.html#overview",
+    "href": "content/10-content.html#overview",
+    "title": "Regression Modelling 1",
+    "section": "",
+    "text": "We introduce simple linear regression — one of the most important tools in data science. We look at how to fit a model with a single numerical predictor, interpret the output, and assess model fit using R-squared and residual plots.",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Regression Modelling 1"
+    ]
+  },
+  {
+    "objectID": "content/10-content.html#readings",
+    "href": "content/10-content.html#readings",
+    "title": "Regression Modelling 1",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\nComplete the following chapter(s) from R for Non-Programmers before the lesson this week:\n\n\n\nChapter 13: Regression: Creating models to predict future observations",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Regression Modelling 1"
+    ]
+  },
+  {
+    "objectID": "content/10-content.html#slides",
+    "href": "content/10-content.html#slides",
+    "title": "Regression Modelling 1",
+    "section": "Slides",
+    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here. If you would like to download them, use the link below.",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Regression Modelling 1"
+    ]
+  },
+  {
+    "objectID": "content/08-content.html",
+    "href": "content/08-content.html",
+    "title": "Variable Associations 1",
+    "section": "",
+    "text": "This week we investigate relationships between variables. We cover correlation — what it measures, how to calculate it, and crucially, what it does not tell us. We use the palmerpenguins dataset as our main example.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Variable Associations 1"
+    ]
+  },
+  {
+    "objectID": "content/08-content.html#overview",
+    "href": "content/08-content.html#overview",
+    "title": "Variable Associations 1",
+    "section": "",
+    "text": "This week we investigate relationships between variables. We cover correlation — what it measures, how to calculate it, and crucially, what it does not tell us. We use the palmerpenguins dataset as our main example.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Variable Associations 1"
+    ]
+  },
+  {
+    "objectID": "content/08-content.html#readings",
+    "href": "content/08-content.html#readings",
+    "title": "Variable Associations 1",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\nComplete the following chapter(s) from R for Non-Programmers before the lesson this week:\n\n\n\nChapter 10: Correlations",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Variable Associations 1"
+    ]
+  },
+  {
+    "objectID": "content/08-content.html#slides",
+    "href": "content/08-content.html#slides",
+    "title": "Variable Associations 1",
+    "section": "Slides",
+    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here. If you would like to download them, use the link below.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Variable Associations 1"
+    ]
+  },
+  {
+    "objectID": "content/06-content.html",
+    "href": "content/06-content.html",
+    "title": "Manipulating Data 1: Data Project Introduction",
+    "section": "",
+    "text": "We return to data wrangling with a focus on reshaping data using tidyr. This week also introduces the data project — the main assessment for the course. We look at how to import, clean, and restructure real-world datasets ready for analysis.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Manipulating Data 1: Data Project Introduction"
+    ]
+  },
+  {
+    "objectID": "content/06-content.html#overview",
+    "href": "content/06-content.html#overview",
+    "title": "Manipulating Data 1: Data Project Introduction",
+    "section": "",
+    "text": "We return to data wrangling with a focus on reshaping data using tidyr. This week also introduces the data project — the main assessment for the course. We look at how to import, clean, and restructure real-world datasets ready for analysis.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Manipulating Data 1: Data Project Introduction"
+    ]
+  },
+  {
+    "objectID": "content/06-content.html#readings",
+    "href": "content/06-content.html#readings",
+    "title": "Manipulating Data 1: Data Project Introduction",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\nComplete the following chapter(s) from R for Non-Programmers before the lesson this week:\n\n\n\nChapter 7: Data Wrangling",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Manipulating Data 1: Data Project Introduction"
+    ]
+  },
+  {
+    "objectID": "content/06-content.html#slides",
+    "href": "content/06-content.html#slides",
+    "title": "Manipulating Data 1: Data Project Introduction",
+    "section": "Slides",
+    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here. If you would like to download them, use the link below.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Manipulating Data 1: Data Project Introduction"
+    ]
+  },
+  {
+    "objectID": "content/04-content.html",
+    "href": "content/04-content.html",
+    "title": "Sampling and Probability",
+    "section": "",
+    "text": "We take a step back from R syntax to think carefully about how data is collected and what probability means. We use Monte Carlo simulation to build intuition about randomness, sampling, and the behaviour of statistics across repeated samples.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Sampling and Probability"
+    ]
+  },
+  {
+    "objectID": "content/04-content.html#overview",
+    "href": "content/04-content.html#overview",
+    "title": "Sampling and Probability",
+    "section": "",
+    "text": "We take a step back from R syntax to think carefully about how data is collected and what probability means. We use Monte Carlo simulation to build intuition about randomness, sampling, and the behaviour of statistics across repeated samples.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Sampling and Probability"
+    ]
+  },
+  {
+    "objectID": "content/04-content.html#readings",
+    "href": "content/04-content.html#readings",
+    "title": "Sampling and Probability",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\nComplete the following chapter(s) from R for Non-Programmers before the lesson this week:\n\n\n\nChapter 9: Sources of bias: Sampling, outliers, normality and other conundrums",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Sampling and Probability"
+    ]
+  },
+  {
+    "objectID": "content/04-content.html#slides",
+    "href": "content/04-content.html#slides",
+    "title": "Sampling and Probability",
+    "section": "Slides",
+    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here. If you would like to download them, use the link below.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Sampling and Probability"
+    ]
+  },
+  {
+    "objectID": "content/02-content.html",
+    "href": "content/02-content.html",
+    "title": "R Basics 1: Vectors, Data Frames and Lists",
+    "section": "",
+    "text": "Building on last week, we explore the core data structures in R — vectors, data frames, and lists — and start using the dplyr package to manipulate data. We will work with the nycflights13 dataset to practice filtering, selecting, and summarising data.",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "R Basics 1: Vectors, Data Frames and Lists"
+    ]
+  },
+  {
+    "objectID": "content/02-content.html#overview",
+    "href": "content/02-content.html#overview",
+    "title": "R Basics 1: Vectors, Data Frames and Lists",
+    "section": "",
+    "text": "Building on last week, we explore the core data structures in R — vectors, data frames, and lists — and start using the dplyr package to manipulate data. We will work with the nycflights13 dataset to practice filtering, selecting, and summarising data.",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "R Basics 1: Vectors, Data Frames and Lists"
+    ]
+  },
+  {
+    "objectID": "content/02-content.html#readings",
+    "href": "content/02-content.html#readings",
+    "title": "R Basics 1: Vectors, Data Frames and Lists",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\nComplete the following chapter(s) from R for Non-Programmers before the lesson this week:\n\n\n\nChapter 5: R Basics: The very fundamentals (cont.)\nChapter 6: Starting your R projects",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "R Basics 1: Vectors, Data Frames and Lists"
+    ]
+  },
+  {
+    "objectID": "content/02-content.html#slides",
+    "href": "content/02-content.html#slides",
+    "title": "R Basics 1: Vectors, Data Frames and Lists",
+    "section": "Slides",
+    "text": "Slides",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "R Basics 1: Vectors, Data Frames and Lists"
+    ]
+  },
+  {
     "objectID": "assignment/index.html",
     "href": "assignment/index.html",
     "title": "Assignment overview",
     "section": "",
-    "text": "You will get the most of out this class if you:\nEach type of assignment in this class helps with one of these strategies.",
+    "text": "You will get the most out of this class if you:\nEach type of assignment in this class helps with one of these strategies.",
     "crumbs": [
       "Assignments",
       "Overview",
@@ -904,11 +1204,11 @@
     ]
   },
   {
-    "objectID": "assignment/index.html#session-check-in",
-    "href": "assignment/index.html#session-check-in",
+    "objectID": "assignment/index.html#weekly-exercises",
+    "href": "assignment/index.html#weekly-exercises",
     "title": "Assignment overview",
-    "section": "Session check-in",
-    "text": "Session check-in\nEach session you’ll submit a list of three most interesting and three most unclear things from the readings. (See the complete instructions and details here).",
+    "section": "Weekly exercises",
+    "text": "Weekly exercises\nEach session has lesson materials and fully annotated examples that teach and demonstrate how to do specific tasks in R. However, without practising these principles and writing code on your own, you won’t remember what you learn!\nEach week you will download a small R project, work through a set of tasks in a Quarto file, and submit the rendered HTML to Moodle. The exercises have three parts:\n\nWeekly reflection — three short questions about what you learned and what was challenging this week\nR4NP interactive exercises — browser-based exercises from the course textbook that give you immediate feedback as you work\nBonus tasks — optional but recommended coding tasks related to the week’s topic\n\nExercises will be graded using a check system:\n\n✔+: (115% in gradebook) All tasks attempted and mostly correct. Rendered document is clean and easy to follow. I will not assign these often.\n✔: (100% in gradebook) 70–99% complete and most answers are correct. This is the expected level of performance.\n✔−: (50% in gradebook) Less than 70% complete and/or most answers are incorrect. This indicates that you need to improve next time.\n\nNote that this is essentially a pass/fail system. I am not grading your coding ability line by line, and I am not looking for perfect output. I am looking for good faith effort — try hard, do good work, and you will get a ✔.\nYou may (and should!) work together on the exercises, but you must submit your own work.",
     "crumbs": [
       "Assignments",
       "Overview",
@@ -916,47 +1216,11 @@
     ]
   },
   {
-    "objectID": "assignment/index.html#exercises",
-    "href": "assignment/index.html#exercises",
+    "objectID": "assignment/index.html#data-project",
+    "href": "assignment/index.html#data-project",
     "title": "Assignment overview",
-    "section": "Exercises",
-    "text": "Exercises\nEach class session has interactive lessons and fully annotated examples of code that teach and demonstrate how to do specific tasks in R. However, without practicing these principles and making graphics on your own, you won’t remember what you learn!\nTo practice working with {ggplot2} and making data-based graphics, you will complete a brief set of exercises for each class session. These exercises will have 1–3 short tasks that are directly related to the topic for the session. You need to show that you made a good faith effort to work each question. The problem sets will also be graded using a check system:\n\n✔+: (11.5 points (115%) in gradebook) Exercises are 100% completed. Every task was attempted and answered, and most answers are correct. Rendered document is clean and easy to follow. Work is exceptional. I will not assign these often.\n✔: (10 points (100%) in gradebook) Exercises are 70–99% complete and most answers are correct. This is the expected level of performance.\n✔−: (5 points (50%) in gradebook) Exercises are less than 70% complete and/or most answers are incorrect. This indicates that you need to improve next time. I will hopefully not assign these often.\n\nNote that this is also essentially a pass/fail system. I’m not grading your coding ability, I’m not checking each line of code to make sure it produces some exact final figure, and I’m not looking for perfect. Also note that a ✓ does not require 100% completion—you will sometimes get stuck with weird errors that you can’t solve, or the demands of pandemic living might occasionally become overwhelming. I’m looking for good faith effort, that’s all. Try hard, do good work, and you’ll get a ✓.\nYou may (and should!) work together on the exercises, but you must turn in your own answers.\nYou will turn these exercises in using Moodle. You will include your session check-in in the first part of the document—the rest will be your exercise tasks.",
-    "crumbs": [
-      "Assignments",
-      "Overview",
-      "Assignment overview"
-    ]
-  },
-  {
-    "objectID": "assignment/index.html#mini-projects",
-    "href": "assignment/index.html#mini-projects",
-    "title": "Assignment overview",
-    "section": "Mini projects",
-    "text": "Mini projects\nTo give you practice with the data and design principles you’ll learn in this class, you will complete two mini projects. I will provide you with real-world data and pose one or more questions—you will make a pretty picture to answer those questions.\nThe mini projects will be graded using a check system:\n\n✔+: (85 points (≈115%) in gradebook) Project is phenomenally well-designed and uses advanced R techniques. The project uncovers an important story that is not readily apparent from just looking at the raw data. I will not assign these often.\n✔: (75 points (100%) in gradebook) Project is fine, follows most design principles, answers a question from the data, and uses R correctly. This is the expected level of performance.\n✔−: (37.5 points (50%) in gradebook) Project is missing large components, is poorly designed, does not answer a relevant question, and/or uses R incorrectly. This indicates that you need to improve next time. I will hopefully not assign these often.\n\nBecause these mini projects give you practice for the final project, I will provide you with substantial feedback on your design and code.",
-    "crumbs": [
-      "Assignments",
-      "Overview",
-      "Assignment overview"
-    ]
-  },
-  {
-    "objectID": "assignment/index.html#tidytuesday",
-    "href": "assignment/index.html#tidytuesday",
-    "title": "Assignment overview",
-    "section": "#TidyTuesday",
-    "text": "#TidyTuesday\nAt some point before the end of the semester, you’ll need to (1) take a dataset, (2) do something neat with it, and (3) share it with the public somehow. (See the complete instructions and details here).",
-    "crumbs": [
-      "Assignments",
-      "Overview",
-      "Assignment overview"
-    ]
-  },
-  {
-    "objectID": "assignment/index.html#final-project",
-    "href": "assignment/index.html#final-project",
-    "title": "Assignment overview",
-    "section": "Final project",
-    "text": "Final project\nAt the end of the course, you will demonstrate your data visualization skills by completing a final project.\nComplete details for the final project (including past examples of excellent projects) are here.\nThere is no final exam. This project is your final exam.\nThe project will not be graded using a check system. Instead I will use a rubric to grade four elements of your project:\n\nTechnical skills\nVisual design\nTruth and beauty\nStory\n\nIf you’ve engaged with the course content and completed the exercises and mini projects throughout the course, you should do just fine with the final project.",
+    "section": "Data project",
+    "text": "Data project\nAt the end of the course you will demonstrate your data science skills by completing an independent data project. You will find a dataset that interests you, explore it using the tools and techniques from the course, and write up your findings as a short report.\nComplete details for the data project are here.\nThere is no final exam. The data project is your final assessment.\nThe project will not be graded using a check system. Instead I will use a rubric to assess four elements:\n\nTechnical skills — appropriate use of R and the tidyverse\nData wrangling — clean, well-organised, reproducible code\nVisualisation — clear and well-designed plots that communicate your findings\nInterpretation — a coherent written account of what the data shows\n\nIf you have engaged with the course content and completed the weekly exercises throughout the semester, you should do well with the data project.",
     "crumbs": [
       "Assignments",
       "Overview",
@@ -966,9 +1230,9 @@
   {
     "objectID": "assignment/12-exercise.html",
     "href": "assignment/12-exercise.html",
-    "title": "Space",
+    "title": "Exercise 12: Text as Data",
     "section": "",
-    "text": "For this exercise you’ll make maps! You’ll use data from the US Census’s American Community Survey about household use of Supplemental Nutrition Assistance Program (SNAP) benefits.1 The assignment .qmd file contains all the information you need about the data.\nAs always, if you’re struggling, please use ouR Questions on Moodle and talk to me and your classmates! Don’t suffer in silence!",
+    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the lesson for this week.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -978,9 +1242,9 @@
   {
     "objectID": "assignment/12-exercise.html#instructions",
     "href": "assignment/12-exercise.html#instructions",
-    "title": "Space",
+    "title": "Exercise 12: Text as Data",
     "section": "Instructions",
-    "text": "Instructions\n\nOpen the project either on your computer or in Posit.cloud\n\n 12-exercise.zip: If you’re using R on your own computer, download this file, unzip it, and double click on the file named 12-exercise.Rproj\n Posit.cloud project: Use this link if you’re using Posit.cloud in your browser\n\nRename the Quarto file named your-name_exercise-12.qmd to something that matches your name and open it in RStudio.\nComplete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document or the example page—don’t try to write everything from scratch!\nWhen you’re all done, click on the “Render” button at the top of the editing window and create a Typst (pdf), PDF, or Word version of your document. Upload that file to Moodle. Do not upload a rendered HTML file (they don’t work on Moodle).",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 12-exercise.zip: Download this file, unzip it, and double-click on 12-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 12-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-12.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -990,21 +1254,9 @@
   {
     "objectID": "assignment/12-exercise.html#tips",
     "href": "assignment/12-exercise.html#tips",
-    "title": "Space",
+    "title": "Exercise 12: Text as Data",
     "section": "Tips",
-    "text": "Tips\n\n\n\n\n\n\nTipRunning chunks\n\n\n\nRemember that you can run an entire chunk by clicking on the green play arrow in the top right corner of the chunk. You can also run lines of code line-by-line if you place your cursor on some R code and press ⌘ + enter (for macOS users) or ctrl + enter (for Windows users).\nMake sure you run each chunk sequentially. If you run a chunk in the middle of the document without running previous ones, it might not work, since previous chunks might do things that later chunks depend on.\n\n\n\n\n\n\n\n\nTipInserting chunks\n\n\n\nYou’ll need to insert some of your own code chunks. Rather than typing them by hand (that’s tedious!), use the “Insert” button at the top of the editing window, or press ⌥ + ⌘ + I on macOS, or ctrl + alt + I on Windows.",
-    "crumbs": [
-      "Assignments",
-      "Exercises",
-      "12: Text as data"
-    ]
-  },
-  {
-    "objectID": "assignment/12-exercise.html#footnotes",
-    "href": "assignment/12-exercise.html#footnotes",
-    "title": "Space",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nFor the morbidly curious, see here for the full data cleaning code. I use the {tidycensus} and {tigris} packages to pull data directly from the US Census and then do a bunch of wrangling and cleaning.↩︎",
+    "text": "Tips\n\n\n\n\n\n\nTipDownloading the source code\n\n\n\nYour rendered HTML file includes a code download button in the top-right corner. If you or a classmate ever needs to recover the original .qmd source code from a rendered HTML file, click that button to download it directly.\n\n\n\n\n\n\n\n\nTipFile organisation\n\n\n\nEach exercise has its own .Rproj file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.\n\n\n\n\n\n\nIndividual folders for each project on macOS\n\n\n\n\n \n\n\n\n\n\nIndividual folders for each project on Windows\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat to do if a code chunk won’t render\n\n\n\nSometimes a code chunk causes an error that stops the whole document from rendering. You have two options:\nOption 1 — Set eval: false in the chunk:\nAdd #| eval: false at the top of the problematic chunk. This tells R to display the code but not run it:\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code}\nsome_code_that_causes_an_error()\n```\n:::\nOption 2 — Set eval: false globally in the YAML:\nIf many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means no code will run when rendering:\n---\ntitle: \"My Exercise\"\nformat: html\nexecute:\n  eval: false\n---\nYou can then re-enable individual chunks by adding #| eval: true to specific chunks you want to run.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1014,9 +1266,9 @@
   {
     "objectID": "assignment/10-exercise.html",
     "href": "assignment/10-exercise.html",
-    "title": "Enhancing graphics",
+    "title": "Exercise 10: Regression Modelling 1",
     "section": "",
-    "text": "For this exercise you’ll practice using vector editing software to enhance and refine a plot to make it publication-worthy. You’ll use data on state-level spending on children from 1997–2016. The data was collected by the Urban Institute from a variety of government sources. You already used this data in Exercise 6.\nYou don’t need to worry about any data manipuluation or code or anything. I’ve given you all the code you need to run. Instead, your job is to take a ggplot plot and enhance it, following the guidelines from an organizational visual style guide. You’ll use Illustrator, Inkscape, or some other vector editing program to recreate this image:\nAs always, if you’re struggling, please use ouR Questions on Moodle and talk to me and your classmates! Don’t suffer in silence!",
+    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the lesson for this week.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1026,9 +1278,21 @@
   {
     "objectID": "assignment/10-exercise.html#instructions",
     "href": "assignment/10-exercise.html#instructions",
-    "title": "Enhancing graphics",
+    "title": "Exercise 10: Regression Modelling 1",
     "section": "Instructions",
-    "text": "Instructions\n\n\n\n\n\n\nWarningAttention!\n\n\n\nThe instructions for this are a little different from past exercises. Read everything below carefully!\n\n\n\n1. Getting started\n\nThe plot uses the Lato font for all text elements. Download it from Google Fonts and install it on your computer. If you’re on Windows, right click on the font file and install it as an administrator.\nOpen the project either on your computer or in Posit.cloud\n\n 10-exercise.zip: If you’re using R on your own computer, download this file, unzip it, and double click on the file named 10-exercise.Rproj\n Posit.cloud project: Use this link if you’re using Posit.cloud in your browser\n\nRename the Quarto file named your-name_exercise-10.qmd to something that matches your name and open it in RStudio.\nRun the chunks in the document to generate base_plot.pdf and base_plot.svg. You don’t need to write or modify any code.\n\n\n\n2. Enhancing and refining\nOnce you have a base plot file, you’ll use a vector editing program (see this page for more information about what’s available—there’s a free option!) to enhance and refine it.\nYou should follow the guidelines in the Urban Institute’s data visaulization style guide. In particular, pay attention to these sections:\n\nChart typography and sizing\nChart parts, especially the “In print” section\nColor\nLine charts\n\n\n\n\n\n\n\nNoteBrowse the style guide\n\n\n\nAlso, glance through that style guide in general. They talk about almost everything we’ve covered (or will cover) in this class, including good design principles, different chart types, specific rules and guidelines to follow with different types of plots, etc. It’s a really neat example of all this data visualization stuff in the real world!\n\n\nTo save on typing, I’ve included all the text and and other files you need in a folder named “assets” inside the main project. Open assets/details-and-content.md to access all the text and use the fake Shmurban Shminstitute logo (assets/fake-logo.svg).\nEdit the base plot in Illustrator, Inkscape, or some other vector editing program. Do not use Canva—it is not a vector editing program. Here are some helpful resources and instructions for Illustrator and Inkscape:\n\nIf you’re using IllustratorIf you’re using Inkscape\n\n\n\nCreate a new document that is 6.25 inches wide and some number of inches tall (this is adjustable later, so you don’t need to be exact).\nOpen the PDF base_plot.pdf in as a separate document in Illustrator.\nSelect all the elements in base_plot.pdf, copy them, and paste them into your new empty document. Do all your design and enhancing work in this new document, not in base_plot.pdf, since that will get overwritten every time you re-render the Quarto document.\nMake all your edits and add the logo and do whatever else you want to follow the organizational style guide and generaly enhance the plot.\nBefore exporting the finished version, make sure you resize your artboard to match the size of the plot (see this short tutorial). The final plot should be 6.25 inches wide and the height of the content in the image (this will vary depending on how you lay out the text).\nGo to File &gt; Export &gt; Export for Screens… to export your artboard to both PDF and high resolution PNG (see this short tutorial).\n\n\n\n\nCreate a new document. Use the “document pages” tool at the bottom of the side toolbar to change its dimensions to 6.25 inches wide and some number of inches tall (like 6 or7; this is adjustable later, so you don’t need to be exact). See this short tutorial for how to do this.\nOpen the SVG base_plot.svg in as a separate document in Inkscape\nSelect all the elements in base_plot.svg, copy them, and paste them into your new empty document. Do all your design and enhancing work in this new document, not in base_plot.svg, since that will get overwritten every time you re-render the Quarto document.\nMake all your edits and add the logo and do whatever else you want to follow the organizational style guide and generaly enhance the plot.\nBefore exporting the finished version, make sure you resize your document to match the size of the plot. The final plot should be 6.25 inches wide and the height of the content in the image (this will vary depending on how you lay out the text). Use the “document pages” tool to either type in a new height or drag the handles of the page to resize it. Again, see this short tutorial\nGo to File &gt; Export and then select the “Batch Export” tab to export your document to both PDF and high resolution PNG (see timestamp 2:15ish here for how)\n\n\n\n\n\n\n3. Finishing up\n\nPlace the exported image in the same folder as your .qmd file and include it in your document. Add images with Markdown syntax like this (This is not R code! Don’t put this in an R chunk!):\nblah blah here's some text\n\n![Some sort of caption](name-of-file.png)\n\nblah blah here's some more text\nRender your Quarto document as a Typst (pdf), PDF, or Word version.\nUpload three (3) things to Moodle:\n\nYour rendered .qmd file with your check-in and the exported image included in it\nA standalone PNG version of your exported image\nA standalone PDF version of your exported image",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 10-exercise.zip: Download this file, unzip it, and double-click on 10-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 10-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-10.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "crumbs": [
+      "Assignments",
+      "Exercises",
+      "10: Regression modelling 1"
+    ]
+  },
+  {
+    "objectID": "assignment/10-exercise.html#tips",
+    "href": "assignment/10-exercise.html#tips",
+    "title": "Exercise 10: Regression Modelling 1",
+    "section": "Tips",
+    "text": "Tips\n\n\n\n\n\n\nTipDownloading the source code\n\n\n\nYour rendered HTML file includes a code download button in the top-right corner. If you or a classmate ever needs to recover the original .qmd source code from a rendered HTML file, click that button to download it directly.\n\n\n\n\n\n\n\n\nTipFile organisation\n\n\n\nEach exercise has its own .Rproj file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.\n\n\n\n\n\n\nIndividual folders for each project on macOS\n\n\n\n\n \n\n\n\n\n\nIndividual folders for each project on Windows\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat to do if a code chunk won’t render\n\n\n\nSometimes a code chunk causes an error that stops the whole document from rendering. You have two options:\nOption 1 — Set eval: false in the chunk:\nAdd #| eval: false at the top of the problematic chunk. This tells R to display the code but not run it:\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code}\nsome_code_that_causes_an_error()\n```\n:::\nOption 2 — Set eval: false globally in the YAML:\nIf many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means no code will run when rendering:\n---\ntitle: \"My Exercise\"\nformat: html\nexecute:\n  eval: false\n---\nYou can then re-enable individual chunks by adding #| eval: true to specific chunks you want to run.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1038,9 +1302,9 @@
   {
     "objectID": "assignment/08-exercise.html",
     "href": "assignment/08-exercise.html",
-    "title": "Comparisons",
+    "title": "Exercise 08: Variable Associations 1",
     "section": "",
-    "text": "For this exercise you’ll practice visualizing comparisons by making a small multiples plot, a slopegraph, and a bar chart showing percent change over time. You’ll use data about US elections from two different sources:\nAs always, if you’re struggling, please use ouR Questions on Moodle and talk to me and your classmates! Don’t suffer in silence!",
+    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the lesson for this week.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1050,9 +1314,9 @@
   {
     "objectID": "assignment/08-exercise.html#instructions",
     "href": "assignment/08-exercise.html#instructions",
-    "title": "Comparisons",
+    "title": "Exercise 08: Variable Associations 1",
     "section": "Instructions",
-    "text": "Instructions\n\nOpen the project either on your computer or in Posit.cloud\n\n 08-exercise.zip: If you’re using R on your own computer, download this file, unzip it, and double click on the file named 08-exercise.Rproj\n Posit.cloud project: Use this link if you’re using Posit.cloud in your browser\n\nRename the Quarto file named your-name_exercise-8.qmd to something that matches your name and open it in RStudio.\nComplete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document or the example page—don’t try to write everything from scratch!\nWhen you’re all done, click on the “Render” button at the top of the editing window and create a Typst (pdf), PDF, or Word version of your document. Upload that file to Moodle. Do not upload a rendered HTML file (they don’t work on Moodle).",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 08-exercise.zip: Download this file, unzip it, and double-click on 08-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 08-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-08.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1062,9 +1326,9 @@
   {
     "objectID": "assignment/08-exercise.html#tips",
     "href": "assignment/08-exercise.html#tips",
-    "title": "Comparisons",
+    "title": "Exercise 08: Variable Associations 1",
     "section": "Tips",
-    "text": "Tips\n\n\n\n\n\n\nTipRunning chunks\n\n\n\nRemember that you can run an entire chunk by clicking on the green play arrow in the top right corner of the chunk. You can also run lines of code line-by-line if you place your cursor on some R code and press ⌘ + enter (for macOS users) or ctrl + enter (for Windows users).\nMake sure you run each chunk sequentially. If you run a chunk in the middle of the document without running previous ones, it might not work, since previous chunks might do things that later chunks depend on.\n\n\n\n\n\n\n\n\nTipInserting chunks\n\n\n\nYou’ll need to insert some of your own code chunks. Rather than typing them by hand (that’s tedious!), use the “Insert” button at the top of the editing window, or press ⌥ + ⌘ + I on macOS, or ctrl + alt + I on Windows.",
+    "text": "Tips\n\n\n\n\n\n\nTipDownloading the source code\n\n\n\nYour rendered HTML file includes a code download button in the top-right corner. If you or a classmate ever needs to recover the original .qmd source code from a rendered HTML file, click that button to download it directly.\n\n\n\n\n\n\n\n\nTipFile organisation\n\n\n\nEach exercise has its own .Rproj file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.\n\n\n\n\n\n\nIndividual folders for each project on macOS\n\n\n\n\n \n\n\n\n\n\nIndividual folders for each project on Windows\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat to do if a code chunk won’t render\n\n\n\nSometimes a code chunk causes an error that stops the whole document from rendering. You have two options:\nOption 1 — Set eval: false in the chunk:\nAdd #| eval: false at the top of the problematic chunk. This tells R to display the code but not run it:\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code}\nsome_code_that_causes_an_error()\n```\n:::\nOption 2 — Set eval: false globally in the YAML:\nIf many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means no code will run when rendering:\n---\ntitle: \"My Exercise\"\nformat: html\nexecute:\n  eval: false\n---\nYou can then re-enable individual chunks by adding #| eval: true to specific chunks you want to run.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1074,9 +1338,9 @@
   {
     "objectID": "assignment/06-exercise.html",
     "href": "assignment/06-exercise.html",
-    "title": "Uncertainty",
+    "title": "Exercise 06: Manipulating Data 1",
     "section": "",
-    "text": "For this exercise you’ll practice visualizing uncertainty by making histograms, density plots, and raincloud plots. You’ll use data on state-level spending on children from 1997–2016. The data was collected by the Urban Institute from a variety of government sources. It was a #TidyTuesday dataset in September 2020.\nAs always, if you’re struggling, please use ouR Questions on Moodle and talk to me and your classmates! Don’t suffer in silence!",
+    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the lesson for this week.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1086,9 +1350,9 @@
   {
     "objectID": "assignment/06-exercise.html#instructions",
     "href": "assignment/06-exercise.html#instructions",
-    "title": "Uncertainty",
+    "title": "Exercise 06: Manipulating Data 1",
     "section": "Instructions",
-    "text": "Instructions\n\nOpen the project either on your computer or in Posit.cloud\n\n 06-exercise.zip: If you’re using R on your own computer, download this file, unzip it, and double click on the file named 06-exercise.Rproj\n Posit.cloud project: Use this link if you’re using Posit.cloud in your browser\n\nRename the Quarto file named your-name_exercise-6.qmd to something that matches your name and open it in RStudio.\nComplete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document or the example page—don’t try to write everything from scratch!\nWhen you’re all done, click on the “Render” button at the top of the editing window and create a Typst (pdf), PDF, or Word version of your document. Upload that file to Moodle. Do not upload a rendered HTML file (they don’t work on Moodle).",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 06-exercise.zip: Download this file, unzip it, and double-click on 06-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 06-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-06.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1098,9 +1362,9 @@
   {
     "objectID": "assignment/06-exercise.html#tips",
     "href": "assignment/06-exercise.html#tips",
-    "title": "Uncertainty",
+    "title": "Exercise 06: Manipulating Data 1",
     "section": "Tips",
-    "text": "Tips\n\n\n\n\n\n\nTipRunning chunks\n\n\n\nRemember that you can run an entire chunk by clicking on the green play arrow in the top right corner of the chunk. You can also run lines of code line-by-line if you place your cursor on some R code and press ⌘ + enter (for macOS users) or ctrl + enter (for Windows users).\nMake sure you run each chunk sequentially. If you run a chunk in the middle of the document without running previous ones, it might not work, since previous chunks might do things that later chunks depend on.\n\n\n\n\n\n\n\n\nTipInserting chunks\n\n\n\nYou’ll need to insert some of your own code chunks. Rather than typing them by hand (that’s tedious!), use the “Insert” button at the top of the editing window, or press ⌥ + ⌘ + I on macOS, or ctrl + alt + I on Windows.",
+    "text": "Tips\n\n\n\n\n\n\nTipDownloading the source code\n\n\n\nYour rendered HTML file includes a code download button in the top-right corner. If you or a classmate ever needs to recover the original .qmd source code from a rendered HTML file, click that button to download it directly.\n\n\n\n\n\n\n\n\nTipFile organisation\n\n\n\nEach exercise has its own .Rproj file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.\n\n\n\n\n\n\nIndividual folders for each project on macOS\n\n\n\n\n \n\n\n\n\n\nIndividual folders for each project on Windows\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat to do if a code chunk won’t render\n\n\n\nSometimes a code chunk causes an error that stops the whole document from rendering. You have two options:\nOption 1 — Set eval: false in the chunk:\nAdd #| eval: false at the top of the problematic chunk. This tells R to display the code but not run it:\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code}\nsome_code_that_causes_an_error()\n```\n:::\nOption 2 — Set eval: false globally in the YAML:\nIf many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means no code will run when rendering:\n---\ntitle: \"My Exercise\"\nformat: html\nexecute:\n  eval: false\n---\nYou can then re-enable individual chunks by adding #| eval: true to specific chunks you want to run.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1110,9 +1374,9 @@
   {
     "objectID": "assignment/04-exercise.html",
     "href": "assignment/04-exercise.html",
-    "title": "Amounts and proportions",
+    "title": "Exercise 04: Sampling and Probability",
     "section": "",
-    "text": "For this exercise you’ll practice grouping, summarizing, and plotting counts and proportions using data on animals admitted to shelters run by the City of Long Beach Animal Care Services—this is real government data!\nThere are 22 columns, and they’re documented here—make sure you consult that page!\nAnd as always, if you’re struggling, please use ouR Questions on Moodle and talk to me and your classmates! Don’t suffer in silence!",
+    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the lesson for this week.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1122,9 +1386,9 @@
   {
     "objectID": "assignment/04-exercise.html#instructions",
     "href": "assignment/04-exercise.html#instructions",
-    "title": "Amounts and proportions",
+    "title": "Exercise 04: Sampling and Probability",
     "section": "Instructions",
-    "text": "Instructions\n\nOpen the project either on your computer or in Posit.cloud\n\n 04-exercise.zip: If you’re using R on your own computer, download this file, unzip it, and double click on the file named 04-exercise.Rproj\n Posit.cloud project: Use this link if you’re using Posit.cloud in your browser\n\nRename the Quarto file named your-name_exercise-4.qmd to something that matches your name and open it in RStudio.\nComplete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document or the example page—don’t try to write everything from scratch!\nWhen you’re all done, click on the “Render” button at the top of the editing window and create a Typst (pdf), PDF, or Word version of your document. Upload that file to Moodle. Do not upload a rendered HTML file (they don’t work on Moodle).",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 04-exercise.zip: Download this file, unzip it, and double-click on 04-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 04-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-04.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1134,9 +1398,9 @@
   {
     "objectID": "assignment/04-exercise.html#tips",
     "href": "assignment/04-exercise.html#tips",
-    "title": "Amounts and proportions",
+    "title": "Exercise 04: Sampling and Probability",
     "section": "Tips",
-    "text": "Tips\n\n\n\n\n\n\nTipRunning chunks\n\n\n\nRemember that you can run an entire chunk by clicking on the green play arrow in the top right corner of the chunk. You can also run lines of code line-by-line if you place your cursor on some R code and press ⌘ + enter (for macOS users) or ctrl + enter (for Windows users).\nMake sure you run each chunk sequentially. If you run a chunk in the middle of the document without running previous ones, it might not work, since previous chunks might do things that later chunks depend on.\n\n\n\n\n\n\n\n\nTipInserting chunks\n\n\n\nYou’ll need to insert some of your own code chunks. Rather than typing them by hand (that’s tedious!), use the “Insert” button at the top of the editing window, or press ⌥ + ⌘ + I on macOS, or ctrl + alt + I on Windows.",
+    "text": "Tips\n\n\n\n\n\n\nTipDownloading the source code\n\n\n\nYour rendered HTML file includes a code download button in the top-right corner. If you or a classmate ever needs to recover the original .qmd source code from a rendered HTML file, click that button to download it directly.\n\n\n\n\n\n\n\n\nTipFile organisation\n\n\n\nEach exercise has its own .Rproj file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.\n\n\n\n\n\n\nIndividual folders for each project on macOS\n\n\n\n\n \n\n\n\n\n\nIndividual folders for each project on Windows\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat to do if a code chunk won’t render\n\n\n\nSometimes a code chunk causes an error that stops the whole document from rendering. You have two options:\nOption 1 — Set eval: false in the chunk:\nAdd #| eval: false at the top of the problematic chunk. This tells R to display the code but not run it:\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code}\nsome_code_that_causes_an_error()\n```\n:::\nOption 2 — Set eval: false globally in the YAML:\nIf many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means no code will run when rendering:\n---\ntitle: \"My Exercise\"\nformat: html\nexecute:\n  eval: false\n---\nYou can then re-enable individual chunks by adding #| eval: true to specific chunks you want to run.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1146,9 +1410,9 @@
   {
     "objectID": "assignment/02-exercise.html",
     "href": "assignment/02-exercise.html",
-    "title": "Graphic design",
+    "title": "Exercise 02: R Basics 1: Vectors, Data Frames, Lists",
     "section": "",
-    "text": "NoteQuarto is optional\n\n\n\nYou don’t need to worry about using Quarto for this assignment, unless you want to (I encourage you to try using Quarto though!). You can put your check-in and other writing in regular Word document and submit that.",
+    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the lesson for this week.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1156,11 +1420,11 @@
     ]
   },
   {
-    "objectID": "assignment/02-exercise.html#task-1-session-check-in",
-    "href": "assignment/02-exercise.html#task-1-session-check-in",
-    "title": "Graphic design",
-    "section": "Task 1: Session check-in",
-    "text": "Task 1: Session check-in\nWrite your session check-in for the session’s readings.\n\n\n\n\n\n\nTipCheck-in reminder\n\n\n\nRemember to do this for your check-in:\n\nThree interesting or exciting things:\n\nSomething\nSomething\nSomething\n\nThree muddy or unclear things:\n\nSomething\nSomething\nSomething",
+    "objectID": "assignment/02-exercise.html#instructions",
+    "href": "assignment/02-exercise.html#instructions",
+    "title": "Exercise 02: R Basics 1: Vectors, Data Frames, Lists",
+    "section": "Instructions",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 02-exercise.zip: Download this file, unzip it, and double-click on 02-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 02-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-02.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1168,23 +1432,11 @@
     ]
   },
   {
-    "objectID": "assignment/02-exercise.html#task-2-poster-redesign",
-    "href": "assignment/02-exercise.html#task-2-poster-redesign",
-    "title": "Graphic design",
-    "section": "Task 2: Poster redesign",
-    "text": "Task 2: Poster redesign\nHere’s a typical poster you might see in your workplace or on campus. (I found this on a table on the 6th floor in 55 Park Place near the economics department)\nDo the four tasks below while consulting this poster\n\n\n\n\n\n\n\n\n\n\nPart 1: Audience analysis\nIn 1–2 paragraphs, discuss these things:\n\nWho is the main audience for this poster?\nIn what setting will people see this? How much time will they have to interact with it?\nWhat kind of information do they need to know?\nWhat’s the most important piece of information they need?\nWhat should the audience do as a result of seeing this poster?\n\n\n\nPart 2: CRAP critique\nCritique the design of the poster. Go through the CRAP checklist and analyze how well or poorly the poster follows each of the principles. Discuss how the poster’s adherence to (or non-adherence to) these principles influences its effectiveness.\n\n\nPart 3: CRAP redesign\nBased on your audience analysis and critique of the original poster, redesign this poster. Use whatever program you want—even PowerPoint if you’re most comfortable with that, though it’ll probably be easier to use something like Canva or Adobe Illustrator. If you use Canva, don’t use any of the built-in templates—start from scratch with a blank page.\nTo save you from retyping everything, I’ve included all the text, the logo, and the QR code in the zip file below:\n\n 02-exercise.zip\n\n\n\n\n\n\n\nImportantDon’t use everything!\n\n\n\nYou don’t have to use every piece of text and every image from the original poster. You probably shouldn’t! Make this new version fit with your audience analysis while following the CRAP graphic design principles.\n\n\n\n\nPart 4: Redesign critique\nIn 1–2 paragraphs, critique your new design using the CRAP checklist. How did you use contrast, repetition, alignment, and proximity in your improved design? How does this new version meet the audience’s needs?",
-    "crumbs": [
-      "Assignments",
-      "Exercises",
-      "2: R basics 1"
-    ]
-  },
-  {
-    "objectID": "assignment/02-exercise.html#turning-everything-in",
-    "href": "assignment/02-exercise.html#turning-everything-in",
-    "title": "Graphic design",
-    "section": "Turning everything in",
-    "text": "Turning everything in\nOn Moodle, submit a PDF of your new poster, along with a PDF of your check-in and all the other writing tasks.\n\n\n\n\n\n\nTipShare!\n\n\n\nAs part of building class community, consider showing off your redesigned poster in the #bragging channel on Discord!",
+    "objectID": "assignment/02-exercise.html#tips",
+    "href": "assignment/02-exercise.html#tips",
+    "title": "Exercise 02: R Basics 1: Vectors, Data Frames, Lists",
+    "section": "Tips",
+    "text": "Tips\n\n\n\n\n\n\nTipDownloading the source code\n\n\n\nYour rendered HTML file includes a code download button in the top-right corner. If you or a classmate ever needs to recover the original .qmd source code from a rendered HTML file, click that button to download it directly.\n\n\n\n\n\n\n\n\nTipFile organisation\n\n\n\nEach exercise has its own .Rproj file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.\n\n\n\n\n\n\nIndividual folders for each project on macOS\n\n\n\n\n \n\n\n\n\n\nIndividual folders for each project on Windows\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat to do if a code chunk won’t render\n\n\n\nSometimes a code chunk causes an error that stops the whole document from rendering. You have two options:\nOption 1 — Set eval: false in the chunk:\nAdd #| eval: false at the top of the problematic chunk. This tells R to display the code but not run it:\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code}\nsome_code_that_causes_an_error()\n```\n:::\nOption 2 — Set eval: false globally in the YAML:\nIf many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means no code will run when rendering:\n---\ntitle: \"My Exercise\"\nformat: html\nexecute:\n  eval: false\n---\nYou can then re-enable individual chunks by adding #| eval: true to specific chunks you want to run.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1230,9 +1482,9 @@
   {
     "objectID": "assignment/03-exercise.html",
     "href": "assignment/03-exercise.html",
-    "title": "Mapping data to graphics",
+    "title": "Exercise 03: R Basics 2: Data Visualisation",
     "section": "",
-    "text": "For this exercise you’ll practice grouping, summarizing, and plotting data using the counts of words spoken in the Lord of the Rings trilogy across movie, sex, and fictional species.\nAnd as always, if you’re struggling, please use ouR Questions on Moodle and talk to me and your classmates! Don’t suffer in silence!",
+    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the lesson for this week.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1242,9 +1494,9 @@
   {
     "objectID": "assignment/03-exercise.html#instructions",
     "href": "assignment/03-exercise.html#instructions",
-    "title": "Mapping data to graphics",
+    "title": "Exercise 03: R Basics 2: Data Visualisation",
     "section": "Instructions",
-    "text": "Instructions\n\nOpen the project either on your computer or in Posit.cloud\n\n 03-exercise.zip: If you’re using R on your own computer, download this file, unzip it, and double click on the file named 03-exercise.Rproj\n Posit.cloud project: Use this link if you’re using Posit.cloud in your browser\n\nRename the Quarto file named your-name_exercise-3.qmd to something that matches your name and open it in RStudio.\nComplete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document or the example page—don’t try to write everything from scratch!\nWhen you’re all done, click on the “Render” button at the top of the editing window and create a Typst (pdf), PDF, or Word version of your document. Upload that file to Moodle. Do not upload a rendered HTML file (they don’t work on Moodle).",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 03-exercise.zip: Download this file, unzip it, and double-click on 03-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 03-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-03.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1254,9 +1506,9 @@
   {
     "objectID": "assignment/03-exercise.html#tips",
     "href": "assignment/03-exercise.html#tips",
-    "title": "Mapping data to graphics",
+    "title": "Exercise 03: R Basics 2: Data Visualisation",
     "section": "Tips",
-    "text": "Tips\n\n\n\n\n\n\nTipRunning chunks\n\n\n\nRemember that you can run an entire chunk by clicking on the green play arrow in the top right corner of the chunk. You can also run lines of code line-by-line if you place your cursor on some R code and press ⌘ + enter (for macOS users) or ctrl + enter (for Windows users).\nMake sure you run each chunk sequentially. If you run a chunk in the middle of the document without running previous ones, it might not work, since previous chunks might do things that later chunks depend on.\n\n\n\n\n\n\n\n\nTipInserting chunks\n\n\n\nYou’ll need to insert some of your own code chunks. Rather than typing them by hand (that’s tedious!), use the “Insert” button at the top of the editing window, or press ⌥ + ⌘ + I on macOS, or ctrl + alt + I on Windows.",
+    "text": "Tips\n\n\n\n\n\n\nTipDownloading the source code\n\n\n\nYour rendered HTML file includes a code download button in the top-right corner. If you or a classmate ever needs to recover the original .qmd source code from a rendered HTML file, click that button to download it directly.\n\n\n\n\n\n\n\n\nTipFile organisation\n\n\n\nEach exercise has its own .Rproj file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.\n\n\n\n\n\n\nIndividual folders for each project on macOS\n\n\n\n\n \n\n\n\n\n\nIndividual folders for each project on Windows\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat to do if a code chunk won’t render\n\n\n\nSometimes a code chunk causes an error that stops the whole document from rendering. You have two options:\nOption 1 — Set eval: false in the chunk:\nAdd #| eval: false at the top of the problematic chunk. This tells R to display the code but not run it:\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code}\nsome_code_that_causes_an_error()\n```\n:::\nOption 2 — Set eval: false globally in the YAML:\nIf many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means no code will run when rendering:\n---\ntitle: \"My Exercise\"\nformat: html\nexecute:\n  eval: false\n---\nYou can then re-enable individual chunks by adding #| eval: true to specific chunks you want to run.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1266,9 +1518,9 @@
   {
     "objectID": "assignment/05-exercise.html",
     "href": "assignment/05-exercise.html",
-    "title": "Themes",
+    "title": "Exercise 05: Visualising Probability",
     "section": "",
-    "text": "For this exercise you’ll practice using labs() and theme() to make your plots look nicer. You’ll use data about cheese around the world, with data from cheese.com that was used for #TidyTuesday in June 2024.\nThere are 22 columns, and they’re documented here—make sure you consult that page!\nAnd as always, if you’re struggling, please use ouR Questions on Moodle and talk to me and your classmates! Don’t suffer in silence!",
+    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the lesson for this week.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1278,9 +1530,9 @@
   {
     "objectID": "assignment/05-exercise.html#instructions",
     "href": "assignment/05-exercise.html#instructions",
-    "title": "Themes",
+    "title": "Exercise 05: Visualising Probability",
     "section": "Instructions",
-    "text": "Instructions\n\nOpen the project either on your computer or in Posit.cloud\n\n 05-exercise.zip: If you’re using R on your own computer, download this file, unzip it, and double click on the file named 05-exercise.Rproj\n Posit.cloud project: Use this link if you’re using Posit.cloud in your browser\n\nRename the Quarto file named your-name_exercise-5.qmd to something that matches your name and open it in RStudio.\nComplete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document or the example page—don’t try to write everything from scratch!\nWhen you’re all done, click on the “Render” button at the top of the editing window and create a Typst (pdf), PDF, or Word version of your document. Upload that file to Moodle. Do not upload a rendered HTML file (they don’t work on Moodle).",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 05-exercise.zip: Download this file, unzip it, and double-click on 05-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 05-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-05.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1290,9 +1542,9 @@
   {
     "objectID": "assignment/05-exercise.html#tips",
     "href": "assignment/05-exercise.html#tips",
-    "title": "Themes",
+    "title": "Exercise 05: Visualising Probability",
     "section": "Tips",
-    "text": "Tips\n\n\n\n\n\n\nTipRunning chunks\n\n\n\nRemember that you can run an entire chunk by clicking on the green play arrow in the top right corner of the chunk. You can also run lines of code line-by-line if you place your cursor on some R code and press ⌘ + enter (for macOS users) or ctrl + enter (for Windows users).\nMake sure you run each chunk sequentially. If you run a chunk in the middle of the document without running previous ones, it might not work, since previous chunks might do things that later chunks depend on.\n\n\n\n\n\n\n\n\nTipInserting chunks\n\n\n\nYou’ll need to insert some of your own code chunks. Rather than typing them by hand (that’s tedious!), use the “Insert” button at the top of the editing window, or press ⌥ + ⌘ + I on macOS, or ctrl + alt + I on Windows.",
+    "text": "Tips\n\n\n\n\n\n\nTipDownloading the source code\n\n\n\nYour rendered HTML file includes a code download button in the top-right corner. If you or a classmate ever needs to recover the original .qmd source code from a rendered HTML file, click that button to download it directly.\n\n\n\n\n\n\n\n\nTipFile organisation\n\n\n\nEach exercise has its own .Rproj file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.\n\n\n\n\n\n\nIndividual folders for each project on macOS\n\n\n\n\n \n\n\n\n\n\nIndividual folders for each project on Windows\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat to do if a code chunk won’t render\n\n\n\nSometimes a code chunk causes an error that stops the whole document from rendering. You have two options:\nOption 1 — Set eval: false in the chunk:\nAdd #| eval: false at the top of the problematic chunk. This tells R to display the code but not run it:\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code}\nsome_code_that_causes_an_error()\n```\n:::\nOption 2 — Set eval: false globally in the YAML:\nIf many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means no code will run when rendering:\n---\ntitle: \"My Exercise\"\nformat: html\nexecute:\n  eval: false\n---\nYou can then re-enable individual chunks by adding #| eval: true to specific chunks you want to run.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1302,9 +1554,9 @@
   {
     "objectID": "assignment/07-exercise.html",
     "href": "assignment/07-exercise.html",
-    "title": "Relationships",
+    "title": "Exercise 07: Manipulating Data 2",
     "section": "",
-    "text": "For this exercise you’ll practice visualizing relationships by making scatterplots and visualizing a regression model. You’ll use data from https://www.basketball-reference.com/wnba/players/ about WNBA basketball players from the 2019 season. The data was originally collected for the book Bayes Rules! An Introduction to Applied Bayesian Modeling and was included in the {bayesrules} package as basketball.\nAs always, if you’re struggling, please use ouR Questions on Moodle and talk to me and your classmates! Don’t suffer in silence!",
+    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the lesson for this week.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1314,9 +1566,9 @@
   {
     "objectID": "assignment/07-exercise.html#instructions",
     "href": "assignment/07-exercise.html#instructions",
-    "title": "Relationships",
+    "title": "Exercise 07: Manipulating Data 2",
     "section": "Instructions",
-    "text": "Instructions\n\nOpen the project either on your computer or in Posit.cloud\n\n 07-exercise.zip: If you’re using R on your own computer, download this file, unzip it, and double click on the file named 07-exercise.Rproj\n Posit.cloud project: Use this link if you’re using Posit.cloud in your browser\n\nRename the Quarto file named your-name_exercise-7.qmd to something that matches your name and open it in RStudio.\nComplete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document or the example page—don’t try to write everything from scratch!\nWhen you’re all done, click on the “Render” button at the top of the editing window and create a Typst (pdf), PDF, or Word version of your document. Upload that file to Moodle. Do not upload a rendered HTML file (they don’t work on Moodle).",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 07-exercise.zip: Download this file, unzip it, and double-click on 07-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 07-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-07.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1326,9 +1578,9 @@
   {
     "objectID": "assignment/07-exercise.html#tips",
     "href": "assignment/07-exercise.html#tips",
-    "title": "Relationships",
+    "title": "Exercise 07: Manipulating Data 2",
     "section": "Tips",
-    "text": "Tips\n\n\n\n\n\n\nTipRunning chunks\n\n\n\nRemember that you can run an entire chunk by clicking on the green play arrow in the top right corner of the chunk. You can also run lines of code line-by-line if you place your cursor on some R code and press ⌘ + enter (for macOS users) or ctrl + enter (for Windows users).\nMake sure you run each chunk sequentially. If you run a chunk in the middle of the document without running previous ones, it might not work, since previous chunks might do things that later chunks depend on.\n\n\n\n\n\n\n\n\nTipInserting chunks\n\n\n\nYou’ll need to insert some of your own code chunks. Rather than typing them by hand (that’s tedious!), use the “Insert” button at the top of the editing window, or press ⌥ + ⌘ + I on macOS, or ctrl + alt + I on Windows.",
+    "text": "Tips\n\n\n\n\n\n\nTipDownloading the source code\n\n\n\nYour rendered HTML file includes a code download button in the top-right corner. If you or a classmate ever needs to recover the original .qmd source code from a rendered HTML file, click that button to download it directly.\n\n\n\n\n\n\n\n\nTipFile organisation\n\n\n\nEach exercise has its own .Rproj file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.\n\n\n\n\n\n\nIndividual folders for each project on macOS\n\n\n\n\n \n\n\n\n\n\nIndividual folders for each project on Windows\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat to do if a code chunk won’t render\n\n\n\nSometimes a code chunk causes an error that stops the whole document from rendering. You have two options:\nOption 1 — Set eval: false in the chunk:\nAdd #| eval: false at the top of the problematic chunk. This tells R to display the code but not run it:\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code}\nsome_code_that_causes_an_error()\n```\n:::\nOption 2 — Set eval: false globally in the YAML:\nIf many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means no code will run when rendering:\n---\ntitle: \"My Exercise\"\nformat: html\nexecute:\n  eval: false\n---\nYou can then re-enable individual chunks by adding #| eval: true to specific chunks you want to run.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1338,9 +1590,9 @@
   {
     "objectID": "assignment/09-exercise.html",
     "href": "assignment/09-exercise.html",
-    "title": "Annotations",
+    "title": "Exercise 09: Variable Associations 2",
     "section": "",
-    "text": "For this exercise you’ll practice adding annotations to plots. You’ll use brand new data about cars for sale in Qatar from the {qatarcars} package.\nAs always, if you’re struggling, please use ouR Questions on Moodle and talk to me and your classmates! Don’t suffer in silence!",
+    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the lesson for this week.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1350,9 +1602,9 @@
   {
     "objectID": "assignment/09-exercise.html#instructions",
     "href": "assignment/09-exercise.html#instructions",
-    "title": "Annotations",
+    "title": "Exercise 09: Variable Associations 2",
     "section": "Instructions",
-    "text": "Instructions\n\nOpen the project either on your computer or in Posit.cloud\n\n 09-exercise.zip: If you’re using R on your own computer, download this file, unzip it, and double click on the file named 09-exercise.Rproj\n Posit.cloud project: Use this link if you’re using Posit.cloud in your browser\n\nRename the Quarto file named your-name_exercise-9.qmd to something that matches your name and open it in RStudio.\nComplete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document or the example page—don’t try to write everything from scratch!\nWhen you’re all done, click on the “Render” button at the top of the editing window and create a Typst (pdf), PDF, or Word version of your document. Upload that file to Moodle. Do not upload a rendered HTML file (they don’t work on Moodle).",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 09-exercise.zip: Download this file, unzip it, and double-click on 09-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 09-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-09.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1362,9 +1614,9 @@
   {
     "objectID": "assignment/09-exercise.html#tips",
     "href": "assignment/09-exercise.html#tips",
-    "title": "Annotations",
+    "title": "Exercise 09: Variable Associations 2",
     "section": "Tips",
-    "text": "Tips\n\n\n\n\n\n\nTipRunning chunks\n\n\n\nRemember that you can run an entire chunk by clicking on the green play arrow in the top right corner of the chunk. You can also run lines of code line-by-line if you place your cursor on some R code and press ⌘ + enter (for macOS users) or ctrl + enter (for Windows users).\nMake sure you run each chunk sequentially. If you run a chunk in the middle of the document without running previous ones, it might not work, since previous chunks might do things that later chunks depend on.\n\n\n\n\n\n\n\n\nTipInserting chunks\n\n\n\nYou’ll need to insert some of your own code chunks. Rather than typing them by hand (that’s tedious!), use the “Insert” button at the top of the editing window, or press ⌥ + ⌘ + I on macOS, or ctrl + alt + I on Windows.",
+    "text": "Tips\n\n\n\n\n\n\nTipDownloading the source code\n\n\n\nYour rendered HTML file includes a code download button in the top-right corner. If you or a classmate ever needs to recover the original .qmd source code from a rendered HTML file, click that button to download it directly.\n\n\n\n\n\n\n\n\nTipFile organisation\n\n\n\nEach exercise has its own .Rproj file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.\n\n\n\n\n\n\nIndividual folders for each project on macOS\n\n\n\n\n \n\n\n\n\n\nIndividual folders for each project on Windows\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat to do if a code chunk won’t render\n\n\n\nSometimes a code chunk causes an error that stops the whole document from rendering. You have two options:\nOption 1 — Set eval: false in the chunk:\nAdd #| eval: false at the top of the problematic chunk. This tells R to display the code but not run it:\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code}\nsome_code_that_causes_an_error()\n```\n:::\nOption 2 — Set eval: false globally in the YAML:\nIf many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means no code will run when rendering:\n---\ntitle: \"My Exercise\"\nformat: html\nexecute:\n  eval: false\n---\nYou can then re-enable individual chunks by adding #| eval: true to specific chunks you want to run.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1374,9 +1626,9 @@
   {
     "objectID": "assignment/11-exercise.html",
     "href": "assignment/11-exercise.html",
-    "title": "Interactivity",
+    "title": "Exercise 11: Regression Modelling 2",
     "section": "",
-    "text": "WarningTHIS IS DIFFERENT!!!\n\n\n\nThis exercise is different from all your past work! That’s on purpose! Only HTML output can handle interactivity and dashboards—PDFs and Word files are static document formats that don’t allow Javascript.\nFor this exercise you’ll get to practice making interactive plots and dashboards! You’ll do it by creating a Quarto website and publishing it on the internet. That might sound intimidating and hard, but don’t worry! Thanks to Quarto (and the starter code and detailed instructions I provide), it should be fairly straightforward.\nComplete instructions for the different tasks are at this website. Use the top navigation bar there to look at the different pages:",
+    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the lesson for this week.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1386,9 +1638,21 @@
   {
     "objectID": "assignment/11-exercise.html#instructions",
     "href": "assignment/11-exercise.html#instructions",
-    "title": "Interactivity",
+    "title": "Exercise 11: Regression Modelling 2",
     "section": "Instructions",
-    "text": "Instructions\n\nOpen the project either on your computer or in Posit.cloud\n\n 11-exercise.zip: If you’re using R on your own computer, download this file, unzip it, and double click on the file named 11-exercise.Rproj\n Posit.cloud project: Use this link if you’re using Posit.cloud in your browser\n\nFollow the instructions here and complete the different tasks in the different .qmd files. Check the data description to learn more about what all the columns mean.\nWhen you’re all done, follow the instructions about publishing the site. Do not try to render as PDF or Word. In Moodle, paste the URL of your website into the submission form.",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 11-exercise.zip: Download this file, unzip it, and double-click on 11-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 11-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-11.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "crumbs": [
+      "Assignments",
+      "Exercises",
+      "11: Regression modelling 2"
+    ]
+  },
+  {
+    "objectID": "assignment/11-exercise.html#tips",
+    "href": "assignment/11-exercise.html#tips",
+    "title": "Exercise 11: Regression Modelling 2",
+    "section": "Tips",
+    "text": "Tips\n\n\n\n\n\n\nTipDownloading the source code\n\n\n\nYour rendered HTML file includes a code download button in the top-right corner. If you or a classmate ever needs to recover the original .qmd source code from a rendered HTML file, click that button to download it directly.\n\n\n\n\n\n\n\n\nTipFile organisation\n\n\n\nEach exercise has its own .Rproj file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.\n\n\n\n\n\n\nIndividual folders for each project on macOS\n\n\n\n\n \n\n\n\n\n\nIndividual folders for each project on Windows\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat to do if a code chunk won’t render\n\n\n\nSometimes a code chunk causes an error that stops the whole document from rendering. You have two options:\nOption 1 — Set eval: false in the chunk:\nAdd #| eval: false at the top of the problematic chunk. This tells R to display the code but not run it:\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code}\nsome_code_that_causes_an_error()\n```\n:::\nOption 2 — Set eval: false globally in the YAML:\nIf many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means no code will run when rendering:\n---\ntitle: \"My Exercise\"\nformat: html\nexecute:\n  eval: false\n---\nYou can then re-enable individual chunks by adding #| eval: true to specific chunks you want to run.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1398,9 +1662,9 @@
   {
     "objectID": "assignment/13-exercise.html",
     "href": "assignment/13-exercise.html",
-    "title": "Time",
+    "title": "Exercise 13: Data Project Completion and Course Review",
     "section": "",
-    "text": "The United States National Oceanic and Atmospheric Administration (NOAA) runs the Mauna Loa Observatory (MLO) in Hawai’i, which has taken regular daily measurements of atmospheric parameters since 1958, including levels of carbon dioxide (CO2) emissions, measured in parts per million (ppm). In 1958, CO2 levels averaged around 320 ppm; in 2025, they averaged 425 ppm—a 33% increase in emissions.\nIn this exercise, you’ll use data from the Mauna Loa Observatory to track annual and seasonal trends in CO2 over time. I’ve provided you with three datasets that use different measurement frequencies.1\nAs always, if you’re struggling, please use ouR Questions on Moodle and talk to me and your classmates! Don’t suffer in silence!",
+    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the lesson for this week.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1410,9 +1674,9 @@
   {
     "objectID": "assignment/13-exercise.html#instructions",
     "href": "assignment/13-exercise.html#instructions",
-    "title": "Time",
+    "title": "Exercise 13: Data Project Completion and Course Review",
     "section": "Instructions",
-    "text": "Instructions\n\nOpen the project either on your computer or in Posit.cloud\n\n 13-exercise.zip: If you’re using R on your own computer, download this file, unzip it, and double click on the file named 13-exercise.Rproj\n Posit.cloud project: Use this link if you’re using Posit.cloud in your browser\n\nRename the Quarto file named your-name_exercise-13.qmd to something that matches your name and open it in RStudio.\nComplete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document or the example page—don’t try to write everything from scratch!\nWhen you’re all done, click on the “Render” button at the top of the editing window and create a Typst (pdf), PDF, or Word version of your document. Upload that file to Moodle. Do not upload a rendered HTML file (they don’t work on Moodle).",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 13-exercise.zip: Download this file, unzip it, and double-click on 13-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 13-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-13.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1422,9 +1686,9 @@
   {
     "objectID": "assignment/13-exercise.html#tips",
     "href": "assignment/13-exercise.html#tips",
-    "title": "Time",
+    "title": "Exercise 13: Data Project Completion and Course Review",
     "section": "Tips",
-    "text": "Tips\n\n\n\n\n\n\nTipRunning chunks\n\n\n\nRemember that you can run an entire chunk by clicking on the green play arrow in the top right corner of the chunk. You can also run lines of code line-by-line if you place your cursor on some R code and press ⌘ + enter (for macOS users) or ctrl + enter (for Windows users).\nMake sure you run each chunk sequentially. If you run a chunk in the middle of the document without running previous ones, it might not work, since previous chunks might do things that later chunks depend on.\n\n\n\n\n\n\n\n\nTipInserting chunks\n\n\n\nYou’ll need to insert some of your own code chunks. Rather than typing them by hand (that’s tedious!), use the “Insert” button at the top of the editing window, or press ⌥ + ⌘ + I on macOS, or ctrl + alt + I on Windows.",
+    "text": "Tips\n\n\n\n\n\n\nTipDownloading the source code\n\n\n\nYour rendered HTML file includes a code download button in the top-right corner. If you or a classmate ever needs to recover the original .qmd source code from a rendered HTML file, click that button to download it directly.\n\n\n\n\n\n\n\n\nTipFile organisation\n\n\n\nEach exercise has its own .Rproj file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.\n\n\n\n\n\n\nIndividual folders for each project on macOS\n\n\n\n\n \n\n\n\n\n\nIndividual folders for each project on Windows\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipWhat to do if a code chunk won’t render\n\n\n\nSometimes a code chunk causes an error that stops the whole document from rendering. You have two options:\nOption 1 — Set eval: false in the chunk:\nAdd #| eval: false at the top of the problematic chunk. This tells R to display the code but not run it:\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code}\nsome_code_that_causes_an_error()\n```\n:::\nOption 2 — Set eval: false globally in the YAML:\nIf many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means no code will run when rendering:\n---\ntitle: \"My Exercise\"\nformat: html\nexecute:\n  eval: false\n---\nYou can then re-enable individual chunks by adding #| eval: true to specific chunks you want to run.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1432,15 +1696,351 @@
     ]
   },
   {
-    "objectID": "assignment/13-exercise.html#footnotes",
-    "href": "assignment/13-exercise.html#footnotes",
-    "title": "Time",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nIf you’re interested, you can see the full data cleaning code here. The data is already pretty well structured and clean—all I really do is rename some columns and create some columns for dates.↩︎",
+    "objectID": "content/01-content.html",
+    "href": "content/01-content.html",
+    "title": "Course Introduction: Data Types, R and RStudio",
+    "section": "",
+    "text": "This week we get our first hands-on experience with R and RStudio. We will look at the different types of data you will encounter in data science, set up our working environment, and take our first steps with R as a tool for data analysis.",
     "crumbs": [
-      "Assignments",
-      "Exercises",
-      "13: Data project completion"
+      "Content",
+      "Foundations",
+      "Course Introduction: Data Types, R and RStudio"
+    ]
+  },
+  {
+    "objectID": "content/01-content.html#overview",
+    "href": "content/01-content.html#overview",
+    "title": "Course Introduction: Data Types, R and RStudio",
+    "section": "",
+    "text": "This week we get our first hands-on experience with R and RStudio. We will look at the different types of data you will encounter in data science, set up our working environment, and take our first steps with R as a tool for data analysis.",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "Course Introduction: Data Types, R and RStudio"
+    ]
+  },
+  {
+    "objectID": "content/01-content.html#readings",
+    "href": "content/01-content.html#readings",
+    "title": "Course Introduction: Data Types, R and RStudio",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\nComplete the following chapters from R for Non-Programmers before the lesson this week:\n\n\n\nChapter 3: Setting up R and RStudio\nChapter 4: The RStudio Interface\nChapter 5: R Basics: The very fundamentals",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "Course Introduction: Data Types, R and RStudio"
+    ]
+  },
+  {
+    "objectID": "content/01-content.html#slides",
+    "href": "content/01-content.html#slides",
+    "title": "Course Introduction: Data Types, R and RStudio",
+    "section": "Slides",
+    "text": "Slides",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "Course Introduction: Data Types, R and RStudio"
+    ]
+  },
+  {
+    "objectID": "content/01-content.html#code-demo-un-votes",
+    "href": "content/01-content.html#code-demo-un-votes",
+    "title": "Course Introduction: Data Types, R and RStudio",
+    "section": "Code demo: UN Votes",
+    "text": "Code demo: UN Votes\nThis is a taste of what R can do. The demo below steps through building a ggplot visualisation of UN General Assembly voting patterns layer by layer — each slide adds one line of code and shows you the result.\n Open the interactive flipbook\nDon’t worry about understanding every line yet — just enjoy seeing what R can do. When you are ready to run it yourself, download the R script below and try tweaking the countries or issues.\n## One step install and load ----\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(tidyverse, scales, unvotes)\n\n## Wrangle the data ----\nus_uk_turkey_votes &lt;- un_votes |&gt;\n  filter(country %in% c(\"United States\", \"United Kingdom\", \"Turkey\")) |&gt;\n  inner_join(un_roll_calls, by = \"rcid\", relationship = \"many-to-many\") |&gt;\n  inner_join(un_roll_call_issues, by = \"rcid\", relationship = \"many-to-many\") |&gt;\n  mutate(year = year(date)) |&gt;\n  group_by(country, year, issue) |&gt;\n  summarize(\n    percent_yes = mean(as.character(vote) == \"yes\"),\n    .groups = \"drop\"\n  )\n\n## Plot the result ----\nus_uk_turkey_votes |&gt;\n  ggplot() +\n  aes(x = year, y = percent_yes, color = country) +\n  geom_point(alpha = 0.4) +\n  geom_smooth(method = \"loess\", se = FALSE) +\n  facet_wrap(~issue) +\n  labs(\n    title = \"Percentage of 'Yes' votes in the UN General Assembly\",\n    subtitle = \"1946 to 2015\",\n    y = \"% Yes\",\n    x = \"Year\",\n    color = \"Country\"\n  ) +\n  scale_y_continuous(labels = label_percent())\n Download the R script",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "Course Introduction: Data Types, R and RStudio"
+    ]
+  },
+  {
+    "objectID": "content/03-content.html",
+    "href": "content/03-content.html",
+    "title": "R Basics 2: Data Visualisation",
+    "section": "",
+    "text": "This week we learn to communicate data visually using ggplot2. We cover the grammar of graphics — the underlying framework that makes ggplot2 so powerful and consistent — and practice creating scatter plots, bar charts, and histograms.",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "R Basics 2: Data Visualisation"
+    ]
+  },
+  {
+    "objectID": "content/03-content.html#overview",
+    "href": "content/03-content.html#overview",
+    "title": "R Basics 2: Data Visualisation",
+    "section": "",
+    "text": "This week we learn to communicate data visually using ggplot2. We cover the grammar of graphics — the underlying framework that makes ggplot2 so powerful and consistent — and practice creating scatter plots, bar charts, and histograms.",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "R Basics 2: Data Visualisation"
+    ]
+  },
+  {
+    "objectID": "content/03-content.html#readings",
+    "href": "content/03-content.html#readings",
+    "title": "R Basics 2: Data Visualisation",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\nComplete the following chapter(s) from R for Non-Programmers before the lesson this week:\n\n\n\nChapter 8: Descriptive Statistics",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "R Basics 2: Data Visualisation"
+    ]
+  },
+  {
+    "objectID": "content/03-content.html#slides",
+    "href": "content/03-content.html#slides",
+    "title": "R Basics 2: Data Visualisation",
+    "section": "Slides",
+    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here. If you would like to download them, use the link below.",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "R Basics 2: Data Visualisation"
+    ]
+  },
+  {
+    "objectID": "content/05-content.html",
+    "href": "content/05-content.html",
+    "title": "Visualising Probability",
+    "section": "",
+    "text": "This week we visualise probability distributions and learn how to compare groups statistically. We look at the normal distribution, confidence intervals, and how to use density plots and boxplots to explore whether differences between groups are meaningful.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Visualising Probability"
+    ]
+  },
+  {
+    "objectID": "content/05-content.html#overview",
+    "href": "content/05-content.html#overview",
+    "title": "Visualising Probability",
+    "section": "",
+    "text": "This week we visualise probability distributions and learn how to compare groups statistically. We look at the normal distribution, confidence intervals, and how to use density plots and boxplots to explore whether differences between groups are meaningful.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Visualising Probability"
+    ]
+  },
+  {
+    "objectID": "content/05-content.html#readings",
+    "href": "content/05-content.html#readings",
+    "title": "Visualising Probability",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\nComplete the following chapter(s) from R for Non-Programmers before the lesson this week:\n\n\n\nChapter 9: Sources of bias (cont.)",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Visualising Probability"
+    ]
+  },
+  {
+    "objectID": "content/05-content.html#slides",
+    "href": "content/05-content.html#slides",
+    "title": "Visualising Probability",
+    "section": "Slides",
+    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here. If you would like to download them, use the link below.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Visualising Probability"
+    ]
+  },
+  {
+    "objectID": "content/07-content.html",
+    "href": "content/07-content.html",
+    "title": "Manipulating Data 2",
+    "section": "",
+    "text": "We deepen our data wrangling skills with more advanced dplyr operations — joins, grouped summaries, and chained pipelines. We also look at Simpson’s paradox as a cautionary tale about how aggregation can mislead us.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Manipulating Data 2"
+    ]
+  },
+  {
+    "objectID": "content/07-content.html#overview",
+    "href": "content/07-content.html#overview",
+    "title": "Manipulating Data 2",
+    "section": "",
+    "text": "We deepen our data wrangling skills with more advanced dplyr operations — joins, grouped summaries, and chained pipelines. We also look at Simpson’s paradox as a cautionary tale about how aggregation can mislead us.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Manipulating Data 2"
+    ]
+  },
+  {
+    "objectID": "content/07-content.html#readings",
+    "href": "content/07-content.html#readings",
+    "title": "Manipulating Data 2",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\nComplete the following chapter(s) from R for Non-Programmers before the lesson this week:\n\n\n\nChapter 7: Data Wrangling (cont.)",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Manipulating Data 2"
+    ]
+  },
+  {
+    "objectID": "content/07-content.html#slides",
+    "href": "content/07-content.html#slides",
+    "title": "Manipulating Data 2",
+    "section": "Slides",
+    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here. If you would like to download them, use the link below.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Manipulating Data 2"
+    ]
+  },
+  {
+    "objectID": "content/09-content.html",
+    "href": "content/09-content.html",
+    "title": "Variable Associations 2",
+    "section": "",
+    "text": "We extend our toolkit for comparing groups, covering t-tests, chi-square tests, and ANOVA. We also look at how these classical tests connect to the linear regression framework, unifying much of what we have learned so far.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Variable Associations 2"
+    ]
+  },
+  {
+    "objectID": "content/09-content.html#overview",
+    "href": "content/09-content.html#overview",
+    "title": "Variable Associations 2",
+    "section": "",
+    "text": "We extend our toolkit for comparing groups, covering t-tests, chi-square tests, and ANOVA. We also look at how these classical tests connect to the linear regression framework, unifying much of what we have learned so far.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Variable Associations 2"
+    ]
+  },
+  {
+    "objectID": "content/09-content.html#readings",
+    "href": "content/09-content.html#readings",
+    "title": "Variable Associations 2",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\nComplete the following chapter(s) from R for Non-Programmers before the lesson this week:\n\n\n\nChapter 11: Comparing groups",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Variable Associations 2"
+    ]
+  },
+  {
+    "objectID": "content/09-content.html#slides",
+    "href": "content/09-content.html#slides",
+    "title": "Variable Associations 2",
+    "section": "Slides",
+    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here. If you would like to download them, use the link below.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Variable Associations 2"
+    ]
+  },
+  {
+    "objectID": "content/11-content.html",
+    "href": "content/11-content.html",
+    "title": "Regression Modelling 2",
+    "section": "",
+    "text": "We extend regression to multiple predictors — both numerical and categorical — and explore interaction effects. We also get a first look at logistic regression for predicting categorical outcomes.",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Regression Modelling 2"
+    ]
+  },
+  {
+    "objectID": "content/11-content.html#overview",
+    "href": "content/11-content.html#overview",
+    "title": "Regression Modelling 2",
+    "section": "",
+    "text": "We extend regression to multiple predictors — both numerical and categorical — and explore interaction effects. We also get a first look at logistic regression for predicting categorical outcomes.",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Regression Modelling 2"
+    ]
+  },
+  {
+    "objectID": "content/11-content.html#readings",
+    "href": "content/11-content.html#readings",
+    "title": "Regression Modelling 2",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\nComplete the following chapter(s) from R for Non-Programmers before the lesson this week:\n\n\n\nChapter 13: Regression (cont.)",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Regression Modelling 2"
+    ]
+  },
+  {
+    "objectID": "content/11-content.html#slides",
+    "href": "content/11-content.html#slides",
+    "title": "Regression Modelling 2",
+    "section": "Slides",
+    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here. If you would like to download them, use the link below.",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Regression Modelling 2"
+    ]
+  },
+  {
+    "objectID": "content/13-content.html",
+    "href": "content/13-content.html",
+    "title": "Data Project Completion and Course Review",
+    "section": "",
+    "text": "The final session is dedicated to completing and submitting your data project. We also take stock of what we have learned across the semester and look at where to go next on your R journey.",
+    "crumbs": [
+      "Content",
+      "Project",
+      "Data Project Completion and Course Review"
+    ]
+  },
+  {
+    "objectID": "content/13-content.html#overview",
+    "href": "content/13-content.html#overview",
+    "title": "Data Project Completion and Course Review",
+    "section": "",
+    "text": "The final session is dedicated to completing and submitting your data project. We also take stock of what we have learned across the semester and look at where to go next on your R journey.",
+    "crumbs": [
+      "Content",
+      "Project",
+      "Data Project Completion and Course Review"
+    ]
+  },
+  {
+    "objectID": "content/13-content.html#readings",
+    "href": "content/13-content.html#readings",
+    "title": "Data Project Completion and Course Review",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\nComplete the following chapter(s) from R for Non-Programmers before the lesson this week:\n\n\n\nChapter 15: Where to go from here: The next steps in your R journey",
+    "crumbs": [
+      "Content",
+      "Project",
+      "Data Project Completion and Course Review"
+    ]
+  },
+  {
+    "objectID": "content/13-content.html#slides",
+    "href": "content/13-content.html#slides",
+    "title": "Data Project Completion and Course Review",
+    "section": "Slides",
+    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here. If you would like to download them, use the link below.",
+    "crumbs": [
+      "Content",
+      "Project",
+      "Data Project Completion and Course Review"
     ]
   },
   {

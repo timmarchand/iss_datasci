@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Annotations – CLIL Seminar: Data Science</title>
+<title>Exercise 09: Variable Associations 2 – CLIL Seminar: Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -42,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-1b3db88def35042d172274863c1cdcf0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-287ec9963c820a89ec78f0ff1b22324a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7e905089ab11e891324b661e08594d9e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -76,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -100,6 +135,10 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../content/index.html"> 
+<span class="menu-text">Content</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../lesson/index.html"> 
@@ -142,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
@@ -272,7 +311,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignment/01-exercise.html">Exercises</a></li><li class="breadcrumb-item"><a href="../assignment/09-exercise.html">9: Variable associations 2</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Annotations</h1>
+<h1 class="title">Exercise 09: Variable Associations 2</h1>
 </div>
 
 
@@ -283,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="date-block bg-assignment text-white p-2">
     <!-- <div class="quarto-title-meta-heading">Published</div> -->
     <div class="quarto-title-meta-contents">
-      <p class="date">Due by 11:59 PM on Wednesday, June 10, 2026</p>
+      <p class="date">Due by 11:59 PM on Monday, June 15, 2026</p>
     </div>
   </div>
     
@@ -295,35 +334,30 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>For this exercise you’ll practice adding annotations to plots. You’ll use brand new data about cars for sale in Qatar from <a href="https://profmusgrave.github.io/qatarcars/">the {qatarcars} package</a>.</p>
-<p>As always, if you’re struggling, <em>please</em> use ouR Questions on Moodle and talk to me and your classmates! Don’t suffer in silence!</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Check the example!
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The example page for this week will be helpful!</p>
-<ul>
-<li><a href="../example/09-example.html"><i class="fa-solid fa-laptop-code" aria-label="laptop-code"></i> Annotations</a></li>
-</ul>
+<p>Before starting this exercise, make sure you have worked through <a href="../lesson/09-lesson.html">the lesson for this week</a>.</p>
 </div>
 </div>
 <section id="instructions" class="level2">
 <h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
 <ol type="1">
-<li><p>Open the project either on your computer or in Posit.cloud</p>
+<li><p>Download and open the project for this week:</p>
 <ul>
-<li><a href="../projects/09-exercise.zip"><i class="fa-solid fa-file-archive" aria-label="file-archive"></i> <code>09-exercise.zip</code></a>: If you’re using R on your own computer, download this file, <a href="../resource/unzipping.html"><em>unzip it</em></a>, and double click on the file named <code>09-exercise.Rproj</code></li>
-<li><a href="https://posit.cloud/spaces/737277/content/11693238"><i class="fa-solid fa-cloud" aria-label="cloud"></i> Posit.cloud project</a>: Use this link if you’re using Posit.cloud in your browser</li>
+<li><a href="../projects/09-exercise.zip"><i class="fa-solid fa-file-archive" aria-label="file-archive"></i> <code>09-exercise.zip</code></a>: Download this file, <a href="../resource/unzipping.html"><em>unzip it</em></a>, and double-click on <code>09-exercise.Rproj</code> to open it in RStudio.</li>
 </ul></li>
-<li><p>Rename the Quarto file named <code>your-name_exercise-9.qmd</code> to something that matches your name and open it in RStudio.</p></li>
-<li><p>Complete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document or <a href="../example/09-example.html">the example page</a>—don’t try to write everything from scratch!</p></li>
-<li><p>When you’re all done, click on the “Render” button at the top of the editing window and create a Typst (pdf), PDF, or Word version of your document. Upload that file to Moodle. <strong>Do not upload a rendered HTML file</strong> (they don’t work on Moodle).</p>
+<li><p>Rename the Quarto file from <code>09-exercise.qmd</code> to something that includes your name, e.g.&nbsp;<code>tanaka-yuki_exercise-09.qmd</code>, and open it.</p></li>
+<li><p>Complete the <strong>Weekly Reflection</strong> questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!</p></li>
+<li><p>When you’re done, click the <strong>Render</strong> button at the top of the editing window to create an HTML file.</p></li>
+</ol>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -332,8 +366,11 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </div>
-</div></li>
+</div>
+<ol start="5" type="1">
+<li>Upload the rendered <strong>HTML file</strong> to Moodle by the deadline.</li>
 </ol>
+<hr>
 </section>
 <section id="tips" class="level2">
 <h2 class="anchored" data-anchor-id="tips">Tips</h2>
@@ -343,12 +380,11 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Running chunks
+<span class="screen-reader-only">Tip</span>Downloading the source code
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Remember that you can run an entire chunk by clicking on the green play arrow in the top right corner of the chunk. You can also run lines of code line-by-line if you place your cursor on some R code and press <kbd>⌘</kbd> + <kbd>enter</kbd> (for macOS users) or <kbd>ctrl</kbd> + <kbd>enter</kbd> (for Windows users).</p>
-<p>Make sure you run each chunk sequentially. If you run a chunk in the middle of the document without running previous ones, it might not work, since previous chunks might do things that later chunks depend on.</p>
+<p>Your rendered HTML file includes a <strong>code download button</strong> in the top-right corner. If you or a classmate ever needs to recover the original <code>.qmd</code> source code from a rendered HTML file, click that button to download it directly.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -357,20 +393,65 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Inserting chunks
+<span class="screen-reader-only">Tip</span>File organisation
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You’ll need to insert some of your own code chunks. Rather than typing them by hand (that’s tedious!), use the “Insert” button at the top of the editing window, or press <kbd>⌥</kbd> + <kbd>⌘</kbd> + <kbd>I</kbd> on macOS, or <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>I</kbd> on Windows.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<p>Each exercise has its own <code>.Rproj</code> file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.</p>
+<div class="quarto-layout-panel" data-layout="[39.5,-1,60]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 39.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../../../../../files/img/assignments/insert-chunk-button.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:19.0%"></p>
+<p><img src="../files/img/reference/rproj-multiple-folders-macos.png" class="img-fluid figure-img"></p>
+<figcaption>Individual folders for each project on macOS</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 1.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 59.7%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../files/img/reference/rproj-multiple-folders-windows.png" class="img-fluid figure-img"></p>
+<figcaption>Individual folders for each project on Windows</figcaption>
 </figure>
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>What to do if a code chunk won’t render
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sometimes a code chunk causes an error that stops the whole document from rendering. You have two options:</p>
+<p><strong>Option 1 — Set <code>eval: false</code> in the chunk:</strong></p>
+<p>Add <code>#| eval: false</code> at the top of the problematic chunk. This tells R to display the code but not run it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>::: {.cell layout-align="center"}</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r .cell-code}</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">some_code_that_causes_an_error</span>()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Option 2 — Set <code>eval: false</code> globally in the YAML:</strong></p>
+<p>If many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means <em>no</em> code will run when rendering:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Exercise"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">eval</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can then re-enable individual chunks by adding <code>#| eval: true</code> to specific chunks you want to run.</p>
 </div>
 </div>
 
