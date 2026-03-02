@@ -51,11 +51,6 @@ withr::with_dir(here::here(), {
 
 {{< var instructor.contact_policy >}}
 :::
-
 ::::
 
-```{r echo=FALSE}
-knitr::include_graphics(here::here("files", "img", "dataviz-flowchart.png"), error = FALSE)
-```
-
-:::
+![](/files/img/datasci-flowchart.png){width="100%" fig-alt="Course overview flowchart" style="margin-top: -1rem;"}

@@ -24,24 +24,24 @@ ical_url_absolute <- paste0(base_url, "/", schedule_ical_file)
 
 Here's your roadmap for the semester!
 
-- [**Content**](/content/index.qmd) ({{< fa book-open-reader >}}): This page contains the readings, slides, and recorded lectures for the topic. Read and watch these first.
+- [**Content**](/content/index.qmd) ({{< fa book-open-reader >}}): This page contains the otuline, slides, and R code examples. We will usually refer to these first.
 
-- [**Lesson**](/lesson/index.qmd) ({{< fa chalkboard-teacher >}}): This page contains an interactive lesson that teaches you the principles and code you need to know. Go through these after doing the content.
+- [**Lessons**](/lesson/index.qmd) ({{< fa chalkboard-teacher >}}): This page mainly contains an interactive lesson that teaches you the principles and code you need to know. Go through these after the content.
 
-- [**Example**](/example/index.qmd) ({{< fa laptop-code >}}): This page contains fully annotated R code that you can use as a reference for creating your own visualizations. This is only a reference page—you don’t have to necessarily do anything here. Each section also contains videos of me live coding the examples so you can see what it looks like to work with R in real time. This page will be *very* helpful as you work on your assignments.
+- [**Videos**](/example/index.qmd) ({{< fa laptop-code >}}): This page contains supporting videos that I've found on YouTube to help with some of the concepts of data science or coding in R, but this page will be *very* helpful as you work on your weekly reflections and assignments.
 
-- [**Assignment**](/assignment/index.qmd) ({{< fa pen-ruler >}}): This page contains the instructions for either the session exercise (1–3 brief tasks), or for the two mini projects and final project. **Assignments are due by 11:59 PM on the Monday after their corresponding sessions.** That’s confusing in sentence form—see the schedule table below to see how it works.
+- [**Assignment**](/assignment/index.qmd) ({{< fa pen-ruler >}}): This page contains the instructions for homework, which usually means adding weekly reflections on what you have learned, as well as some practice tasks from the R for Non-programmers package. The weekly reflections are the most important things to submit, as it helps me keep track of how you are handling the course content, so  **assignments are due by 11:59 PM on the Monday after the previous week's lesson.** That’s a lot of informatiuon in sentence form! See the schedule table below to see how it works.
 
 :::::: {.row .d-flex .justify-content-center}
 ::::: {.col-12 .col-sm-10 .col-md-6}
 :::: {.card .bg-danger .text-white}
 ::: {.card-body}
 
-**tl;dr**: You should follow this general process for each session:
+**tl;dr**: We will follow this general process for each week:
 
 - Do everything on the content page ({{< fa book-open-reader >}})
 - Work through the lesson page ({{< fa chalkboard-teacher >}})
-- Complete the assignment ({{< fa pen-ruler >}}) while referencing the example ({{< fa laptop-code >}})
+- Complete the assignment ({{< fa pen-ruler >}}) while referencing the video examples ({{< fa laptop-code >}})
 
 :::
 ::::
