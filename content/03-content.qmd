@@ -1,0 +1,32 @@
+---
+title: "R Basics 2: Data Visualisation"
+date: "2026-04-28"
+date_end: "2026-05-04"
+---
+
+## Overview
+
+This week we learn to communicate data visually using ggplot2. We cover the grammar of graphics — the underlying framework that makes ggplot2 so powerful and consistent — and practice creating scatter plots, bar charts, and histograms.
+
+---
+
+## Readings
+
+::: {.callout-tip}
+### R for Non-Programmers
+Complete the following chapter(s) from [R for Non-Programmers](https://r4np.com){target="_blank"} before the lesson this week:
+:::
+
+- [Chapter 8: Descriptive Statistics](https://r4np.com/08_descriptive_statistics.html){target="_blank"}
+
+---
+
+## Slides
+
+::: {.callout-note}
+Slides for this session will appear here. If you would like to download them, use the link below.
+:::
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTCV4tVT3cnWRbKsRKmSDzgE0IH9GPinkbqwugjeHCw4vLZS1IdCG8-RApb5X5YGb3pNNnXTxUTVOYV/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+:::

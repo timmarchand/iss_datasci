@@ -1,0 +1,31 @@
+---
+title: "Visualising Probability"
+date: "2026-05-19"
+date_end: "2026-05-25"
+---
+
+## Overview
+
+This week we visualise probability distributions and learn how to compare groups statistically. We look at the normal distribution, confidence intervals, and how to use density plots and boxplots to explore whether differences between groups are meaningful.
+
+---
+
+## Readings
+
+::: {.callout-tip}
+### R for Non-Programmers
+Complete the following chapter(s) from [R for Non-Programmers](https://r4np.com){target="_blank"} before the lesson this week:
+:::
+
+- [Chapter 9: Sources of bias (cont.)](https://r4np.com/09_sources_of_bias.html){target="_blank"}
+
+---
+
+## Slides
+
+::: {.callout-note}
+Slides for this session will appear here. If you would like to download them, use the link below.
+:::
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRp7U4O47JnfkStN0wnpHnL2qj4HPiRlQpHVctuqrHuMwf22FkTOXbGPY0UYoErbNfpjQ0AWwlP33AM/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>

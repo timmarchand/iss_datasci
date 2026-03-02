@@ -1,0 +1,200 @@
+/*-- scss:defaults --*/
+
+// Fonts
+$font-family-sans-serif: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace: "Fira Code", "Courier New", monospace;
+$presentation-font-size-root: 32px;
+$presentation-line-height: 1.5;
+
+// Colours — match ISS_datasci site
+$body-bg: #ffffff;
+$body-color: #2d2d2d;
+$link-color: #1a4d2e;
+$selection-bg: #1a4d2e;
+$selection-color: #ffffff;
+
+// Section title colours (one per session group)
+$color-1: #4D5CA4;   // blue-purple  — Foundations
+$color-2: #BC3C29;   // red          — Facts/truth
+$color-3: #E18727;   // orange       — Data
+$color-4: #20854E;   // green        — Visualisation
+$color-5: #7876B1;   // lavender     — Class details / Advanced
+$color-6: #0F7BA2;   // teal         — Core concepts
+$color-7: #6B4C9A;   // violet       — Variable associations
+$code-bg: #f5f5f5;
+
+// Heading sizes
+$presentation-h1-font-size: 2.2em;
+$presentation-h2-font-size: 1.6em;
+$presentation-h3-font-size: 1.2em;
+
+/*-- scss:rules --*/
+
+// -------------------------------------------------------
+// Title slide
+// -------------------------------------------------------
+
+#title-slide {
+  background-color: $color-1;
+  color: white;
+
+  .title {
+    font-size: 2.4em;
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+  }
+
+  .author, .date {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9em;
+  }
+}
+
+// -------------------------------------------------------
+// Section title slides
+// -------------------------------------------------------
+
+.section-title {
+  color: white !important;
+
+  h1, h2, h3 {
+    color: white !important;
+    font-weight: 700;
+  }
+}
+
+// -------------------------------------------------------
+// General slide headings
+// -------------------------------------------------------
+
+.reveal h2 {
+  font-weight: 700;
+  border-bottom: 3px solid $color-1;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.6em;
+}
+
+// -------------------------------------------------------
+// Callout boxes (replaces xaringan .box-inv-* classes)
+// -------------------------------------------------------
+
+.reveal .callout {
+  border-radius: 6px;
+  margin: 0.5em 0;
+}
+
+// -------------------------------------------------------
+// Column layout helpers
+// -------------------------------------------------------
+
+.reveal .columns {
+  display: flex;
+  gap: 1.5em;
+  align-items: flex-start;
+}
+
+// -------------------------------------------------------
+// Blockquotes
+// -------------------------------------------------------
+
+.reveal blockquote {
+  background: #f9f9f9;
+  border-left: 5px solid $color-1;
+  padding: 0.8em 1.2em;
+  font-style: italic;
+  color: #444;
+  border-radius: 0 6px 6px 0;
+  width: 90%;
+}
+
+// -------------------------------------------------------
+// Code blocks
+// -------------------------------------------------------
+
+.reveal pre {
+  font-size: 0.7em;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.reveal code {
+  background: $code-bg;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+// -------------------------------------------------------
+// Tables
+// -------------------------------------------------------
+
+.reveal table {
+  font-size: 0.85em;
+  border-collapse: collapse;
+  width: 100%;
+
+  th {
+    background-color: $color-1;
+    color: white;
+    padding: 0.4em 0.8em;
+  }
+
+  td {
+    padding: 0.4em 0.8em;
+    border-bottom: 1px solid #ddd;
+  }
+
+  tr:nth-child(even) td {
+    background-color: #f5f5f5;
+  }
+}
+
+// -------------------------------------------------------
+// Fit text helper
+// -------------------------------------------------------
+
+.r-fit-text {
+  text-align: center;
+  font-weight: 700;
+}
+
+// -------------------------------------------------------
+// Center helper
+// -------------------------------------------------------
+
+.center {
+  text-align: center;
+}
+
+// -------------------------------------------------------
+// Figure captions
+// -------------------------------------------------------
+
+.reveal figcaption {
+  font-size: 0.6em;
+  color: #888;
+  text-align: center;
+  margin-top: 0.3em;
+}
+
+// -------------------------------------------------------
+// Progress bar and controls — match site green
+// -------------------------------------------------------
+
+.reveal .progress {
+  color: $link-color;
+}
+
+.reveal .controls {
+  color: $link-color;
+}
+
+// -------------------------------------------------------
+// Slide number
+// -------------------------------------------------------
+
+.reveal .slide-number {
+  font-size: 0.6em;
+  color: #aaa;
+}

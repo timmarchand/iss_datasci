@@ -1,0 +1,511 @@
+---
+title: "Truth, beauty, and data"
+author: "Tim Marchand"
+date: today
+format:
+  revealjs:
+    theme: [default, css/slides.scss]
+    highlight-style: github
+    slide-number: true
+    show-slide-number: all
+    controls: true
+    progress: true
+    history: true
+    center: false
+    width: 1600
+    height: 900
+    transition: fade
+    background-transition: fade
+    incremental: false
+    title-slide-attributes:
+      data-background-color: "#4D5CA4"
+execute:
+  echo: false
+  warning: false
+  message: false
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+```
+
+## {.center .section-title background-color="#4D5CA4"}
+
+::: {.title-block}
+# Truth, beauty,<br>and data
+
+**Session 1**
+
+ISS Data Science with R<br>
+Faculty of International Social Sciences, Gakushuin University<br>
+Spring 2026
+:::
+
+---
+
+## Plan for today
+
+::: {.incremental}
+- Facts, truth, and beauty
+- Data, truth, and beauty
+- Beautiful visualizations
+- Class details
+:::
+
+---
+
+# Facts, truth, and beauty {.section-title background-color="#BC3C29"}
+
+---
+
+## What is truth?
+
+::: {.incremental}
+- Core principles of the universe?
+- Underlying trends in society?
+- Something transcendental?
+- Reality?
+:::
+
+---
+
+## How do we find truth?
+
+**Science!**
+
+![Neil deGrasse Tyson on science](img/01/ndgt-scientism.png){fig-align="center" width="70%"}
+
+::: {.notes}
+[Original tweet](https://twitter.com/neiltyson/status/345551599382446081)
+:::
+
+---
+
+## But wait!
+
+::: {.callout-warning}
+### Beware of scientism!
+"… promotion of science as the best or only objective means by which society should determine normative and epistemological values"
+:::
+
+::: {.notes}
+[Wikipedia](https://en.wikipedia.org/wiki/Scientism)
+:::
+
+---
+
+## Science is not the only way
+
+- Art
+- Music
+- Literature
+- Religion
+- Nature
+
+::: {.notes}
+None of these methods deal with raw facts, though!
+:::
+
+---
+
+## Nothing here is factual… {.center}
+
+**…but it all reveals truth**
+
+:::: {.columns}
+::: {.column width="25%"}
+![Cosette](img/01/les-mis.jpg)
+:::
+::: {.column width="25%"}
+![King Lear](img/01/King_Lear.jpg)
+:::
+::: {.column width="50%"}
+![Beethoven's 9th symphony](img/01/beethoven.png)
+:::
+::::
+
+::: {.notes}
+Sources:
+- [Cosette](https://commons.wikimedia.org/wiki/File:Cosette-sweeping-les-miserables-albert-bellenger-1886.jpg)
+- [King Lear](https://commons.wikimedia.org/wiki/File:King_Lear.jpg)
+- [Beethoven](https://commons.wikimedia.org/wiki/File:Beethoven,_Symphony_No._9,_finale,_bars_116-123.png)
+:::
+
+---
+
+## {.center}
+
+::: {.r-fit-text}
+Facts ≠ truth
+:::
+
+---
+
+## {.center}
+
+Where does truth come when there are no facts?
+
+::: {.fragment .r-fit-text}
+**Beauty**
+:::
+
+---
+
+## Beauty in science
+
+:::: {.columns}
+::: {.column width="40%"}
+![Frank Wilczek's A Beautiful Question](img/01/beautiful-question.jpg){width="60%"}
+:::
+::: {.column width="60%"}
+This is also true for science and math and other more factual realms
+:::
+::::
+
+---
+
+## Rhetoric and beauty
+
+| Greek | Latin | Concept |
+|-------|-------|---------|
+| λόγος (Logos) | Res | Essence / Content |
+| λέξις (Lexis) | Verba | Structure / Form |
+
+::: {.fragment}
+**Truth • Beauty**
+:::
+
+::: {.notes}
+One is the underlying metaphysical meaning—what the author or artist intends. The other is *how* they convey that message—what it looks like, what they used, etc.
+:::
+
+---
+
+## Content + form
+
+> Art is how we translate core, essential **content** (or truth!) to different **forms** for specific **audiences**.
+
+---
+
+## Truth is beautiful
+
+- Truth ≠ facts
+- Truth comes from aesthetic combination of content and form
+- Facts require beauty to be true
+
+---
+
+# Data, truth, and beauty {.section-title background-color="#E18727"}
+
+---
+
+## Just show me the data!
+
+```{r load-datasaurus}
+dozen <- read_tsv("data/DatasaurusDozen.tsv")
+my_data <- dozen |> filter(dataset == "dino") |> select(x, y)
+```
+
+:::: {.columns}
+::: {.column width="33%"}
+```{r}
+head(my_data, 10)
+```
+:::
+::: {.column width="33%"}
+```{r}
+#| highlight-output: true
+mean(my_data$x)
+mean(my_data$y)
+cor(my_data$x, my_data$y)
+```
+:::
+::: {.column width="33%"}
+- Seems reasonable
+- Seems reasonable  
+- No correlation
+:::
+::::
+
+---
+
+## Oh no {.center}
+
+![Datasaurus Dozen](img/01/DinoSequentialSmaller.gif){width="100%"}
+
+[The Datasaurus Dozen](https://www.autodeskresearch.com/publications/samestats)
+
+---
+
+## Raw data is not enough
+
+Each of these has the same mean, standard deviation, variance, and correlation
+
+```{r plot-full-dozen}
+#| fig-width: 10
+#| fig-height: 4
+#| out-width: 100%
+ggplot(filter(dozen, dataset != "bullseye"), aes(x = x, y = y)) +
+  geom_point(size = 1) +
+  facet_wrap(vars(dataset))
+```
+
+---
+
+## Humans love patterns
+
+![Pattern processing](img/01/pattern-processing.png){width="100%"}
+
+[https://doi.org/10.3389/fnins.2014.00265](https://doi.org/10.3389/fnins.2014.00265)
+
+---
+
+## (Sometimes we love them too much)
+
+**Pareidolia**: seeing patterns that aren't there.
+
+:::: {.columns}
+::: {.column width="33%"}
+::: {.fragment}
+![](img/01/pareidolia-1.jpg)
+:::
+:::
+::: {.column width="33%"}
+::: {.fragment}
+![](img/01/pareidolia-2.jpg)
+:::
+:::
+::: {.column width="33%"}
+::: {.fragment}
+![](img/01/pareidolia-3.jpg)
+:::
+:::
+::::
+
+---
+
+## Beauty is necessary to see patterns
+
+:::: {.columns}
+::: {.column width="50%"}
+![Amount donated table](img/01/amount-diffs-table.png)
+:::
+::: {.column width="50%"}
+::: {.fragment}
+![Amount donated graph](img/01/amount-diffs.png){width="85%"}
+:::
+:::
+::::
+
+---
+
+# Beautiful visualizations {.section-title background-color="#20854E"}
+
+---
+
+## What makes a great visualization?
+
+::: {.incremental}
+- **Truthful**
+- **Functional**
+- **Beautiful**
+- **Insightful**
+- **Enlightening**
+:::
+
+::: {.fragment}
+*Alberto Cairo, The Truthful Art*
+:::
+
+::: {.notes}
+Alberto Cairo, *The Truthful Art*:
+
+> 1. It is truthful, as it's based on thorough and honest research.
+> 2. It is functional, as it constitutes an accurate depiction of the data, and it's built in a way that lets people do meaningful operations based on it.
+> 3. It is beautiful, in the sense of being attractive, intriguing, and even aesthetically pleasing for its intended audience.
+> 4. It is insightful, as it reveals evidence that we would have a hard time seeing otherwise.
+> 5. It is enlightening because if we grasp and accept the evidence it depicts, it will change our minds for the better.
+:::
+
+---
+
+## What makes a great visualization?
+
+> "Graphical excellence is the **well-designed presentation of interesting data**—a matter of substance, of statistics, and of design … [It] consists of complex ideas communicated with clarity, precision, and efficiency. … [It] gives to the viewer the **greatest number of ideas in the shortest time with the least ink in the smallest space** … And graphical excellence requires **telling the truth about the data**."
+
+*Edward Tufte, The Visual Display of Quantitative Information, p. 51*
+
+---
+
+## What makes a great visualization?
+
+::: {.incremental}
+- Good aesthetics
+- No substantive issues
+- No perceptual issues
+- Honesty + good judgment
+:::
+
+::: {.fragment}
+*Kieran Healy, Data Visualization: A Practical Introduction*
+:::
+
+---
+
+## What's wrong?
+
+![Distribution of genus](img/01/pie-genus.png){fig-align="center" width="60%"}
+
+::: {.notes}
+- Aesthetic issues
+- Substantive issues
+- Perceptual issues
+- Honesty + judgment issues
+:::
+
+---
+
+## What's wrong?
+
+![Changing face of America](img/01/changing-face-of-america.png){fig-align="center" width="45%"}
+
+---
+
+## What's wrong?
+
+![Recidivism pie chart](img/01/how-stuff-works-recidivism.png){fig-align="center" width="45%"}
+
+---
+
+## What's right?
+
+:::: {.columns}
+::: {.column width="55%"}
+```{r flatten-the-curve}
+#| fig-width: 4.8
+#| fig-height: 3.75
+#| out-width: 100%
+high_mean <- 12; high_sd <- 4
+flat_mean <- 35; flat_sd <- 12
+
+ggplot(tibble(x = c(0, 70)), aes(x = x)) +
+  stat_function(geom = "area", fun = dnorm, n = 1000,
+                args = list(mean = high_mean, sd = high_sd),
+                fill = "#FF4136", alpha = 0.8) +
+  stat_function(geom = "area", fun = dnorm, n = 1000,
+                args = list(mean = flat_mean, sd = flat_sd),
+                fill = "#0074D9", alpha = 0.8) +
+  geom_hline(yintercept = dnorm(flat_mean, flat_mean, flat_sd),
+             linetype = "61", color = "grey75") +
+  annotate(geom = "text", x = high_mean,
+           y = dnorm(high_mean, high_mean, high_sd) / 2,
+           label = "Without\nprotective\nmeasures", color = "white", size = 3) +
+  annotate(geom = "text", x = flat_mean,
+           y = dnorm(flat_mean, flat_mean, flat_sd) / 2,
+           label = "With protective\nmeasures", color = "white", size = 3) +
+  annotate(geom = "text", x = 45, y = dnorm(flat_mean, flat_mean, flat_sd),
+           label = "Healthcare system capacity", vjust = -0.5, hjust = 0, size = 3) +
+  labs(x = "Time since first case", y = "# of\ncases",
+       title = "Flatten the curve!",
+       subtitle = "Slow down community spread by social distancing",
+       caption = "Adapted from the CDC and The Economist") +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        axis.line = element_line(color = "black"),
+        axis.text = element_blank())
+```
+:::
+::: {.column width="45%"}
+![Carl Bergstrom tweet](img/01/bergstrom-tweet.png){width="80%"}
+
+[Thread by Carl T. Bergstrom](https://twitter.com/CT_Bergstrom/status/1235865328074153986)
+:::
+::::
+
+---
+
+# Class details {.section-title background-color="#7876B1"}
+
+---
+
+## Goal for the class
+
+::: {.r-fit-text .center}
+Recognize and create **beautiful** and **truthful** visualizations with real world data
+:::
+
+---
+
+## Plan for the class
+
+![Class flowchart](img/01/dataviz-flowchart.png){fig-align="center" width="100%"}
+
+---
+
+## Class technology
+
+![Complexity chart](img/01/complexity-chart@4x.png){fig-align="center" width="65%"}
+
+---
+
+## Class technology
+
+:::: {.columns}
+::: {.column width="33%"}
+![R logo](img/01/Rlogo.png){width="80%"}
+
+![RStudio logo](img/01/rstudio-logo.png){width="100%"}
+:::
+::: {.column width="33%"}
+::: {.fragment}
+![ggplot logo](img/01/ggplot-logo.png){width="100%"}
+:::
+:::
+::: {.column width="33%"}
+::: {.fragment}
+![ggplot layers](img/03/ggplot-layers@4x.png){width="100%"}
+:::
+:::
+::::
+
+---
+
+## The tidyverse
+
+![The tidyverse](img/01/tidyverse.png){fig-align="center" width="50%"}
+
+---
+
+## Sucking
+
+> "There is no way of knowing nothing about a subject to knowing something about a subject without going through a period of much frustration and suckiness."
+>
+> **"Push through. You'll suck less."**
+
+*Hadley Wickham, author of {ggplot2}*
+
+::: {.notes}
+[Source for quote](https://twitter.com/Akbaritabar/status/1022057084802748416)
+:::
+
+---
+
+## Sucking
+
+:::: {.columns}
+::: {.column width="50%"}
+![Sucking at something is the first step towards being sort of good at something](img/01/sucking-first-step.jpg)
+:::
+::: {.column width="50%"}
+::: {.fragment}
+![It's great to suck at something](img/01/sucking-nyt.png)
+
+[Karen Rinaldi, "(It's Great to) Suck at Something"](https://www.nytimes.com/2017/04/28/opinion/its-great-to-suck-at-surfing.html)
+:::
+:::
+::::

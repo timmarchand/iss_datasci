@@ -1,0 +1,32 @@
+---
+title: "Regression Modelling 2"
+date: "2026-06-30"
+date_end: "2026-07-06"
+---
+
+## Overview
+
+We extend regression to multiple predictors — both numerical and categorical — and explore interaction effects. We also get a first look at logistic regression for predicting categorical outcomes.
+
+---
+
+## Readings
+
+::: {.callout-tip}
+### R for Non-Programmers
+Complete the following chapter(s) from [R for Non-Programmers](https://r4np.com){target="_blank"} before the lesson this week:
+:::
+
+- [Chapter 13: Regression (cont.)](https://r4np.com/13_regressions.html){target="_blank"}
+
+---
+
+## Slides
+
+::: {.callout-note}
+Slides for this session will appear here. If you would like to download them, use the link below.
+:::
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQPdxlWbnxNUG7YzNUMAo6cFPtvslT-PM9biH1dWMQOdf-iszWHwBzisVThHhZn7N0nXSvTKDmCA_Ys/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+:::

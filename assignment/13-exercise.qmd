@@ -1,67 +1,89 @@
 ---
-title: "Time"
-date: "2026-07-08"
+title: "Exercise 13: Data Project Completion and Course Review"
+date: "2026-07-13"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(fig.align = "center")
 ```
 
-The United States National Oceanic and Atmospheric Administration (NOAA) runs the [Mauna Loa Observatory](https://en.wikipedia.org/wiki/Mauna_Loa_Observatory) (MLO) in Hawai'i, which has taken regular daily measurements of atmospheric parameters since 1958, including levels of carbon dioxide (CO~2~) emissions, measured in parts per million (ppm). In 1958, CO~2~ levels averaged around 320 ppm; in 2025, they averaged 425 ppm—a 33% increase in emissions.
-
-In this exercise, you'll use [data from the Mauna Loa Observatory](https://gml.noaa.gov/ccgg/trends/data.html) to track annual and seasonal trends in CO~2~ over time. I've provided you with three datasets that use different measurement frequencies.[^cleaning-code]
-
-[^cleaning-code]: If you're interested, you can [see the full data cleaning code here](https://github.com/andrewheiss/dataviz-projects_13-time/blob/main/build_data.R). The data is already pretty well structured and clean---all I really do is rename some columns and create some columns for dates.
-
-As always, if you're struggling, *please* use ouR Questions on Moodle and talk to me and your classmates! Don't suffer in silence!
-
 ::: {.callout-important}
-### Check the example!
-
-The example page for this week will be helpful!
-
-- [{{< fa laptop-code >}} Time](/example/13-example.qmd)
+Before starting this exercise, make sure you have worked through [the lesson for this week](/lesson/13-lesson.qmd).
 :::
 
 ## Instructions
 
-1. Open the project either on your computer or in Posit.cloud
+1. Download and open the project for this week:
 
-   - [{{< fa file-archive >}} `13-exercise.zip`](/projects/13-exercise.zip): If you're using R on your own computer, download this file, [*unzip it*](/resource/unzipping.qmd), and double click on the file named `13-exercise.Rproj`
-   - [{{< fa cloud >}} Posit.cloud project](https://posit.cloud/spaces/737277/content/11693244): Use this link if you're using Posit.cloud in your browser
+   - [{{< fa file-archive >}} `13-exercise.zip`](/projects/13-exercise.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `13-exercise.Rproj` to open it in RStudio.
 
-2. Rename the Quarto file named `your-name_exercise-13.qmd` to something that matches your name and open it in RStudio.
+2. Rename the Quarto file from `13-exercise.qmd` to something that includes your name, e.g. `tanaka-yuki_exercise-13.qmd`, and open it.
 
-3. Complete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document or [the example page](/example/13-example.qmd)—don't try to write everything from scratch!
+3. Complete the **Weekly Reflection** questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don't need to write everything from scratch!
 
-4. When you're all done, click on the "Render" button at the top of the editing window and create a Typst (pdf), PDF, or Word version of your document. Upload that file to Moodle. **Do not upload a rendered HTML file** (they don't work on Moodle).
+4. When you're done, click the **Render** button at the top of the editing window to create an HTML file.
 
-```{r render-button, echo=FALSE, out.width="50%", indent="   ", fig.align="center"}
+```{r render-button, echo=FALSE, out.width="50%", fig.align="center"}
 knitr::include_graphics("/files/img/assignments/render-button.png", error = FALSE)
 ```
 
+5. Upload the rendered **HTML file** to Moodle by the deadline.
+
+---
 
 ## Tips
 
-::: {.callout-tip}
-### Running chunks
+:::: {.callout-tip}
+### Downloading the source code
 
-Remember that you can run an entire chunk by clicking on the green play arrow in the top right corner of the chunk. You can also run lines of code line-by-line if you place your cursor on some R code and press <kbd>⌘</kbd> + <kbd>enter</kbd> (for macOS users) or <kbd>ctrl</kbd> + <kbd>enter</kbd> (for Windows users).
+Your rendered HTML file includes a **code download button** in the top-right corner. If you or a classmate ever needs to recover the original `.qmd` source code from a rendered HTML file, click that button to download it directly.
 
-Make sure you run each chunk sequentially. If you run a chunk in the middle of the document without running previous ones, it might not work, since previous chunks might do things that later chunks depend on.
+::::
+
+:::: {.callout-tip}
+### File organisation
+
+Each exercise has its own `.Rproj` file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.
+
+::: {layout="[39.5,-1,60]"}
+
+![Individual folders for each project on macOS](/files/img/reference/rproj-multiple-folders-macos.png)
+
+![Individual folders for each project on Windows](/files/img/reference/rproj-multiple-folders-windows.png)
+
 :::
 
-::: {.callout-tip}
-### Inserting chunks
+::::
 
-You'll need to insert some of your own code chunks. Rather than typing them by hand (that's tedious!), use the "Insert" button at the top of the editing window, or press  <kbd>⌥</kbd> + <kbd>⌘</kbd> + <kbd>I</kbd> on macOS, or <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>I</kbd> on Windows.
+:::: {.callout-tip}
+### What to do if a code chunk won't render
 
+Sometimes a code chunk causes an error that stops the whole document from rendering. You have two options:
+
+**Option 1 — Set `eval: false` in the chunk:**
+
+Add `#| eval: false` at the top of the problematic chunk. This tells R to display the code but not run it:
+
+````markdown
 ```{r}
-#| label: insert-chunk-button
-#| echo: false
-#| out-width: 19%
-#| fig-align: center
-knitr::include_graphics("/files/img/assignments/insert-chunk-button.png", error = FALSE)
+#| eval: false
+some_code_that_causes_an_error()
+```
+````
+
+**Option 2 — Set `eval: false` globally in the YAML:**
+
+If many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means *no* code will run when rendering:
+
+```yaml
+---
+title: "My Exercise"
+format: html
+execute:
+  eval: false
+---
 ```
 
-:::
+You can then re-enable individual chunks by adding `#| eval: true` to specific chunks you want to run.
+
+::::

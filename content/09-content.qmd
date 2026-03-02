@@ -1,0 +1,32 @@
+---
+title: "Variable Associations 2"
+date: "2026-06-16"
+date_end: "2026-06-22"
+---
+
+## Overview
+
+We extend our toolkit for comparing groups, covering t-tests, chi-square tests, and ANOVA. We also look at how these classical tests connect to the linear regression framework, unifying much of what we have learned so far.
+
+---
+
+## Readings
+
+::: {.callout-tip}
+### R for Non-Programmers
+Complete the following chapter(s) from [R for Non-Programmers](https://r4np.com){target="_blank"} before the lesson this week:
+:::
+
+- [Chapter 11: Comparing groups](https://r4np.com/11_group_comparison.html){target="_blank"}
+
+---
+
+## Slides
+
+::: {.callout-note}
+Slides for this session will appear here. If you would like to download them, use the link below.
+:::
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQLcVUjkn4zXypqhE-TttHJdWI8eahXHKZ0zE1PfLXw3S7b5H_tmRUCBQpWhzR0MYLKAFX2zK73UIJH/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+:::

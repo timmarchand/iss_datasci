@@ -1,0 +1,15 @@
+---
+title: Content
+---
+
+This section contains the core reading and slides for each week. Before coming to class, work through the relevant chapter(s) from the textbook and review any slides provided.
+
+The main textbook for this course is [**R for Non-Programmers**](https://r4np.com){target="_blank"} by Daniel Dauber — a free, openly available online book written specifically for social science students with no prior programming experience.
+
+::: {.callout-tip}
+### How to use this section
+
+1. **Read** the assigned r4np chapter(s) before the lesson
+2. **Review** the slides if available
+3. **Then** work through the interactive lesson and videos for the week
+:::

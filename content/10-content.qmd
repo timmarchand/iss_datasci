@@ -1,0 +1,32 @@
+---
+title: "Regression Modelling 1"
+date: "2026-06-23"
+date_end: "2026-06-29"
+---
+
+## Overview
+
+We introduce simple linear regression — one of the most important tools in data science. We look at how to fit a model with a single numerical predictor, interpret the output, and assess model fit using R-squared and residual plots.
+
+---
+
+## Readings
+
+::: {.callout-tip}
+### R for Non-Programmers
+Complete the following chapter(s) from [R for Non-Programmers](https://r4np.com){target="_blank"} before the lesson this week:
+:::
+
+- [Chapter 13: Regression: Creating models to predict future observations](https://r4np.com/13_regressions.html){target="_blank"}
+
+---
+
+## Slides
+
+::: {.callout-note}
+Slides for this session will appear here. If you would like to download them, use the link below.
+:::
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR644nSxi_X3wwl_dbB_yteUAkUDK3O2izcfB_ksgxGt1xOLwExnAKprmoCbRz6G2nROc083FOKJwRY/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+:::

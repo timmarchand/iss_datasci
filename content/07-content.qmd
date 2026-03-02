@@ -1,0 +1,32 @@
+---
+title: "Manipulating Data 2"
+date: "2026-06-02"
+date_end: "2026-06-08"
+---
+
+## Overview
+
+We deepen our data wrangling skills with more advanced dplyr operations — joins, grouped summaries, and chained pipelines. We also look at Simpson's paradox as a cautionary tale about how aggregation can mislead us.
+
+---
+
+## Readings
+
+::: {.callout-tip}
+### R for Non-Programmers
+Complete the following chapter(s) from [R for Non-Programmers](https://r4np.com){target="_blank"} before the lesson this week:
+:::
+
+- [Chapter 7: Data Wrangling (cont.)](https://r4np.com/07_data_wrangling.html){target="_blank"}
+
+---
+
+## Slides
+
+::: {.callout-note}
+Slides for this session will appear here. If you would like to download them, use the link below.
+:::
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRZWp7B-XZJT9STWAm3Emtzt9kgTswZ-BzDUSLkUdUxtBdgm7fJTuq9WRhT69shHPGbXQMUjHHlq9Pq/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+:::

@@ -1,0 +1,32 @@
+---
+title: "Sampling and Probability"
+date: "2026-05-12"
+date_end: "2026-05-18"
+---
+
+## Overview
+
+We take a step back from R syntax to think carefully about how data is collected and what probability means. We use Monte Carlo simulation to build intuition about randomness, sampling, and the behaviour of statistics across repeated samples.
+
+---
+
+## Readings
+
+::: {.callout-tip}
+### R for Non-Programmers
+Complete the following chapter(s) from [R for Non-Programmers](https://r4np.com){target="_blank"} before the lesson this week:
+:::
+
+- [Chapter 9: Sources of bias: Sampling, outliers, normality and other conundrums](https://r4np.com/09_sources_of_bias.html){target="_blank"}
+
+---
+
+## Slides
+
+::: {.callout-note}
+Slides for this session will appear here. If you would like to download them, use the link below.
+:::
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSxCVVFWKeTVnZ-1k3AZRbaFw8GK9FoNJU6H7s6Zm-BPOKVEYT-7rte39D3EWT6Q79Fq3Jety-0BgwF/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+:::

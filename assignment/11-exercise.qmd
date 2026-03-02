@@ -1,40 +1,89 @@
 ---
-title: "Interactivity"
-date: "2026-06-24"
+title: "Exercise 11: Regression Modelling 2"
+date: "2026-06-29"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(fig.align = "center")
 ```
 
-::: {.callout-warning}
-### THIS IS DIFFERENT!!!
-
-**This exercise is different from all your past work!** That's on purpose! Only HTML output can handle interactivity and dashboards—PDFs and Word files are static document formats that don't allow Javascript.
-:::
-
-For this exercise you'll get to practice making interactive plots and dashboards! You'll do it by creating a Quarto website and publishing it on the internet. That might sound intimidating and hard, but **don't worry!** Thanks to Quarto (and the starter code and detailed instructions I provide), it should be fairly straightforward.
-
-Complete instructions for the different tasks are [at this website](https://andrewheiss.quarto.pub/datavizsp26_11-exercise-recreate/). Use the top navigation bar there to look at the different pages:
-
-- [{{< fa arrow-up-right-from-square >}} Exercise 11 data description](https://andrewheiss.quarto.pub/datavizsp26_11-exercise-recreate/)
-- [{{< fa arrow-up-right-from-square >}} Exercise 11 instructions + how to submit](https://andrewheiss.quarto.pub/datavizsp26_11-exercise-recreate/instructions.html)
-
 ::: {.callout-important}
-### Check the example!
-
-The example page for this week will be helpful!
-
-- [{{< fa laptop-code >}} Interactivity](/example/11-example.qmd)
+Before starting this exercise, make sure you have worked through [the lesson for this week](/lesson/11-lesson.qmd).
 :::
 
 ## Instructions
 
-1. Open the project either on your computer or in Posit.cloud
+1. Download and open the project for this week:
 
-   - [{{< fa file-archive >}} `11-exercise.zip`](/projects/11-exercise.zip): If you're using R on your own computer, download this file, [*unzip it*](/resource/unzipping.qmd), and double click on the file named `11-exercise.Rproj`
-   - [{{< fa cloud >}} Posit.cloud project](https://posit.cloud/spaces/737277/content/11693240): Use this link if you're using Posit.cloud in your browser
+   - [{{< fa file-archive >}} `11-exercise.zip`](/projects/11-exercise.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `11-exercise.Rproj` to open it in RStudio.
 
-2. Follow [the instructions here](https://andrewheiss.quarto.pub/datavizsp26_11-exercise-recreate/instructions.html) and complete the different tasks in the different `.qmd` files. Check [the data description](https://andrewheiss.quarto.pub/datavizsp26_11-exercise-recreate/) to learn more about what all the columns mean.
+2. Rename the Quarto file from `11-exercise.qmd` to something that includes your name, e.g. `tanaka-yuki_exercise-11.qmd`, and open it.
 
-3. When you're all done, [follow the instructions about publishing the site](https://andrewheiss.quarto.pub/datavizsp26_11-exercise-recreate/instructions.html#publishing-the-site-and-submitting-to-Moodle). **Do not try to render as PDF or Word.** In Moodle, paste the URL of your website into the submission form.
+3. Complete the **Weekly Reflection** questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don't need to write everything from scratch!
+
+4. When you're done, click the **Render** button at the top of the editing window to create an HTML file.
+
+```{r render-button, echo=FALSE, out.width="50%", fig.align="center"}
+knitr::include_graphics("/files/img/assignments/render-button.png", error = FALSE)
+```
+
+5. Upload the rendered **HTML file** to Moodle by the deadline.
+
+---
+
+## Tips
+
+:::: {.callout-tip}
+### Downloading the source code
+
+Your rendered HTML file includes a **code download button** in the top-right corner. If you or a classmate ever needs to recover the original `.qmd` source code from a rendered HTML file, click that button to download it directly.
+
+::::
+
+:::: {.callout-tip}
+### File organisation
+
+Each exercise has its own `.Rproj` file. Keep each exercise in its own folder — this makes it much easier to manage file paths and avoid confusion between projects.
+
+::: {layout="[39.5,-1,60]"}
+
+![Individual folders for each project on macOS](/files/img/reference/rproj-multiple-folders-macos.png)
+
+![Individual folders for each project on Windows](/files/img/reference/rproj-multiple-folders-windows.png)
+
+:::
+
+::::
+
+:::: {.callout-tip}
+### What to do if a code chunk won't render
+
+Sometimes a code chunk causes an error that stops the whole document from rendering. You have two options:
+
+**Option 1 — Set `eval: false` in the chunk:**
+
+Add `#| eval: false` at the top of the problematic chunk. This tells R to display the code but not run it:
+
+````markdown
+```{r}
+#| eval: false
+some_code_that_causes_an_error()
+```
+````
+
+**Option 2 — Set `eval: false` globally in the YAML:**
+
+If many chunks are causing problems, you can turn off evaluation for the whole document by adding this to your YAML header. Be aware this means *no* code will run when rendering:
+
+```yaml
+---
+title: "My Exercise"
+format: html
+execute:
+  eval: false
+---
+```
+
+You can then re-enable individual chunks by adding `#| eval: true` to specific chunks you want to run.
+
+::::
