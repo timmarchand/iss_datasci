@@ -14,12 +14,9 @@ This week we get our first hands-on experience with R and RStudio. We will look 
 
 ::: {.callout-tip}
 ### R for Non-Programmers
-Complete the following chapters from [R for Non-Programmers](https://r4np.com){target="_blank"} before the lesson this week:
-:::
-
 - [Chapter 3: Setting up R and RStudio](https://r4np.com/03_setting_up_r_rstudio.html){target="_blank"}
 - [Chapter 4: The RStudio Interface](https://r4np.com/04_rstudio_interface.html){target="_blank"}
-- [Chapter 5: R Basics: The very fundamentals](https://r4np.com/05_r_basics.html){target="_blank"}
+:::
 
 ---
 

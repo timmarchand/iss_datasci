@@ -1,0 +1,129 @@
+---
+title: "Session 05: Visualising Probability"
+subtitle: "ISS Data Science — Weekly Notes"
+author: "Your Name"
+date: "2026-05-18"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: show
+    code-tools: true
+    code-download: true
+    theme: litera
+    self-contained: true
+  pdf:
+    toc: true
+    number-sections: false
+  docx:
+    toc: true
+execute:
+  warning: false
+  message: false
+  error: true        # keeps rendering even if code has errors
+---
+
+```{r setup}
+#| include: false
+
+# Load packages here — add more as needed
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse)
+```
+
+# What I learned this week
+
+*Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!*
+
+------------------------------------------------------------------------
+
+# Code notes
+
+Use the sections below to paste in code from the lesson and add your own notes. Feel free to rename the headings to match the topics you're covering.
+
+日本語でもオーケー!
+
+## Topic 1
+
+*What does this code do? Write notes / comments above or below the code chunk*
+
+```{r}
+# Paste your code here
+
+```
+
+## Topic 2
+
+*What does this code do? Write notes / comments above or below the code chunk*
+
+```{r}
+# Paste your code here
+
+```
+
+## Topic 3
+
+*What does this code do? Write notes / comments above or below the code chunk*
+
+```{r}
+# Paste your code here
+
+```
+
+------------------------------------------------------------------------
+
+# Things I want to remember
+
+*Anything that surprised you, a useful trick, or something you want to look up later.*
+
+-   
+
+-   
+
+-   
+
+------------------------------------------------------------------------
+
+# Questions I still have
+
+*Anything you didn't understand or want to ask about next session.*
+
+-   
+
+-   
+
+-   
+
+------------------------------------------------------------------------
+
+::: {.callout-tip collapse="true"}
+## Rendering tips
+
+**Render to HTML** (recommended): Click the **Render** button in RStudio, or run:
+
+``` r
+quarto::quarto_render("my-notes.qmd", output_format = "html")
+```
+
+**Switch format**: Change `html` to `pdf` or `docx` in the YAML above, or render all formats at once by removing the format specification and using:
+
+``` r
+quarto::quarto_render("my-notes.qmd", output_format = "all")
+```
+
+**If a code chunk stops the document from rendering**, add `#| eval: false` at the top of that chunk to skip it:
+
+```` markdown
+```{{r}}
+#| eval: false
+code_that_causes_an_error()
+```
+````
+
+Or turn off evaluation for the whole document by adding this to the YAML:
+
+``` yaml
+execute:
+  eval: false
+```
+:::

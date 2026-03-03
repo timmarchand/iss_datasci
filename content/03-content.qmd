@@ -8,23 +8,29 @@ date_end: "2026-05-04"
 
 This week we learn to communicate data visually using ggplot2. We cover the grammar of graphics — the underlying framework that makes ggplot2 so powerful and consistent — and practice creating scatter plots, bar charts, and histograms.
 
----
+------------------------------------------------------------------------
+## Download
+
+1. Download and open the content project for this week:
+
+   - [`03-content.zip`](/files/projects/03-content.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `03-content.Rproj` to open it in RStudio.
+
+------------------------------------------------------------------------
 
 ## Readings
 
 ::: {.callout-tip}
 ### R for Non-Programmers
-Complete the following chapter(s) from [R for Non-Programmers](https://r4np.com){target="_blank"} before the lesson this week:
+- [Chapter 8: Descriptive Statistics](https://r4np.com/08_descriptive_statistics.html){target="_blank"}
 :::
 
-- [Chapter 8: Descriptive Statistics](https://r4np.com/08_descriptive_statistics.html){target="_blank"}
 
 ---
 
 ## Slides
 
 ::: {.callout-note}
-Slides for this session will appear here. If you would like to download them, use the link below.
+Slides for this session will appear here.
 :::
 
 ::: {.ratio .ratio-16x9}

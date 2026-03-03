@@ -8,22 +8,30 @@ date_end: "2026-04-27"
 
 Building on last week, we explore the core data structures in R — vectors, data frames, and lists — and start using the dplyr package to manipulate data. We will work with the nycflights13 dataset to practice filtering, selecting, and summarising data.
 
----
+------------------------------------------------------------------------
+## Download
+
+1. Download and open the content project for this week:
+
+   - [`02-content.zip`](/files/projects/02-content.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `02-content.Rproj` to open it in RStudio.
+
+------------------------------------------------------------------------
 
 ## Readings
 
-::: {.callout-tip}
+::: callout-tip
 ### R for Non-Programmers
-Complete the following chapter(s) from [R for Non-Programmers](https://r4np.com){target="_blank"} before the lesson this week:
+
+-   [Chapter 5: R Basics: The very fundamentals (cont.)](https://r4np.com/05_r_basics.html){target="_blank"}
+-   [Chapter 6: Starting your R projects](https://r4np.com/06_starting_r_projects.html){target="_blank"}
 :::
 
-- [Chapter 5: R Basics: The very fundamentals (cont.)](https://r4np.com/05_r_basics.html){target="_blank"}
-- [Chapter 6: Starting your R projects](https://r4np.com/06_starting_r_projects.html){target="_blank"}
-
----
+------------------------------------------------------------------------
 
 ## Slides
 
 ::: {.ratio .ratio-16x9}
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaaBjGUlhuNzbzL9jmnUfAHi_6-F3-5tWMgrJ1kflMCMxVxlDmPXtEwUXbN4Yf9_Aysej2H4DfqMS0/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaaBjGUlhuNzbzL9jmnUfAHi_6-F3-5tWMgrJ1kflMCMxVxlDmPXtEwUXbN4Yf9_Aysej2H4DfqMS0/pubembed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+
+</iframe>
 :::

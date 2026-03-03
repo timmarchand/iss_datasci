@@ -8,23 +8,29 @@ date_end: "2026-05-18"
 
 We take a step back from R syntax to think carefully about how data is collected and what probability means. We use Monte Carlo simulation to build intuition about randomness, sampling, and the behaviour of statistics across repeated samples.
 
----
+------------------------------------------------------------------------
+## Download
+
+1. Download and open the content project for this week:
+
+   - [`04-content.zip`](/files/projects/04-content.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `04-content.Rproj` to open it in RStudio.
+
+------------------------------------------------------------------------
 
 ## Readings
 
 ::: {.callout-tip}
 ### R for Non-Programmers
-Complete the following chapter(s) from [R for Non-Programmers](https://r4np.com){target="_blank"} before the lesson this week:
+- [Chapter 9: Sources of bias: Sampling, outliers, normality and other conundrums](https://r4np.com/09_sources_of_bias.html){target="_blank"}
 :::
 
-- [Chapter 9: Sources of bias: Sampling, outliers, normality and other conundrums](https://r4np.com/09_sources_of_bias.html){target="_blank"}
 
 ---
 
 ## Slides
 
 ::: {.callout-note}
-Slides for this session will appear here. If you would like to download them, use the link below.
+Slides for this session will appear here.
 :::
 
 ::: {.ratio .ratio-16x9}

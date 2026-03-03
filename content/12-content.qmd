@@ -8,23 +8,29 @@ date_end: "2026-07-13"
 
 In our final topic week, we explore how text can be treated as data. We cover importing text, basic string manipulation with stringr, and an introduction to regular expressions — skills that open the door to a wide range of text analysis applications.
 
----
+------------------------------------------------------------------------
+
+## Download
+
+Download the project for this week, unzip it, and double-click `12-content.Rproj` to open it in RStudio: [12-content.zip](/files/projects/12-content.zip)
+
+------------------------------------------------------------------------
 
 ## Readings
 
 ::: {.callout-tip}
 ### R for Non-Programmers
-Complete the following chapter(s) from [R for Non-Programmers](https://r4np.com){target="_blank"} before the lesson this week:
+- [Chapter 14: Mixed-methods research: Analysing qualitative data in R](https://r4np.com/14_mixed_methods.html){target="_blank"}
 :::
 
-- [Chapter 14: Mixed-methods research: Analysing qualitative data in R](https://r4np.com/14_mixed_methods.html){target="_blank"}
 
----
+
+------------------------------------------------------------------------
 
 ## Slides
 
 ::: {.callout-note}
-Slides for this session will appear here. If you would like to download them, use the link below.
+Slides for this session will appear here.
 :::
 
 ::: {.ratio .ratio-16x9}
