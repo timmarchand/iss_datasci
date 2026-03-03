@@ -72,5 +72,6 @@ us_uk_turkey_votes |>
   ) +
   scale_y_continuous(labels = label_percent())
 ```
-
-{{< downloadthis ../files/unvotes_demo.R label="Download the R script" icon="file-earmark-code" class="btn btn-outline-primary btn-sm" >}}
+<a href="/files/r_docs/unvotes_demo.R" download="unvotes_demo.R" class="btn btn-outline-primary btn-sm">
+  <i class="bi bi-file-earmark-code"></i> Download the R script
+</a>
