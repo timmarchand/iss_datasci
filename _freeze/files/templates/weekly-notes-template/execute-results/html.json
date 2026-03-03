@@ -1,0 +1,15 @@
+{
+  "hash": "ca17854842fc60260022a97385217004",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Session [XX]: [Topic]\"\nsubtitle: \"ISS Data Science — Weekly Notes\"\nauthor: \"Your Name\"\ndate: today\nformat:\n  html:\n    toc: true\n    toc-depth: 3\n    code-fold: show\n    code-tools: true\n    code-download: true\n    theme: litera\n    self-contained: true\n  docx:\n    toc: true\nexecute:\n  warning: false\n  message: false\n  error: true        # keeps rendering even if code has errors\n---\n\n\n\n# What I learned this week\n\n*Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!*\n\n------------------------------------------------------------------------\n\n# Code notes\n\nUse the sections below to paste in code from the lesson and add your own notes. Feel free to rename the headings to match the topics you're covering.\n\n日本語でもオーケー!\n\n## Topic 1\n\n*What does this code do? Write notes / comments above or below the code chunk*\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Paste your code here\n```\n:::\n\n\n## Topic 2\n\n*What does this code do? Write notes / comments above or below the code chunk*\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Paste your code here\n```\n:::\n\n\n## Topic 3\n\n*What does this code do? Write notes / comments above or below the code chunk*\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Paste your code here\n```\n:::\n\n\n------------------------------------------------------------------------\n\n# Things I want to remember\n\n*Anything that surprised you, a useful trick, or something you want to look up later.*\n\n-   \n\n-   \n\n-   \n\n------------------------------------------------------------------------\n\n# Questions I still have\n\n*Anything you didn't understand or want to ask about next session.*\n\n-   \n\n-   \n\n-   \n\n------------------------------------------------------------------------\n\n::: {.callout-tip collapse=\"true\"}\n## Rendering tips\n\n**Render to HTML** (recommended): Click the **Render** button in RStudio, or run:\n\n``` r\nquarto::quarto_render(\"my-notes.qmd\", output_format = \"html\")\n```\n\n**Switch format**: Change `html` to `pdf` or `docx` in the YAML above, or render all formats at once by removing the format specification and using:\n\n``` r\nquarto::quarto_render(\"my-notes.qmd\", output_format = \"all\")\n```\n\n**If a code chunk stops the document from rendering**, add `#| eval: false` at the top of that chunk to skip it:\n\n```` markdown\n```{{r}}\n#| eval: false\ncode_that_causes_an_error()\n```\n````\n\nOr turn off evaluation for the whole document by adding this to the YAML:\n\n``` yaml\nexecute:\n  eval: false\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
