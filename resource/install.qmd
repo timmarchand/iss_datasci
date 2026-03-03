@@ -11,19 +11,6 @@ knitr::opts_chunk$set(fig.align = "center")
 You will do all of your work in this class with the open source (and free!) programming language [R](https://cran.r-project.org/). You will use [RStudio](https://www.rstudio.com/) as the main program to access R. Think of R as an engine and RStudio as a car dashboard—R handles all the calculations and the actual statistics, while RStudio provides a nice interface for running R code.
 
 
-## Posit.cloud
-
-R is free, but it can sometimes be a pain to install and configure. To make life easier, you can (and should!) use the free [Posit.cloud](http://posit.cloud/) service *initially*, which lets you run a full instance of RStudio in your web browser. This means you won't have to install anything on your computer to get started with R! We will have a shared class workspace in Posit.cloud that will let you quickly copy templates for assignments.
-
-Go to <https://posit.cloud/> and create an account. You'll receive a link to join the shared class workspace separately. If you don't get this link, let me know and I will invite you.
-
-
-## RStudio on your computer
-
-Posit.cloud is convenient, but it can be slow and it is not designed to be able to handle larger datasets, more complicated analysis, or fancier graphics. Over the course of the semester, you should wean yourself off of Posit.cloud and install all these things locally. This is also important if you want to customize fonts, since Posit.cloud has extremely limited support for fonts other than Helvetica. 
-
-Here's how you install all these things
-
 ### Install R
 
 First you need to install R itself (the engine).
@@ -95,7 +82,7 @@ Notice also that RStudio will generate a line of code for you and run it: `insta
 
 ### Install TinyTeX
 
-When you render to PDF, R uses a special scientific typesetting program named LaTeX (pronounced "lay-tek" or "lah-tex"; for goofy nerdy reasons, the x is technically the "ch" sound in "Bach", but most people just say it as "k"—saying "layteks" is frowned on for whatever reason).
+When you render to PDF, R uses a special scientific typesetting program named LaTeX (pronounced "lay-tek" or "lah-tex"; the x is technically the "ch" sound in "Bach", but most people just say it as "k"—saying "layteks").
 
 LaTeX is neat and makes pretty documents, but it's a huge program—[the macOS version, for instance, is nearly 4 GB](https://tug.org/mactex/mactex-download.html)! To make life easier, there's a smaller version named [TinyTeX](https://yihui.org/tinytex/) that automatically deals with differences between macOS and Windows *and* automatically installs any missing LaTeX packages as needed.
 
