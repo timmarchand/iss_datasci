@@ -79,7 +79,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-7e905089ab11e891324b661e08594d9e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/quarto-contrib/downloadthis-1.9.1/downloadthis.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -442,15 +441,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Country"</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_percent</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><a href="#dnldts21547" onclick="fetch('data:text/plain;base64,IyMgSW5zdGFsbCBwYWNrYWdlcwojIFdlIG9ubHkgbmVlZCB0byBpbnN0YWxsIG9uY2UgaW4gZXZlcnkgcHJvamVjdAojIGluc3RhbGwucGFja2FnZXMoYygidGlkeXZlcnNlIiwgInNjYWxlcyIsICJ1bnZvdGVzIikpCgojIyBMb2FkIGxpYnJhcmllcyAtLS0tCgpsaWJyYXJ5KHRpZHl2ZXJzZSkgIyBmb3IgZ2dwbG90MiBhbmQgZHBseXIgcGFja2FnZXMKbGlicmFyeShzY2FsZXMpICMgZm9yIGNoYW5naW5nIHRoZSB4L3kgYXhpcyBzY2FsZXMKbGlicmFyeSh1bnZvdGVzKSAjIGZvciB0aGUgVU4gZGF0YQoKIyMgT25lIHN0ZXAgc29sdXRpb24gdG8gZG8gYm90aCBpbnN0YWxsIGFuZCBsb2FkOgoKaWYgKCFyZXF1aXJlKHBhY21hbikpIGluc3RhbGwucGFja2FnZXMoInBhY21hbiIpCnBhY21hbjo6cF9sb2FkKHRpZHl2ZXJzZSwgc2NhbGVzLCB1bnZvdGVzKQoKIyMgd3JhbmdsZSB0aGUgZGF0YSAtLS0tCgp1c191a190dXJrZXlfdm90ZXMgPC0gdW5fdm90ZXMgfD4KICBmaWx0ZXIoY291bnRyeSAlaW4lIGMoIlVuaXRlZCBTdGF0ZXMiLCAiVW5pdGVkIEtpbmdkb20iLCAiVHVya2V5IikpIHw+CiAgaW5uZXJfam9pbih1bl9yb2xsX2NhbGxzLCBieSA9ICJyY2lkIiwgcmVsYXRpb25zaGlwID0gIm1hbnktdG8tbWFueSIpIHw+CiAgaW5uZXJfam9pbih1bl9yb2xsX2NhbGxfaXNzdWVzLCBieSA9ICJyY2lkIiwgcmVsYXRpb25zaGlwID0gIm1hbnktdG8tbWFueSIpIHw+CiAgbXV0YXRlKHllYXIgPSB5ZWFyKGRhdGUpKSB8PgogIGdyb3VwX2J5KGNvdW50cnksIHllYXIsIGlzc3VlKSB8PgogIHN1bW1hcml6ZSgKICAgIHBlcmNlbnRfeWVzID0gbWVhbihhcy5jaGFyYWN0ZXIodm90ZSkgPT0gInllcyIpLAogICAgLmdyb3VwcyA9ICJkcm9wIgogICkKIyBjaGVjawp1c191a190dXJrZXlfdm90ZXMgCgojIyBwbG90IHRoZSByZXN1bHQgLS0tLQp1c191a190dXJrZXlfdm90ZXMgfD4KICBnZ3Bsb3QoKSArCiAgYWVzKHggPSB5ZWFyKSArCiAgYWVzKHkgPSBwZXJjZW50X3llcykgKwogIGFlcyhjb2xvciA9IGNvdW50cnkpICsKICBnZW9tX3BvaW50KGFscGhhID0gMC40KSArCiAgZ2VvbV9zbW9vdGgobWV0aG9kID0gImxvZXNzIiwgc2UgPSBGQUxTRSkgKwogIGZhY2V0X3dyYXAofmlzc3VlKSArCiAgbGFicygKICAgIHRpdGxlID0gIlBlcmNlbnRhZ2Ugb2YgJ1llcycgdm90ZXMgaW4gdGhlIFVOIEdlbmVyYWwgQXNzZW1ibHkiLAogICAgc3VidGl0bGUgPSAiMTk0NiB0byAyMDE5IiwKICAgIHkgPSAiJSBZZXMiLAogICAgeCA9ICJZZWFyIiwKICAgIGNvbG9yID0gIkNvdW50cnkiCiAgKSArCiAgc2NhbGVfeV9jb250aW51b3VzKGxhYmVscyA9IGxhYmVsX3BlcmNlbnQoKSkK').then(res => res.blob()).then(blob => {
-      const downloadURL = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      document.body.appendChild(a);
-      a.href = downloadURL;
-      a.download = 'file.R'; a.click();
-      window.URL.revokeObjectURL(downloadURL);
-      document.body.removeChild(a);
-        });"><button class="btn btn-default downloadthis  btn btn-outline-primary btn-sm" id="dnldts21547"><i class="bi bi-file-earmark-code"></i> Download the R script </button></a></p>
+<p><a href="../files/r_docs/unvotes_demo.R" download="unvotes_demo.R" class="btn btn-outline-primary btn-sm"> <i class="bi bi-file-earmark-code"></i> Download the R script </a></p>
 
 
 </section>
