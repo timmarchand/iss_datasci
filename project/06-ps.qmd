@@ -1,0 +1,46 @@
+---
+title: "PS06: Multiple Regression"
+date: "2026-06-22"
+---
+
+## Overview
+
+Fit and interpret multiple regression models with both numerical and categorical explanatory variables, including interaction effects.
+
+Read [Chapter 6](https://moderndive.com/6-multiple-regression.html){target="_blank"} of ModernDive before attempting this problem set.
+
+------------------------------------------------------------------------
+
+## Download
+
+Download the problem set template, open it in RStudio, and complete the exercises directly in the document.
+
+[PS06-template.zip](/files/projects/PS06-template.zip)
+
+------------------------------------------------------------------------
+
+## Setup
+
+Run this at the top of your document to install and load the required packages:
+
+```r
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse, moderndive, broom)
+```
+
+------------------------------------------------------------------------
+
+## Exercises
+
+### PS06a: One numerical and one categorical predictor
+
+Fit a parallel slopes model.
+
+### PS06b: Interaction models
+
+Fit a model with an interaction term between predictors.
+
+
+------------------------------------------------------------------------
+
+*When you are done, render to HTML and submit on Moodle. Name your file `PS06_yourname.html`.*

@@ -10,12 +10,10 @@ freeze: false
 library(tidyverse)
 library(knitr)
 library(kableExtra)
-
 withr::with_dir(here::here(), {
   schedule_nested <- targets::tar_read(schedule_page_data)
   targets::tar_load(schedule_ical_file)
 })
-
 base_url <- yaml::read_yaml(here::here("_quarto.yml"))$website$`site-url`
 ical_url_absolute <- paste0(base_url, "/", schedule_ical_file)
 ```
@@ -24,24 +22,24 @@ ical_url_absolute <- paste0(base_url, "/", schedule_ical_file)
 
 Here's your roadmap for the semester!
 
-- [**Content**](/content/index.qmd) ({{< fa book-open-reader >}}): This page contains the otuline, slides, and R code examples. We will usually refer to these first.
+- [**Content**](/content/index.qmd) ({{< fa book-open-reader >}}): This page contains the session outline, readings, and R code examples for each week. Start here.
 
-- [**Lessons**](/lesson/index.qmd) ({{< fa chalkboard-teacher >}}): This page mainly contains an interactive lesson that teaches you the principles and code you need to know. Go through these after the content.
+- [**Videos**](/example/index.qmd) ({{< fa laptop-code >}}): Supporting videos from YouTube to help with key concepts and coding in R. These are especially useful when working through assignments.
 
-- [**Videos**](/example/index.qmd) ({{< fa laptop-code >}}): This page contains supporting videos that I've found on YouTube to help with some of the concepts of data science or coding in R, but this page will be *very* helpful as you work on your weekly reflections and assignments.
+- [**Assignments**](/assignment/index.qmd) ({{< fa pen-ruler >}}): Weekly exercises using the `r4np` interactive package. Assignments include a short weekly reflection on what you have learned. **Assignments are due by 11:59 PM on the Sunday after each lesson.** See the schedule table below to see exactly when each one is due.
 
-- [**Assignment**](/assignment/index.qmd) ({{< fa pen-ruler >}}): This page contains the instructions for homework, which usually means adding weekly reflections on what you have learned, as well as some practice tasks from the R for Non-programmers package. The weekly reflections are the most important things to submit, as it helps me keep track of how you are handling the course content, so  **assignments are due by 11:59 PM on the Monday after the previous week's lesson.** That’s a lot of informatiuon in sentence form! See the schedule table below to see how it works.
+- [**Projects**](/project/index.qmd) ({{< fa diagram-project >}}): Problem sets and the data project. Problem sets (PS02–PS06) are available roughly once every two weeks and are **optional extra credit** — they build deeper statistical skills using real datasets. The data project is the **main course assessment** and replaces a final exam.
 
 :::::: {.row .d-flex .justify-content-center}
 ::::: {.col-12 .col-sm-10 .col-md-6}
 :::: {.card .bg-danger .text-white}
 ::: {.card-body}
 
-**tl;dr**: We will follow this general process for each week:
+**tl;dr**: Follow this general process each week:
 
-- Do everything on the content page ({{< fa book-open-reader >}})
-- Work through the lesson page ({{< fa chalkboard-teacher >}})
-- Complete the assignment ({{< fa pen-ruler >}}) while referencing the video examples ({{< fa laptop-code >}})
+- Work through the content page ({{< fa book-open-reader >}})
+- Complete the assignment ({{< fa pen-ruler >}}) using the videos ({{< fa laptop-code >}}) as a reference
+- Work on problem sets ({{< fa diagram-project >}}) when available for extra credit
 
 :::
 ::::
@@ -51,25 +49,19 @@ Here's your roadmap for the semester!
 ---
 
 ::: {.callout-tip}
-
 ## Subscribe!
 
 You can subscribe to this calendar URL in Outlook, Google Calendar, or Apple Calendar:
 
 ::: {.grid}
-
 ::: {.g-col-12 .g-col-md-2}
 <p class="download-btn"><a class="btn btn-danger btn-sm" href="/`r schedule_ical_file`" role="button">{{< fa calendar-alt >}} Download</a></p>
 :::
-
 ::: {.g-col-12 .g-col-md-10}
 <p><input class="form-control" type="text" value="`r ical_url_absolute`" onclick="this.select()" readonly></p>
 :::
-
 :::
-
 :::
-
 
 ```{r build-table, include=FALSE}
 show_table <- function(group_id) {

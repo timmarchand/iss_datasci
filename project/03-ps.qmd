@@ -1,0 +1,54 @@
+---
+title: "PS03: Data Wrangling"
+date: "2026-05-11"
+---
+
+## Overview
+
+Practice the core `dplyr` verbs — `filter()`, `summarize()`, `group_by()`, `mutate()`, `arrange()`, and `select()` — using the `nycflights13` dataset.
+
+Read [Chapter 3](https://moderndive.com/3-wrangling.html){target="_blank"} of ModernDive before attempting this problem set.
+
+------------------------------------------------------------------------
+
+## Download
+
+Download the problem set template, open it in RStudio, and complete the exercises directly in the document.
+
+[PS03-template.zip](/files/projects/PS03-template.zip)
+
+------------------------------------------------------------------------
+
+## Setup
+
+Run this at the top of your document to install and load the required packages:
+
+```r
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse, nycflights13)
+```
+
+------------------------------------------------------------------------
+
+## Exercises
+
+### PS03a: filter()
+
+Subset rows based on conditions.
+
+### PS03b: summarize() and group_by()
+
+Compute summary statistics by group.
+
+### PS03c: mutate()
+
+Create new variables from existing ones.
+
+### PS03d: arrange() and select()
+
+Sort rows and choose columns.
+
+
+------------------------------------------------------------------------
+
+*When you are done, render to HTML and submit on Moodle. Name your file `PS03_yourname.html`.*

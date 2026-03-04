@@ -42,8 +42,10 @@ website:
       - schedule.qmd
       - text: "Content"
         href: content/index.qmd
-      - text: "Lessons"
-        href: lesson/index.qmd
+      # - text: "Lessons"
+      #   href: lesson/index.qmd
+      - text: "Projects"
+        href: project/index.qmd
       - text: "Videos"
         href: example/index.qmd
       - text: "Assignments"
@@ -121,7 +123,18 @@ website:
               file: lesson/12-lesson.qmd
             - text: "13: Data project completion and course review"
               file: lesson/13-lesson.qmd
-
+    - title: "Projects"
+      contents:
+        - project/index.qmd
+        - section: "Problem Sets"
+          contents:
+          - project/02-ps.qmd
+          - project/03-ps.qmd
+          - project/04-ps.qmd
+          - project/05-ps.qmd
+          - project/06-ps.qmd
+          - project/final-project.qmd
+      
     - title: "Videos"
       contents:
         - section: "Overview"

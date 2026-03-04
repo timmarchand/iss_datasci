@@ -1,0 +1,47 @@
+---
+title: "Projects"
+---
+
+This section contains two types of work: **problem sets** and the **data project**.
+
+---
+
+## Problem sets
+
+Problem sets are structured exercises that build your skills in data visualisation, wrangling, and statistical modelling using real datasets. They draw on material from [ModernDive: Statistical Inference via Data Science](https://moderndive.com){target="_blank"}.
+
+### How to complete a problem set
+
+Each problem set comes as a zipped folder containing an **R Markdown (`.Rmd`) file**. R Markdown is an older but widely used format for combining R code and text — you will encounter it frequently in the wild.
+
+You can choose to complete the problem set with either the **R Markdown (`.Rmd`) file** file or the **Quarto Markdown (`.qmd`) file** - or both! That way you can learn the differences between the `Knit` and `Render` functions
+
+To complete a problem set:
+
+1. Download the zip file and unzip it on your computer
+2. Open the `.Rmd` (or `.qmd`) file in RStudio by double-clicking it (or File > Open File)
+3. Read through the document, write your code in the code chunks, and type your answers in the text sections
+4. When you are done, click the **Knit** button (or Ctrl/Cmd + Shift + K) to produce an HTML file
+5. Submit the knitted HTML file on Moodle
+
+::: {.callout-note}
+### Rmd vs. Quarto
+
+The problem set files use **R Markdown** (`.Rmd`), while the rest of this course uses **Quarto** (`.qmd`). They are very similar — the main difference is the Knit button in Rmd vs. the Render button in Quarto. Both produce the same kinds of output. Learning both is useful, as R Markdown is still widely used in research and industry.
+:::
+
+| Problem set | Topic | Download |
+|:---|:---|:---|
+| [PS02](02-ps.qmd) | Data Visualisation | [PS02-template.zip](/files/projects/PS02-template.zip) |
+| [PS03](03-ps.qmd) | Data Wrangling | [PS03-template.zip](/files/projects/PS03-template.zip) |
+| [PS04](04-ps.qmd) | Linear Regression: One Numerical Predictor | [PS04-template.zip](/files/projects/PS04-template.zip) |
+| [PS05](05-ps.qmd) | Linear Regression: One Categorical Predictor | [PS05-template.zip](/files/projects/PS05-template.zip) |
+| [PS06](06-ps.qmd) | Multiple Regression | [PS06-template.zip](/files/projects/PS06-template.zip) |
+
+---
+
+## Data project
+
+The data project is the main assessment for this course — there is no final exam. Working independently, you will find a real dataset, explore it using the tools you have learned, and write up your findings as a fully reproducible Quarto document.
+
+See the [Final Project](final-project.qmd) page for full guidelines, the assessment rubric, and the project template.

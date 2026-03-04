@@ -1,0 +1,46 @@
+---
+title: "PS05: Basic Regression"
+date: "2026-06-08"
+---
+
+## Overview
+
+Fit and interpret simple linear regression models with one numerical or one categorical explanatory variable using the `moderndive` and `broom` packages.
+
+Read [Chapter 5](https://moderndive.com/5-regression.html){target="_blank"} of ModernDive before attempting this problem set.
+
+------------------------------------------------------------------------
+
+## Download
+
+Download the problem set template, open it in RStudio, and complete the exercises directly in the document.
+
+[PS05-template.zip](/files/projects/PS05-template.zip)
+
+------------------------------------------------------------------------
+
+## Setup
+
+Run this at the top of your document to install and load the required packages:
+
+```r
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse, moderndive, broom)
+```
+
+------------------------------------------------------------------------
+
+## Exercises
+
+### PS05a: One numerical explanatory variable
+
+Fit a regression model with a single numerical predictor.
+
+### PS05b: One categorical explanatory variable
+
+Fit a regression model with a single categorical predictor.
+
+
+------------------------------------------------------------------------
+
+*When you are done, render to HTML and submit on Moodle. Name your file `PS05_yourname.html`.*

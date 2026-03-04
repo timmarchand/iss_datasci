@@ -1,0 +1,58 @@
+---
+title: "PS02: Data Visualisation"
+date: "2026-04-27"
+---
+
+## Overview
+
+Practice creating plots with `ggplot2` — histograms, barplots, scatterplots, boxplots, and linegraphs — using data from the `nycflights13` and `gapminder` packages.
+
+Read [Chapter 2](https://moderndive.com/2-viz.html){target="_blank"} of ModernDive before attempting this problem set.
+
+------------------------------------------------------------------------
+
+## Download
+
+Download the problem set template, open it in RStudio, and complete the exercises directly in the document.
+
+[PS02-template.zip](/files/projects/PS02-template.zip)
+
+------------------------------------------------------------------------
+
+## Setup
+
+Run this at the top of your document to install and load the required packages:
+
+```r
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse, nycflights13, gapminder)
+```
+
+------------------------------------------------------------------------
+
+## Exercises
+
+### PS02a: 5NG#1: Scatterplots
+
+Explore the relationship between two numerical variables.
+
+### PS02b: 5NG#2: Linegraphs
+
+Visualise trends over time.
+
+### PS02c: 5NG#3: Histograms
+
+Explore the distribution of a single numerical variable.
+
+### PS02d: 5NG#4: Boxplots
+
+Compare distributions across groups.
+
+### PS02e: 5NG#5: Barplots
+
+Visualise counts and proportions.
+
+
+------------------------------------------------------------------------
+
+*When you are done, render to HTML and submit on Moodle. Name your file `PS02_yourname.html`.*
