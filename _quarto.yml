@@ -4,7 +4,8 @@ project:
   render:
     - "*.qmd"
     - "!slides/"
-    - "!projects/"
+    - "!lesson/"
+    - "!exercises/"
     - "!files/projects/"
   resources:
     - "files/"

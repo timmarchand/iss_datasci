@@ -1,8 +1,8 @@
 projects <- tibble::tibble(
-  name = list.dirs(here_rel("projects"), full.names = FALSE, recursive = FALSE)
+  name = list.dirs(here_rel("exercises"), full.names = FALSE, recursive = FALSE)
 ) |>
   mutate(
-    path = as.character(here_rel("projects", name)),
+    path = as.character(here_rel("exercises", name)),
     sym = syms(janitor::make_clean_names(paste0("proj_", name))),
     zip_sym = syms(janitor::make_clean_names(paste0("zip_proj_", name)))
   )
