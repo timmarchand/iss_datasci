@@ -247,14 +247,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#posit.cloud" id="toc-posit.cloud" class="nav-link active" data-scroll-target="#posit.cloud">Posit.cloud</a></li>
-  <li><a href="#rstudio-on-your-computer" id="toc-rstudio-on-your-computer" class="nav-link" data-scroll-target="#rstudio-on-your-computer">RStudio on your computer</a>
-  <ul class="collapse">
-  <li><a href="#install-r" id="toc-install-r" class="nav-link" data-scroll-target="#install-r">Install R</a></li>
+  <li><a href="#install-r" id="toc-install-r" class="nav-link active" data-scroll-target="#install-r">Install R</a></li>
   <li><a href="#install-rstudio" id="toc-install-rstudio" class="nav-link" data-scroll-target="#install-rstudio">Install RStudio</a></li>
   <li><a href="#install-tidyverse" id="toc-install-tidyverse" class="nav-link" data-scroll-target="#install-tidyverse">Install <code>tidyverse</code></a></li>
   <li><a href="#install-tinytex" id="toc-install-tinytex" class="nav-link" data-scroll-target="#install-tinytex">Install TinyTeX</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -282,15 +278,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>You will do all of your work in this class with the open source (and free!) programming language <a href="https://cran.r-project.org/">R</a>. You will use <a href="https://www.rstudio.com/">RStudio</a> as the main program to access R. Think of R as an engine and RStudio as a car dashboard—R handles all the calculations and the actual statistics, while RStudio provides a nice interface for running R code.</p>
-<section id="posit.cloud" class="level2">
-<h2 class="anchored" data-anchor-id="posit.cloud">Posit.cloud</h2>
-<p>R is free, but it can sometimes be a pain to install and configure. To make life easier, you can (and should!) use the free <a href="http://posit.cloud/">Posit.cloud</a> service <em>initially</em>, which lets you run a full instance of RStudio in your web browser. This means you won’t have to install anything on your computer to get started with R! We will have a shared class workspace in Posit.cloud that will let you quickly copy templates for assignments.</p>
-<p>Go to <a href="https://posit.cloud/" class="uri">https://posit.cloud/</a> and create an account. You’ll receive a link to join the shared class workspace separately. If you don’t get this link, let me know and I will invite you.</p>
-</section>
-<section id="rstudio-on-your-computer" class="level2">
-<h2 class="anchored" data-anchor-id="rstudio-on-your-computer">RStudio on your computer</h2>
-<p>Posit.cloud is convenient, but it can be slow and it is not designed to be able to handle larger datasets, more complicated analysis, or fancier graphics. Over the course of the semester, you should wean yourself off of Posit.cloud and install all these things locally. This is also important if you want to customize fonts, since Posit.cloud has extremely limited support for fonts other than Helvetica.</p>
-<p>Here’s how you install all these things</p>
 <section id="install-r" class="level3">
 <h3 class="anchored" data-anchor-id="install-r">Install R</h3>
 <p>First you need to install R itself (the engine).</p>
@@ -388,7 +375,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="install-tinytex" class="level3">
 <h3 class="anchored" data-anchor-id="install-tinytex">Install TinyTeX</h3>
-<p>When you render to PDF, R uses a special scientific typesetting program named LaTeX (pronounced “lay-tek” or “lah-tex”; for goofy nerdy reasons, the x is technically the “ch” sound in “Bach”, but most people just say it as “k”—saying “layteks” is frowned on for whatever reason).</p>
+<p>When you render to PDF, R uses a special scientific typesetting program named LaTeX (pronounced “lay-tek” or “lah-tex”; the x is technically the “ch” sound in “Bach”, but most people just say it as “k”—saying “layteks”).</p>
 <p>LaTeX is neat and makes pretty documents, but it’s a huge program—<a href="https://tug.org/mactex/mactex-download.html">the macOS version, for instance, is nearly 4 GB</a>! To make life easier, there’s a smaller version named <a href="https://yihui.org/tinytex/">TinyTeX</a> that automatically deals with differences between macOS and Windows <em>and</em> automatically installs any missing LaTeX packages as needed.</p>
 <p>Here’s how to install TinyTeX so you can create pretty PDFs:</p>
 <ol type="1">
@@ -398,7 +385,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
