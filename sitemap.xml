@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://timmarchand.github.io/ISS_datasci/syllabus.html</loc>
-    <lastmod>2026-02-27T08:20:01.515Z</lastmod>
+    <lastmod>2026-03-04T09:19:16.836Z</lastmod>
   </url>
   <url>
     <loc>https://timmarchand.github.io/ISS_datasci/resource/visualization.html</loc>
@@ -49,34 +49,6 @@
     <lastmod>2026-03-03T17:11:10.000Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/index.html</loc>
-    <lastmod>2026-02-27T08:20:01.291Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/12-lesson.html</loc>
-    <lastmod>2026-02-27T08:20:01.289Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/10-lesson.html</loc>
-    <lastmod>2026-02-27T08:20:01.289Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/08-lesson.html</loc>
-    <lastmod>2026-02-27T08:20:01.288Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/06-lesson.html</loc>
-    <lastmod>2026-02-27T08:20:01.288Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/04-lesson.html</loc>
-    <lastmod>2026-02-27T08:20:01.288Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/02-lesson.html</loc>
-    <lastmod>2026-02-27T08:20:01.287Z</lastmod>
-  </url>
-  <url>
     <loc>https://timmarchand.github.io/ISS_datasci/index.html</loc>
     <lastmod>2026-03-02T09:20:46.398Z</lastmod>
   </url>
@@ -109,64 +81,36 @@
     <lastmod>2026-02-28T02:23:52.000Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content_zips_staging/13-content/13-weekly-notes.html</loc>
-    <lastmod>2026-03-03T09:08:01.906Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/index.html</loc>
+    <lastmod>2026-03-03T07:52:30.037Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content_zips_staging/11-content/11-weekly-notes.html</loc>
-    <lastmod>2026-03-03T09:08:01.895Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/12-content.html</loc>
+    <lastmod>2026-03-03T10:37:18.420Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content_zips_staging/09-content/09-weekly-notes.html</loc>
-    <lastmod>2026-03-03T09:08:01.882Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/10-content.html</loc>
+    <lastmod>2026-03-03T10:37:02.786Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content_zips_staging/07-content/07-weekly-notes.html</loc>
-    <lastmod>2026-03-03T09:08:01.869Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/08-content.html</loc>
+    <lastmod>2026-03-03T10:21:05.028Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content_zips_staging/05-content/05-weekly-notes.html</loc>
-    <lastmod>2026-03-03T09:08:01.853Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/06-content.html</loc>
+    <lastmod>2026-03-03T10:10:53.622Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content_zips_staging/03-content/03-weekly-notes.html</loc>
-    <lastmod>2026-03-03T09:08:01.843Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/04-content.html</loc>
+    <lastmod>2026-03-04T00:33:55.483Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content_zips_staging/01-content/01-weekly-notes.html</loc>
-    <lastmod>2026-03-03T09:08:01.827Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/02-content.html</loc>
+    <lastmod>2026-03-04T00:23:49.123Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/13-content.html</loc>
-    <lastmod>2026-03-03T10:37:28.778Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/11-content.html</loc>
-    <lastmod>2026-03-03T10:37:13.049Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/09-content.html</loc>
-    <lastmod>2026-03-04T00:34:22.259Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/07-content.html</loc>
-    <lastmod>2026-03-03T10:32:14.188Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/05-content.html</loc>
-    <lastmod>2026-03-03T09:48:33.738Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/03-content.html</loc>
-    <lastmod>2026-03-04T00:33:46.587Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/01-content.html</loc>
-    <lastmod>2026-03-03T07:54:04.515Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/assignment/final-project.html</loc>
-    <lastmod>2026-03-03T09:40:09.989Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/assignment/index.html</loc>
+    <lastmod>2026-03-04T09:14:53.612Z</lastmod>
   </url>
   <url>
     <loc>https://timmarchand.github.io/ISS_datasci/assignment/12-exercise.html</loc>
@@ -221,60 +165,32 @@
     <lastmod>2026-03-02T08:40:42.518Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/assignment/index.html</loc>
-    <lastmod>2026-03-02T08:40:42.518Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/01-content.html</loc>
+    <lastmod>2026-03-03T07:54:04.515Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/02-content.html</loc>
-    <lastmod>2026-03-04T00:23:49.123Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/03-content.html</loc>
+    <lastmod>2026-03-04T00:33:46.587Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/04-content.html</loc>
-    <lastmod>2026-03-04T00:33:55.483Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/05-content.html</loc>
+    <lastmod>2026-03-03T09:48:33.738Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/06-content.html</loc>
-    <lastmod>2026-03-03T10:10:53.622Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/07-content.html</loc>
+    <lastmod>2026-03-03T10:32:14.188Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/08-content.html</loc>
-    <lastmod>2026-03-03T10:21:05.028Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/09-content.html</loc>
+    <lastmod>2026-03-04T00:34:22.259Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/10-content.html</loc>
-    <lastmod>2026-03-03T10:37:02.786Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/11-content.html</loc>
+    <lastmod>2026-03-03T10:37:13.049Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/12-content.html</loc>
-    <lastmod>2026-03-03T10:37:18.420Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content/index.html</loc>
-    <lastmod>2026-03-03T07:52:30.037Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content_zips_staging/02-content/02-weekly-notes.html</loc>
-    <lastmod>2026-03-03T09:08:01.839Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content_zips_staging/04-content/04-weekly-notes.html</loc>
-    <lastmod>2026-03-03T09:08:01.848Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content_zips_staging/06-content/06-weekly-notes.html</loc>
-    <lastmod>2026-03-03T09:08:01.863Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content_zips_staging/08-content/08-weekly-notes.html</loc>
-    <lastmod>2026-03-03T09:08:01.876Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content_zips_staging/10-content/10-weekly-notes.html</loc>
-    <lastmod>2026-03-03T09:08:01.888Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/content_zips_staging/12-content/12-weekly-notes.html</loc>
-    <lastmod>2026-03-03T09:08:01.900Z</lastmod>
+    <loc>https://timmarchand.github.io/ISS_datasci/content/13-content.html</loc>
+    <lastmod>2026-03-03T10:37:28.778Z</lastmod>
   </url>
   <url>
     <loc>https://timmarchand.github.io/ISS_datasci/example/01-example.html</loc>
@@ -309,34 +225,6 @@
     <lastmod>2026-03-03T10:41:31.754Z</lastmod>
   </url>
   <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/01-lesson.html</loc>
-    <lastmod>2026-02-27T08:20:01.287Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/03-lesson.html</loc>
-    <lastmod>2026-02-27T08:20:01.288Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/05-lesson.html</loc>
-    <lastmod>2026-02-27T08:20:01.288Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/07-lesson.html</loc>
-    <lastmod>2026-02-27T08:20:01.288Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/09-lesson.html</loc>
-    <lastmod>2026-02-27T08:20:01.288Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/11-lesson.html</loc>
-    <lastmod>2026-02-27T08:20:01.289Z</lastmod>
-  </url>
-  <url>
-    <loc>https://timmarchand.github.io/ISS_datasci/lesson/13-lesson.html</loc>
-    <lastmod>2026-02-27T08:20:01.289Z</lastmod>
-  </url>
-  <url>
     <loc>https://timmarchand.github.io/ISS_datasci/project/02-ps.html</loc>
     <lastmod>2026-03-03T17:11:10.000Z</lastmod>
   </url>
@@ -366,7 +254,7 @@
   </url>
   <url>
     <loc>https://timmarchand.github.io/ISS_datasci/resource/install.html</loc>
-    <lastmod>2026-03-04T00:23:49.124Z</lastmod>
+    <lastmod>2026-03-04T07:36:53.989Z</lastmod>
   </url>
   <url>
     <loc>https://timmarchand.github.io/ISS_datasci/resource/pipes.html</loc>
@@ -378,7 +266,7 @@
   </url>
   <url>
     <loc>https://timmarchand.github.io/ISS_datasci/resource/unzipping.html</loc>
-    <lastmod>2026-02-27T08:20:01.515Z</lastmod>
+    <lastmod>2026-03-04T08:04:06.592Z</lastmod>
   </url>
   <url>
     <loc>https://timmarchand.github.io/ISS_datasci/schedule.html</loc>

@@ -604,226 +604,6 @@
     ]
   },
   {
-    "objectID": "lesson/index.html",
-    "href": "lesson/index.html",
-    "title": "Interactive lessons",
-    "section": "",
-    "text": "Each class session has an interactive lesson that you will work through after doing the readings. These lessons are a central part of the class—they will teach you how to use R and the tidyverse to work with, analyse, and visualise data.\nInteractive code sections look like this. Make changes in the text box and click on the green “Run Code” button to see the results. Sometimes there will be a tab with a hint or solution.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nModify the code here to show only countries in Asia, and change the variable on the x-axis to lifeExp.\n\n Interactive editor Hint\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nHint: You’ll want to filter by continent == \"Asia\" when creating gapminder_filtered, and change x = gdpPercap to x = lifeExp in the aes() call. You may also want to remove the scale_x_log10() line since life expectancy doesn’t need a log scale.\n\n\n\n\n\nIf you’re curious how this works, each interactive code section uses the amazing {quarto-webr} package to run R directly in your browser—no installation needed!",
-    "crumbs": [
-      "Overview",
-      "Interactive lessons"
-    ]
-  },
-  {
-    "objectID": "lesson/12-lesson.html",
-    "href": "lesson/12-lesson.html",
-    "title": "Space",
-    "section": "",
-    "text": "There is a short lesson this week! You’ll learn the basics of joining two different datasets together, both vertically and horizontally.\nThere are a few imaginary datasets I’ve created for you to play with:",
-    "crumbs": [
-      "Advanced topics",
-      "12: Text as data"
-    ]
-  },
-  {
-    "objectID": "lesson/12-lesson.html#combining-datasets-vertically",
-    "href": "lesson/12-lesson.html#combining-datasets-vertically",
-    "title": "Space",
-    "section": "Combining datasets vertically",
-    "text": "Combining datasets vertically\nRecall from the Lord of the Rings data in exercise 3 that you had to combine three different CSV files into dataset. You used bind_rows() to stack each of these on top of each other.\n\nlotr &lt;- bind_rows(fellowship, tt, rotk)\n\nThat worked well because each of the individual data frames had the same columns in them, and R was able to line up the matching columns. If columns were missing, R would have placed NA in the appropriate locations.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nCombine national_data and puerto_rico_data into a single dataset named us_data using bind_rows. Pay attention to what happens with the inflation column. Also notice that the columns in the Puerto Rico data are in a different order.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nus_data &lt;- bind_rows(national_data, puerto_rico_data)\nus_data",
-    "crumbs": [
-      "Advanced topics",
-      "12: Text as data"
-    ]
-  },
-  {
-    "objectID": "lesson/12-lesson.html#combining-datasets-horizontally",
-    "href": "lesson/12-lesson.html#combining-datasets-horizontally",
-    "title": "Space",
-    "section": "Combining datasets horizontally",
-    "text": "Combining datasets horizontally\nBinding rows vertically is the easiest way to combine two datasets, but most often you won’t be doing that. You’ll only do this if you’re combining datasets that come from the same source, like if a state offers separate CSV files of the same data for each county.\nIn most cases, though, you’ll need to combine completely different datasets, bringing one or more columns from one into another. With vertical combining, R needs column names with the same names in order to figure out where the data lines up. With horizontal combining, R needs values inside one or more columns to be the same in order to figure out where the data lines up.\nThere is technically a function named bind_cols(), but you’ll rarely want to use it. It doesn’t attempt to match any rows—it just glues two datasets together:\n\nbind_cols(national_data, \n          # Repeat PR 3 times so that it has the same number of rows as national_data\n          bind_rows(puerto_rico_data, puerto_rico_data, puerto_rico_data))\n## New names:\n## • `state` -&gt; `state...1`\n## • `year` -&gt; `year...2`\n## • `unemployment` -&gt; `unemployment...3`\n## • `population` -&gt; `population...5`\n## • `state` -&gt; `state...6`\n## • `unemployment` -&gt; `unemployment...7`\n## • `population` -&gt; `population...8`\n## • `year` -&gt; `year...9`\n## # A tibble: 9 × 9\n##   state...1 year...2 unemployment...3 inflation population...5 state...6\n##   &lt;chr&gt;        &lt;dbl&gt;            &lt;dbl&gt;     &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;    \n## 1 GA            2018              5         2              100 PR       \n## 2 GA            2019              5.3       1.8            200 PR       \n## 3 GA            2020              5.2       2.5            300 PR       \n## 4 NC            2018              6.1       1.8            350 PR       \n## 5 NC            2019              5.9       1.6            375 PR       \n## 6 NC            2020              5.3       1.8            400 PR       \n## 7 CO            2018              4.7       2.7            200 PR       \n## 8 CO            2019              4.4       2.6            300 PR       \n## 9 CO            2020              5.1       2.5            400 PR       \n## # ℹ 3 more variables: unemployment...7 &lt;dbl&gt;, population...8 &lt;dbl&gt;,\n## #   year...9 &lt;dbl&gt;\n\nThat’s… not great.\nInstead, we need to use a function that is more careful about bringing in data. Fortunately there are a few good options:\n\ninner_join()\nleft_join()\nright_join()\n\nThe most helpful way of understanding these different functions is to go here and stare at the animations for a little while to see which pieces of which dataset go where. (There are lots of others, like full_join(), semi_join(), and anti_join(), and they have helpful animations, but I rarely use those.)\nFor each of these functions, you need at least one common ID column in both datasets in order for R to know where things line up.\nLet’s practice how these all work and see what the differences between them are.",
-    "crumbs": [
-      "Advanced topics",
-      "12: Text as data"
-    ]
-  },
-  {
-    "objectID": "lesson/12-lesson.html#inner_join",
-    "href": "lesson/12-lesson.html#inner_join",
-    "title": "Space",
-    "section": "inner_join()",
-    "text": "inner_join()\nFirst, go to this page in a new tab and stare at the mesmerizing animation.\nLet’s look at two datasets, x and y:\n\nx\n## # A tibble: 3 × 2\n##      id some_variable\n##   &lt;dbl&gt; &lt;chr&gt;        \n## 1     1 x1           \n## 2     2 x2           \n## 3     3 x3\n\n\ny\n## # A tibble: 3 × 2\n##      id some_other_variable\n##   &lt;dbl&gt; &lt;chr&gt;              \n## 1     1 y1                 \n## 2     2 y2                 \n## 3     4 y4\n\nBoth datasets have an id column that is the same across each (though the values aren’t necessarily the same). Because there’s a shared column, we can join these two based on that column.\nIf we use inner_join(), the resulting dataset will only keep the rows from the first where there are matching values from the second:\n\ninner_join(x, y, by = join_by(id))\n## # A tibble: 2 × 3\n##      id some_variable some_other_variable\n##   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;              \n## 1     1 x1            y1                 \n## 2     2 x2            y2\n\nNotice how it got rid of the row with id = 3 from the first and the row with id = 4 from the second.\nYou can also write this with pipes, which is really common when working with {dplyr}:\n\nx |&gt; \n  inner_join(y, by = \"id\")\n## # A tibble: 2 × 3\n##      id some_variable some_other_variable\n##   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;              \n## 1     1 x1            y1                 \n## 2     2 x2            y2\n\nLet’s say we have two datasets: national_data_2019 and national_libraries_2019:\n\nnational_data_2019\n## # A tibble: 3 × 4\n##   state unemployment inflation population\n##   &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n## 1 GA             5.3       1.8        200\n## 2 NC             5.9       1.6        375\n## 3 CO             4.4       2.6        300\n\n\nnational_libraries_2019\n## # A tibble: 2 × 3\n##   state libraries schools\n##   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n## 1 CO          240     440\n## 2 NC          210     590\n\nWe want to bring the libraries and schools columns into the general national data. Notice how both datasets have a state column.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nCreate a new dataset named combined_data that uses inner_join() to merge national_data_2019 and national_libraries_2019.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\ncombined_data &lt;- inner_join(national_data_2019, national_libraries_2019, by = join_by(state))\ncombined_data\n\n# Piping with |&gt; also works\ncombined_data &lt;- national_data_2019 |&gt;\n  inner_join(national_libraries_2019, by = join_by(state))\ncombined_data",
-    "crumbs": [
-      "Advanced topics",
-      "12: Text as data"
-    ]
-  },
-  {
-    "objectID": "lesson/12-lesson.html#left_join",
-    "href": "lesson/12-lesson.html#left_join",
-    "title": "Space",
-    "section": "left_join()",
-    "text": "left_join()\nAgain, go to this page in a new tab and stare at the animation.\nLeft joining is less destructive than inner joining. With left joining, any rows in the first dataset that don’t have matches in the second don’t get thrown away and instead are filled with NA:\n\nleft_join(x, y, by = join_by(id))\n## # A tibble: 3 × 3\n##      id some_variable some_other_variable\n##   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;              \n## 1     1 x1            y1                 \n## 2     2 x2            y2                 \n## 3     3 x3            &lt;NA&gt;\n\nNotice how the row with id = 4 from the second dataset is gone, but the row with id = 3 from the first is still there, with NA for some_other_variable.\nI find this much more useful when combining data. I often have a larger dataset with all the main variables I care about, perhaps with every combination of country and year over 20 years and 180 countries. If I find another dataset I want to join, and it has missing data for some of the years or countries, I don’t want the combined data to throw away all the rows from the main big dataset that don’t match! I still want those!\n(Look at this for a real life example: I create a dataset I name panel_skeleton that is just all the combinations of countries and years (Afghanistan 1990, Afghanistan 1991, etc.), and then I bring in all sorts of other datasets that match the same countries and years. When there aren’t matches, nothing in the skeleton gets thrown away—R just adds missing values instead.)\n\n\n\n\n\n\nImportantYour turn\n\n\n\nCreate a new dataset named combined_data that uses left_join() to merge national_data_2019 and national_libraries_2019 by state.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nnational_data_with_region &lt;- left_join(national_data_2019, state_regions, by = join_by(state))\nnational_data_with_region\n\n# Piping with |&gt; also works\nnational_data_with_region &lt;- national_data_2019 |&gt; \n  left_join(state_regions, by = join_by(state))\nnational_data_with_region\n\n\n\n\n\nLeft joining is also often surprisingly helpful for recoding lots of variables. Right now in our fake national data, we have a column for state, but it would be nice if we could have a column for region so we could facet or fill or color by region in a plot. Hunting around on the internet, you find this dataset that has a column for state and a column for abbreviations:\n\nstate_regions\n## # A tibble: 51 × 2\n##    region    state\n##    &lt;chr&gt;     &lt;chr&gt;\n##  1 West      AK   \n##  2 South     AL   \n##  3 South     AR   \n##  4 West      AZ   \n##  5 West      CA   \n##  6 West      CO   \n##  7 Northeast CT   \n##  8 South     DC   \n##  9 South     DE   \n## 10 South     FL   \n## # ℹ 41 more rows\n\n\n\n\n\n\n\nImportantYour turn\n\n\n\nCreate a new dataset named national_data_with_region that uses left_join() to combine national_data_2019 with state_regions.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nnational_data_with_region &lt;- left_join(national_data_2019, state_regions, by = join_by(state))\nnational_data_with_region\n\n# Piping with |&gt; also works\nnational_data_with_region &lt;- national_data_2019 |&gt; \n  left_join(state_regions, by = join_by(state))\nnational_data_with_region\n\n\n\n\n\nBecause left_join() only keeps rows from the second dataset that match the first, we don’t actually bring in all 50 rows from the state_regions data—only the rows that match the first dataset (national_data_2019) come over. We could have done with if some massive recoding (mutate(region = ifelse(state == \"GA\" | state == \"NC\", \"South\", ifelse(state == \"CO\"), \"West\", NA))), but that’s awful. Left joining is far easier here.\nYou can also join by multiple columns. So far we’ve been working with just national_data_2019, but if you look at national_data, you’ll see there are rows for different years across these states:\n\nnational_data\n## # A tibble: 9 × 5\n##   state  year unemployment inflation population\n##   &lt;chr&gt; &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n## 1 GA     2018          5         2          100\n## 2 GA     2019          5.3       1.8        200\n## 3 GA     2020          5.2       2.5        300\n## 4 NC     2018          6.1       1.8        350\n## 5 NC     2019          5.9       1.6        375\n## 6 NC     2020          5.3       1.8        400\n## 7 CO     2018          4.7       2.7        200\n## 8 CO     2019          4.4       2.6        300\n## 9 CO     2020          5.1       2.5        400\n\nPreviously, we’ve been specifying the ID column with by = join_by(state), but now we have two ID columns: state and year. We can specify both with by = join_by(state, year).\n\n\n\n\n\n\nImportantYour turn\n\n\n\nCreate a new dataset named national_data_combined that uses left_join() to combine national_data with national_libraries by state and year.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nnational_data_combined &lt;- left_join(national_data, national_libraries, \n                                    by = join_by(state, year))\nnational_data_combined\n\n# Piping with |&gt; also works\nnational_data_combined &lt;- national_data |&gt; \n  left_join(national_libraries, by = join_by(state, year))\nnational_data_combined\n\n\n\n\n\nIf one dataset has things like state and year, but another only has state, left_join() will still work, but it will only join where the state is the same. For instance, here’s what happens when we join the region data to the yearly national data:\n\nnational_data_with_region &lt;- national_data |&gt; \n  left_join(state_regions, by = join_by(state))\nnational_data_with_region\n## # A tibble: 9 × 6\n##   state  year unemployment inflation population region\n##   &lt;chr&gt; &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt; \n## 1 GA     2018          5         2          100 South \n## 2 GA     2019          5.3       1.8        200 South \n## 3 GA     2020          5.2       2.5        300 South \n## 4 NC     2018          6.1       1.8        350 South \n## 5 NC     2019          5.9       1.6        375 South \n## 6 NC     2020          5.3       1.8        400 South \n## 7 CO     2018          4.7       2.7        200 West  \n## 8 CO     2019          4.4       2.6        300 West  \n## 9 CO     2020          5.1       2.5        400 West\n\nThe “South” region gets added to every row where the state is “GA” and “NC”, even though those rows only appear once in state_regions. left_join() will still match all the values even if states are repeated. Magic!",
-    "crumbs": [
-      "Advanced topics",
-      "12: Text as data"
-    ]
-  },
-  {
-    "objectID": "lesson/12-lesson.html#common-column-names",
-    "href": "lesson/12-lesson.html#common-column-names",
-    "title": "Space",
-    "section": "Common column names",
-    "text": "Common column names\nSo far, the column names in both datasets have been the same, which has greatly simplified life. In fact, if the columns have the same name, we can technically leave out the by argument and R will guess:\n\nnational_data |&gt; \n  left_join(national_libraries)\n## Joining with `by = join_by(state, year)`\n## # A tibble: 9 × 7\n##   state  year unemployment inflation population libraries schools\n##   &lt;chr&gt; &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n## 1 GA     2018          5         2          100        NA      NA\n## 2 GA     2019          5.3       1.8        200        NA      NA\n## 3 GA     2020          5.2       2.5        300        NA      NA\n## 4 NC     2018          6.1       1.8        350       200     610\n## 5 NC     2019          5.9       1.6        375       210     590\n## 6 NC     2020          5.3       1.8        400       220     530\n## 7 CO     2018          4.7       2.7        200       230     470\n## 8 CO     2019          4.4       2.6        300       240     440\n## 9 CO     2020          5.1       2.5        400       270     510\n\nIt’s good practice to be specific about the columns you want and actually use by, but I will often run left_join() without it and then copy the message that it generates (“by = join_by(state, year)”) and paste it into my code.\nBut what if the column names don’t match? Let’s rename the state column in our state/region table for fun:\n\nstate_regions_different &lt;- state_regions |&gt; \n  rename(ST = state)\nstate_regions_different\n## # A tibble: 51 × 2\n##    region    ST   \n##    &lt;chr&gt;     &lt;chr&gt;\n##  1 West      AK   \n##  2 South     AL   \n##  3 South     AR   \n##  4 West      AZ   \n##  5 West      CA   \n##  6 West      CO   \n##  7 Northeast CT   \n##  8 South     DC   \n##  9 South     DE   \n## 10 South     FL   \n## # ℹ 41 more rows\n\nNow watch what happens when we try to join the datasets:\n\nnational_data |&gt; \n  left_join(state_regions_different)\n## Error in `left_join()`:\n## ! `by` must be supplied when `x` and `y` have no common variables.\n## ℹ Use `cross_join()` to perform a cross-join.\n\nThere are no common variables, so we get an error. The state and ST columns really are common variables, but R doesn’t know that.\nWe have two options:\n\nRename one of the columns so it matches (either change state to ST or change ST to state)\nTell left_join() which columns are the same\n\nWe can do option two by modifying the by argument like so:\n\nnational_data |&gt; \n  left_join(state_regions_different, by = join_by(state == ST))\n## # A tibble: 9 × 6\n##   state  year unemployment inflation population region\n##   &lt;chr&gt; &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt; \n## 1 GA     2018          5         2          100 South \n## 2 GA     2019          5.3       1.8        200 South \n## 3 GA     2020          5.2       2.5        300 South \n## 4 NC     2018          6.1       1.8        350 South \n## 5 NC     2019          5.9       1.6        375 South \n## 6 NC     2020          5.3       1.8        400 South \n## 7 CO     2018          4.7       2.7        200 West  \n## 8 CO     2019          4.4       2.6        300 West  \n## 9 CO     2020          5.1       2.5        400 West",
-    "crumbs": [
-      "Advanced topics",
-      "12: Text as data"
-    ]
-  },
-  {
-    "objectID": "lesson/12-lesson.html#right_join",
-    "href": "lesson/12-lesson.html#right_join",
-    "title": "Space",
-    "section": "right_join()",
-    "text": "right_join()\nOnce again, go to this page in a new tab and watch the animation.\nright_join() works exactly like left_join(), but in reverse. The second dataset is the base data. Any rows in the second dataset that don’t match in the first will be kept, and any rows from the first that don’t match will get thrown away.\nWatch what happens if we right join national_data and state_regions:\n\nnational_data |&gt; \n  right_join(state_regions, by = join_by(state))\n## # A tibble: 57 × 6\n##    state  year unemployment inflation population region\n##    &lt;chr&gt; &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt; \n##  1 GA     2018          5         2          100 South \n##  2 GA     2019          5.3       1.8        200 South \n##  3 GA     2020          5.2       2.5        300 South \n##  4 NC     2018          6.1       1.8        350 South \n##  5 NC     2019          5.9       1.6        375 South \n##  6 NC     2020          5.3       1.8        400 South \n##  7 CO     2018          4.7       2.7        200 West  \n##  8 CO     2019          4.4       2.6        300 West  \n##  9 CO     2020          5.1       2.5        400 West  \n## 10 AK       NA         NA        NA           NA West  \n## # ℹ 47 more rows\n\nYikes. R kept all the rows in state_regions, brought in the columns from national_data and filled most of the new columns with NA, and then repeated Colorado (and NC and GA) three times for each of the years from national_data. That’s a mess.\nIf we reverse the order, we’ll get the correct merged data:\n\nstate_regions |&gt; \n  right_join(national_data, by = join_by(state))\n## # A tibble: 9 × 6\n##   region state  year unemployment inflation population\n##   &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n## 1 West   CO     2018          4.7       2.7        200\n## 2 West   CO     2019          4.4       2.6        300\n## 3 West   CO     2020          5.1       2.5        400\n## 4 South  GA     2018          5         2          100\n## 5 South  GA     2019          5.3       1.8        200\n## 6 South  GA     2020          5.2       2.5        300\n## 7 South  NC     2018          6.1       1.8        350\n## 8 South  NC     2019          5.9       1.6        375\n## 9 South  NC     2020          5.3       1.8        400\n\nI rarely use right_join() because I find it more intuitive to just use left_join() since in my head, I’m taking a dataset and stacking columns onto the end of it. If you want to right join instead, neat—just remember to order things correctly.",
-    "crumbs": [
-      "Advanced topics",
-      "12: Text as data"
-    ]
-  },
-  {
-    "objectID": "lesson/10-lesson.html",
-    "href": "lesson/10-lesson.html",
-    "title": "Enhancing graphics",
-    "section": "",
-    "text": "There’s no lesson for this session. In your exercise this week you’ll export a plot from ggplot, open it in a vector editing program, and make it extra pretty and well-designed. The best way to learn this is by actually doing it.\nSo head over to the example to see how it’s done, or the exercise to get started!",
-    "crumbs": [
-      "Advanced topics",
-      "10: Regression modelling 1"
-    ]
-  },
-  {
-    "objectID": "lesson/08-lesson.html",
-    "href": "lesson/08-lesson.html",
-    "title": "Comparisons",
-    "section": "",
-    "text": "Like the previous session, there isn’t really a lesson this week. You’re not learning how to use any new functions—you’re learning how to apply the geoms you already know in cool and exciting ways. But don’t worry! You’ll have a lesson for session 9!\nFor the lesson, read through the code examples in the example to see how to make small multiples, sparklines, geofacets, and slopegraphs.",
-    "crumbs": [
-      "Core concepts",
-      "8: Variable associations 1"
-    ]
-  },
-  {
-    "objectID": "lesson/06-lesson.html",
-    "href": "lesson/06-lesson.html",
-    "title": "Uncertainty",
-    "section": "",
-    "text": "Throughout this lesson, you’ll use the built-in mpg dataset to make histograms, density plots, box plots, violin plots, and other graphics that show uncertainty.\nSorry if mpg is getting repetitive! For short interactive things like this, it’s easier to use built-in and easy-to-load datasets like mpg and gapminder instead of loading CSV files, hence our constant reuse of the dataset. This is fairly normal too—the majority of examples in R help pages (and in peoples’ blog posts) use things like mpg or gapminder, or even iris, which measures the lengths and widths of a bunch of iris flowers in the 1930s (fun fact! I don’t like using iris because the data was originally used in an article in the Annals of Eugenics (😬) in 1936, and the data was collected to advance eugenics, and there’s no good reason to use data like that in 2025.)\nSo we work with cars instead of racist flower data.\nThe mpg dataset is available in R as soon as you load {ggplot2} (or {tidyverse}). You don’t have to run read_csv() or anything—it’s just there in the background already.\nAs a reminder, here are the first few rows of the mpg dataset:\nhead(mpg)\n## # A tibble: 6 × 11\n##   manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class \n##   &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; \n## 1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compa…\n## 2 audi         a4      1.8  1999     4 manual(m5) f        21    29 p     compa…\n## 3 audi         a4      2    2008     4 manual(m6) f        20    31 p     compa…\n## 4 audi         a4      2    2008     4 auto(av)   f        21    30 p     compa…\n## 5 audi         a4      2.8  1999     6 auto(l5)   f        16    26 p     compa…\n## 6 audi         a4      2.8  1999     6 manual(m5) f        18    26 p     compa…",
-    "crumbs": [
-      "Core concepts",
-      "6: Manipulating data 1 — Data project intro"
-    ]
-  },
-  {
-    "objectID": "lesson/06-lesson.html#histograms",
-    "href": "lesson/06-lesson.html#histograms",
-    "title": "Uncertainty",
-    "section": "Histograms",
-    "text": "Histograms\nWhen working with histograms, you always need to think about the bin width. Histograms calculate the counts of rows within specific ranges of data, and the shape of the histogram will change depending on how wide or narrow these ranges (or bins, or buckets) are.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nChange this code to add a specific bin width for city miles per gallon cty (hint: binwidth). Play around with different widths until you find one that represents the data well.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nggplot(data = mpg, mapping = aes(x = cty)) +\n  # 2 is just one binwidth that works. It's not the only right answer.\n  geom_histogram(binwidth = 2)\n\n\n\n\n\nBy default, histograms are filled with a dark grey color and the bars have no borders. Additionally, R places the center of the bars at specific numbers: if you have a bin width of 5, for instance, a bar will show the range from 7.5 to 12.5 instead of 5-10 or 10-15.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nDo the following:\n\nAdd a specific bin width\nAdd a white border (hint: color)\nFill with #E16462\nMake it so the bars start at whole numbers like 10 or 20 (hint: boundary)\n\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nggplot(data = mpg, mapping = aes(x = cty)) +\n  geom_histogram(binwidth = 2, color = \"white\", fill = \"#E16462\", boundary = 10)\n\n\n\n\n\nYou can add extra aesthetics to encode additional information about the distribution of variables across categories.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nMake a histogram of cty and fill by drv (drive: front, rear, and 4-wheel). Make sure you specify a good bin width.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nggplot(data = mpg, mapping = aes(x = cty, fill = drv)) +\n  geom_histogram(binwidth = 2)\n\n\n\n\n\nThat’s too much information! Instead of only filling, you can separate the data into multiple plots.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nMake a histogram of cty fill and facet by drv. Make sure you specify a good bin width. Make sure you specify a good bin width.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nggplot(data = mpg, mapping = aes(x = cty, fill = drv)) +\n  geom_histogram() +\n  facet_wrap(vars(drv))",
-    "crumbs": [
-      "Core concepts",
-      "6: Manipulating data 1 — Data project intro"
-    ]
-  },
-  {
-    "objectID": "lesson/06-lesson.html#density-plots",
-    "href": "lesson/06-lesson.html#density-plots",
-    "title": "Uncertainty",
-    "section": "Density plots",
-    "text": "Density plots\nWhen working with density plots in this class you don’t need to worry too much about the calculus behind the scenes that creates the curves. But you can change those settings if you really want.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nDo the following:\n\nFill this density plot with #E16462\nAdd a border (hint: color) using #9C3836, with linewidth = 1\nChange the bandwidth (hint: bw) to 0.5, then 1, then 10\n\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nggplot(data = mpg, mapping = aes(x = cty)) +\n  geom_density(fill = \"#E16462\", color = \"#9C3836\", size = 1, bw = 20)\n\n\n\n\n\nLike histograms, you can map other variables onto the plot. It’s often a good idea to make the curves semi-transparent so you can see the different distributions.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nDo the following:\n\nFill this plot using the drv variable\nMake the density plots 50% transparent\n\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nggplot(data = mpg, mapping = aes(x = cty, fill = drv)) +\n  geom_density(alpha = 0.5)\n\n\n\n\n\nEven with transparency, it’s often difficult to interpret density plots like this. As an alternative, you can use the {ggridges} package to make ridge plots. Look at the documentation and examples for {ggridges} for lots of details about different plots you can make.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nConvert this plot into a ridge plot.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nlibrary(ggridges)\n\nggplot(data = mpg, mapping = aes(x = cty, fill = drv, y = drv)) +\n  geom_density_ridges()",
-    "crumbs": [
-      "Core concepts",
-      "6: Manipulating data 1 — Data project intro"
-    ]
-  },
-  {
-    "objectID": "lesson/06-lesson.html#boxes-violins-and-dots",
-    "href": "lesson/06-lesson.html#boxes-violins-and-dots",
-    "title": "Uncertainty",
-    "section": "Boxes, violins, and dots",
-    "text": "Boxes, violins, and dots\nFinally, you can use things like boxplots and violin plots to show the distribution of variables, either by themselves or across categories.\nBox plots show the distribution of a variable by highlighting specific details, like the 25th, 50th (median) and 75th percentile, as well as the assumed minimum, assumed maximum, and outliers:\n\n\n\nAnatomy of a boxplot\n\n\nWhen making boxplots with ggplot, you need to map the variable of interest to the x aesthetic (or y if you want a vertical boxplot), and you can optionally map a second categorical variable to the y aesthetic (or x if you want a vertical boxplot).\nYou can adjust the fill and color of the plot, and you can change what counts as outliers with the coef argument. By default outliers are any point that is beyond the 75th percentile + 1.5 × the interquartile range (or below the 25th percentile + 1.5 × IQR), but that’s adjustable.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nDo the following:\n\nFill the boxplot with #E6AD3C\nColor the boxplot with #5ABD51\nChange the definition of outliers to be 5 times the IQR\n\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nggplot(data = mpg, mapping = aes(y = cty)) +\n  geom_boxplot(fill = \"#E6AD3C\", color = \"#5ABD51\", coef = 5)\n\n\n\n\n\nYou can also use violin plots instead of boxplot, which show the mirrored density distribution. When doing this, it’s often helpful to add other geoms like jittered points to show more of the data\n\n\n\n\n\n\nImportantYour turn\n\n\n\nDo the following\n\nChange this boxplot to use violins instead\nAdd jittered points with a jittering width of 0.1 and sized at 0.5\n\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nggplot(data = mpg, mapping = aes(y = cty, x = drv, fill = drv)) +\n  geom_violin() +\n  geom_point(position = position_jitter(width = 0.1), size = 0.5)",
-    "crumbs": [
-      "Core concepts",
-      "6: Manipulating data 1 — Data project intro"
-    ]
-  },
-  {
-    "objectID": "lesson/04-lesson.html",
-    "href": "lesson/04-lesson.html",
-    "title": "Amounts and proportions",
-    "section": "",
-    "text": "When you visualize proportions with ggplot, you’ll typically go through a two-step process:",
-    "crumbs": [
-      "Core concepts",
-      "4: Sampling and probability"
-    ]
-  },
-  {
-    "objectID": "lesson/04-lesson.html#manipulating-data-with-dplyr",
-    "href": "lesson/04-lesson.html#manipulating-data-with-dplyr",
-    "title": "Amounts and proportions",
-    "section": "Manipulating data with {dplyr}",
-    "text": "Manipulating data with {dplyr}\nYou had some experience with {dplyr} functions in the RStudio primers, but we’ll briefly review them here.\nThere are 6 important verbs that you’ll typically use when working with data:\n\nExtract rows/cases with filter()\nExtract columns/variables with select()\nArrange/sort rows with arrange()\nMake new columns/variables with mutate()\nMake group summaries with group_by |&gt; summarize()\n\nEvery {dplyr} verb follows the same pattern. The first argument is always a data frame, and the function always returns a data frame:\n\nVERB(DATA_TO_TRANSFORM, STUFF_IT_DOES)\n\n\nFiltering with filter()\nThe filter() function takes two arguments: a data frame to transform, and a set of tests. It will return each row for which the test is TRUE.\nThis code, for instance, will look at the gapminder dataset and return all rows where country is equal to “Denmark”:\n\nfilter(gapminder, country == \"Denmark\")\n## # A tibble: 12 × 6\n##    country continent  year lifeExp     pop gdpPercap\n##    &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;\n##  1 Denmark Europe     1952    70.8 4334000     9692.\n##  2 Denmark Europe     1957    71.8 4487831    11100.\n##  3 Denmark Europe     1962    72.4 4646899    13583.\n##  4 Denmark Europe     1967    73.0 4838800    15937.\n##  5 Denmark Europe     1972    73.5 4991596    18866.\n##  6 Denmark Europe     1977    74.7 5088419    20423.\n##  7 Denmark Europe     1982    74.6 5117810    21688.\n##  8 Denmark Europe     1987    74.8 5127024    25116.\n##  9 Denmark Europe     1992    75.3 5171393    26407.\n## 10 Denmark Europe     1997    76.1 5283663    29804.\n## 11 Denmark Europe     2002    77.2 5374693    32167.\n## 12 Denmark Europe     2007    78.3 5468120    35278.\n\nNotice that there are two equal signs (==). This is because it’s a logical test, similar to greater than (&gt;) or less than (&lt;). When you use a single equal sign, you set an argument (like data = gapminder); when you use two, you are doing a test. There are lots of different ways to do logical tests:\n\n\n\nTest\nMeaning\n\n\n\n\nx &lt; y\nLess than\n\n\nx &gt; y\nGreater than\n\n\nx == y\nEqual to\n\n\nx &lt;= y\nLess than or equal to\n\n\nx &gt;= y\nGreater than or equal to\n\n\nx != y\nNot equal to\n\n\nx %in% y\nIn (group membership)\n\n\nis.na(x)\nIs missing\n\n\n!is.na(x)\nIs not missing\n\n\n\n\n\n\n\n\n\nImportantYour turn\n\n\n\nUse filter() and logical tests to show:\n\nThe data for Canada\nAll data for countries in Oceania\nRows where life expectancy is greater than 82\n\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n# The data for Canada\nfilter(gapminder, country == \"Canada\")\n\n# All data for countries in Oceania\nfilter(gapminder, continent == \"Oceania\")\n\n# Rows where life expectancy is greater than 82\nfilter(gapminder, lifeExp &gt; 82)\n\n\n\n\n\nYou can also use multiple conditions, and these will extract rows that meet every test. By default, if you separate the tests with a comma, R will consider this an “and” test and find rows that are both Denmark and greater than 2000.\n\nfilter(gapminder, country == \"Denmark\", year &gt; 2000)\n## # A tibble: 2 × 6\n##   country continent  year lifeExp     pop gdpPercap\n##   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;\n## 1 Denmark Europe     2002    77.2 5374693    32167.\n## 2 Denmark Europe     2007    78.3 5468120    35278.\n\nYou can also use “or” with “|” and “not” with “!”:\n\n\n\nOperator\nMeaning\n\n\n\n\na & b\nand\n\n\na | b\nor\n\n\n!a\nnot\n\n\n\n\n\n\n\n\n\nImportantYour turn\n\n\n\nUse filter() and logical tests to show:\n\nCanada before 1970\nCountries where life expectancy in 2007 is below 50\nCountries where life expectancy in 2007 is below 50 and are not in Africa\n\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n# Canada before 1970\nfilter(gapminder, country == \"Canada\", year &lt; 1970)\n\n# Countries where life expectancy in 2007 is below 50\nfilter(gapminder, year == 2007, lifeExp &lt; 50)\n\n# Countries where life expectancy in 2007 is below 50 and are not in Africa\nfilter(gapminder, year == 2007, lifeExp &lt; 50, continent != \"Africa\")\n\n\n\n\n\nBeware of some common mistakes! You can’t collapse multiple tests into one. Instead, use two separate tests:\n\n# This won't work!\nfilter(gapminder, 1960 &lt; year &lt; 1980)\n\n# This will work\nfilter(gapminder, 1960 &lt; year, year &lt; 1980)\n\nAlso, you can avoid stringing together lots of tests by using the %in% operator, which checks to see if a value is in a list of values.\n\n# This works, but is tedious\nfilter(gapminder, \n       country == \"Mexico\" | country == \"Canada\" | country == \"United States\")\n\n# This is more concise and easier to add other countries later\nfilter(gapminder, \n       country %in% c(\"Mexico\", \"Canada\", \"United States\"))\n\n\n\nAdding new columns with mutate()\nYou create new columns with the mutate() function. You can create a single column like this:\n\nmutate(gapminder, gdp = gdpPercap * pop)\n## # A tibble: 1,704 × 7\n##    country     continent  year lifeExp      pop gdpPercap          gdp\n##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;\n##  1 Afghanistan Asia       1952    28.8  8425333      779.  6567086330.\n##  2 Afghanistan Asia       1957    30.3  9240934      821.  7585448670.\n##  3 Afghanistan Asia       1962    32.0 10267083      853.  8758855797.\n##  4 Afghanistan Asia       1967    34.0 11537966      836.  9648014150.\n##  5 Afghanistan Asia       1972    36.1 13079460      740.  9678553274.\n##  6 Afghanistan Asia       1977    38.4 14880372      786. 11697659231.\n##  7 Afghanistan Asia       1982    39.9 12881816      978. 12598563401.\n##  8 Afghanistan Asia       1987    40.8 13867957      852. 11820990309.\n##  9 Afghanistan Asia       1992    41.7 16317921      649. 10595901589.\n## 10 Afghanistan Asia       1997    41.8 22227415      635. 14121995875.\n## # ℹ 1,694 more rows\n\nAnd you can create multiple columns by including a comma-separated list of new columns to create:\n\nmutate(gapminder, gdp = gdpPercap * pop,\n                  pop_mill = round(pop / 1000000))\n## # A tibble: 1,704 × 8\n##    country     continent  year lifeExp      pop gdpPercap          gdp pop_mill\n##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;    &lt;dbl&gt;\n##  1 Afghanistan Asia       1952    28.8  8425333      779.  6567086330.        8\n##  2 Afghanistan Asia       1957    30.3  9240934      821.  7585448670.        9\n##  3 Afghanistan Asia       1962    32.0 10267083      853.  8758855797.       10\n##  4 Afghanistan Asia       1967    34.0 11537966      836.  9648014150.       12\n##  5 Afghanistan Asia       1972    36.1 13079460      740.  9678553274.       13\n##  6 Afghanistan Asia       1977    38.4 14880372      786. 11697659231.       15\n##  7 Afghanistan Asia       1982    39.9 12881816      978. 12598563401.       13\n##  8 Afghanistan Asia       1987    40.8 13867957      852. 11820990309.       14\n##  9 Afghanistan Asia       1992    41.7 16317921      649. 10595901589.       16\n## 10 Afghanistan Asia       1997    41.8 22227415      635. 14121995875.       22\n## # ℹ 1,694 more rows\n\nYou can also do conditional tests within mutate() using the ifelse() function. This works like the =IFELSE function in Excel. Feed the function three arguments: (1) a test, (2) the value if the test is true, and (3) the value if the test is false:\n\nifelse(TEST, VALUE_IF_TRUE, VALUE_IF_FALSE)\n\nWe can create a new column that is a binary indicator for whether the country’s row is after 1960:\n\nmutate(gapminder, after_1960 = ifelse(year &gt; 1960, TRUE, FALSE))\n## # A tibble: 1,704 × 7\n##    country     continent  year lifeExp      pop gdpPercap after_1960\n##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt; &lt;lgl&gt;     \n##  1 Afghanistan Asia       1952    28.8  8425333      779. FALSE     \n##  2 Afghanistan Asia       1957    30.3  9240934      821. FALSE     \n##  3 Afghanistan Asia       1962    32.0 10267083      853. TRUE      \n##  4 Afghanistan Asia       1967    34.0 11537966      836. TRUE      \n##  5 Afghanistan Asia       1972    36.1 13079460      740. TRUE      \n##  6 Afghanistan Asia       1977    38.4 14880372      786. TRUE      \n##  7 Afghanistan Asia       1982    39.9 12881816      978. TRUE      \n##  8 Afghanistan Asia       1987    40.8 13867957      852. TRUE      \n##  9 Afghanistan Asia       1992    41.7 16317921      649. TRUE      \n## 10 Afghanistan Asia       1997    41.8 22227415      635. TRUE      \n## # ℹ 1,694 more rows\n\nWe can also use text labels instead of TRUE and FALSE:\n\nmutate(gapminder, \n       after_1960 = ifelse(year &gt; 1960, \"After 1960\", \"Before 1960\"))\n## # A tibble: 1,704 × 7\n##    country     continent  year lifeExp      pop gdpPercap after_1960 \n##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;      \n##  1 Afghanistan Asia       1952    28.8  8425333      779. Before 1960\n##  2 Afghanistan Asia       1957    30.3  9240934      821. Before 1960\n##  3 Afghanistan Asia       1962    32.0 10267083      853. After 1960 \n##  4 Afghanistan Asia       1967    34.0 11537966      836. After 1960 \n##  5 Afghanistan Asia       1972    36.1 13079460      740. After 1960 \n##  6 Afghanistan Asia       1977    38.4 14880372      786. After 1960 \n##  7 Afghanistan Asia       1982    39.9 12881816      978. After 1960 \n##  8 Afghanistan Asia       1987    40.8 13867957      852. After 1960 \n##  9 Afghanistan Asia       1992    41.7 16317921      649. After 1960 \n## 10 Afghanistan Asia       1997    41.8 22227415      635. After 1960 \n## # ℹ 1,694 more rows\n\n\n\n\n\n\n\nImportantYour turn\n\n\n\nUse mutate() to:\n\nAdd an africa column that is TRUE if the country is on the African continent\nAdd a column for logged GDP per capita\nAdd an africa_asia column that says “Africa or Asia” if the country is in Africa or Asia, and “Not Africa or Asia” if it’s not\n\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n# Add an africa column that is TRUE if the country is on the African continent\nmutate(gapminder, africa = continent == \"Africa\")\n\n# Add a column for logged GDP per capita\nmutate(gapminder, log_gdpPercap = log(gdpPercap))\n\n# Add an africa_asia column that says “Africa or Asia” if the country is in\n# Africa or Asia, and “Not Africa or Asia” if it’s not\nmutate(\n  gapminder, \n  africa_asia = \n    ifelse(continent %in% c(\"Africa\", \"Asia\"), \"Africa or Asia\", \"Not Africa or Asia\")\n)\n\n\n\n\n\n\n\nCombining multiple verbs with pipes (|&gt;)\nWhat if you want to filter to include only rows from 2002 and make a new column with the logged GDP per capita? Doing this requires both filter() and mutate(), so we need to find a way to use both at once.\nOne solution is to use intermediate variables for each step:\n\ngapminder_2002_filtered &lt;- filter(gapminder, year == 2002)\n\ngapminder_2002_logged &lt;- mutate(gapminder_2002_filtered, log_gdpPercap = log(gdpPercap))\n\nThat works fine, but your environment panel will start getting full of lots of intermediate data frames.\nAnother solution is to nest the functions inside each other. Remember that all {dplyr} functions return data frames, so you can feed the results of one into another:\n\nfilter(mutate(gapminder, log_gdpPercap = log(gdpPercap)), \n       year == 2002)\n\nThat works too, but it gets really complicated once you have even more functions, and it’s hard to keep track of which function’s arguments go where. I’d avoid doing this entirely.\n\n\n\n\n\n\nImportantPipe styles\n\n\n\nSee this short “Pipes” guide to learn about R’s two different styles of pipe: |&gt; and %&gt;%\n\n\nOne really nice solution is to use a pipe, or |&gt;. The pipe takes an object on the left and passes it as the first argument of the function on the right.\n\n# gapminder will automatically get placed in the _____ spot\ngapminder |&gt; filter(_____, country == \"Canada\")\n\nThese two lines of code do the same thing:\n\nfilter(gapminder, country == \"Canada\")\n\ngapminder |&gt; filter(country == \"Canada\")\n\nUsing pipes, you can start with a data frame, pass it to one verb, then pass the output of that verb to the next verb, and so on. When reading any code with a |&gt;, it’s easiest to read the |&gt; as “and then”. This would read:\n\nTake the gapminder dataset and then filter it so that it only has rows from 2002 and then add a new column with the logged GDP per capita\n\n\ngapminder |&gt; \n  filter(year == 2002) |&gt; \n  mutate(log_gdpPercap = log(gdpPercap))\n\nHere’s another way to think about pipes more conceptually. This isn’t valid R code, obviously, but imagine you’re going to take yourself, and then wake up, get out of bed, get dressed, and leave the house. Writing that whole process as nested functions would look like this:\n\nleave_house(get_dressed(get_out_of_bed(wake_up(me, time = \"8:00\"), side = \"correct\"), pants = TRUE, shirt = TRUE), car = TRUE, bike = FALSE)\n\nInstead of nesting everything, we can use pipes to chain these together. This would read\n\nTake myself, and then wake up at 8:00, and then get out of bed on the correct side, and then get dressed with pants and a shirt, and then leave the house in a car\n\n\nme |&gt; \n  wake_up(time = \"8:00\") |&gt; \n  get_out_of_bed(side = \"correct\") |&gt; \n  get_dressed(pants = TRUE, shirt = TRUE) |&gt; \n  leave_house(car = TRUE, bike = FALSE)\n\n\n\nSummarizing data by groups with group_by() |&gt; summarize()\nThe summarize() verb takes an entire frame and calculates summary information about it. For instance, this will find the average life expectancy for the whole gapminder data:\n\ngapminder |&gt; summarize(mean_life = mean(lifeExp))\n## # A tibble: 1 × 1\n##   mean_life\n##       &lt;dbl&gt;\n## 1      59.5\n\nYou can also make multiple summary variables, just like mutate(), and it will return a column for each:\n\ngapminder |&gt; summarize(mean_life = mean(lifeExp),\n                        min_life = min(lifeExp))\n## # A tibble: 1 × 2\n##   mean_life min_life\n##       &lt;dbl&gt;    &lt;dbl&gt;\n## 1      59.5     23.6\n\n\n\n\n\n\n\nImportantYour turn\n\n\n\nUse summarize() to calculate:\n\nThe first (minimum) year in the gapminder dataset\nThe last (maximum) year in the dataset\nThe number of rows in the dataset (use the {dplyr} cheatsheet)\nThe number of distinct countries in the dataset (use the {dplyr} cheatsheet)\n\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\ngapminder |&gt; \n  summarize(first = min(year),\n            last = max(year),\n            num_rows = n(),\n            num_unique = n_distinct(country))\n\n\n\n\n\n\n\n\n\n\n\nImportantYour turn\n\n\n\nUse filter() and summarize() to calculate the median life expectancy on the African continent in 2007:\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\ngapminder |&gt;\n  filter(continent == \"Africa\", year == 2007) |&gt;\n  summarize(n_countries = n_distinct(country), \n            med_le = median(lifeExp))\n\n\n\n\n\nNotice that summarize() on its own summarizes the whole dataset, so you only get a single row back. These values are the averages and minimums for the entire data frame. If you group your data into separate subgroups, you can use summarize() to calculate summary statistics for each group. Do this with group_by().\nThe group_by() function puts rows into groups based on values in a column. If you run this:\n\ngapminder |&gt; group_by(continent)\n## # A tibble: 1,704 × 6\n## # Groups:   continent [5]\n##    country     continent  year lifeExp      pop gdpPercap\n##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n##  1 Afghanistan Asia       1952    28.8  8425333      779.\n##  2 Afghanistan Asia       1957    30.3  9240934      821.\n##  3 Afghanistan Asia       1962    32.0 10267083      853.\n##  4 Afghanistan Asia       1967    34.0 11537966      836.\n##  5 Afghanistan Asia       1972    36.1 13079460      740.\n##  6 Afghanistan Asia       1977    38.4 14880372      786.\n##  7 Afghanistan Asia       1982    39.9 12881816      978.\n##  8 Afghanistan Asia       1987    40.8 13867957      852.\n##  9 Afghanistan Asia       1992    41.7 16317921      649.\n## 10 Afghanistan Asia       1997    41.8 22227415      635.\n## # ℹ 1,694 more rows\n\n…you won’t see anything different! R has put the dataset into separate invisible groups behind the scenes, but you haven’t done anything with those groups, so nothing has really happened. If you do things with those groups with summarize(), though, group_by() becomes much more useful.\nFor instance, this will take the gapminder data frame, group it by continent, and then summarize it by calculating the number of distinct countries in each group. It will return one row for each group, so there should be a row for each continent:\n\ngapminder |&gt; \n  group_by(continent) |&gt; \n  summarize(n_countries = n_distinct(country)) \n## # A tibble: 5 × 2\n##   continent n_countries\n##   &lt;fct&gt;           &lt;int&gt;\n## 1 Africa             52\n## 2 Americas           25\n## 3 Asia               33\n## 4 Europe             30\n## 5 Oceania             2\n\nYou can calculate multiple summary statistics, as before:\n\ngapminder |&gt; \n  group_by(continent) |&gt; \n  summarize(n_countries = n_distinct(country),\n            avg_life_exp = mean(lifeExp)) \n## # A tibble: 5 × 3\n##   continent n_countries avg_life_exp\n##   &lt;fct&gt;           &lt;int&gt;        &lt;dbl&gt;\n## 1 Africa             52         48.9\n## 2 Americas           25         64.7\n## 3 Asia               33         60.1\n## 4 Europe             30         71.9\n## 5 Oceania             2         74.3\n\n\n\n\n\n\n\nImportantYour turn\n\n\n\nFind the minimum, maximum, and median life expectancy for each continent:\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\ngapminder |&gt; \n  group_by(continent) |&gt; \n  summarize(min_le = min(lifeExp),\n            max_le = max(lifeExp),\n            med_le = median(lifeExp))\n\n\n\n\n\n\n\n\n\n\n\nImportantYour turn\n\n\n\nFind the minimum, maximum, and median life expectancy for each continent in 2007 only:\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\ngapminder |&gt; \n  filter(year == 2007) |&gt; \n  group_by(continent) |&gt; \n  summarize(min_le = min(lifeExp),\n            max_le = max(lifeExp),\n            med_le = median(lifeExp))\n\n\n\n\n\nFinally, you can group by multiple columns and R will create subgroups for every combination of the groups and return the number of rows of combinations. For instance, we can calculate the average life expectancy by both year and continent and we’ll get 60 rows, since there are 5 continents and 12 years (5 × 12 = 60):\n\ngapminder |&gt; \n  group_by(continent, year) |&gt; \n  summarize(avg_life_exp = mean(lifeExp)) \n## # A tibble: 60 × 3\n## # Groups:   continent [5]\n##    continent  year avg_life_exp\n##    &lt;fct&gt;     &lt;int&gt;        &lt;dbl&gt;\n##  1 Africa     1952         39.1\n##  2 Africa     1957         41.3\n##  3 Africa     1962         43.3\n##  4 Africa     1967         45.3\n##  5 Africa     1972         47.5\n##  6 Africa     1977         49.6\n##  7 Africa     1982         51.6\n##  8 Africa     1987         53.3\n##  9 Africa     1992         53.6\n## 10 Africa     1997         53.6\n## # ℹ 50 more rows\n\n\n\nSelecting with select()\nThe last two verbs are far simpler than filter(), mutate(), and group_by() |&gt; summarize().\nYou can choose specific columns with the select() verb. This will only keep two columns: lifeExp and year:\n\ngapminder |&gt; select(lifeExp, year)\n## # A tibble: 1,704 × 2\n##    lifeExp  year\n##      &lt;dbl&gt; &lt;int&gt;\n##  1    28.8  1952\n##  2    30.3  1957\n##  3    32.0  1962\n##  4    34.0  1967\n##  5    36.1  1972\n##  6    38.4  1977\n##  7    39.9  1982\n##  8    40.8  1987\n##  9    41.7  1992\n## 10    41.8  1997\n## # ℹ 1,694 more rows\n\nYou can remove specific columns by prefacing the column names with -, like -lifeExp:\n\ngapminder |&gt; select(-lifeExp)\n## # A tibble: 1,704 × 5\n##    country     continent  year      pop gdpPercap\n##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;    &lt;int&gt;     &lt;dbl&gt;\n##  1 Afghanistan Asia       1952  8425333      779.\n##  2 Afghanistan Asia       1957  9240934      821.\n##  3 Afghanistan Asia       1962 10267083      853.\n##  4 Afghanistan Asia       1967 11537966      836.\n##  5 Afghanistan Asia       1972 13079460      740.\n##  6 Afghanistan Asia       1977 14880372      786.\n##  7 Afghanistan Asia       1982 12881816      978.\n##  8 Afghanistan Asia       1987 13867957      852.\n##  9 Afghanistan Asia       1992 16317921      649.\n## 10 Afghanistan Asia       1997 22227415      635.\n## # ℹ 1,694 more rows\n\nYou can also rename columns using select(). Follow this pattern: select(old_name = new_name).\n\ngapminder |&gt; select(year, country, life_expectancy = lifeExp)\n## # A tibble: 1,704 × 3\n##     year country     life_expectancy\n##    &lt;int&gt; &lt;fct&gt;                 &lt;dbl&gt;\n##  1  1952 Afghanistan            28.8\n##  2  1957 Afghanistan            30.3\n##  3  1962 Afghanistan            32.0\n##  4  1967 Afghanistan            34.0\n##  5  1972 Afghanistan            36.1\n##  6  1977 Afghanistan            38.4\n##  7  1982 Afghanistan            39.9\n##  8  1987 Afghanistan            40.8\n##  9  1992 Afghanistan            41.7\n## 10  1997 Afghanistan            41.8\n## # ℹ 1,694 more rows\n\nAlternatively, there’s a special rename() verb that will, um, rename, while keeping all the other columns:\n\ngapminder |&gt; rename(life_expectancy = lifeExp)\n## # A tibble: 1,704 × 6\n##    country     continent  year life_expectancy      pop gdpPercap\n##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;           &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n##  1 Afghanistan Asia       1952            28.8  8425333      779.\n##  2 Afghanistan Asia       1957            30.3  9240934      821.\n##  3 Afghanistan Asia       1962            32.0 10267083      853.\n##  4 Afghanistan Asia       1967            34.0 11537966      836.\n##  5 Afghanistan Asia       1972            36.1 13079460      740.\n##  6 Afghanistan Asia       1977            38.4 14880372      786.\n##  7 Afghanistan Asia       1982            39.9 12881816      978.\n##  8 Afghanistan Asia       1987            40.8 13867957      852.\n##  9 Afghanistan Asia       1992            41.7 16317921      649.\n## 10 Afghanistan Asia       1997            41.8 22227415      635.\n## # ℹ 1,694 more rows\n\n\n\nArranging data with arrange()\nThe arrange() verb sorts data. By default it sorts ascendingly, putting the lowest values first:\n\ngapminder |&gt; arrange(lifeExp)\n## # A tibble: 1,704 × 6\n##    country      continent  year lifeExp     pop gdpPercap\n##    &lt;fct&gt;        &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;\n##  1 Rwanda       Africa     1992    23.6 7290203      737.\n##  2 Afghanistan  Asia       1952    28.8 8425333      779.\n##  3 Gambia       Africa     1952    30    284320      485.\n##  4 Angola       Africa     1952    30.0 4232095     3521.\n##  5 Sierra Leone Africa     1952    30.3 2143249      880.\n##  6 Afghanistan  Asia       1957    30.3 9240934      821.\n##  7 Cambodia     Asia       1977    31.2 6978607      525.\n##  8 Mozambique   Africa     1952    31.3 6446316      469.\n##  9 Sierra Leone Africa     1957    31.6 2295678     1004.\n## 10 Burkina Faso Africa     1952    32.0 4469979      543.\n## # ℹ 1,694 more rows\n\nYou can reverse that by wrapping the column name with desc():\n\ngapminder |&gt; arrange(desc(lifeExp))\n## # A tibble: 1,704 × 6\n##    country          continent  year lifeExp       pop gdpPercap\n##    &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;\n##  1 Japan            Asia       2007    82.6 127467972    31656.\n##  2 Hong Kong, China Asia       2007    82.2   6980412    39725.\n##  3 Japan            Asia       2002    82   127065841    28605.\n##  4 Iceland          Europe     2007    81.8    301931    36181.\n##  5 Switzerland      Europe     2007    81.7   7554661    37506.\n##  6 Hong Kong, China Asia       2002    81.5   6762476    30209.\n##  7 Australia        Oceania    2007    81.2  20434176    34435.\n##  8 Spain            Europe     2007    80.9  40448191    28821.\n##  9 Sweden           Europe     2007    80.9   9031088    33860.\n## 10 Israel           Asia       2007    80.7   6426679    25523.\n## # ℹ 1,694 more rows\n\nYou can sort by multiple columns by specifying them in a comma separated list. For example, we can sort by continent and then sort by life expectancy within the continents:\n\ngapminder |&gt; \n  arrange(continent, desc(lifeExp))\n## # A tibble: 1,704 × 6\n##    country   continent  year lifeExp      pop gdpPercap\n##    &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n##  1 Reunion   Africa     2007    76.4   798094     7670.\n##  2 Reunion   Africa     2002    75.7   743981     6316.\n##  3 Reunion   Africa     1997    74.8   684810     6072.\n##  4 Libya     Africa     2007    74.0  6036914    12057.\n##  5 Tunisia   Africa     2007    73.9 10276158     7093.\n##  6 Reunion   Africa     1992    73.6   622191     6101.\n##  7 Tunisia   Africa     2002    73.0  9770575     5723.\n##  8 Mauritius Africa     2007    72.8  1250882    10957.\n##  9 Libya     Africa     2002    72.7  5368585     9535.\n## 10 Algeria   Africa     2007    72.3 33333216     6223.\n## # ℹ 1,694 more rows\n\n\n\nThat’s it!\nThose are the main verbs you’ll deal with in this class. There are dozens of other really useful ones—check out the {dplyr} and {tidyr} cheat sheets.",
-    "crumbs": [
-      "Core concepts",
-      "4: Sampling and probability"
-    ]
-  },
-  {
-    "objectID": "lesson/04-lesson.html#changing-colors-shapes-and-sizes-with-scale_",
-    "href": "lesson/04-lesson.html#changing-colors-shapes-and-sizes-with-scale_",
-    "title": "Amounts and proportions",
-    "section": "Changing colors, shapes, and sizes, with scale_*()",
-    "text": "Changing colors, shapes, and sizes, with scale_*()\nRecall from session 3 that the grammar of graphics uses a set of layers to define elements of plots:\n\n\n\n\n\n\n\n\n\nIn tomorrow’s session, you’ll learn all about the Theme layer. Here we’ll briefly cover the Scales layer, which we use for changing aspects of the different aesthetics, like using logged axes or changing colors or shapes.\nAll the functions that deal with scales conveniently follow the same naming pattern:\n\nscale_AESTHETIC_DETAILS()\n\nHere are some common scale functions:\n\nscale_x_continuous()\nscale_y_reverse()\nscale_color_viridis_c()\nscale_shape_manual(values = c(19, 13, 15))\nscale_fill_manual(values = c(\"red\", \"orange\", \"blue\"))\n\nYou can see a list of all of the possible scale functions here, and you should reference that documentation (and the excellent examples) often when working with these functions.\nAs long as you have mapped a variable to an aesthetic with aes(), you can use the scale_*() functions to deal with it. For instance, in this ggplot, we have mapped variables to x, y, and fill, which means we can use those corresponding scale functions to manipulate how those aesthetics are shown. Here we reverse the y-axis (ew, don’t really do this), and we use a discrete viridis color palette:\n\ncontinent_counts &lt;- gapminder |&gt; \n  group_by(continent) |&gt; \n  summarize(countries = n_distinct(country))\n\nggplot(continent_counts, aes(x = continent, y = countries, fill = continent)) +\n  geom_col() +\n  scale_y_reverse() +  # lol this is bad; don't do it in real life\n  scale_fill_viridis_d()\n\n\n\n\n\n\n\n\nYou can also use different arguments in the scale functions—again, check the documentation for examples. For instance, if we want to use the plasma palette from the viridis package, we can set that as an option:\n\nggplot(continent_counts, aes(x = continent, y = countries, fill = continent)) +\n  geom_col() +\n  scale_fill_viridis_d(option = \"plasma\")\n\n\n\n\n\n\n\n\nThat yellow might be too bright and hard to see, so we can tell ggplot to not use the full range of the palette, ending at 90% of the range instead:\n\nggplot(continent_counts, aes(x = continent, y = countries, fill = continent)) +\n  geom_col() +\n  scale_fill_viridis_d(option = \"plasma\", end = 0.9)\n\n\n\n\n\n\n\n\nInstead of letting R calculate the colors from a general palette, you can also specify your own colors with scale_fill_manual() and feeding it a list of values—generally as hex codes or a name from a list of built-in R colors:\n\nggplot(continent_counts, aes(x = continent, y = countries, fill = continent)) +\n  geom_col() +\n  scale_fill_manual(values = c(\"chartreuse4\", \"cornsilk4\", \"black\", \"#fc03b6\", \"#5c47d6\"))\n\n\n\n\n\n\n\n\nScale functions also work for other aesthetics like shape or color or size. For instance, consider this plot, which has all three:\n\ngapminder_2007 &lt;- gapminder |&gt; \n  filter(year == 2007)\n\nggplot(gapminder_2007,\n       aes(x = gdpPercap, y = lifeExp, \n           color = continent, shape = continent, size = pop)) +\n  geom_point() +\n  scale_x_log10()\n\n\n\n\n\n\n\n\nWe can change the colors of the points with scale_color_*():\n\nggplot(gapminder_2007,\n       aes(x = gdpPercap, y = lifeExp, \n           color = continent, shape = continent, size = pop)) +\n  geom_point() +\n  scale_x_log10() +\n  scale_color_manual(values = c(\"chartreuse4\", \"cornsilk4\", \"black\", \"#fc03b6\", \"#5c47d6\"))\n\n\n\n\n\n\n\n\nWe can change the shapes with scale_shape_*(). If you run ?pch in your console or search for pch in the help, you can see all the possible shapes.\n\nggplot(gapminder_2007,\n       aes(x = gdpPercap, y = lifeExp, \n           color = continent, shape = continent, size = pop)) +\n  geom_point() +\n  scale_x_log10() +\n  scale_shape_manual(values = c(12, 9, 17, 19, 15))\n\n\n\n\n\n\n\n\nYou can change the size with scale_size_*(). Here we make it so the smallest possible size is 1 and the largest is 15:\n\nggplot(gapminder_2007,\n       aes(x = gdpPercap, y = lifeExp, \n           color = continent, shape = continent, size = pop)) +\n  geom_point() +\n  scale_x_log10() +\n  scale_size_continuous(range = c(1, 15))\n\n\n\n\n\n\n\n\nWe can even do all three at once:\n\nggplot(gapminder_2007,\n       aes(x = gdpPercap, y = lifeExp, \n           color = continent, shape = continent, size = pop)) +\n  geom_point() +\n  scale_x_log10() +\n  scale_color_manual(values = c(\"chartreuse4\", \"cornsilk4\", \"black\", \"#fc03b6\", \"#5c47d6\")) +\n  scale_shape_manual(values = c(12, 9, 17, 19, 15)) +\n  scale_size_continuous(range = c(1, 15))\n\n\n\n\n\n\n\n\nPhew. That’s ugly.\nOne last thing we can do with scales is format how they show up on the plot. Notice how the population legend uses scientific notation like 2.50e+08. This means you need to move the decimal point 8 places to the right, making it 250000000. Leaving it in scientific notation isn’t great because it makes it really hard to read and interpret.\nIf you load the {scales} library (which is installed as part of {tidyverse} but isn’t automatically loaded), you can use some neat helper functions to reformat the text that shows up in plots. For instance, we can make it so population is formatted as a number with commas every 3 numbers, and the x-axis is formatted as dollars:\n\nlibrary(scales)\n\nggplot(gapminder_2007,\n       aes(x = gdpPercap, y = lifeExp, \n           color = continent, shape = continent, size = pop)) +\n  geom_point() +\n  scale_x_log10(labels = label_dollar()) +\n  scale_size_continuous(labels = label_comma())\n\n\n\n\n\n\n\n\nCheck the documentation for {scales} for details about all the labeling functions it has, including dates, percentages, p-values, LaTeX math, etc.",
-    "crumbs": [
-      "Core concepts",
-      "4: Sampling and probability"
-    ]
-  },
-  {
-    "objectID": "lesson/02-lesson.html",
-    "href": "lesson/02-lesson.html",
-    "title": "Graphic design",
-    "section": "",
-    "text": "Recall from the last section of the lecture that you’ll typically work with one of two image file types: bitmap images and vector images.\nBitmaps store image information as tiny squares, or pixels. Specific files types compress these images in different ways: JPEG files smudge together groups of similarly colored pixels to save repetition, while PNG and GIF files look for fields of the exact same color.\n\n\n\n\n\n\n\n\n\nYou use bitmap images for things that go on the internet and when you place images in Word (technically modern versions of Word can handle some types of vector images, but that support isn’t universal yet).\nVector images, on the other hand, do not store image information as pixels. Instead, these use mathematical formulas to draw lines and curves and fill areas with specific colors. This makes them a little more complicated to draw and create, but it also means that you can scale them up or down infinitely—a vector image will look just as crisp on a postage stamp as it would on a billboard.\n\n\n\n\n\n\n\n\n\nHere are some general guidelines:\n\nIf an image has lots of colors (like a photograph), you should use a bitmap file type designed for lots of colors, like JPEG. This is the case regardless of where the image will ultimately end up. If you’re putting it on the internet, it needs to be a JPEG. If you’re blowing it up to fit on a billboard, it will still need to be a JPEG (and you have to use a fancy super high quality camera to get a high enough resolution for that kind of expansion)\nIf an image has a few colors and some text and is not a photograph and you’re using the image in Word or on the internet, you should use a bitmap file type designed for carefully compressing a few colors, like PNG.\nIf an image has a few colors and some text and is not a photograph and you’re planning on using it in multiple sizes (like a logo), or using it in fancier production software like Adobe InDesign (for print) or Adobe After Effects (for video), you should use a vector file type like PDF or SVG.",
-    "crumbs": [
-      "Foundations",
-      "2: R basics 1 — Vectors, data frames, lists, basic scripts"
-    ]
-  },
-  {
-    "objectID": "lesson/02-lesson.html#file-types",
-    "href": "lesson/02-lesson.html#file-types",
-    "title": "Graphic design",
-    "section": "",
-    "text": "Recall from the last section of the lecture that you’ll typically work with one of two image file types: bitmap images and vector images.\nBitmaps store image information as tiny squares, or pixels. Specific files types compress these images in different ways: JPEG files smudge together groups of similarly colored pixels to save repetition, while PNG and GIF files look for fields of the exact same color.\n\n\n\n\n\n\n\n\n\nYou use bitmap images for things that go on the internet and when you place images in Word (technically modern versions of Word can handle some types of vector images, but that support isn’t universal yet).\nVector images, on the other hand, do not store image information as pixels. Instead, these use mathematical formulas to draw lines and curves and fill areas with specific colors. This makes them a little more complicated to draw and create, but it also means that you can scale them up or down infinitely—a vector image will look just as crisp on a postage stamp as it would on a billboard.\n\n\n\n\n\n\n\n\n\nHere are some general guidelines:\n\nIf an image has lots of colors (like a photograph), you should use a bitmap file type designed for lots of colors, like JPEG. This is the case regardless of where the image will ultimately end up. If you’re putting it on the internet, it needs to be a JPEG. If you’re blowing it up to fit on a billboard, it will still need to be a JPEG (and you have to use a fancy super high quality camera to get a high enough resolution for that kind of expansion)\nIf an image has a few colors and some text and is not a photograph and you’re using the image in Word or on the internet, you should use a bitmap file type designed for carefully compressing a few colors, like PNG.\nIf an image has a few colors and some text and is not a photograph and you’re planning on using it in multiple sizes (like a logo), or using it in fancier production software like Adobe InDesign (for print) or Adobe After Effects (for video), you should use a vector file type like PDF or SVG.",
-    "crumbs": [
-      "Foundations",
-      "2: R basics 1 — Vectors, data frames, lists, basic scripts"
-    ]
-  },
-  {
-    "objectID": "lesson/02-lesson.html#select-the-best-file-type",
-    "href": "lesson/02-lesson.html#select-the-best-file-type",
-    "title": "Graphic design",
-    "section": "Select the best file type",
-    "text": "Select the best file type\nPractice deciding what kind of file type you should use by looking at these images and choosing what you think works the best.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPNG\n\n\n\n\nJPG\n\n\n\n\nPDF\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPNG\n\n\n\n\nJPG\n\n\n\n\nPDF\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPNG\n\n\n\n\nJPG\n\n\n\n\nPDF\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPNG\n\n\n\n\nJPG\n\n\n\n\nPDF\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPNG\n\n\n\n\nJPG\n\n\n\n\nPDF\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPNG\n\n\n\n\nJPG\n\n\n\n\nPDF",
-    "crumbs": [
-      "Foundations",
-      "2: R basics 1 — Vectors, data frames, lists, basic scripts"
-    ]
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "\n            CLIL Seminar: Data Science and Text Analysis\n        ",
@@ -1095,627 +875,412 @@
     ]
   },
   {
-    "objectID": "content_zips_staging/13-content/13-weekly-notes.html",
-    "href": "content_zips_staging/13-content/13-weekly-notes.html",
-    "title": "Session 13: Data Project Completion and Course Review",
+    "objectID": "content/index.html",
+    "href": "content/index.html",
+    "title": "Content",
     "section": "",
-    "text": "Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!"
-  },
-  {
-    "objectID": "content_zips_staging/13-content/13-weekly-notes.html#topic-1",
-    "href": "content_zips_staging/13-content/13-weekly-notes.html#topic-1",
-    "title": "Session 13: Data Project Completion and Course Review",
-    "section": "Topic 1",
-    "text": "Topic 1\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/13-content/13-weekly-notes.html#topic-2",
-    "href": "content_zips_staging/13-content/13-weekly-notes.html#topic-2",
-    "title": "Session 13: Data Project Completion and Course Review",
-    "section": "Topic 2",
-    "text": "Topic 2\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/13-content/13-weekly-notes.html#topic-3",
-    "href": "content_zips_staging/13-content/13-weekly-notes.html#topic-3",
-    "title": "Session 13: Data Project Completion and Course Review",
-    "section": "Topic 3",
-    "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/11-content/11-weekly-notes.html",
-    "href": "content_zips_staging/11-content/11-weekly-notes.html",
-    "title": "Session 11: Regression Modelling 2",
-    "section": "",
-    "text": "Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!"
-  },
-  {
-    "objectID": "content_zips_staging/11-content/11-weekly-notes.html#topic-1",
-    "href": "content_zips_staging/11-content/11-weekly-notes.html#topic-1",
-    "title": "Session 11: Regression Modelling 2",
-    "section": "Topic 1",
-    "text": "Topic 1\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/11-content/11-weekly-notes.html#topic-2",
-    "href": "content_zips_staging/11-content/11-weekly-notes.html#topic-2",
-    "title": "Session 11: Regression Modelling 2",
-    "section": "Topic 2",
-    "text": "Topic 2\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/11-content/11-weekly-notes.html#topic-3",
-    "href": "content_zips_staging/11-content/11-weekly-notes.html#topic-3",
-    "title": "Session 11: Regression Modelling 2",
-    "section": "Topic 3",
-    "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/09-content/09-weekly-notes.html",
-    "href": "content_zips_staging/09-content/09-weekly-notes.html",
-    "title": "Session 09: Variable Associations 2",
-    "section": "",
-    "text": "Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!"
-  },
-  {
-    "objectID": "content_zips_staging/09-content/09-weekly-notes.html#topic-1",
-    "href": "content_zips_staging/09-content/09-weekly-notes.html#topic-1",
-    "title": "Session 09: Variable Associations 2",
-    "section": "Topic 1",
-    "text": "Topic 1\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/09-content/09-weekly-notes.html#topic-2",
-    "href": "content_zips_staging/09-content/09-weekly-notes.html#topic-2",
-    "title": "Session 09: Variable Associations 2",
-    "section": "Topic 2",
-    "text": "Topic 2\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/09-content/09-weekly-notes.html#topic-3",
-    "href": "content_zips_staging/09-content/09-weekly-notes.html#topic-3",
-    "title": "Session 09: Variable Associations 2",
-    "section": "Topic 3",
-    "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/07-content/07-weekly-notes.html",
-    "href": "content_zips_staging/07-content/07-weekly-notes.html",
-    "title": "Session 07: Manipulating Data 2",
-    "section": "",
-    "text": "Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!"
-  },
-  {
-    "objectID": "content_zips_staging/07-content/07-weekly-notes.html#topic-1",
-    "href": "content_zips_staging/07-content/07-weekly-notes.html#topic-1",
-    "title": "Session 07: Manipulating Data 2",
-    "section": "Topic 1",
-    "text": "Topic 1\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/07-content/07-weekly-notes.html#topic-2",
-    "href": "content_zips_staging/07-content/07-weekly-notes.html#topic-2",
-    "title": "Session 07: Manipulating Data 2",
-    "section": "Topic 2",
-    "text": "Topic 2\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/07-content/07-weekly-notes.html#topic-3",
-    "href": "content_zips_staging/07-content/07-weekly-notes.html#topic-3",
-    "title": "Session 07: Manipulating Data 2",
-    "section": "Topic 3",
-    "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/05-content/05-weekly-notes.html",
-    "href": "content_zips_staging/05-content/05-weekly-notes.html",
-    "title": "Session 05: Visualising Probability",
-    "section": "",
-    "text": "Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!"
-  },
-  {
-    "objectID": "content_zips_staging/05-content/05-weekly-notes.html#topic-1",
-    "href": "content_zips_staging/05-content/05-weekly-notes.html#topic-1",
-    "title": "Session 05: Visualising Probability",
-    "section": "Topic 1",
-    "text": "Topic 1\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/05-content/05-weekly-notes.html#topic-2",
-    "href": "content_zips_staging/05-content/05-weekly-notes.html#topic-2",
-    "title": "Session 05: Visualising Probability",
-    "section": "Topic 2",
-    "text": "Topic 2\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/05-content/05-weekly-notes.html#topic-3",
-    "href": "content_zips_staging/05-content/05-weekly-notes.html#topic-3",
-    "title": "Session 05: Visualising Probability",
-    "section": "Topic 3",
-    "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/03-content/03-weekly-notes.html",
-    "href": "content_zips_staging/03-content/03-weekly-notes.html",
-    "title": "Session 03: R Basics 2: Data Visualisation",
-    "section": "",
-    "text": "Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!"
-  },
-  {
-    "objectID": "content_zips_staging/03-content/03-weekly-notes.html#topic-1",
-    "href": "content_zips_staging/03-content/03-weekly-notes.html#topic-1",
-    "title": "Session 03: R Basics 2: Data Visualisation",
-    "section": "Topic 1",
-    "text": "Topic 1\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/03-content/03-weekly-notes.html#topic-2",
-    "href": "content_zips_staging/03-content/03-weekly-notes.html#topic-2",
-    "title": "Session 03: R Basics 2: Data Visualisation",
-    "section": "Topic 2",
-    "text": "Topic 2\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/03-content/03-weekly-notes.html#topic-3",
-    "href": "content_zips_staging/03-content/03-weekly-notes.html#topic-3",
-    "title": "Session 03: R Basics 2: Data Visualisation",
-    "section": "Topic 3",
-    "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/01-content/01-weekly-notes.html",
-    "href": "content_zips_staging/01-content/01-weekly-notes.html",
-    "title": "Session 01: Course Introduction: Data Types, R and RStudio",
-    "section": "",
-    "text": "Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!"
-  },
-  {
-    "objectID": "content_zips_staging/01-content/01-weekly-notes.html#topic-1",
-    "href": "content_zips_staging/01-content/01-weekly-notes.html#topic-1",
-    "title": "Session 01: Course Introduction: Data Types, R and RStudio",
-    "section": "Topic 1",
-    "text": "Topic 1\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/01-content/01-weekly-notes.html#topic-2",
-    "href": "content_zips_staging/01-content/01-weekly-notes.html#topic-2",
-    "title": "Session 01: Course Introduction: Data Types, R and RStudio",
-    "section": "Topic 2",
-    "text": "Topic 2\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/01-content/01-weekly-notes.html#topic-3",
-    "href": "content_zips_staging/01-content/01-weekly-notes.html#topic-3",
-    "title": "Session 01: Course Introduction: Data Types, R and RStudio",
-    "section": "Topic 3",
-    "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content/13-content.html",
-    "href": "content/13-content.html",
-    "title": "Data Project Completion and Course Review",
-    "section": "",
-    "text": "The final session is dedicated to completing and submitting your data project. We also take stock of what we have learned across the semester and look at where to go next on your R journey.",
+    "text": "This section contains the core files, reading and slides for each week. We will work through the relevant chapter(s) from the textbook, with support from file downloads and some class slides.\nThe main textbook for this course is R for Non-Programmers by Daniel Dauber — a free, openly available online book written specifically for social science students with no prior programming experience.\n\n\n\n\n\n\nTipHow to use this section\n\n\n\n\nRead the assigned r4np chapter(s)\nReview the slides if available\nDownload any related R code files\nTake notes or make comments for future reference\nThen work through the interactive lessons, videos and assignments for the week",
     "crumbs": [
       "Content",
-      "Project",
-      "Data Project Completion and Course Review"
+      "Overview",
+      "Content"
     ]
   },
   {
-    "objectID": "content/13-content.html#overview",
-    "href": "content/13-content.html#overview",
-    "title": "Data Project Completion and Course Review",
+    "objectID": "content/12-content.html",
+    "href": "content/12-content.html",
+    "title": "Text as Data",
     "section": "",
-    "text": "The final session is dedicated to completing and submitting your data project. We also take stock of what we have learned across the semester and look at where to go next on your R journey.",
+    "text": "In our final topic week, we explore how text can be treated as data. We cover importing text, basic string manipulation with stringr, and an introduction to regular expressions — skills that open the door to a wide range of text analysis applications.",
     "crumbs": [
       "Content",
-      "Project",
-      "Data Project Completion and Course Review"
+      "Advanced Topics",
+      "Text as Data"
     ]
   },
   {
-    "objectID": "content/13-content.html#download",
-    "href": "content/13-content.html#download",
-    "title": "Data Project Completion and Course Review",
+    "objectID": "content/12-content.html#overview",
+    "href": "content/12-content.html#overview",
+    "title": "Text as Data",
+    "section": "",
+    "text": "In our final topic week, we explore how text can be treated as data. We cover importing text, basic string manipulation with stringr, and an introduction to regular expressions — skills that open the door to a wide range of text analysis applications.",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Text as Data"
+    ]
+  },
+  {
+    "objectID": "content/12-content.html#download",
+    "href": "content/12-content.html#download",
+    "title": "Text as Data",
     "section": "Download",
-    "text": "Download\nDownload the project for this week, unzip it, and double-click 13-content.Rproj to open it in RStudio: 13-content.zip",
+    "text": "Download\nDownload the project for this week, unzip it, and double-click 12-content.Rproj to open it in RStudio: 12-content.zip",
     "crumbs": [
       "Content",
-      "Project",
-      "Data Project Completion and Course Review"
+      "Advanced Topics",
+      "Text as Data"
     ]
   },
   {
-    "objectID": "content/13-content.html#readings",
-    "href": "content/13-content.html#readings",
-    "title": "Data Project Completion and Course Review",
+    "objectID": "content/12-content.html#readings",
+    "href": "content/12-content.html#readings",
+    "title": "Text as Data",
     "section": "Readings",
-    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 15: Where to go from here: The next steps in your R journey",
-    "crumbs": [
-      "Content",
-      "Project",
-      "Data Project Completion and Course Review"
-    ]
-  },
-  {
-    "objectID": "content/13-content.html#slides",
-    "href": "content/13-content.html#slides",
-    "title": "Data Project Completion and Course Review",
-    "section": "Slides",
-    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
-    "crumbs": [
-      "Content",
-      "Project",
-      "Data Project Completion and Course Review"
-    ]
-  },
-  {
-    "objectID": "content/11-content.html",
-    "href": "content/11-content.html",
-    "title": "Regression Modelling 2",
-    "section": "",
-    "text": "We extend regression to multiple predictors — both numerical and categorical — and explore interaction effects. We also get a first look at logistic regression for predicting categorical outcomes.",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 14: Mixed-methods research: Analysing qualitative data in R",
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 2"
+      "Text as Data"
     ]
   },
   {
-    "objectID": "content/11-content.html#overview",
-    "href": "content/11-content.html#overview",
-    "title": "Regression Modelling 2",
-    "section": "",
-    "text": "We extend regression to multiple predictors — both numerical and categorical — and explore interaction effects. We also get a first look at logistic regression for predicting categorical outcomes.",
-    "crumbs": [
-      "Content",
-      "Advanced Topics",
-      "Regression Modelling 2"
-    ]
-  },
-  {
-    "objectID": "content/11-content.html#download",
-    "href": "content/11-content.html#download",
-    "title": "Regression Modelling 2",
-    "section": "Download",
-    "text": "Download\nDownload the project for this week, unzip it, and double-click 11-content.Rproj to open it in RStudio: 11-content.zip",
-    "crumbs": [
-      "Content",
-      "Advanced Topics",
-      "Regression Modelling 2"
-    ]
-  },
-  {
-    "objectID": "content/11-content.html#readings",
-    "href": "content/11-content.html#readings",
-    "title": "Regression Modelling 2",
-    "section": "Readings",
-    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 13: Regression (cont.)",
-    "crumbs": [
-      "Content",
-      "Advanced Topics",
-      "Regression Modelling 2"
-    ]
-  },
-  {
-    "objectID": "content/11-content.html#slides",
-    "href": "content/11-content.html#slides",
-    "title": "Regression Modelling 2",
+    "objectID": "content/12-content.html#slides",
+    "href": "content/12-content.html#slides",
+    "title": "Text as Data",
     "section": "Slides",
     "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 2"
+      "Text as Data"
     ]
   },
   {
-    "objectID": "content/09-content.html",
-    "href": "content/09-content.html",
-    "title": "Variable Associations 2",
+    "objectID": "content/10-content.html",
+    "href": "content/10-content.html",
+    "title": "Regression Modelling 1",
     "section": "",
-    "text": "We extend our toolkit for comparing groups, covering t-tests, chi-square tests, and ANOVA. We also look at how these classical tests connect to the linear regression framework, unifying much of what we have learned so far.",
+    "text": "We introduce simple linear regression — one of the most important tools in data science. We look at how to fit a model with a single numerical predictor, interpret the output, and assess model fit using R-squared and residual plots.",
     "crumbs": [
       "Content",
-      "Core Concepts",
-      "Variable Associations 2"
+      "Advanced Topics",
+      "Regression Modelling 1"
     ]
   },
   {
-    "objectID": "content/09-content.html#overview",
-    "href": "content/09-content.html#overview",
-    "title": "Variable Associations 2",
+    "objectID": "content/10-content.html#overview",
+    "href": "content/10-content.html#overview",
+    "title": "Regression Modelling 1",
     "section": "",
-    "text": "We extend our toolkit for comparing groups, covering t-tests, chi-square tests, and ANOVA. We also look at how these classical tests connect to the linear regression framework, unifying much of what we have learned so far.",
+    "text": "We introduce simple linear regression — one of the most important tools in data science. We look at how to fit a model with a single numerical predictor, interpret the output, and assess model fit using R-squared and residual plots.",
     "crumbs": [
       "Content",
-      "Core Concepts",
-      "Variable Associations 2"
+      "Advanced Topics",
+      "Regression Modelling 1"
     ]
   },
   {
-    "objectID": "content/09-content.html#download",
-    "href": "content/09-content.html#download",
-    "title": "Variable Associations 2",
+    "objectID": "content/10-content.html#download",
+    "href": "content/10-content.html#download",
+    "title": "Regression Modelling 1",
     "section": "Download",
-    "text": "Download\nDownload the project for this week, unzip it, and double-click 09-content.Rproj to open it in RStudio: 09-content.zip",
+    "text": "Download\nDownload the project for this week, unzip it, and double-click 10-content.Rproj to open it in RStudio: 10-content.zip",
     "crumbs": [
       "Content",
-      "Core Concepts",
-      "Variable Associations 2"
+      "Advanced Topics",
+      "Regression Modelling 1"
     ]
   },
   {
-    "objectID": "content/09-content.html#readings",
-    "href": "content/09-content.html#readings",
-    "title": "Variable Associations 2",
+    "objectID": "content/10-content.html#readings",
+    "href": "content/10-content.html#readings",
+    "title": "Regression Modelling 1",
     "section": "Readings",
-    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 11: Comparing groups",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 13: Regression: Creating models to predict future observations",
     "crumbs": [
       "Content",
-      "Core Concepts",
-      "Variable Associations 2"
+      "Advanced Topics",
+      "Regression Modelling 1"
     ]
   },
   {
-    "objectID": "content/09-content.html#slides",
-    "href": "content/09-content.html#slides",
-    "title": "Variable Associations 2",
+    "objectID": "content/10-content.html#slides",
+    "href": "content/10-content.html#slides",
+    "title": "Regression Modelling 1",
+    "section": "Slides",
+    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
+    "crumbs": [
+      "Content",
+      "Advanced Topics",
+      "Regression Modelling 1"
+    ]
+  },
+  {
+    "objectID": "content/08-content.html",
+    "href": "content/08-content.html",
+    "title": "Variable Associations 1",
+    "section": "",
+    "text": "This week we investigate relationships between variables. We cover correlation — what it measures, how to calculate it, and crucially, what it does not tell us. We use the palmerpenguins dataset as our main example.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Variable Associations 1"
+    ]
+  },
+  {
+    "objectID": "content/08-content.html#overview",
+    "href": "content/08-content.html#overview",
+    "title": "Variable Associations 1",
+    "section": "",
+    "text": "This week we investigate relationships between variables. We cover correlation — what it measures, how to calculate it, and crucially, what it does not tell us. We use the palmerpenguins dataset as our main example.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Variable Associations 1"
+    ]
+  },
+  {
+    "objectID": "content/08-content.html#download",
+    "href": "content/08-content.html#download",
+    "title": "Variable Associations 1",
+    "section": "Download",
+    "text": "Download\nDownload the project for this week, unzip it, and double-click 08-content.Rproj to open it in RStudio: 08-content.zip",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Variable Associations 1"
+    ]
+  },
+  {
+    "objectID": "content/08-content.html#readings",
+    "href": "content/08-content.html#readings",
+    "title": "Variable Associations 1",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 10: Correlations",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Variable Associations 1"
+    ]
+  },
+  {
+    "objectID": "content/08-content.html#slides",
+    "href": "content/08-content.html#slides",
+    "title": "Variable Associations 1",
     "section": "Slides",
     "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 2"
+      "Variable Associations 1"
     ]
   },
   {
-    "objectID": "content/07-content.html",
-    "href": "content/07-content.html",
-    "title": "Manipulating Data 2",
+    "objectID": "content/06-content.html",
+    "href": "content/06-content.html",
+    "title": "Manipulating Data 1: Data Project Introduction",
     "section": "",
-    "text": "We deepen our data wrangling skills with more advanced dplyr operations — joins, grouped summaries, and chained pipelines. We also look at Simpson’s paradox as a cautionary tale about how aggregation can mislead us.",
+    "text": "We return to data wrangling with a focus on reshaping data using tidyr. This week also introduces the data project — the main assessment for the course. We look at how to import, clean, and restructure real-world datasets ready for analysis.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 2"
+      "Manipulating Data 1: Data Project Introduction"
     ]
   },
   {
-    "objectID": "content/07-content.html#overview",
-    "href": "content/07-content.html#overview",
-    "title": "Manipulating Data 2",
+    "objectID": "content/06-content.html#overview",
+    "href": "content/06-content.html#overview",
+    "title": "Manipulating Data 1: Data Project Introduction",
     "section": "",
-    "text": "We deepen our data wrangling skills with more advanced dplyr operations — joins, grouped summaries, and chained pipelines. We also look at Simpson’s paradox as a cautionary tale about how aggregation can mislead us.",
+    "text": "We return to data wrangling with a focus on reshaping data using tidyr. This week also introduces the data project — the main assessment for the course. We look at how to import, clean, and restructure real-world datasets ready for analysis.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 2"
+      "Manipulating Data 1: Data Project Introduction"
     ]
   },
   {
-    "objectID": "content/07-content.html#download",
-    "href": "content/07-content.html#download",
-    "title": "Manipulating Data 2",
+    "objectID": "content/06-content.html#download",
+    "href": "content/06-content.html#download",
+    "title": "Manipulating Data 1: Data Project Introduction",
     "section": "Download",
-    "text": "Download\nDownload the project for this week, unzip it, and double-click 07-content.Rproj to open it in RStudio: 07-content.zip",
+    "text": "Download\nDownload the project for this week, unzip it, and double-click 06-content.Rproj to open it in RStudio: 06-content.zip",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 2"
+      "Manipulating Data 1: Data Project Introduction"
     ]
   },
   {
-    "objectID": "content/07-content.html#readings",
-    "href": "content/07-content.html#readings",
-    "title": "Manipulating Data 2",
+    "objectID": "content/06-content.html#readings",
+    "href": "content/06-content.html#readings",
+    "title": "Manipulating Data 1: Data Project Introduction",
     "section": "Readings",
-    "text": "Readings\nChapter 7: Data Wrangling (cont.)",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers - Chapter 7: Data Wrangling",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 2"
+      "Manipulating Data 1: Data Project Introduction"
     ]
   },
   {
-    "objectID": "content/07-content.html#slides",
-    "href": "content/07-content.html#slides",
-    "title": "Manipulating Data 2",
+    "objectID": "content/06-content.html#slides",
+    "href": "content/06-content.html#slides",
+    "title": "Manipulating Data 1: Data Project Introduction",
     "section": "Slides",
     "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 2"
+      "Manipulating Data 1: Data Project Introduction"
     ]
   },
   {
-    "objectID": "content/05-content.html",
-    "href": "content/05-content.html",
-    "title": "Visualising Probability",
+    "objectID": "content/04-content.html",
+    "href": "content/04-content.html",
+    "title": "Sampling and Probability",
     "section": "",
-    "text": "This week we visualise probability distributions and learn how to compare groups statistically. We look at the normal distribution, confidence intervals, and how to use density plots and boxplots to explore whether differences between groups are meaningful.",
+    "text": "We take a step back from R syntax to think carefully about how data is collected and what probability means. We use Monte Carlo simulation to build intuition about randomness, sampling, and the behaviour of statistics across repeated samples.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Visualising Probability"
+      "Sampling and Probability"
     ]
   },
   {
-    "objectID": "content/05-content.html#overview",
-    "href": "content/05-content.html#overview",
-    "title": "Visualising Probability",
+    "objectID": "content/04-content.html#overview",
+    "href": "content/04-content.html#overview",
+    "title": "Sampling and Probability",
     "section": "",
-    "text": "This week we visualise probability distributions and learn how to compare groups statistically. We look at the normal distribution, confidence intervals, and how to use density plots and boxplots to explore whether differences between groups are meaningful.",
+    "text": "We take a step back from R syntax to think carefully about how data is collected and what probability means. We use Monte Carlo simulation to build intuition about randomness, sampling, and the behaviour of statistics across repeated samples.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Visualising Probability"
+      "Sampling and Probability"
     ]
   },
   {
-    "objectID": "content/05-content.html#download",
-    "href": "content/05-content.html#download",
-    "title": "Visualising Probability",
+    "objectID": "content/04-content.html#download",
+    "href": "content/04-content.html#download",
+    "title": "Sampling and Probability",
     "section": "Download",
-    "text": "Download\nDownload the project for this week, unzip it, and double-click 05-content.Rproj to open it in RStudio: 05-content.zip",
+    "text": "Download\n\nDownload and open the content project for this week:\n\n04-content.zip: Download this file, unzip it, and double-click on 04-content.Rproj to open it in RStudio.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Visualising Probability"
+      "Sampling and Probability"
     ]
   },
   {
-    "objectID": "content/05-content.html#readings",
-    "href": "content/05-content.html#readings",
-    "title": "Visualising Probability",
+    "objectID": "content/04-content.html#readings",
+    "href": "content/04-content.html#readings",
+    "title": "Sampling and Probability",
     "section": "Readings",
-    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers - Chapter 9: Sources of bias (cont.)",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 9: Sources of bias: Sampling, outliers, normality and other conundrums",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Visualising Probability"
+      "Sampling and Probability"
     ]
   },
   {
-    "objectID": "content/05-content.html#slides",
-    "href": "content/05-content.html#slides",
-    "title": "Visualising Probability",
+    "objectID": "content/04-content.html#slides",
+    "href": "content/04-content.html#slides",
+    "title": "Sampling and Probability",
     "section": "Slides",
     "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Visualising Probability"
+      "Sampling and Probability"
     ]
   },
   {
-    "objectID": "content/03-content.html",
-    "href": "content/03-content.html",
-    "title": "R Basics 2: Data Visualisation",
+    "objectID": "content/02-content.html",
+    "href": "content/02-content.html",
+    "title": "R Basics 1: Vectors, Data Frames and Lists",
     "section": "",
-    "text": "This week we learn to communicate data visually using ggplot2. We cover the grammar of graphics — the underlying framework that makes ggplot2 so powerful and consistent — and practice creating scatter plots, bar charts, and histograms.",
+    "text": "Building on last week, we explore the core data structures in R — vectors, data frames, and lists — and start using the dplyr package to manipulate data. We will work with the nycflights13 dataset to practice filtering, selecting, and summarising data.",
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 2: Data Visualisation"
+      "R Basics 1: Vectors, Data Frames and Lists"
     ]
   },
   {
-    "objectID": "content/03-content.html#overview",
-    "href": "content/03-content.html#overview",
-    "title": "R Basics 2: Data Visualisation",
+    "objectID": "content/02-content.html#overview",
+    "href": "content/02-content.html#overview",
+    "title": "R Basics 1: Vectors, Data Frames and Lists",
     "section": "",
-    "text": "This week we learn to communicate data visually using ggplot2. We cover the grammar of graphics — the underlying framework that makes ggplot2 so powerful and consistent — and practice creating scatter plots, bar charts, and histograms.",
+    "text": "Building on last week, we explore the core data structures in R — vectors, data frames, and lists — and start using the dplyr package to manipulate data. We will work with the nycflights13 dataset to practice filtering, selecting, and summarising data.",
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 2: Data Visualisation"
+      "R Basics 1: Vectors, Data Frames and Lists"
     ]
   },
   {
-    "objectID": "content/03-content.html#download",
-    "href": "content/03-content.html#download",
-    "title": "R Basics 2: Data Visualisation",
+    "objectID": "content/02-content.html#download",
+    "href": "content/02-content.html#download",
+    "title": "R Basics 1: Vectors, Data Frames and Lists",
     "section": "Download",
-    "text": "Download\n\nDownload and open the content project for this week:\n\n03-content.zip: Download this file, unzip it, and double-click on 03-content.Rproj to open it in RStudio.",
+    "text": "Download\n\nDownload and open the content project for this week:\n\n02-content.zip: Download this file, unzip it, and double-click on 02-content.Rproj to open it in RStudio.",
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 2: Data Visualisation"
+      "R Basics 1: Vectors, Data Frames and Lists"
     ]
   },
   {
-    "objectID": "content/03-content.html#readings",
-    "href": "content/03-content.html#readings",
-    "title": "R Basics 2: Data Visualisation",
+    "objectID": "content/02-content.html#readings",
+    "href": "content/02-content.html#readings",
+    "title": "R Basics 1: Vectors, Data Frames and Lists",
     "section": "Readings",
-    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 8: Descriptive Statistics",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 5: R Basics: The very fundamentals (cont.)\nChapter 6: Starting your R projects",
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 2: Data Visualisation"
+      "R Basics 1: Vectors, Data Frames and Lists"
     ]
   },
   {
-    "objectID": "content/03-content.html#slides",
-    "href": "content/03-content.html#slides",
-    "title": "R Basics 2: Data Visualisation",
-    "section": "Slides",
-    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
-    "crumbs": [
-      "Content",
-      "Foundations",
-      "R Basics 2: Data Visualisation"
-    ]
-  },
-  {
-    "objectID": "content/01-content.html",
-    "href": "content/01-content.html",
-    "title": "Course Introduction: Data Types, R and RStudio",
-    "section": "",
-    "text": "This week we get our first hands-on experience with R and RStudio. We will look at the different types of data you will encounter in data science, set up our working environment, and take our first steps with R as a tool for data analysis.",
-    "crumbs": [
-      "Content",
-      "Foundations",
-      "Course Introduction: Data Types, R and RStudio"
-    ]
-  },
-  {
-    "objectID": "content/01-content.html#overview",
-    "href": "content/01-content.html#overview",
-    "title": "Course Introduction: Data Types, R and RStudio",
-    "section": "",
-    "text": "This week we get our first hands-on experience with R and RStudio. We will look at the different types of data you will encounter in data science, set up our working environment, and take our first steps with R as a tool for data analysis.",
-    "crumbs": [
-      "Content",
-      "Foundations",
-      "Course Introduction: Data Types, R and RStudio"
-    ]
-  },
-  {
-    "objectID": "content/01-content.html#readings",
-    "href": "content/01-content.html#readings",
-    "title": "Course Introduction: Data Types, R and RStudio",
-    "section": "Readings",
-    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 3: Setting up R and RStudio\nChapter 4: The RStudio Interface",
-    "crumbs": [
-      "Content",
-      "Foundations",
-      "Course Introduction: Data Types, R and RStudio"
-    ]
-  },
-  {
-    "objectID": "content/01-content.html#slides",
-    "href": "content/01-content.html#slides",
-    "title": "Course Introduction: Data Types, R and RStudio",
+    "objectID": "content/02-content.html#slides",
+    "href": "content/02-content.html#slides",
+    "title": "R Basics 1: Vectors, Data Frames and Lists",
     "section": "Slides",
     "text": "Slides",
     "crumbs": [
       "Content",
       "Foundations",
-      "Course Introduction: Data Types, R and RStudio"
+      "R Basics 1: Vectors, Data Frames and Lists"
     ]
   },
   {
-    "objectID": "content/01-content.html#code-demo-un-votes",
-    "href": "content/01-content.html#code-demo-un-votes",
-    "title": "Course Introduction: Data Types, R and RStudio",
-    "section": "Code demo: UN Votes",
-    "text": "Code demo: UN Votes\nThis is a taste of what R can do. The demo below steps through building a ggplot visualisation of UN General Assembly voting patterns layer by layer — each slide adds one line of code and shows you the result.\n Open the interactive flipbook\nDon’t worry about understanding every line yet — just enjoy seeing what R can do. When you are ready to run it yourself, download the R script below and try tweaking the countries or issues.\n## One step install and load ----\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(tidyverse, scales, unvotes)\n\n## Wrangle the data ----\nus_uk_turkey_votes &lt;- un_votes |&gt;\n  filter(country %in% c(\"United States\", \"United Kingdom\", \"Turkey\")) |&gt;\n  inner_join(un_roll_calls, by = \"rcid\", relationship = \"many-to-many\") |&gt;\n  inner_join(un_roll_call_issues, by = \"rcid\", relationship = \"many-to-many\") |&gt;\n  mutate(year = year(date)) |&gt;\n  group_by(country, year, issue) |&gt;\n  summarize(\n    percent_yes = mean(as.character(vote) == \"yes\"),\n    .groups = \"drop\"\n  )\n\n## Plot the result ----\nus_uk_turkey_votes |&gt;\n  ggplot() +\n  aes(x = year, y = percent_yes, color = country) +\n  geom_point(alpha = 0.4) +\n  geom_smooth(method = \"loess\", se = FALSE) +\n  facet_wrap(~issue) +\n  labs(\n    title = \"Percentage of 'Yes' votes in the UN General Assembly\",\n    subtitle = \"1946 to 2015\",\n    y = \"% Yes\",\n    x = \"Year\",\n    color = \"Country\"\n  ) +\n  scale_y_continuous(labels = label_percent())\n  Download the R script",
-    "crumbs": [
-      "Content",
-      "Foundations",
-      "Course Introduction: Data Types, R and RStudio"
-    ]
-  },
-  {
-    "objectID": "assignment/final-project.html",
-    "href": "assignment/final-project.html",
-    "title": "Data Project",
+    "objectID": "assignment/index.html",
+    "href": "assignment/index.html",
+    "title": "Assignment overview",
     "section": "",
-    "text": "Details for the final data project will appear here."
+    "text": "You will get the most out of this class if you:\nEach type of assignment in this class helps with one of these strategies.",
+    "crumbs": [
+      "Assignments",
+      "Overview",
+      "Assignment overview"
+    ]
+  },
+  {
+    "objectID": "assignment/index.html#weekly-exercises",
+    "href": "assignment/index.html#weekly-exercises",
+    "title": "Assignment overview",
+    "section": "Weekly exercises",
+    "text": "Weekly exercises\nEach session has lesson materials and fully annotated examples that teach and demonstrate how to do specific tasks in R. However, without practising these principles and writing code on your own, you won’t remember what you learn!\nEach week you will download a small R project, work through a set of tasks in a Quarto file, and submit the rendered HTML to Moodle. The exercises have three parts:\n\nWeekly reflection — three short questions about what you learned and what was challenging this week\nR4NP interactive exercises — browser-based exercises from the course textbook that give you immediate feedback as you work\nBonus tasks — optional but recommended coding tasks related to the week’s topic\n\nExercises will be graded using a check system:\n\n✔+: (115% in gradebook) All tasks attempted and mostly correct. Rendered document is clean and easy to follow. I will not assign these often.\n✔: (100% in gradebook) 70–99% complete and most answers are correct. This is the expected level of performance.\n✔−: (50% in gradebook) Less than 70% complete and/or most answers are incorrect. This indicates that you need to improve next time.\n\nNote that this is essentially a pass/fail system. I am not grading your coding ability line by line, and I am not looking for perfect output. I am looking for good faith effort — try hard, do good work, and you will get a ✔.\nYou may (and should!) work together on the exercises, but you must submit your own work.",
+    "crumbs": [
+      "Assignments",
+      "Overview",
+      "Assignment overview"
+    ]
+  },
+  {
+    "objectID": "assignment/index.html#data-project",
+    "href": "assignment/index.html#data-project",
+    "title": "Assignment overview",
+    "section": "Data project",
+    "text": "Data project\nAt the end of the course you will demonstrate your data science skills by completing an independent data project. You will find a dataset that interests you, explore it using the tools and techniques from the course, and write up your findings as a short report.\nComplete details for the data project are here.\nThere is no final exam. The data project is your final assessment.\nThe project will not be graded using a check system. Instead I will use a rubric to assess four elements:\n\nTechnical skills — appropriate use of R and the tidyverse\nData wrangling — clean, well-organised, reproducible code\nVisualisation — clear and well-designed plots that communicate your findings\nInterpretation — a coherent written account of what the data shows\n\nIf you have engaged with the course content and completed the weekly exercises throughout the semester, you should do well with the data project.",
+    "crumbs": [
+      "Assignments",
+      "Overview",
+      "Assignment overview"
+    ]
   },
   {
     "objectID": "assignment/12-exercise.html",
@@ -2186,580 +1751,424 @@
     ]
   },
   {
-    "objectID": "assignment/index.html",
-    "href": "assignment/index.html",
-    "title": "Assignment overview",
+    "objectID": "content/01-content.html",
+    "href": "content/01-content.html",
+    "title": "Course Introduction: Data Types, R and RStudio",
     "section": "",
-    "text": "You will get the most out of this class if you:\nEach type of assignment in this class helps with one of these strategies.",
-    "crumbs": [
-      "Assignments",
-      "Overview",
-      "Assignment overview"
-    ]
-  },
-  {
-    "objectID": "assignment/index.html#weekly-exercises",
-    "href": "assignment/index.html#weekly-exercises",
-    "title": "Assignment overview",
-    "section": "Weekly exercises",
-    "text": "Weekly exercises\nEach session has lesson materials and fully annotated examples that teach and demonstrate how to do specific tasks in R. However, without practising these principles and writing code on your own, you won’t remember what you learn!\nEach week you will download a small R project, work through a set of tasks in a Quarto file, and submit the rendered HTML to Moodle. The exercises have three parts:\n\nWeekly reflection — three short questions about what you learned and what was challenging this week\nR4NP interactive exercises — browser-based exercises from the course textbook that give you immediate feedback as you work\nBonus tasks — optional but recommended coding tasks related to the week’s topic\n\nExercises will be graded using a check system:\n\n✔+: (115% in gradebook) All tasks attempted and mostly correct. Rendered document is clean and easy to follow. I will not assign these often.\n✔: (100% in gradebook) 70–99% complete and most answers are correct. This is the expected level of performance.\n✔−: (50% in gradebook) Less than 70% complete and/or most answers are incorrect. This indicates that you need to improve next time.\n\nNote that this is essentially a pass/fail system. I am not grading your coding ability line by line, and I am not looking for perfect output. I am looking for good faith effort — try hard, do good work, and you will get a ✔.\nYou may (and should!) work together on the exercises, but you must submit your own work.",
-    "crumbs": [
-      "Assignments",
-      "Overview",
-      "Assignment overview"
-    ]
-  },
-  {
-    "objectID": "assignment/index.html#data-project",
-    "href": "assignment/index.html#data-project",
-    "title": "Assignment overview",
-    "section": "Data project",
-    "text": "Data project\nAt the end of the course you will demonstrate your data science skills by completing an independent data project. You will find a dataset that interests you, explore it using the tools and techniques from the course, and write up your findings as a short report.\nComplete details for the data project are here.\nThere is no final exam. The data project is your final assessment.\nThe project will not be graded using a check system. Instead I will use a rubric to assess four elements:\n\nTechnical skills — appropriate use of R and the tidyverse\nData wrangling — clean, well-organised, reproducible code\nVisualisation — clear and well-designed plots that communicate your findings\nInterpretation — a coherent written account of what the data shows\n\nIf you have engaged with the course content and completed the weekly exercises throughout the semester, you should do well with the data project.",
-    "crumbs": [
-      "Assignments",
-      "Overview",
-      "Assignment overview"
-    ]
-  },
-  {
-    "objectID": "content/02-content.html",
-    "href": "content/02-content.html",
-    "title": "R Basics 1: Vectors, Data Frames and Lists",
-    "section": "",
-    "text": "Building on last week, we explore the core data structures in R — vectors, data frames, and lists — and start using the dplyr package to manipulate data. We will work with the nycflights13 dataset to practice filtering, selecting, and summarising data.",
+    "text": "This week we get our first hands-on experience with R and RStudio. We will look at the different types of data you will encounter in data science, set up our working environment, and take our first steps with R as a tool for data analysis.",
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 1: Vectors, Data Frames and Lists"
+      "Course Introduction: Data Types, R and RStudio"
     ]
   },
   {
-    "objectID": "content/02-content.html#overview",
-    "href": "content/02-content.html#overview",
-    "title": "R Basics 1: Vectors, Data Frames and Lists",
+    "objectID": "content/01-content.html#overview",
+    "href": "content/01-content.html#overview",
+    "title": "Course Introduction: Data Types, R and RStudio",
     "section": "",
-    "text": "Building on last week, we explore the core data structures in R — vectors, data frames, and lists — and start using the dplyr package to manipulate data. We will work with the nycflights13 dataset to practice filtering, selecting, and summarising data.",
+    "text": "This week we get our first hands-on experience with R and RStudio. We will look at the different types of data you will encounter in data science, set up our working environment, and take our first steps with R as a tool for data analysis.",
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 1: Vectors, Data Frames and Lists"
+      "Course Introduction: Data Types, R and RStudio"
     ]
   },
   {
-    "objectID": "content/02-content.html#download",
-    "href": "content/02-content.html#download",
-    "title": "R Basics 1: Vectors, Data Frames and Lists",
-    "section": "Download",
-    "text": "Download\n\nDownload and open the content project for this week:\n\n02-content.zip: Download this file, unzip it, and double-click on 02-content.Rproj to open it in RStudio.",
-    "crumbs": [
-      "Content",
-      "Foundations",
-      "R Basics 1: Vectors, Data Frames and Lists"
-    ]
-  },
-  {
-    "objectID": "content/02-content.html#readings",
-    "href": "content/02-content.html#readings",
-    "title": "R Basics 1: Vectors, Data Frames and Lists",
+    "objectID": "content/01-content.html#readings",
+    "href": "content/01-content.html#readings",
+    "title": "Course Introduction: Data Types, R and RStudio",
     "section": "Readings",
-    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 5: R Basics: The very fundamentals (cont.)\nChapter 6: Starting your R projects",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 3: Setting up R and RStudio\nChapter 4: The RStudio Interface",
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 1: Vectors, Data Frames and Lists"
+      "Course Introduction: Data Types, R and RStudio"
     ]
   },
   {
-    "objectID": "content/02-content.html#slides",
-    "href": "content/02-content.html#slides",
-    "title": "R Basics 1: Vectors, Data Frames and Lists",
+    "objectID": "content/01-content.html#slides",
+    "href": "content/01-content.html#slides",
+    "title": "Course Introduction: Data Types, R and RStudio",
     "section": "Slides",
     "text": "Slides",
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 1: Vectors, Data Frames and Lists"
+      "Course Introduction: Data Types, R and RStudio"
     ]
   },
   {
-    "objectID": "content/04-content.html",
-    "href": "content/04-content.html",
-    "title": "Sampling and Probability",
-    "section": "",
-    "text": "We take a step back from R syntax to think carefully about how data is collected and what probability means. We use Monte Carlo simulation to build intuition about randomness, sampling, and the behaviour of statistics across repeated samples.",
+    "objectID": "content/01-content.html#code-demo-un-votes",
+    "href": "content/01-content.html#code-demo-un-votes",
+    "title": "Course Introduction: Data Types, R and RStudio",
+    "section": "Code demo: UN Votes",
+    "text": "Code demo: UN Votes\nThis is a taste of what R can do. The demo below steps through building a ggplot visualisation of UN General Assembly voting patterns layer by layer — each slide adds one line of code and shows you the result.\n Open the interactive flipbook\nDon’t worry about understanding every line yet — just enjoy seeing what R can do. When you are ready to run it yourself, download the R script below and try tweaking the countries or issues.\n## One step install and load ----\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(tidyverse, scales, unvotes)\n\n## Wrangle the data ----\nus_uk_turkey_votes &lt;- un_votes |&gt;\n  filter(country %in% c(\"United States\", \"United Kingdom\", \"Turkey\")) |&gt;\n  inner_join(un_roll_calls, by = \"rcid\", relationship = \"many-to-many\") |&gt;\n  inner_join(un_roll_call_issues, by = \"rcid\", relationship = \"many-to-many\") |&gt;\n  mutate(year = year(date)) |&gt;\n  group_by(country, year, issue) |&gt;\n  summarize(\n    percent_yes = mean(as.character(vote) == \"yes\"),\n    .groups = \"drop\"\n  )\n\n## Plot the result ----\nus_uk_turkey_votes |&gt;\n  ggplot() +\n  aes(x = year, y = percent_yes, color = country) +\n  geom_point(alpha = 0.4) +\n  geom_smooth(method = \"loess\", se = FALSE) +\n  facet_wrap(~issue) +\n  labs(\n    title = \"Percentage of 'Yes' votes in the UN General Assembly\",\n    subtitle = \"1946 to 2015\",\n    y = \"% Yes\",\n    x = \"Year\",\n    color = \"Country\"\n  ) +\n  scale_y_continuous(labels = label_percent())\n  Download the R script",
     "crumbs": [
       "Content",
-      "Core Concepts",
-      "Sampling and Probability"
+      "Foundations",
+      "Course Introduction: Data Types, R and RStudio"
     ]
   },
   {
-    "objectID": "content/04-content.html#overview",
-    "href": "content/04-content.html#overview",
-    "title": "Sampling and Probability",
+    "objectID": "content/03-content.html",
+    "href": "content/03-content.html",
+    "title": "R Basics 2: Data Visualisation",
     "section": "",
-    "text": "We take a step back from R syntax to think carefully about how data is collected and what probability means. We use Monte Carlo simulation to build intuition about randomness, sampling, and the behaviour of statistics across repeated samples.",
+    "text": "This week we learn to communicate data visually using ggplot2. We cover the grammar of graphics — the underlying framework that makes ggplot2 so powerful and consistent — and practice creating scatter plots, bar charts, and histograms.",
     "crumbs": [
       "Content",
-      "Core Concepts",
-      "Sampling and Probability"
+      "Foundations",
+      "R Basics 2: Data Visualisation"
     ]
   },
   {
-    "objectID": "content/04-content.html#download",
-    "href": "content/04-content.html#download",
-    "title": "Sampling and Probability",
+    "objectID": "content/03-content.html#overview",
+    "href": "content/03-content.html#overview",
+    "title": "R Basics 2: Data Visualisation",
+    "section": "",
+    "text": "This week we learn to communicate data visually using ggplot2. We cover the grammar of graphics — the underlying framework that makes ggplot2 so powerful and consistent — and practice creating scatter plots, bar charts, and histograms.",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "R Basics 2: Data Visualisation"
+    ]
+  },
+  {
+    "objectID": "content/03-content.html#download",
+    "href": "content/03-content.html#download",
+    "title": "R Basics 2: Data Visualisation",
     "section": "Download",
-    "text": "Download\n\nDownload and open the content project for this week:\n\n04-content.zip: Download this file, unzip it, and double-click on 04-content.Rproj to open it in RStudio.",
+    "text": "Download\n\nDownload and open the content project for this week:\n\n03-content.zip: Download this file, unzip it, and double-click on 03-content.Rproj to open it in RStudio.",
     "crumbs": [
       "Content",
-      "Core Concepts",
-      "Sampling and Probability"
+      "Foundations",
+      "R Basics 2: Data Visualisation"
     ]
   },
   {
-    "objectID": "content/04-content.html#readings",
-    "href": "content/04-content.html#readings",
-    "title": "Sampling and Probability",
+    "objectID": "content/03-content.html#readings",
+    "href": "content/03-content.html#readings",
+    "title": "R Basics 2: Data Visualisation",
     "section": "Readings",
-    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 9: Sources of bias: Sampling, outliers, normality and other conundrums",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 8: Descriptive Statistics",
     "crumbs": [
       "Content",
-      "Core Concepts",
-      "Sampling and Probability"
+      "Foundations",
+      "R Basics 2: Data Visualisation"
     ]
   },
   {
-    "objectID": "content/04-content.html#slides",
-    "href": "content/04-content.html#slides",
-    "title": "Sampling and Probability",
+    "objectID": "content/03-content.html#slides",
+    "href": "content/03-content.html#slides",
+    "title": "R Basics 2: Data Visualisation",
+    "section": "Slides",
+    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "R Basics 2: Data Visualisation"
+    ]
+  },
+  {
+    "objectID": "content/05-content.html",
+    "href": "content/05-content.html",
+    "title": "Visualising Probability",
+    "section": "",
+    "text": "This week we visualise probability distributions and learn how to compare groups statistically. We look at the normal distribution, confidence intervals, and how to use density plots and boxplots to explore whether differences between groups are meaningful.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Visualising Probability"
+    ]
+  },
+  {
+    "objectID": "content/05-content.html#overview",
+    "href": "content/05-content.html#overview",
+    "title": "Visualising Probability",
+    "section": "",
+    "text": "This week we visualise probability distributions and learn how to compare groups statistically. We look at the normal distribution, confidence intervals, and how to use density plots and boxplots to explore whether differences between groups are meaningful.",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Visualising Probability"
+    ]
+  },
+  {
+    "objectID": "content/05-content.html#download",
+    "href": "content/05-content.html#download",
+    "title": "Visualising Probability",
+    "section": "Download",
+    "text": "Download\nDownload the project for this week, unzip it, and double-click 05-content.Rproj to open it in RStudio: 05-content.zip",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Visualising Probability"
+    ]
+  },
+  {
+    "objectID": "content/05-content.html#readings",
+    "href": "content/05-content.html#readings",
+    "title": "Visualising Probability",
+    "section": "Readings",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers - Chapter 9: Sources of bias (cont.)",
+    "crumbs": [
+      "Content",
+      "Core Concepts",
+      "Visualising Probability"
+    ]
+  },
+  {
+    "objectID": "content/05-content.html#slides",
+    "href": "content/05-content.html#slides",
+    "title": "Visualising Probability",
     "section": "Slides",
     "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Sampling and Probability"
+      "Visualising Probability"
     ]
   },
   {
-    "objectID": "content/06-content.html",
-    "href": "content/06-content.html",
-    "title": "Manipulating Data 1: Data Project Introduction",
+    "objectID": "content/07-content.html",
+    "href": "content/07-content.html",
+    "title": "Manipulating Data 2",
     "section": "",
-    "text": "We return to data wrangling with a focus on reshaping data using tidyr. This week also introduces the data project — the main assessment for the course. We look at how to import, clean, and restructure real-world datasets ready for analysis.",
+    "text": "We deepen our data wrangling skills with more advanced dplyr operations — joins, grouped summaries, and chained pipelines. We also look at Simpson’s paradox as a cautionary tale about how aggregation can mislead us.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 1: Data Project Introduction"
+      "Manipulating Data 2"
     ]
   },
   {
-    "objectID": "content/06-content.html#overview",
-    "href": "content/06-content.html#overview",
-    "title": "Manipulating Data 1: Data Project Introduction",
+    "objectID": "content/07-content.html#overview",
+    "href": "content/07-content.html#overview",
+    "title": "Manipulating Data 2",
     "section": "",
-    "text": "We return to data wrangling with a focus on reshaping data using tidyr. This week also introduces the data project — the main assessment for the course. We look at how to import, clean, and restructure real-world datasets ready for analysis.",
+    "text": "We deepen our data wrangling skills with more advanced dplyr operations — joins, grouped summaries, and chained pipelines. We also look at Simpson’s paradox as a cautionary tale about how aggregation can mislead us.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 1: Data Project Introduction"
+      "Manipulating Data 2"
     ]
   },
   {
-    "objectID": "content/06-content.html#download",
-    "href": "content/06-content.html#download",
-    "title": "Manipulating Data 1: Data Project Introduction",
+    "objectID": "content/07-content.html#download",
+    "href": "content/07-content.html#download",
+    "title": "Manipulating Data 2",
     "section": "Download",
-    "text": "Download\nDownload the project for this week, unzip it, and double-click 06-content.Rproj to open it in RStudio: 06-content.zip",
+    "text": "Download\nDownload the project for this week, unzip it, and double-click 07-content.Rproj to open it in RStudio: 07-content.zip",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 1: Data Project Introduction"
+      "Manipulating Data 2"
     ]
   },
   {
-    "objectID": "content/06-content.html#readings",
-    "href": "content/06-content.html#readings",
-    "title": "Manipulating Data 1: Data Project Introduction",
+    "objectID": "content/07-content.html#readings",
+    "href": "content/07-content.html#readings",
+    "title": "Manipulating Data 2",
     "section": "Readings",
-    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers - Chapter 7: Data Wrangling",
+    "text": "Readings\nChapter 7: Data Wrangling (cont.)",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 1: Data Project Introduction"
+      "Manipulating Data 2"
     ]
   },
   {
-    "objectID": "content/06-content.html#slides",
-    "href": "content/06-content.html#slides",
-    "title": "Manipulating Data 1: Data Project Introduction",
+    "objectID": "content/07-content.html#slides",
+    "href": "content/07-content.html#slides",
+    "title": "Manipulating Data 2",
     "section": "Slides",
     "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 1: Data Project Introduction"
+      "Manipulating Data 2"
     ]
   },
   {
-    "objectID": "content/08-content.html",
-    "href": "content/08-content.html",
-    "title": "Variable Associations 1",
+    "objectID": "content/09-content.html",
+    "href": "content/09-content.html",
+    "title": "Variable Associations 2",
     "section": "",
-    "text": "This week we investigate relationships between variables. We cover correlation — what it measures, how to calculate it, and crucially, what it does not tell us. We use the palmerpenguins dataset as our main example.",
+    "text": "We extend our toolkit for comparing groups, covering t-tests, chi-square tests, and ANOVA. We also look at how these classical tests connect to the linear regression framework, unifying much of what we have learned so far.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 1"
+      "Variable Associations 2"
     ]
   },
   {
-    "objectID": "content/08-content.html#overview",
-    "href": "content/08-content.html#overview",
-    "title": "Variable Associations 1",
+    "objectID": "content/09-content.html#overview",
+    "href": "content/09-content.html#overview",
+    "title": "Variable Associations 2",
     "section": "",
-    "text": "This week we investigate relationships between variables. We cover correlation — what it measures, how to calculate it, and crucially, what it does not tell us. We use the palmerpenguins dataset as our main example.",
+    "text": "We extend our toolkit for comparing groups, covering t-tests, chi-square tests, and ANOVA. We also look at how these classical tests connect to the linear regression framework, unifying much of what we have learned so far.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 1"
+      "Variable Associations 2"
     ]
   },
   {
-    "objectID": "content/08-content.html#download",
-    "href": "content/08-content.html#download",
-    "title": "Variable Associations 1",
+    "objectID": "content/09-content.html#download",
+    "href": "content/09-content.html#download",
+    "title": "Variable Associations 2",
     "section": "Download",
-    "text": "Download\nDownload the project for this week, unzip it, and double-click 08-content.Rproj to open it in RStudio: 08-content.zip",
+    "text": "Download\nDownload the project for this week, unzip it, and double-click 09-content.Rproj to open it in RStudio: 09-content.zip",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 1"
+      "Variable Associations 2"
     ]
   },
   {
-    "objectID": "content/08-content.html#readings",
-    "href": "content/08-content.html#readings",
-    "title": "Variable Associations 1",
+    "objectID": "content/09-content.html#readings",
+    "href": "content/09-content.html#readings",
+    "title": "Variable Associations 2",
     "section": "Readings",
-    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 10: Correlations",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 11: Comparing groups",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 1"
+      "Variable Associations 2"
     ]
   },
   {
-    "objectID": "content/08-content.html#slides",
-    "href": "content/08-content.html#slides",
-    "title": "Variable Associations 1",
+    "objectID": "content/09-content.html#slides",
+    "href": "content/09-content.html#slides",
+    "title": "Variable Associations 2",
     "section": "Slides",
     "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 1"
+      "Variable Associations 2"
     ]
   },
   {
-    "objectID": "content/10-content.html",
-    "href": "content/10-content.html",
-    "title": "Regression Modelling 1",
+    "objectID": "content/11-content.html",
+    "href": "content/11-content.html",
+    "title": "Regression Modelling 2",
     "section": "",
-    "text": "We introduce simple linear regression — one of the most important tools in data science. We look at how to fit a model with a single numerical predictor, interpret the output, and assess model fit using R-squared and residual plots.",
+    "text": "We extend regression to multiple predictors — both numerical and categorical — and explore interaction effects. We also get a first look at logistic regression for predicting categorical outcomes.",
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 1"
+      "Regression Modelling 2"
     ]
   },
   {
-    "objectID": "content/10-content.html#overview",
-    "href": "content/10-content.html#overview",
-    "title": "Regression Modelling 1",
+    "objectID": "content/11-content.html#overview",
+    "href": "content/11-content.html#overview",
+    "title": "Regression Modelling 2",
     "section": "",
-    "text": "We introduce simple linear regression — one of the most important tools in data science. We look at how to fit a model with a single numerical predictor, interpret the output, and assess model fit using R-squared and residual plots.",
+    "text": "We extend regression to multiple predictors — both numerical and categorical — and explore interaction effects. We also get a first look at logistic regression for predicting categorical outcomes.",
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 1"
+      "Regression Modelling 2"
     ]
   },
   {
-    "objectID": "content/10-content.html#download",
-    "href": "content/10-content.html#download",
-    "title": "Regression Modelling 1",
+    "objectID": "content/11-content.html#download",
+    "href": "content/11-content.html#download",
+    "title": "Regression Modelling 2",
     "section": "Download",
-    "text": "Download\nDownload the project for this week, unzip it, and double-click 10-content.Rproj to open it in RStudio: 10-content.zip",
+    "text": "Download\nDownload the project for this week, unzip it, and double-click 11-content.Rproj to open it in RStudio: 11-content.zip",
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 1"
+      "Regression Modelling 2"
     ]
   },
   {
-    "objectID": "content/10-content.html#readings",
-    "href": "content/10-content.html#readings",
-    "title": "Regression Modelling 1",
+    "objectID": "content/11-content.html#readings",
+    "href": "content/11-content.html#readings",
+    "title": "Regression Modelling 2",
     "section": "Readings",
-    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 13: Regression: Creating models to predict future observations",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 13: Regression (cont.)",
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 1"
+      "Regression Modelling 2"
     ]
   },
   {
-    "objectID": "content/10-content.html#slides",
-    "href": "content/10-content.html#slides",
-    "title": "Regression Modelling 1",
+    "objectID": "content/11-content.html#slides",
+    "href": "content/11-content.html#slides",
+    "title": "Regression Modelling 2",
     "section": "Slides",
     "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 1"
+      "Regression Modelling 2"
     ]
   },
   {
-    "objectID": "content/12-content.html",
-    "href": "content/12-content.html",
-    "title": "Text as Data",
+    "objectID": "content/13-content.html",
+    "href": "content/13-content.html",
+    "title": "Data Project Completion and Course Review",
     "section": "",
-    "text": "In our final topic week, we explore how text can be treated as data. We cover importing text, basic string manipulation with stringr, and an introduction to regular expressions — skills that open the door to a wide range of text analysis applications.",
+    "text": "The final session is dedicated to completing and submitting your data project. We also take stock of what we have learned across the semester and look at where to go next on your R journey.",
     "crumbs": [
       "Content",
-      "Advanced Topics",
-      "Text as Data"
+      "Project",
+      "Data Project Completion and Course Review"
     ]
   },
   {
-    "objectID": "content/12-content.html#overview",
-    "href": "content/12-content.html#overview",
-    "title": "Text as Data",
+    "objectID": "content/13-content.html#overview",
+    "href": "content/13-content.html#overview",
+    "title": "Data Project Completion and Course Review",
     "section": "",
-    "text": "In our final topic week, we explore how text can be treated as data. We cover importing text, basic string manipulation with stringr, and an introduction to regular expressions — skills that open the door to a wide range of text analysis applications.",
+    "text": "The final session is dedicated to completing and submitting your data project. We also take stock of what we have learned across the semester and look at where to go next on your R journey.",
     "crumbs": [
       "Content",
-      "Advanced Topics",
-      "Text as Data"
+      "Project",
+      "Data Project Completion and Course Review"
     ]
   },
   {
-    "objectID": "content/12-content.html#download",
-    "href": "content/12-content.html#download",
-    "title": "Text as Data",
+    "objectID": "content/13-content.html#download",
+    "href": "content/13-content.html#download",
+    "title": "Data Project Completion and Course Review",
     "section": "Download",
-    "text": "Download\nDownload the project for this week, unzip it, and double-click 12-content.Rproj to open it in RStudio: 12-content.zip",
+    "text": "Download\nDownload the project for this week, unzip it, and double-click 13-content.Rproj to open it in RStudio: 13-content.zip",
     "crumbs": [
       "Content",
-      "Advanced Topics",
-      "Text as Data"
+      "Project",
+      "Data Project Completion and Course Review"
     ]
   },
   {
-    "objectID": "content/12-content.html#readings",
-    "href": "content/12-content.html#readings",
-    "title": "Text as Data",
+    "objectID": "content/13-content.html#readings",
+    "href": "content/13-content.html#readings",
+    "title": "Data Project Completion and Course Review",
     "section": "Readings",
-    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 14: Mixed-methods research: Analysing qualitative data in R",
+    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 15: Where to go from here: The next steps in your R journey",
     "crumbs": [
       "Content",
-      "Advanced Topics",
-      "Text as Data"
+      "Project",
+      "Data Project Completion and Course Review"
     ]
   },
   {
-    "objectID": "content/12-content.html#slides",
-    "href": "content/12-content.html#slides",
-    "title": "Text as Data",
+    "objectID": "content/13-content.html#slides",
+    "href": "content/13-content.html#slides",
+    "title": "Data Project Completion and Course Review",
     "section": "Slides",
     "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
     "crumbs": [
       "Content",
-      "Advanced Topics",
-      "Text as Data"
+      "Project",
+      "Data Project Completion and Course Review"
     ]
-  },
-  {
-    "objectID": "content/index.html",
-    "href": "content/index.html",
-    "title": "Content",
-    "section": "",
-    "text": "This section contains the core files, reading and slides for each week. We will work through the relevant chapter(s) from the textbook, with support from file downloads and some class slides.\nThe main textbook for this course is R for Non-Programmers by Daniel Dauber — a free, openly available online book written specifically for social science students with no prior programming experience.\n\n\n\n\n\n\nTipHow to use this section\n\n\n\n\nRead the assigned r4np chapter(s)\nReview the slides if available\nDownload any related R code files\nTake notes or make comments for future reference\nThen work through the interactive lessons, videos and assignments for the week",
-    "crumbs": [
-      "Content",
-      "Overview",
-      "Content"
-    ]
-  },
-  {
-    "objectID": "content_zips_staging/02-content/02-weekly-notes.html",
-    "href": "content_zips_staging/02-content/02-weekly-notes.html",
-    "title": "Session 02: R Basics 1: Vectors, Data Frames, Lists",
-    "section": "",
-    "text": "Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!"
-  },
-  {
-    "objectID": "content_zips_staging/02-content/02-weekly-notes.html#topic-1",
-    "href": "content_zips_staging/02-content/02-weekly-notes.html#topic-1",
-    "title": "Session 02: R Basics 1: Vectors, Data Frames, Lists",
-    "section": "Topic 1",
-    "text": "Topic 1\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/02-content/02-weekly-notes.html#topic-2",
-    "href": "content_zips_staging/02-content/02-weekly-notes.html#topic-2",
-    "title": "Session 02: R Basics 1: Vectors, Data Frames, Lists",
-    "section": "Topic 2",
-    "text": "Topic 2\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/02-content/02-weekly-notes.html#topic-3",
-    "href": "content_zips_staging/02-content/02-weekly-notes.html#topic-3",
-    "title": "Session 02: R Basics 1: Vectors, Data Frames, Lists",
-    "section": "Topic 3",
-    "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/04-content/04-weekly-notes.html",
-    "href": "content_zips_staging/04-content/04-weekly-notes.html",
-    "title": "Session 04: Sampling and Probability",
-    "section": "",
-    "text": "Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!"
-  },
-  {
-    "objectID": "content_zips_staging/04-content/04-weekly-notes.html#topic-1",
-    "href": "content_zips_staging/04-content/04-weekly-notes.html#topic-1",
-    "title": "Session 04: Sampling and Probability",
-    "section": "Topic 1",
-    "text": "Topic 1\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/04-content/04-weekly-notes.html#topic-2",
-    "href": "content_zips_staging/04-content/04-weekly-notes.html#topic-2",
-    "title": "Session 04: Sampling and Probability",
-    "section": "Topic 2",
-    "text": "Topic 2\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/04-content/04-weekly-notes.html#topic-3",
-    "href": "content_zips_staging/04-content/04-weekly-notes.html#topic-3",
-    "title": "Session 04: Sampling and Probability",
-    "section": "Topic 3",
-    "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/06-content/06-weekly-notes.html",
-    "href": "content_zips_staging/06-content/06-weekly-notes.html",
-    "title": "Session 06: Manipulating Data 1",
-    "section": "",
-    "text": "Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!"
-  },
-  {
-    "objectID": "content_zips_staging/06-content/06-weekly-notes.html#topic-1",
-    "href": "content_zips_staging/06-content/06-weekly-notes.html#topic-1",
-    "title": "Session 06: Manipulating Data 1",
-    "section": "Topic 1",
-    "text": "Topic 1\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/06-content/06-weekly-notes.html#topic-2",
-    "href": "content_zips_staging/06-content/06-weekly-notes.html#topic-2",
-    "title": "Session 06: Manipulating Data 1",
-    "section": "Topic 2",
-    "text": "Topic 2\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/06-content/06-weekly-notes.html#topic-3",
-    "href": "content_zips_staging/06-content/06-weekly-notes.html#topic-3",
-    "title": "Session 06: Manipulating Data 1",
-    "section": "Topic 3",
-    "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/08-content/08-weekly-notes.html",
-    "href": "content_zips_staging/08-content/08-weekly-notes.html",
-    "title": "Session 08: Variable Associations 1",
-    "section": "",
-    "text": "Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!"
-  },
-  {
-    "objectID": "content_zips_staging/08-content/08-weekly-notes.html#topic-1",
-    "href": "content_zips_staging/08-content/08-weekly-notes.html#topic-1",
-    "title": "Session 08: Variable Associations 1",
-    "section": "Topic 1",
-    "text": "Topic 1\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/08-content/08-weekly-notes.html#topic-2",
-    "href": "content_zips_staging/08-content/08-weekly-notes.html#topic-2",
-    "title": "Session 08: Variable Associations 1",
-    "section": "Topic 2",
-    "text": "Topic 2\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/08-content/08-weekly-notes.html#topic-3",
-    "href": "content_zips_staging/08-content/08-weekly-notes.html#topic-3",
-    "title": "Session 08: Variable Associations 1",
-    "section": "Topic 3",
-    "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/10-content/10-weekly-notes.html",
-    "href": "content_zips_staging/10-content/10-weekly-notes.html",
-    "title": "Session 10: Regression Modelling 1",
-    "section": "",
-    "text": "Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!"
-  },
-  {
-    "objectID": "content_zips_staging/10-content/10-weekly-notes.html#topic-1",
-    "href": "content_zips_staging/10-content/10-weekly-notes.html#topic-1",
-    "title": "Session 10: Regression Modelling 1",
-    "section": "Topic 1",
-    "text": "Topic 1\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/10-content/10-weekly-notes.html#topic-2",
-    "href": "content_zips_staging/10-content/10-weekly-notes.html#topic-2",
-    "title": "Session 10: Regression Modelling 1",
-    "section": "Topic 2",
-    "text": "Topic 2\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/10-content/10-weekly-notes.html#topic-3",
-    "href": "content_zips_staging/10-content/10-weekly-notes.html#topic-3",
-    "title": "Session 10: Regression Modelling 1",
-    "section": "Topic 3",
-    "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/12-content/12-weekly-notes.html",
-    "href": "content_zips_staging/12-content/12-weekly-notes.html",
-    "title": "Session 12: Text as Data",
-    "section": "",
-    "text": "Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!"
-  },
-  {
-    "objectID": "content_zips_staging/12-content/12-weekly-notes.html#topic-1",
-    "href": "content_zips_staging/12-content/12-weekly-notes.html#topic-1",
-    "title": "Session 12: Text as Data",
-    "section": "Topic 1",
-    "text": "Topic 1\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/12-content/12-weekly-notes.html#topic-2",
-    "href": "content_zips_staging/12-content/12-weekly-notes.html#topic-2",
-    "title": "Session 12: Text as Data",
-    "section": "Topic 2",
-    "text": "Topic 2\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
-  },
-  {
-    "objectID": "content_zips_staging/12-content/12-weekly-notes.html#topic-3",
-    "href": "content_zips_staging/12-content/12-weekly-notes.html#topic-3",
-    "title": "Session 12: Text as Data",
-    "section": "Topic 3",
-    "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
   },
   {
     "objectID": "example/01-example.html",
@@ -3174,215 +2583,6 @@
     "text": "Topic 3\nWhat does this code do? Write notes / comments above or below the code chunk\n\n\nCode\n# Paste your code here"
   },
   {
-    "objectID": "lesson/01-lesson.html",
-    "href": "lesson/01-lesson.html",
-    "title": "Introduction to R and the tidyverse",
-    "section": "",
-    "text": "For the first part of this week’s lesson, you need to work through a few of Posit’s introductory primers. You’ll do these in your browser and type code and see results there.\nYou’ll learn some of the basics of R, as well as some powerful methods for manipulating data with the {dplyr} package.\nComplete these primers. It seems like there are a lot, but they’re short and go fairly quickly (especially as you get the hang of the syntax). Also, I have no way of seeing what you do or what you get wrong or right, and that’s totally fine! If you get stuck and want to skip some (or if it gets too easy), go right ahead and skip them!\n\nThe Basics\n\nVisualization basics\nProgramming basics\n\nWork with Data\n\nWorking with tibbles\nIsolating data with {dplyr}\nDeriving information with {dplyr}\n\n\nThe content from these primers comes from the (free and online!) book R for Data Science by Garrett Grolemund and Hadley Wickham. I highly recommend the book as a reference and for continuing to learn and use R in the future (like running regression models and other types of statistical analysis)",
-    "crumbs": [
-      "Foundations",
-      "1: Course introduction, data types, R and RStudio"
-    ]
-  },
-  {
-    "objectID": "lesson/01-lesson.html#part-1-the-basics-of-r-and-dplyr",
-    "href": "lesson/01-lesson.html#part-1-the-basics-of-r-and-dplyr",
-    "title": "Introduction to R and the tidyverse",
-    "section": "",
-    "text": "For the first part of this week’s lesson, you need to work through a few of Posit’s introductory primers. You’ll do these in your browser and type code and see results there.\nYou’ll learn some of the basics of R, as well as some powerful methods for manipulating data with the {dplyr} package.\nComplete these primers. It seems like there are a lot, but they’re short and go fairly quickly (especially as you get the hang of the syntax). Also, I have no way of seeing what you do or what you get wrong or right, and that’s totally fine! If you get stuck and want to skip some (or if it gets too easy), go right ahead and skip them!\n\nThe Basics\n\nVisualization basics\nProgramming basics\n\nWork with Data\n\nWorking with tibbles\nIsolating data with {dplyr}\nDeriving information with {dplyr}\n\n\nThe content from these primers comes from the (free and online!) book R for Data Science by Garrett Grolemund and Hadley Wickham. I highly recommend the book as a reference and for continuing to learn and use R in the future (like running regression models and other types of statistical analysis)",
-    "crumbs": [
-      "Foundations",
-      "1: Course introduction, data types, R and RStudio"
-    ]
-  },
-  {
-    "objectID": "lesson/01-lesson.html#part-2-getting-familiar-with-rstudio",
-    "href": "lesson/01-lesson.html#part-2-getting-familiar-with-rstudio",
-    "title": "Introduction to R and the tidyverse",
-    "section": "Part 2: Getting familiar with RStudio",
-    "text": "Part 2: Getting familiar with RStudio\nThe RStudio primers you just worked through are a great introduction to writing and running R code, but you typically won’t type code in a browser when you work with R. Instead, you’ll use a nicer programming environment like RStudio, which lets you type and save code in scripts, run code from those scripts, and see the output of that code, all in the same program.\nTo get familiar with RStudio, watch this video:",
-    "crumbs": [
-      "Foundations",
-      "1: Course introduction, data types, R and RStudio"
-    ]
-  },
-  {
-    "objectID": "lesson/01-lesson.html#part-3-rstudio-projects",
-    "href": "lesson/01-lesson.html#part-3-rstudio-projects",
-    "title": "Introduction to R and the tidyverse",
-    "section": "Part 3: RStudio Projects",
-    "text": "Part 3: RStudio Projects\nOne of the most powerful and useful aspects of RStudio is its ability to manage projects.\nWhen you first open R, it is “pointed” at some folder on your computer, and anything you do will be relative to that folder. The technical term for this is a “working directory.”\nWhen you first open RStudio, look in the area right at the top of the Console pane to see your current working directory. Most likely you’ll see something cryptic: ~/\n\n\n\n\n\n\n\n\n\nThat tilde sign (~) is a shortcut that stands for your user directory. On Windows this is C:\\Users\\your_user_name\\; on macOS this is /Users/your_user_name/. With the working directory set to ~/, R is “pointed” at that folder, and anything you save will end up in that folder, and R will expect any data that you load to be there too.\nIt’s always best to point R at some other directory. If you don’t use RStudio, you need to manually set the working directory to where you want it with setwd(), and many R scripts in the wild include something like setwd(\"C:\\\\Users\\\\bill\\\\Desktop\\\\Important research project\") at the beginning to change the directory. THIS IS BAD THOUGH (see here for an explanation). If you ever move that directory somewhere else, or run the script on a different computer, or share the project with someone, the path will be wrong and nothing will run and you will be sad.\nThe best way to deal with working directories with RStudio is to use RStudio Projects. These are special files that RStudio creates for you that end in a .Rproj extension. When you open one of these special files, a new RStudio instance will open up and be pointed at the correct directory automatically. If you move the folder later or open it on a different computer, it will work just fine and you will not be sad.\nRead this super short chapter on RStudio projects.\nIn general, you can create a new project by going to File &gt; New Project &gt; New Directory &gt; Empty Project, which will create a new folder on your computer that is empty except for a single .Rproj file. Double click on that file to open an RStudio instance that is pointed at the correct folder.",
-    "crumbs": [
-      "Foundations",
-      "1: Course introduction, data types, R and RStudio"
-    ]
-  },
-  {
-    "objectID": "lesson/01-lesson.html#part-4-getting-familiar-with-quarto",
-    "href": "lesson/01-lesson.html#part-4-getting-familiar-with-quarto",
-    "title": "Introduction to R and the tidyverse",
-    "section": "Part 4: Getting familiar with Quarto",
-    "text": "Part 4: Getting familiar with Quarto\nTo ensure that the analysis and graphics you make are reproducible, you’ll do the majority of your work in this class using Quarto files.\nDo the following things:\n\nSkim through the content at these pages. Again, lots of these resources mention R Markdown, which is Quarto’s predecessor, but the same principles apply to Quarto\n\nUsing Markdown\nUsing Quarto\nHow it Works\nCode Chunks\nInline Code\nPublish and Share with Quarto cheatsheet\nPublish and Share with Quarto\n\nWatch this video:",
-    "crumbs": [
-      "Foundations",
-      "1: Course introduction, data types, R and RStudio"
-    ]
-  },
-  {
-    "objectID": "lesson/03-lesson.html",
-    "href": "lesson/03-lesson.html",
-    "title": "Mapping data to graphics",
-    "section": "",
-    "text": "For the first part of this week’s lesson, you need to work through Posit’s introductory primers for {ggplot2}. You’ll do these in your browser and type code and see results there.\nIt seems like there are a lot, but they’re short and go fairly quickly (especially as you get the hang of the ggplot() syntax). Complete these:\n\nVisualize Data\n\nExploratory data analysis\nBar Charts\nHistograms\nBoxplots and counts\nScatterplots\nLine plots\nOverplotting and big Data\nCustomize your plots",
-    "crumbs": [
-      "Foundations",
-      "3: R basics 2 — Data visualisation"
-    ]
-  },
-  {
-    "objectID": "lesson/03-lesson.html#part-1-data-visualization-with-ggplot2",
-    "href": "lesson/03-lesson.html#part-1-data-visualization-with-ggplot2",
-    "title": "Mapping data to graphics",
-    "section": "",
-    "text": "For the first part of this week’s lesson, you need to work through Posit’s introductory primers for {ggplot2}. You’ll do these in your browser and type code and see results there.\nIt seems like there are a lot, but they’re short and go fairly quickly (especially as you get the hang of the ggplot() syntax). Complete these:\n\nVisualize Data\n\nExploratory data analysis\nBar Charts\nHistograms\nBoxplots and counts\nScatterplots\nLine plots\nOverplotting and big Data\nCustomize your plots",
-    "crumbs": [
-      "Foundations",
-      "3: R basics 2 — Data visualisation"
-    ]
-  },
-  {
-    "objectID": "lesson/03-lesson.html#part-2-reshaping-data-with-tidyr",
-    "href": "lesson/03-lesson.html#part-2-reshaping-data-with-tidyr",
-    "title": "Mapping data to graphics",
-    "section": "Part 2: Reshaping data with {tidyr}",
-    "text": "Part 2: Reshaping data with {tidyr}\nFor the last part of this week’s lesson, you’ll work through just one primer to learn how to use the {tidyr} package to reshape data from wide to long and back to wide.\nComplete this:\n\nTidy Your Data\n\nReshape Data",
-    "crumbs": [
-      "Foundations",
-      "3: R basics 2 — Data visualisation"
-    ]
-  },
-  {
-    "objectID": "lesson/05-lesson.html",
-    "href": "lesson/05-lesson.html",
-    "title": "Themes",
-    "section": "",
-    "text": "There are many built-in complete themes that have a good combination of all the different theme() options already set for you. By default, ggplot uses theme_gray() (also spelled theme_grey() for UK English; because the first developer of ggplot (Hadley Wickham) is from New Zealand, British spelling works throughout (e.g. you can use colour instead of color))\n\n\n\n\n\n\nImportantYour turn\n\n\n\nAdd theme_minimal() to this plot:\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nggplot(data = mpg,\n       mapping = aes(x = displ, y = hwy, color = drv)) +\n  geom_point(size = 3) +\n  labs(title = \"Engine displacement and highway MPG\",\n       subtitle = \"Heavier cars get worse mileage\") +\n  theme_minimal()\n\n\n\n\n\nHopefully that was easy!\nIf you look at the documentation for the different theme functions, you’ll notice that there are a few optional arguments, like base_size and base_family. The base_size argument changes the base font size for the text in the plot, and it is 11 by default. Changing it to something like 20 will not make all the text in the plot be sized at 20—functions like theme_minimal() set the size of plot elements based on the base_size. For instance, in theme_minimal(), the plot title is set to be 120% of base_size, while the caption is 80%. Changing base_size will resize all the different elements accordingly.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nModify this plot to use theme_minimal() with a base size of 16:\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n... +\n  theme_minimal(base_size = 16)\n\n\n\n\n\nHopefully that was also fairly straightforward!",
-    "crumbs": [
-      "Core concepts",
-      "5: Visualising probability"
-    ]
-  },
-  {
-    "objectID": "lesson/05-lesson.html#complete-ggplot-themes",
-    "href": "lesson/05-lesson.html#complete-ggplot-themes",
-    "title": "Themes",
-    "section": "",
-    "text": "There are many built-in complete themes that have a good combination of all the different theme() options already set for you. By default, ggplot uses theme_gray() (also spelled theme_grey() for UK English; because the first developer of ggplot (Hadley Wickham) is from New Zealand, British spelling works throughout (e.g. you can use colour instead of color))\n\n\n\n\n\n\nImportantYour turn\n\n\n\nAdd theme_minimal() to this plot:\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nggplot(data = mpg,\n       mapping = aes(x = displ, y = hwy, color = drv)) +\n  geom_point(size = 3) +\n  labs(title = \"Engine displacement and highway MPG\",\n       subtitle = \"Heavier cars get worse mileage\") +\n  theme_minimal()\n\n\n\n\n\nHopefully that was easy!\nIf you look at the documentation for the different theme functions, you’ll notice that there are a few optional arguments, like base_size and base_family. The base_size argument changes the base font size for the text in the plot, and it is 11 by default. Changing it to something like 20 will not make all the text in the plot be sized at 20—functions like theme_minimal() set the size of plot elements based on the base_size. For instance, in theme_minimal(), the plot title is set to be 120% of base_size, while the caption is 80%. Changing base_size will resize all the different elements accordingly.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nModify this plot to use theme_minimal() with a base size of 16:\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n... +\n  theme_minimal(base_size = 16)\n\n\n\n\n\nHopefully that was also fairly straightforward!",
-    "crumbs": [
-      "Core concepts",
-      "5: Visualising probability"
-    ]
-  },
-  {
-    "objectID": "lesson/05-lesson.html#modifying-plot-elements-with-theme",
-    "href": "lesson/05-lesson.html#modifying-plot-elements-with-theme",
-    "title": "Themes",
-    "section": "Modifying plot elements with theme()",
-    "text": "Modifying plot elements with theme()\nUsing a complete theme like theme_minimal() or theme_bw() is a great starting point for getting a nice, clean, well designed plot. You’ll often need to make adjustments to smaller, more specific parts of the plot though. To do this, you can use the theme() function.\ntheme() is a massive function and has perhaps the most possible arguments of any function in R. It is impossible to remember everything it can possibly do. Fortunately its documentation is incredible. Run ?theme in your R console to see the help page, or go to this page online.\n\nDeal with general plot elements\nA few arguments to theme() don’t use any special function—you can just specify settings with text like \"bottom\" or \"right\"\n\n\n\n\n\n\nImportantYour turn\n\n\n\nLook at the documentation for theme() online. Make this plot’s legend appear on the bottom instead of the left.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n... +\n  theme_minimal() +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\nDisable elements completely with element_blank()\nAny plot element can be disabled by using element_blank(). For instance, if you want to remove the axis ticks, you can use theme(axis.ticks = element_blank()).\n\n\n\n\n\n\nImportantYour turn\n\n\n\nLook at the documentation for theme() online. Disable the panel grid in this plot.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n... +\n  theme(panel.grid = element_blank())\n\n\n\n\n\nYou can also target more specific plot elements. You can specify something like axis.text, which applies to all axis text, or you can use axis.text.y to only target the text on the y-axis.\n\n\n\n\n\n\nImportantYour turn\n\n\n\nLook at the documentation for theme() online. Make the following changes to this plot:\n\nDisable the major panel grid for the x-axis\nDisable the minor panel grid for the x-axis\nDisable the minor panel grid for the y-axis.\n\nYou should only have three horizontal lines for the grid.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n... + \n  theme(panel.grid.major.x = element_blank(),\n        panel.grid.minor.x = element_blank(),\n        panel.grid.minor.y = element_blank())\n\n\n\n\n\n\nAlmost every other plot element fits into one of three categories: a rectangle, a line, or text. Changing the settings on these elements requires specific functions that correspond to these categories.\n\n\nDeal with borders and backgrounds with element_rect()\nThings like the plot background or the panel background or the legend background are rectangles and can be manipulated with element_rect(). If you want the legend box to be yellow with a thin black border, you would use theme(legend.box.background = element_rect(fill = \"yellow\", color = \"black\", linewidth = 1).\n\n\n\n\n\n\nImportantYour turn\n\n\n\nLook at the documentation for theme() and the documentation for element() online. Make the following changes to this plot:\n\nFill the plot background with #F2D8CE\nFill the panel background with #608BA6, and make the border #184759 with linewidth = 5\n\nThis will be a fairly ugly plot.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n... +\n  theme(plot.background = element_rect(fill = \"#F2D8CE\"),\n        panel.background = element_rect(fill = \"#608BA6\", color = \"#184759\", size = 5))\n\n\n\n\n\n\n\nDeal with lines with element_line()\nThings like the panel grid, tick marks, and axis lines are all lines and can be manipulated with element_line(). If you want the x-axis line to be a dotted orange like, you would use theme(axis.line.x = element_line(color = \"orange\", linetype = \"dotted\").\n\n\n\n\n\n\nImportantYour turn\n\n\n\nLook at the documentation for theme() and the documentation for element() online. Make the following changes to this plot:\n\nMake the major panel gridlines blue and dashed with linewidth = 1\n\nThis will also be a fairly ugly plot.\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n... +\n  theme(panel.grid.major = element_line(size = 1, color = \"blue\", linetype = \"dashed\"))\n\n\n\n\n\n\n\nDeal with text with element_text()\nFinally, anything with text can be manipulated with element_text(), and you can specify all sorts of things, including font family (family), font weight (face), color (color), horizontal justification (hjust), angle (angle), and a bunch of other options. If you want the x-axis text to be italicized and rotated at a 45º angle, you would use theme(axis.text.x = element_text(face = \"italic\", angle = 45)).\n\n\n\n\n\n\nImportantYour turn\n\n\n\nLook at the documentation for theme() and the documentation for element() online. Make the following changes to this plot:\n\nMake the y-axis text italic\nMake the plot title right aligned, bold, and colored with #8C7811\nMake the plot subtitle right aligned\n\n\n Interactive editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n... +\n  theme(axis.text.y = element_text(face = \"italic\"),\n        plot.title = element_text(hjust = 1, face = \"bold\", color = \"#8C7811\"),\n        plot.subtitle = element_text(hjust = 0.5, size = 12))",
-    "crumbs": [
-      "Core concepts",
-      "5: Visualising probability"
-    ]
-  },
-  {
-    "objectID": "lesson/05-lesson.html#important-note-about-ordering",
-    "href": "lesson/05-lesson.html#important-note-about-ordering",
-    "title": "Themes",
-    "section": "Important note about ordering",
-    "text": "Important note about ordering\nThings like theme_grey() or theme_minimal() are really just collections of changes to theme(), so the order is important when using a complete theme. If you do something like this to turn off the gridlines in the plot panel:\n\nggplot(...) +\n  geom_point(...) +\n  theme(panel.grid = element_blank()) +\n  theme_bw()\n\n…you’ll still have panel gridlines! That’s because theme_bw() turns them on, and you typed it after you turned it off. If you want to use both theme_bw() and remove the gridlines, you need to make sure any theme adjustments come after theme_bw():\n\nggplot(...) +\n  geom_point(...) +\n  theme_bw() +\n  theme(panel.grid = element_blank())",
-    "crumbs": [
-      "Core concepts",
-      "5: Visualising probability"
-    ]
-  },
-  {
-    "objectID": "lesson/05-lesson.html#fonts",
-    "href": "lesson/05-lesson.html#fonts",
-    "title": "Themes",
-    "section": "Fonts",
-    "text": "Fonts\nYou can use theme() to change the fonts as well, though sometimes it’s a little tricky to get R to see the fonts on your computer—especially if you use Windows. This detailed blog post explains how to work with custom fonts in ggplot and shows how to get it set up on Windows. It should Just Work™ on macOS.\nIn short, as long as you load the fonts correctly, you can specify different fonts either in a complete theme like theme_minimal(base_family = \"Comic Sans MS\") or in theme() like theme(plot.title = element_text(family = \"Papyrus\")).",
-    "crumbs": [
-      "Core concepts",
-      "5: Visualising probability"
-    ]
-  },
-  {
-    "objectID": "lesson/05-lesson.html#reusing-themes",
-    "href": "lesson/05-lesson.html#reusing-themes",
-    "title": "Themes",
-    "section": "Reusing themes",
-    "text": "Reusing themes\nIf you want to repeat specific theme settings throughout a document, you can save yourself a ton of typing by storing the results of theme() to an object and reusing it. For instance, suppose you want your plots to be based on theme_minimal, have right aligned title and subtitle text, have the legend at the bottom, and have no minor gridlines. You can save all of that into an object named my_neato_theme or something, and then reuse it:\n\nmy_neato_theme &lt;- theme_minimal() +\n  theme(plot.title = element_text(hjust = 1),\n        plot.subtitle = element_text(hjust = 1),\n        legend.position = \"bottom\",\n        panel.grid.minor = element_blank())\n\n# Make one plot\nggplot(data = mpg,\n       mapping = aes(x = displ, y = hwy, color = drv)) +\n  geom_point(size = 3) +\n  labs(title = \"Engine displacement and highway MPG\",\n       subtitle = \"Heavier cars get worse mileage\") +\n  my_neato_theme\n\n\n\n\n\n\n\n\n# Make another plot\nggplot(data = mpg,\n       mapping = aes(x = displ, y = hwy, color = cty)) +\n  geom_point(size = 3) +\n  labs(title = \"Engine displacement and highway MPG\",\n       subtitle = \"Points colored by city MPG\") +\n  my_neato_theme",
-    "crumbs": [
-      "Core concepts",
-      "5: Visualising probability"
-    ]
-  },
-  {
-    "objectID": "lesson/05-lesson.html#saving-plots",
-    "href": "lesson/05-lesson.html#saving-plots",
-    "title": "Themes",
-    "section": "Saving plots",
-    "text": "Saving plots\nSo far, all your plots have ended up either in RStudio or in a knitted HTML, Word, or PDF document. But what if you want to save just the plot to your computer so you can send it out to the world?! You could take a screenshot, but that won’t provide the highest resolution, and that will only save the plot as a bitmap-based PNG, not an infinitely resizable vector-based PDF!\nFortunately it’s pretty easy to save a plot using the special ggsave() function. You can specify whatever dimensions you want and whatever file type you want and save the standalone plot to your computer. You should look at the documentation for ggsave() for complete details of all the different options and arguments it can take. Typically, you do something like this.\nFirst create a plot and store it as an object. We haven’t done that yet in this lesson—so far we’ve just run ggplot() and seen the output immediately. If you save the output of ggplot() to an object, you actually won’t see anything until you run the name of the object.\n\na_cool_plot &lt;- ggplot(data = mpg,\n                      mapping = aes(x = displ, y = hwy, color = drv)) +\n  geom_point(size = 3) +\n  labs(title = \"Engine displacement and highway MPG\",\n       subtitle = \"Heavier cars get worse mileage\")\n\n# Make sure you run this so you can see the plot\na_cool_plot\n\n\n\n\n\n\n\n\nNext you can feed your saved plot to ggsave() to save it. It will automatically determine how to save it based on the filename you provide. If you tell it to be something.png, R will make a PNG; if you tell it to be something.pdf, R will make a PDF, and so on. Common types are PDF, PNG, JPEG (ew though), SVG, TIFF, and others.\nYou can also save the plot as multiple files. I typically make PNG and PDF versions of any plots I export like so:\n\nggsave(filename = \"a_cool_plot.pdf\", plot = a_cool_plot,\n       width = 6, height = 4.5, units = \"in\")\n\nggsave(filename = \"a_cool_plot.png\", plot = a_cool_plot,\n       width = 6, height = 4.5, units = \"in\")\n\nFrom a file management perspective, it often makes sense to store all your output in a separate folder in your project, like output or figures or something. If you want to put saved images in a subfolder, include the name in the file name:\n\nggsave(filename = \"figures/a_cool_plot.png\", plot = a_cool_plot,\n       width = 6, height = 4.5, units = \"in\")\n\nAnd finally, if you’re using custom fonts, you need to add one bit of wizardry to get the fonts to embed correctly in PDFs. This is something you just have to memorize or copy and paste a lot—if you want to know the full details, see this blog post. In short, R’s default PDF writer doesn’t know how to embed fonts and will panic if you make it try. R can use a different PDF-writing engine named Cairo that embeds fonts just fine, though, so you need to tell ggsave() to use it:\n\nggsave(filename = \"figures/a_cool_plot.pdf\", plot = a_cool_plot,\n       width = 6, height = 4.5, units = \"in\", device = cairo_pdf)",
-    "crumbs": [
-      "Core concepts",
-      "5: Visualising probability"
-    ]
-  },
-  {
-    "objectID": "lesson/07-lesson.html",
-    "href": "lesson/07-lesson.html",
-    "title": "Relationships",
-    "section": "",
-    "text": "There isn’t really a lesson for this week, and as we get further into the semester, the need for lessons will continue to decrease. Now that each section is focused on a few specific geoms and how to apply them, you don’t need to go through interactive tutorials so much, since you should (hopefully!) be getting the hang of how ggplot works. (IF NOT, please reach out for help on Discord or via e-mail! I’m more than happy and ready to help!)\nFor the lesson, read through the code examples in the example to see how to make dual y-axes, scatterplot matrices, coefficient plots, and marginal effects plots.",
-    "crumbs": [
-      "Core concepts",
-      "7: Manipulating data 2"
-    ]
-  },
-  {
-    "objectID": "lesson/09-lesson.html",
-    "href": "lesson/09-lesson.html",
-    "title": "Annotations",
-    "section": "",
-    "text": "Ha, so in the video I said there would be interactive lessons, but I changed my mind! You’re only working with a few new functions this session (annotate(), geom_text(), geom_label(), geom_text_repel(), and geom_label_repel()), and the best way to figure out how to use them is to use them!\nThere are some helpful blog posts and other resources online with examples and explanations. Read through these in addition to the documentation for annotate(), geom_text()/geom_label() and {ggrepel}:\n\n “Add shapes with annotate()”\n “Annotations”",
-    "crumbs": [
-      "Core concepts",
-      "9: Variable associations 2"
-    ]
-  },
-  {
-    "objectID": "lesson/11-lesson.html",
-    "href": "lesson/11-lesson.html",
-    "title": "Interactivity",
-    "section": "",
-    "text": "Again, there’s no lesson for this. The only way to learn how to use ggplotly() and create dashboards with Quarto is to try them out in RStudio, not in a mini browser-based R session here.\nSo head over to the exercise to get started!",
-    "crumbs": [
-      "Advanced topics",
-      "11: Regression modelling 2"
-    ]
-  },
-  {
-    "objectID": "lesson/13-lesson.html",
-    "href": "lesson/13-lesson.html",
-    "title": "Time",
-    "section": "",
-    "text": "Once again, there’s no lesson this time. You’re all understanding the basics of R and {ggplot2} and {dplyr} really well (I’m seriously so impressed and proud of you all!).\nIn your exercise this week you’ll visualize trends in time using one of three different real-world datasets. In the example I demonstrate how to remove seasonality from time series data, which is a useful skill, but not always applicable to every time series dataset. If there’s no seasonality in your data, you don’t need to remove it.\nSo head over to the example or the exercise to get started!",
-    "crumbs": [
-      "Advanced topics",
-      "13: Data project completion and course review"
-    ]
-  },
-  {
     "objectID": "project/02-ps.html",
     "href": "project/02-ps.html",
     "title": "PS02: Data Visualisation",
@@ -3653,7 +2853,7 @@
     "href": "resource/install.html",
     "title": "Installing R, RStudio, tidyverse, and tinytex",
     "section": "",
-    "text": "You will do all of your work in this class with the open source (and free!) programming language R. You will use RStudio as the main program to access R. Think of R as an engine and RStudio as a car dashboard—R handles all the calculations and the actual statistics, while RStudio provides a nice interface for running R code.\n\nInstall R\nFirst you need to install R itself (the engine).\n\nGo to the CRAN (Collective R Archive Network) website: https://cran.r-project.org/\nClick on “Download R for XXX”, where XXX is either Mac or Windows:\n\n\n\n\n\n\n\n\n\n\nIf you use macOS, scroll down to the first .pkg file in the list of files (in this picture, it’s R-4.0.0.pkg; as of right now, the current version is 4.4.0) and download it.\n\n\n\n\n\n\n\n\n\nIf you use Windows, click “base” (or click on the bolded “install R for the first time” link) and download it.\n\n\n\n\n\n\n\n\n\n\nDouble click on the downloaded file (check your Downloads folder). Click yes through all the prompts to install like any other program.\nIf you use macOS, download and install XQuartz. You do not need to do this on Windows.\n\n\n\nInstall RStudio\nNext, you need to install RStudio, the nicer graphical user interface (GUI) for R (the dashboard). Once R and RStudio are both installed, you can ignore R and only use RStudio. RStudio will use R automatically and you won’t ever have to interact with it directly.\n\nGo to the free download location on RStudio’s website: https://www.rstudio.com/products/rstudio/download/#download\nThe website should automatically detect your operating system (macOS or Windows) and show a big download button for it:\n\n\n\n\n\n\n\n\n\nIf not, scroll down a little to the large table and choose the version of RStudio that matches your operating system.\n\n\n\n\n\n\n\n\n\nDouble click on the downloaded file (again, check your Downloads folder). Click yes through all the prompts to install like any other program.\n\nDouble click on RStudio to run it (check your applications folder or start menu).\n\n\nInstall tidyverse\nR packages are easy to install with RStudio. Select the packages panel, click on “Install,” type the name of the package you want to install, and press enter.\n\n\n\n\n\n\n\n\n\nThis can sometimes be tedious when you’re installing lots of packages, though. The tidyverse, for instance, consists of dozens of packages (including {ggplot2}) that all work together. Rather than install each individually, you can install a single magical package and get them all at the same time.\nGo to the packages panel in RStudio, click on “Install,” type “tidyverse”, and press enter. You’ll see a bunch of output in the RStudio console as all the tidyverse packages are installed.\n\n\n\n\n\n\n\n\n\nNotice also that RStudio will generate a line of code for you and run it: install.packages(\"tidyverse\"). You can also just paste and run this instead of using the packages panel.\n\n\nInstall TinyTeX\nWhen you render to PDF, R uses a special scientific typesetting program named LaTeX (pronounced “lay-tek” or “lah-tex”; the x is technically the “ch” sound in “Bach”, but most people just say it as “k”—saying “layteks”).\nLaTeX is neat and makes pretty documents, but it’s a huge program—the macOS version, for instance, is nearly 4 GB! To make life easier, there’s a smaller version named TinyTeX that automatically deals with differences between macOS and Windows and automatically installs any missing LaTeX packages as needed.\nHere’s how to install TinyTeX so you can create pretty PDFs:\n\nOpen the Terminal panel in RStudio (down in the bottom left corner where the Console panel is; there’s a tab named “Terminal” there)\nType this:\nquarto install tinytex",
+    "text": "You will do all of your work in this class with the open source (and free!) programming language R. You will use RStudio as the main program to access R. Think of R as an engine and RStudio as a car dashboard—R handles all the calculations and the actual statistics, while RStudio provides a nice interface for running R code.\n\nInstall R\nFirst you need to install R itself (the engine).\n\nGo to the CRAN (Collective R Archive Network) website: https://cran.r-project.org/\nClick on “Download R for XXX”, where XXX is either Mac or Windows:\n\n\n\n\n\n\n\n\n\n\nIf you use macOS, scroll down to the first .pkg file in the list of files (in this picture, it’s R-4.0.0.pkg; as of right now, the current version is 4.4.0) and download it.\n\n\n\n\n\n\n\n\n\nIf you use Windows, click “base” (or click on the bolded “install R for the first time” link) and download it.\n\n\n\n\n\n\n\n\n\n\nDouble click on the downloaded file (check your Downloads folder). Click yes through all the prompts to install like any other program.\nIf you use macOS, download and install XQuartz. You do not need to do this on Windows.\n\n\n\nInstall RStudio\nNext, you need to install RStudio, the nicer graphical user interface (GUI) for R (the dashboard). Once R and RStudio are both installed, you can ignore R and only use RStudio. RStudio will use R automatically and you won’t ever have to interact with it directly.\n\nGo to the free download location on RStudio’s website: https://www.rstudio.com/products/rstudio/download/#download\nThe website should automatically detect your operating system (macOS or Windows) and show a big download button for it:\n\n\n\n\n\n\n\n\n\nIf not, scroll down a little to the large table and choose the version of RStudio that matches your operating system.\n\n\n\n\n\n\n\n\n\nDouble click on the downloaded file (again, check your Downloads folder). Click yes through all the prompts to install like any other program.\n\nDouble click on RStudio to run it (check your applications folder or start menu).\n\n\nInstall tidyverse\nR packages are easy to install with RStudio. Select the packages panel, click on “Install,” type the name of the package you want to install, and press enter.\n\n\n\n\n\n\n\n\n\nThis can sometimes be tedious when you’re installing lots of packages, though. The tidyverse, for instance, consists of dozens of packages (including {ggplot2}) that all work together. Rather than install each individually, you can install a single magical package and get them all at the same time.\nGo to the packages panel in RStudio, click on “Install,” type “tidyverse”, and press enter. You’ll see a bunch of output in the RStudio console as all the tidyverse packages are installed.\n\n\n\n\n\n\n\n\n\nNotice also that RStudio will generate a line of code for you and run it: install.packages(\"tidyverse\"). You can also just paste and run this instead of using the packages panel.\n\n\nInstall TinyTeX\nWhen you render to PDF, R uses a special scientific typesetting program named LaTeX (pronounced “lay-tek” or “lah-tex”; the x is technically the “ch” sound in “Bach”, but most people just say it as “k”—saying “layteks”).\nLaTeX is neat and makes pretty documents, but it’s a huge program—the macOS version, for instance, is nearly 4 GB! To make life easier, there’s a smaller version named TinyTeX that automatically deals with differences between macOS and Windows and automatically installs any missing LaTeX packages as needed.\nHere’s how to install TinyTeX so you can create pretty PDFs:\n\nOpen the Terminal panel in RStudio (down in the bottom left corner where the Console panel is; there’s a tab named “Terminal” there)\nType this:\nquarto install tinytex\n\n\n\nPrepare ISS_DATASCI folder\nYou will be downloading a lot of files in this course, and I highly recommend you put them into the same folder. Create a folder on your desktop called ISS_DATASCI, and then direct all course downloads there.",
     "crumbs": [
       "Resources",
       "Installing R, RStudio, tidyverse, and tinytex"
@@ -3752,7 +2952,7 @@
     "href": "resource/unzipping.html#unzipping-files-on-macos",
     "title": "Unzipping files",
     "section": "Unzipping files on macOS",
-    "text": "Unzipping files on macOS\nDouble click on the downloaded .zip file. macOS will automatically create a new folder with the same name as the .zip file, and all the file’s contents will be inside. Double click on the RStudio Project file (.Rproj) to get started.",
+    "text": "Unzipping files on macOS\nRemember that the best destination for your downloaded .zip file is your ISS_DATASCI folder on your desktop.\nDouble click on the downloaded .zip file. macOS will automatically create a new folder with the same name as the .zip file, and all the file’s contents will be inside. Double click on the RStudio Project file (.Rproj) to get started.",
     "crumbs": [
       "Resources",
       "Unzipping files"
@@ -3763,7 +2963,7 @@
     "href": "resource/unzipping.html#unzipping-files-on-windows",
     "title": "Unzipping files",
     "section": "Unzipping files on Windows",
-    "text": "Unzipping files on Windows\ntl;dr: Right click on the .zip file, select “Extract All…”, and work with the resulting unzipped folder.\nUnlike macOS, Windows does not automatically unzip things for you. If you double click on the .zip file, Windows will show you what’s inside, but it will do so without actually extracting anything. This can be is incredibly confusing! Here’s what it looks like—the only clues that this folder is really a .zip file are that there’s a “Compressed Folder Tools” tab at the top, and there’s a “Ratio” column that shows how much each file is compressed.\n\n\n\n\n\n\n\n\n\nIt is very tempting to try to open files from this view. However, if you do, things will break and you won’t be able to correctly work with any of the files in the zipped folder. If you open the R Project file, for instance, RStudio will point to a bizarre working directory buried deep in some temporary folder:\n\n\n\n\n\n\n\n\n\nYou most likely won’t be able to open any data files or save anything, which will be frustrating.\nInstead, you need to right click on the .zip file and select “Extract All…”:\n\n\n\n\n\n\n\n\n\nThen choose where you want to unzip all the files and click on “Extract”\n\n\n\n\n\n\n\n\n\nYou should then finally have a real folder with all the contents of the zipped file. Open the R Project file and RStudio will point to the correct working directory and everything will work.",
+    "text": "Unzipping files on Windows\ntl;dr: Right click on the .zip file, select “Extract All…”, and work with the resulting unzipped folder.\nUnlike macOS, Windows does not automatically unzip things for you. If you double click on the .zip file, Windows will show you what’s inside, but it will do so without actually extracting anything. This can be is incredibly confusing! Here’s what it looks like—the only clues that this folder is really a .zip file are that there’s a “Compressed Folder Tools” tab at the top, and there’s a “Ratio” column that shows how much each file is compressed.\n\n\n\n\n\n\n\n\n\nIt is very tempting to try to open files from this view. However, if you do, things will break and you won’t be able to correctly work with any of the files in the zipped folder. If you open the R Project file, for instance, RStudio will point to a bizarre working directory buried deep in some temporary folder:\n\n\n\n\n\n\n\n\n\nYou most likely won’t be able to open any data files or save anything, which will be frustrating.\nInstead, you need to right click on the .zip file and select “Extract All…”:\n\n\n\n\n\n\n\n\n\nThen choose where you want to unzip all the files and click on “Extract” (remember that the best destination is your ISS_DATASCI folder on your desktop).\n\n\n\n\n\n\n\n\n\nYou should then finally have a real folder with all the contents of the zipped file. Open the R Project file and RStudio will point to the correct working directory and everything will work.",
     "crumbs": [
       "Resources",
       "Unzipping files"
