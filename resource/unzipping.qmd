@@ -13,6 +13,8 @@ Unzipping files on macOS is trivial, but unzipping files on Windows can mess you
 
 ## Unzipping files on macOS
 
+Remember that the best destination for your downloaded `.zip` file is your **ISS_DATASCI** folder on your desktop.
+
 Double click on the downloaded `.zip` file. macOS will automatically create a new folder with the same name as the `.zip` file, and all the file's contents will be inside. Double click on the RStudio Project file (`.Rproj`) to get started.
 
 ```{r, echo=FALSE, out.width="60%"}
@@ -44,7 +46,7 @@ Instead, you need to right click on the `.zip` file and select "Extract All…":
 knitr::include_graphics("../files/img/unzipping/extract-windows-1.png", error = FALSE)
 ```
 
-Then choose where you want to unzip all the files and click on "Extract"
+Then choose where you want to unzip all the files and click on "Extract" (remember that the best destination is your **ISS_DATASCI** folder on your desktop).
 
 ```{r, echo=FALSE, out.width="60%"}
 knitr::include_graphics("../files/img/unzipping/extract-windows-2.png", error = FALSE)

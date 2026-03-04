@@ -19,17 +19,26 @@ here_rel <- function(...) {fs::path_rel(here::here(...))}
 # source("R/tar_slides.R")
 # source("R/tar_data.R")
 source("R/tar_projects.R")
+source("R/tar_content_zips.R")
 source("R/tar_calendar.R")
 
 list(
-  ## Project folders ----
+  # ## Assignment project folders ----
   make_data_and_zip_projects,
-  
+
   tar_combine(
     all_zipped_projects,
     tar_select_targets(make_data_and_zip_projects, starts_with("zip_"))
   ),
-  
+
+  # ## Content zips ----
+  make_and_zip_content,
+
+  tar_combine(
+    all_zipped_content,
+    tar_select_targets(make_and_zip_content, starts_with("zip_content_"))
+  ),
+
   ## Class schedule calendar ----
   tar_target(schedule_file, here_rel("data", "schedule.csv"), format = "file"),
   tar_target(schedule_page_data, build_schedule_for_page(schedule_file)),
@@ -44,5 +53,5 @@ list(
   ),
   
   ## Build site ----
-  tar_quarto(site, path = ".", quiet = FALSE)
+ tar_quarto(site, path = ".", quiet = FALSE)
 )

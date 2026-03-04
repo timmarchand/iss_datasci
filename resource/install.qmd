@@ -94,3 +94,12 @@ Here's how to install TinyTeX so you can create pretty PDFs:
    ``` bash
    quarto install tinytex
    ```
+
+### Prepare ISS_DATASCI folder
+
+You will be downloading a lot of files in this course, and I highly recommend you put them into the same folder. Create a folder on your desktop called **ISS_DATASCI**, and then direct all course downloads there.
+
+```{r, echo=FALSE, out.width="100%"}
+include_graphics("../files/img/install/install-ISS-DATASCI-folder.png", error = FALSE)
+```
+
