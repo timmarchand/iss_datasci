@@ -3,7 +3,7 @@ title: Syllabus
 pdf-title: "Data Visualization with R"
 pdf-subtitle: "Data Visualisation and Analysis • Spring 2026"
 pdf-note: |
-  The full version of the course syllabus, schedule, and all course materials is available online at <https://timmarchand.github.io/ISS_dataviz/>.
+  The full version of the course syllabus, schedule, and all course materials is available online at <https://timmarchand.github.io/ISS_datasci/>.
 pdf-header-left: ISS_dataviz
 pdf-header-right: Spring 2026
 pdf-footer-left: Data Visualisation and Analysis

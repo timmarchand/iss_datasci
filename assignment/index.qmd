@@ -33,7 +33,7 @@ You may (and should!) work together on the exercises, but you must submit your o
 
 At the end of the course you will demonstrate your data science skills by completing an independent data project. You will find a dataset that interests you, explore it using the tools and techniques from the course, and write up your findings as a short report.
 
-[Complete details for the data project are here.](/assignment/final-project.qmd)
+[Complete details for the data project are here.](/project/final-project.qmd)
 
 **There is no final exam. The data project is your final assessment.**
 

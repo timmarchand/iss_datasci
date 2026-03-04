@@ -5,6 +5,7 @@ project:
     - "*.qmd"
     - "!slides/"
     - "!lesson/"
+    - "!content_zips_staging/"
     - "!exercises/"
     - "!files/projects/"
   resources:
