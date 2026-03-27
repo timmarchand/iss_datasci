@@ -61,7 +61,7 @@ build_schedule_for_page <- function(schedule_file) {
            ` `          = col_date,
            Title        = col_title,
            Content      = col_content,
-           Example      = col_example,
+           Videos      = col_example,
            Assignment   = col_assignment,
            Project      = col_project) |>
     group_by(group) |>
