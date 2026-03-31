@@ -1,0 +1,39 @@
+---
+title: "R Basics 2: Data Visualisation"
+date: "2026-04-28"
+date_end: "2026-05-04"
+---
+
+The videos below are selected to support and extend the concepts covered this week. Watch them before or after working through the exercises.
+
+---
+
+## ggplot2 for Plots and Graphs
+
+A deep dive into the Grammar of Graphics using ggplot2 — covers the key geoms and how to build up plots in layers.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/HPJn1CMvtmI" title="ggplot2 for Plots and Graphs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## ggplot2 Explained in 5 Minutes
+
+A high-speed conceptual overview of how layers work in ggplot2.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/FdVy57oGJuc" title="ggplot2 Explained in 5 Minutes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## geom_point and Scatter Plots
+
+How to create scatter plots in ggplot2 using geom_point, and how to interpret the relationship between two continuous variables.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/gCAwHbmOqCo" title="geom_point and scatter plots" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---

@@ -1,0 +1,39 @@
+---
+title: "Text as Data"
+date: "2026-07-07"
+date_end: "2026-07-13"
+---
+
+The videos below are selected to support and extend the concepts covered this week. Watch them before or after working through the exercises.
+
+---
+
+## Introduction to Text Mining in R
+
+Covers TF-IDF, n-grams, and sentiment analysis using the `tidytext` package.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/9U-E2Sxe0Dk" title="Introduction to Text Mining in R" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## Sentiment Analysis with Tidytext
+
+A hands-on project example using tidytext for sentiment analysis — fits well with the Session 12 content.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/P5ihIzoZivc" title="Sentiment Analysis with Tidytext" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## Regex
+
+An introduction to regular expressions — patterns for matching, extracting, and transforming text data.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/9RksQ5YT7FM" title="Regex" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---

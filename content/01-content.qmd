@@ -8,35 +8,38 @@ date_end: "2026-04-20"
 
 This week we get our first hands-on experience with R and RStudio. We will look at the different types of data you will encounter in data science, set up our working environment, and take our first steps with R as a tool for data analysis.
 
----
+------------------------------------------------------------------------
 
 ## Readings
 
-::: {.callout-tip}
+::: callout-tip
 ### R for Non-Programmers
-- [Chapter 3: Setting up R and RStudio](https://r4np.com/03_setting_up_r_rstudio.html){target="_blank"}
-- [Chapter 4: The RStudio Interface](https://r4np.com/04_rstudio_interface.html){target="_blank"}
+
+-   [Chapter 3: Setting up R and RStudio](https://r4np.com/03_setting_up_r_rstudio.html){target="_blank"}
+-   [Chapter 4: The RStudio Interface](https://r4np.com/04_rstudio_interface.html){target="_blank"}
 :::
 
----
+------------------------------------------------------------------------
 
 ## Slides
 
 ::: {.ratio .ratio-16x9}
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSVr5x8UzdpnaQpV7LF2aW6ZzgIoO9HqcvT_VVyUKfcQ7arGYp0MGRU2HFwA0ytvVTNlnyXTR1aownd/embed?start=false&loop=false&delayms=3000" allowfullscreen></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSVr5x8UzdpnaQpV7LF2aW6ZzgIoO9HqcvT_VVyUKfcQ7arGYp0MGRU2HFwA0ytvVTNlnyXTR1aownd/embed?start=false&amp;loop=false&amp;delayms=3000" allowfullscreen>
+
+</iframe>
 :::
 
----
+------------------------------------------------------------------------
 
 ## Code demo: UN Votes
 
 This is a taste of what R can do. The demo below steps through building a ggplot visualisation of UN General Assembly voting patterns layer by layer — each slide adds one line of code and shows you the result.
 
-[{{< fa display >}} Open the interactive flipbook](slides/unvotes_demo.html){.btn .btn-outline-primary target="_blank"}
+[{{< fa display >}} Open the interactive flipbook](/slides/unvotes_demo.html){.btn .btn-outline-primary target="_blank"}
 
 Don't worry about understanding every line yet — just enjoy seeing what R can do. When you are ready to run it yourself, download the R script below and try tweaking the countries or issues.
 
-```r
+``` r
 ## One step install and load ----
 if (!require(pacman)) install.packages("pacman")
 pacman::p_load(tidyverse, scales, unvotes)
@@ -69,6 +72,5 @@ us_uk_turkey_votes |>
   ) +
   scale_y_continuous(labels = label_percent())
 ```
-<a href="/files/r_docs/unvotes_demo.R" download="unvotes_demo.R" class="btn btn-outline-primary btn-sm">
-  <i class="bi bi-file-earmark-code"></i> Download the R script
-</a>
+
+<a href="/files/r_docs/unvotes_demo.R" download="unvotes_demo.R" class="btn btn-outline-primary btn-sm"> <i class="bi bi-file-earmark-code"></i> Download the R script </a>

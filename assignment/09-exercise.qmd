@@ -1,6 +1,6 @@
 ---
 title: "Exercise 09: Variable Associations 2"
-date: "2026-06-15"
+date: "2026-06-22"
 ---
 
 ```{r setup, include=FALSE}

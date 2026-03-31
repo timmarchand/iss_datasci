@@ -1,6 +1,6 @@
 ---
 title: "Exercise 13: Data Project Completion and Course Review"
-date: "2026-07-13"
+date: "2026-07-20"
 ---
 
 ```{r setup, include=FALSE}

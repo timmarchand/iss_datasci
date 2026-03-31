@@ -1,0 +1,39 @@
+---
+title: "Regression Modelling 1"
+date: "2026-06-23"
+date_end: "2026-06-29"
+---
+
+The videos below are selected to support and extend the concepts covered this week. Watch them before or after working through the exercises.
+
+---
+
+## Linear Regression in R, Step by Step
+
+A practical walk-through of coding and interpreting a simple linear regression model in R.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/wsi0jg_gH28" title="Linear Regression in R, Step by Step" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## Simple Linear Regression (Academic Approach)
+
+A more statistical treatment of model summaries, ANOVA tables, and hypothesis testing in the context of regression.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/66z_MRwtFJM" title="Simple Linear Regression Academic" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## Linear Regression 1 (Conceptual)
+
+A clear introduction to the line of best fit, residuals, and R-squared.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/nk2CQITm_eo" title="Linear regression 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---

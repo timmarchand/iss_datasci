@@ -1,6 +1,6 @@
 ---
 title: "Exercise 02: R Basics 1: Vectors, Data Frames, Lists"
-date: "2026-04-20"
+date: "2026-04-27"
 ---
 
 ```{r setup, include=FALSE}

@@ -24,15 +24,12 @@ build_schedule_for_page <- function(schedule_file) {
     mutate(var_title = ifelse(!is.na(content),
                               glue('<span class="content-title">{var_flag_start}{title}{var_flag_end}</span>'),
                               glue('{var_flag_start}{title}{var_flag_end}'))) |>
-    mutate(var_deadline = ifelse(!is.na(deadline),
-                                 glue('&emsp;&emsp;<small>(submit by {deadline_nice})</small>'),
-                                 glue(""))) |>
     mutate(var_content = ifelse(!is.na(content),
                                 glue('<a href="{content}.qmd"><i class="fa-solid fa-book-open-reader fa-lg"></i></a>'),
                                 glue('<font color="#e9ecef"><i class="fa-solid fa-book-open-reader fa-lg"></i></font>'))) |>
-    mutate(var_example = ifelse(!is.na(example),
-                                glue('<a href="{example}.qmd"><i class="fa-solid fa-laptop-code fa-lg"></i></a>'),
-                                glue('<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>'))) |>
+    mutate(var_video = ifelse(!is.na(video),
+                              glue('<a href="{video}.qmd"><i class="fa-solid fa-laptop-code fa-lg"></i></a>'),
+                              glue('<font color="#e9ecef"><i class="fa-solid fa-laptop-code fa-lg"></i></font>'))) |>
     mutate(var_assignment = ifelse(!is.na(assignment),
                                    glue('<a href="{assignment}.qmd"><i class="fa-solid fa-pen-ruler fa-lg"></i></a>'),
                                    glue('<font color="#e9ecef"><i class="fa-solid fa-pen-ruler fa-lg"></i></font>'))) |>
@@ -48,10 +45,10 @@ build_schedule_for_page <- function(schedule_file) {
       is.na(content) & !is.na(date_range) ~ glue('<span class="content-date">{date_range}</span>'),
       TRUE ~ glue('<span class="content-date">{format(date, "%B %e")}</span>')
     )) |> 
-    mutate(col_title = glue('{var_title}{var_deadline}{var_note}')) |>
+    mutate(col_title = glue('{var_title}{var_note}')) |>
     mutate(
       col_content    = var_content,
-      col_example    = var_example,
+      col_video      = var_video,
       col_assignment = var_assignment,
       col_project    = var_project
     )
@@ -61,7 +58,7 @@ build_schedule_for_page <- function(schedule_file) {
            ` `          = col_date,
            Title        = col_title,
            Content      = col_content,
-           Videos      = col_example,
+           Videos       = col_video,
            Assignment   = col_assignment,
            Project      = col_project) |>
     group_by(group) |>

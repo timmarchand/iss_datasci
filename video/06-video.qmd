@@ -1,0 +1,39 @@
+---
+title: "Manipulating Data 1"
+date: "2026-05-26"
+date_end: "2026-06-01"
+---
+
+The videos below are selected to support and extend the concepts covered this week. Watch them before or after working through the exercises.
+
+---
+
+## dplyr Essentials
+
+Covers the five core dplyr functions: `select`, `mutate`, `filter`, `group_by`, and `summarise` — the foundation of data manipulation in R.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/Gvhkp-Yw65U" title="dplyr Essentials" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## Manipulate Data using the Tidyverse
+
+A beginner-friendly introduction to the piping (`%>%`) workflow and how to chain together data manipulation steps.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/nRtp7wSEtJA" title="Manipulate Data using the Tidyverse" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## Simpson's Paradox
+
+A clear introduction to one of the most counterintuitive results in statistics — when a trend that appears in grouped data reverses when the groups are combined.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/bArPxj5xhso" title="Simpson's paradox" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---

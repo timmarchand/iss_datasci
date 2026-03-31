@@ -1,6 +1,6 @@
 ---
 title: "Exercise 12: Text as Data"
-date: "2026-07-06"
+date: "2026-07-13"
 ---
 
 ```{r setup, include=FALSE}

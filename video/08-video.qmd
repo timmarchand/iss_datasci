@@ -1,0 +1,29 @@
+---
+title: "Variable Associations 1"
+date: "2026-06-09"
+date_end: "2026-06-15"
+---
+
+The videos below are selected to support and extend the concepts covered this week. Watch them before or after working through the exercises.
+
+---
+
+## Regression Analysis: Beginner's Guide
+
+A conceptual guide to understanding how variables relate to one another — a good foundation before moving into formal regression modelling.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/-JTKf-a1JpU" title="Regression Analysis: Beginner's Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## The Correlation Coefficient
+
+What the correlation coefficient measures, how to interpret values between -1 and 1, and the important distinction between correlation and causation.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/ugd4k3dC_8Y" title="The correlation coefficient" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---

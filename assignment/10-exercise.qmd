@@ -1,6 +1,6 @@
 ---
 title: "Exercise 10: Regression Modelling 1"
-date: "2026-06-22"
+date: "2026-06-29"
 ---
 
 ```{r setup, include=FALSE}

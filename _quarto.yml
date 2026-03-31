@@ -49,7 +49,7 @@ website:
       - text: "Projects"
         href: project/index.qmd
       - text: "Videos"
-        href: example/index.qmd
+        href: video/index.qmd
       - text: "Assignments"
         href: assignment/index.qmd
       - text: "Resources"
@@ -141,39 +141,39 @@ website:
       contents:
         - section: "Overview"
           contents:
-            - example/index.qmd
+            - video/index.qmd
         - section: "Foundations"
           contents:
             - text: "1: Course introduction, data types, R and RStudio"
-              file: example/01-example.qmd
+              file: video/01-video.qmd
             - text: "2: R basics 1 — Vectors, data frames, lists, basic scripts"
-              file: example/02-example.qmd
+              file: video/02-video.qmd
             - text: "3: R basics 2 — Data visualisation"
-              file: example/03-example.qmd
+              file: video/03-video.qmd
         - section: "Core concepts"
           contents:
             - text: "4: Sampling and probability"
-              file: example/04-example.qmd
+              file: video/04-video.qmd
             - text: "5: Visualising probability"
-              file: example/05-example.qmd
+              file: video/05-video.qmd
             - text: "6: Manipulating data 1 — Data project intro"
-              file: example/06-example.qmd
+              file: video/06-video.qmd
             - text: "7: Manipulating data 2"
-              file: example/07-example.qmd
+              file: video/07-video.qmd
             - text: "8: Variable associations 1"
-              file: example/08-example.qmd
+              file: video/08-video.qmd
             - text: "9: Variable associations 2"
-              file: example/09-example.qmd
+              file: video/09-video.qmd
         - section: "Advanced topics"
           contents:
             - text: "10: Regression modelling 1"
-              file: example/10-example.qmd
+              file: video/10-video.qmd
             - text: "11: Regression modelling 2"
-              file: example/11-example.qmd
+              file: video/11-video.qmd
             - text: "12: Text as data"
-              file: example/12-example.qmd
+              file: video/12-video.qmd
             - text: "13: Data project completion and course review"
-              file: example/13-example.qmd
+              file: video/13-video.qmd
 
     - title: "Assignments"
       contents:

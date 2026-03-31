@@ -1,0 +1,12 @@
+date-heading:
+  content: "Videos for"
+  class: "bg-video"
+date-format: "full"
+format:
+  html:
+    code-fold: show
+    code-tools: true
+    toc-depth: 4
+    filters: ["../filters/format_date_end.lua"]
+    template-partials:
+      - ../html/title-metadata.html

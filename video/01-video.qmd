@@ -1,0 +1,29 @@
+---
+title: "Course Introduction: R and RStudio"
+date: "2026-04-14"
+date_end: "2026-04-20"
+---
+
+The videos below are selected to support and extend the concepts covered this week. Watch them before or after working through the exercises.
+
+---
+
+## R Programming for ABSOLUTE Beginners
+
+A 14-minute primer that demystifies R and shows how to navigate the RStudio interface.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/FY8BISK5DpM" title="R Programming for ABSOLUTE Beginners" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## RStudio for the Total Beginner
+
+A concise 6-minute tour of the RStudio panels — Console, Environment, Files, and more.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/FIrsOBy5k58" title="RStudio for the Total Beginner" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---

@@ -1,0 +1,39 @@
+---
+title: "R Basics 1: Vectors, Data Frames, Lists"
+date: "2026-04-21"
+date_end: "2026-04-27"
+---
+
+The videos below are selected to support and extend the concepts covered this week. Watch them before or after working through the exercises.
+
+---
+
+## Vectors, Data Frames and Lists
+
+A clear introduction to the three core data structures you will use constantly in R.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/XHAm_V-KZE8?start=11" title="Vectors, data frames and lists" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## Data Types in R Programming
+
+Explains the five main data types (character, factor, integer, etc.) and how they differ.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/VtUVQWl0aRA" title="Data Types in R Programming" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## Data Structures in R Made Simple
+
+A clear breakdown of how to work with vectors, data frames, and lists.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/47dqzytZ8nA" title="Data Structures in R Made Simple" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---

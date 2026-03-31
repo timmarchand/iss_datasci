@@ -1,6 +1,6 @@
 ---
 title: "Exercise 04: Sampling and Probability"
-date: "2026-05-11"
+date: "2026-05-18"
 ---
 
 ```{r setup, include=FALSE}

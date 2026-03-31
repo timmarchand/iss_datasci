@@ -1,0 +1,19 @@
+---
+title: "Regression Modelling 2"
+date: "2026-06-30"
+date_end: "2026-07-06"
+---
+
+The videos below are selected to support and extend the concepts covered this week. Watch them before or after working through the exercises.
+
+---
+
+## Interaction Effects in Regression
+
+What interaction effects are, when they occur, and how to include and interpret them in regression models.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/1L5p2fkYklI" title="Interaction effects 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---

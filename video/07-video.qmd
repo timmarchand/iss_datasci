@@ -1,0 +1,19 @@
+---
+title: "Manipulating Data 2"
+date: "2026-06-02"
+date_end: "2026-06-08"
+---
+
+The videos below are selected to support and extend the concepts covered this week. Watch them before or after working through the exercises.
+
+---
+
+## dplyr Essentials (Revisit)
+
+Returning to dplyr with more complex examples — grouped summaries, joins, and chained pipelines.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/sVISY_27znA" title="The 5 verbs of dplyr revisit" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---

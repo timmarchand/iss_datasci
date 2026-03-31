@@ -1,13 +1,13 @@
-group,session,date,end_date,title,flag,deadline,content,lesson,example,assignment,project,note
-Foundations,Session 1,2026-04-14,2026-04-20,"Course introduction, data types, R and RStudio",,2026-04-12 23:59,content/01-content,,example/01-example,assignment/01-exercise,,
-Foundations,Session 2,2026-04-21,2026-04-27,"R basics 1: Vectors, data frames, lists, basic scripts",,2026-04-19 23:59,content/02-content,,example/02-example,assignment/02-exercise,,
-Foundations,Session 3,2026-04-28,2026-05-04,R basics 2: Data visualisation,,2026-04-26 23:59,content/03-content,,example/03-example,assignment/03-exercise,project/02-ps,
-Core concepts,Session 4,2026-05-12,2026-05-18,Sampling and probability,,2026-05-10 23:59,content/04-content,,example/04-example,assignment/04-exercise,,
-Core concepts,Session 5,2026-05-19,2026-05-25,Visualising probability,,2026-05-17 23:59,content/05-content,,example/05-example,assignment/05-exercise,,
-Core concepts,Session 6,2026-05-26,2026-06-01,Manipulating data 1: Data project intro,,2026-05-24 23:59,content/06-content,,example/06-example,assignment/06-exercise,project/03-ps,
-Core concepts,Session 7,2026-06-02,2026-06-08,Manipulating data 2,,2026-05-31 23:59,content/07-content,,example/07-example,assignment/07-exercise,,
-Core concepts,Session 8,2026-06-09,2026-06-15,Variable associations 1,,2026-06-07 23:59,content/08-content,,example/08-example,assignment/08-exercise,project/04-ps,
-Core concepts,Session 9,2026-06-16,2026-06-22,Variable associations 2,,2026-06-14 23:59,content/09-content,,example/09-example,assignment/09-exercise,,
-Advanced topics,Session 10,2026-06-23,2026-06-29,Regression modelling 1,,2026-06-21 23:59,content/10-content,,example/10-example,assignment/10-exercise,project/05-ps,
-Advanced topics,Session 11,2026-06-30,2026-07-06,Regression modelling 2,,2026-06-28 23:59,content/11-content,,example/11-example,assignment/11-exercise,project/06-ps,
-Advanced topics,Session 12,2026-07-07,2026-07-13,Text as data,,2026-07-05 23:59,content/12-content,,example/12-example,assignment/12-exercise,
+group,session,date,end_date,title,flag,deadline,content,lesson,video,assignment,project,note
+Foundations,Session 1,2026-04-14,2026-04-20,"Course introduction, data types, R and RStudio",NA,2026-04-12T23:59:00Z,content/01-content,NA,video/01-video,assignment/01-exercise,NA,NA
+Foundations,Session 2,2026-04-21,2026-04-27,"R basics 1: Vectors, data frames, lists, basic scripts",NA,2026-04-19T23:59:00Z,content/02-content,NA,video/02-video,assignment/02-exercise,NA,NA
+Foundations,Session 3,2026-04-28,2026-05-04,R basics 2: Data visualisation,NA,2026-04-26T23:59:00Z,content/03-content,NA,video/03-video,assignment/03-exercise,project/02-ps,NA
+Core concepts,Session 4,2026-05-12,2026-05-18,Sampling and probability,NA,2026-05-10T23:59:00Z,content/04-content,NA,video/04-video,assignment/04-exercise,NA,NA
+Core concepts,Session 5,2026-05-19,2026-05-25,Visualising probability,NA,2026-05-17T23:59:00Z,content/05-content,NA,video/05-video,assignment/05-exercise,NA,NA
+Core concepts,Session 6,2026-05-26,2026-06-01,Manipulating data 1: Data project intro,NA,2026-05-24T23:59:00Z,content/06-content,NA,video/06-video,assignment/06-exercise,project/03-ps,NA
+Core concepts,Session 7,2026-06-02,2026-06-08,Manipulating data 2,NA,2026-05-31T23:59:00Z,content/07-content,NA,video/07-video,assignment/07-exercise,NA,NA
+Core concepts,Session 8,2026-06-09,2026-06-15,Variable associations 1,NA,2026-06-07T23:59:00Z,content/08-content,NA,video/08-video,assignment/08-exercise,project/04-ps,NA
+Core concepts,Session 9,2026-06-16,2026-06-22,Variable associations 2,NA,2026-06-14T23:59:00Z,content/09-content,NA,video/09-video,assignment/09-exercise,NA,NA
+Advanced topics,Session 10,2026-06-23,2026-06-29,Regression modelling 1,NA,2026-06-21T23:59:00Z,content/10-content,NA,video/10-video,assignment/10-exercise,project/05-ps,NA
+Advanced topics,Session 11,2026-06-30,2026-07-06,Regression modelling 2,NA,2026-06-28T23:59:00Z,content/11-content,NA,video/11-video,assignment/11-exercise,project/06-ps,NA
+Advanced topics,Session 12,2026-07-07,2026-07-13,Text as data,NA,2026-07-05T23:59:00Z,content/12-content,NA,video/12-video,assignment/12-exercise,NA,NA

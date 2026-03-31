@@ -1,0 +1,29 @@
+---
+title: "Visualising Probability"
+date: "2026-05-19"
+date_end: "2026-05-25"
+---
+
+The videos below are selected to support and extend the concepts covered this week. Watch them before or after working through the exercises.
+
+---
+
+## Statistical Computing in R: Probability
+
+Covers probability distributions and random sampling in R — a practical complement to this week's visualisation work.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/_V8eKsto3Ug" title="Statistical Computing in R: Probability" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## The Normal Distribution
+
+An explanation of the normal distribution, why it appears so often in nature and statistics, and how to work with it in R.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/jvoxEYmQHNM" title="The normal distribution" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
