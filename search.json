@@ -1270,6 +1270,18 @@
     ]
   },
   {
+    "objectID": "content/01-content.html#code-demo-world-telephones",
+    "href": "content/01-content.html#code-demo-world-telephones",
+    "title": "Course Introduction: Data Types, R and RStudio",
+    "section": "Code demo: World Telephones",
+    "text": "Code demo: World Telephones\nHere is a second example that shows how R can be used to explore and visualise a dataset in just a few steps. This one uses a dataset that ships with base R — no packages to install first.\nThe goal is to visualise how telephone usage changed across different world regions between 1951 and 1961. Along the way you will see two common plot types — a scatter plot and a stacked bar chart — and notice how the same data can tell very different stories depending on how it is displayed.\nAgain, don’t worry about understanding every line of code yet. Focus on what the output looks like and how it changes at each step.\n## Load tidyverse ----\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(tidyverse)\n\n## Inspect the data ----\n# WorldPhones is a built-in R dataset — no download needed\nWorldPhones\n\n## Tidy the data ----\n# Convert from a wide table to a long format suitable for ggplot\ntransformed &lt;- WorldPhones |&gt;\n  as_tibble(rownames = NA) |&gt;\n  rownames_to_column(\"Year\") |&gt;\n  pivot_longer(cols = 2:8, names_to = \"Region\", values_to = \"Count\")\n\ntransformed\n\n## Scatter plot ----\n# Shows the absolute number of telephones per region over time\nggplot(transformed, aes(x = Year, y = Count)) +\n  geom_point(aes(color = Region)) +\n  labs(\n    title = \"Number of telephones by world region, 1951–1961\",\n    x = \"Year\", y = \"Count\"\n  )\n\n## Stacked bar chart ----\n# Shows the proportion of telephones per region over time\nggplot(transformed) +\n  geom_bar(aes(x = Year, y = Count, fill = Region),\n           stat = \"identity\", position = \"fill\") +\n  labs(\n    title = \"Share of world telephones by region, 1951–1961\",\n    x = \"Year\", y = \"Proportion\"\n  )\n\n\n\n\n\n\nNoteWhat do the two plots tell you?\n\n\n\nThe scatter plot shows that North America, Europe, and Asia all grew steadily in absolute terms. The stacked bar chart reveals something the scatter plot hides — the proportional share of telephones shifted over the decade, with Asia and Africa gradually increasing their share relative to other regions.\nSame data, different stories. This is one of the key ideas in data visualisation.",
+    "crumbs": [
+      "Content",
+      "Foundations",
+      "Course Introduction: Data Types, R and RStudio"
+    ]
+  },
+  {
     "objectID": "assignment/13-exercise.html",
     "href": "assignment/13-exercise.html",
     "title": "Exercise 13: Data Project Completion and Course Review",
