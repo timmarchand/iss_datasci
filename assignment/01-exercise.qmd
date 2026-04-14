@@ -8,16 +8,16 @@ knitr::opts_chunk$set(fig.align = "center")
 ```
 
 ::: {.callout-important}
-Before starting this exercise, make sure you have worked through [the lesson for this week](/lesson/01-lesson.qmd).
+Before starting this exercise, make sure you have worked through [the content for this week](/content/01-content.qmd).
 :::
 
 ## Instructions
 
-1. Download and open the project for this week:
+1. Download and open the project for this week (this was probably done in class):
 
-   - [{{< fa file-archive >}} `01-exercise.zip`](/projects/01-exercise.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `01-exercise.Rproj` to open it in RStudio.
+   - [{{< fa file-archive >}} `01-content.zip`](/projects/01-exercise.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `01-content.Rproj` to open it in RStudio.
 
-2. Rename the Quarto file from `01-exercise.qmd` to something that includes your name, e.g. `tanaka-yuki_exercise-01.qmd`, and open it.
+2. Rename the Quarto file from `01-weekly-notes.qmd` to something that includes your name, e.g. `tanaka-yuki_01-weekly-notes.qmd`, and open it.
 
 3. Complete the **Weekly Reflection** questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don't need to write everything from scratch!
 
@@ -27,7 +27,7 @@ Before starting this exercise, make sure you have worked through [the lesson for
 knitr::include_graphics("/files/img/assignments/render-button.png", error = FALSE)
 ```
 
-5. Upload the rendered **HTML file** to Moodle by the deadline.
+5. Upload the rendered **HTML file** to [Moodle](https://moodle.univ.gakushuin.ac.jp/mod/forum/view.php?id=11273) by the deadline.
 
 ---
 
