@@ -1502,7 +1502,7 @@
     "href": "assignment/01-exercise.html",
     "title": "Exercise 01: R Basics",
     "section": "",
-    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the lesson for this week.",
+    "text": "Important\n\n\n\nBefore starting this exercise, make sure you have worked through the content for this week.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1514,7 +1514,7 @@
     "href": "assignment/01-exercise.html#instructions",
     "title": "Exercise 01: R Basics",
     "section": "Instructions",
-    "text": "Instructions\n\nDownload and open the project for this week:\n\n 01-exercise.zip: Download this file, unzip it, and double-click on 01-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 01-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-01.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "text": "Instructions\n\nDownload and open the project for this week (this was probably done in class):\n\n 01-content.zip: Download this file, unzip it, and double-click on 01-content.Rproj to open it in RStudio.\n\nRename the Quarto file from 01-weekly-notes.qmd to something that includes your name, e.g. tanaka-yuki_01-weekly-notes.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
