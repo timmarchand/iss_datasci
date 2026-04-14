@@ -1334,7 +1334,7 @@
     "href": "assignment/11-exercise.html#instructions",
     "title": "Exercise 11: Regression Modelling 2",
     "section": "Instructions",
-    "text": "Instructions\n\nDownload and open the project for this week:\n\n 11-exercise.zip: Download this file, unzip it, and double-click on 11-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 11-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-11.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 11-content.zip: Download this file, unzip it, and double-click on 11-content.Rproj to open it in RStudio.\n\nRename the Quarto file from 11-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-11.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1370,7 +1370,7 @@
     "href": "assignment/09-exercise.html#instructions",
     "title": "Exercise 09: Variable Associations 2",
     "section": "Instructions",
-    "text": "Instructions\n\nDownload and open the project for this week:\n\n 09-exercise.zip: Download this file, unzip it, and double-click on 09-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 09-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-09.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 09-content.zip: Download this file, unzip it, and double-click on 09-content.Rproj to open it in RStudio.\n\nRename the Quarto file from 09-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-09.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1406,7 +1406,7 @@
     "href": "assignment/07-exercise.html#instructions",
     "title": "Exercise 07: Manipulating Data 2",
     "section": "Instructions",
-    "text": "Instructions\n\nDownload and open the project for this week:\n\n 07-exercise.zip: Download this file, unzip it, and double-click on 07-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 07-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-07.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 07-content.zip: Download this file, unzip it, and double-click on 07-content.Rproj to open it in RStudio.\n\nRename the Quarto file from 07-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-07.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1442,7 +1442,7 @@
     "href": "assignment/05-exercise.html#instructions",
     "title": "Exercise 05: Visualising Probability",
     "section": "Instructions",
-    "text": "Instructions\n\nDownload and open the project for this week:\n\n 05-exercise.zip: Download this file, unzip it, and double-click on 05-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 05-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-05.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 05-content.zip: Download this file, unzip it, and double-click on 05-content.Rproj to open it in RStudio.\n\nRename the Quarto file from 05-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-05.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1478,7 +1478,7 @@
     "href": "assignment/03-exercise.html#instructions",
     "title": "Exercise 03: R Basics 2: Data Visualisation",
     "section": "Instructions",
-    "text": "Instructions\n\nDownload and open the project for this week:\n\n 03-exercise.zip: Download this file, unzip it, and double-click on 03-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 03-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-03.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 03-content.zip: Download this file, unzip it, and double-click on 03-content.Rproj to open it in RStudio.\n\nRename the Quarto file from 03-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-03.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1550,7 +1550,7 @@
     "href": "assignment/02-exercise.html#instructions",
     "title": "Exercise 02: R Basics 1: Vectors, Data Frames, Lists",
     "section": "Instructions",
-    "text": "Instructions\n\nDownload and open the project for this week:\n\n 02-exercise.zip: Download this file, unzip it, and double-click on 02-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 02-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-02.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 02-content.zip: Download this file, unzip it, and double-click on 02-content.Rproj to open it in RStudio.\n\nRename the Quarto file from 02-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-02.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1586,7 +1586,7 @@
     "href": "assignment/04-exercise.html#instructions",
     "title": "Exercise 04: Sampling and Probability",
     "section": "Instructions",
-    "text": "Instructions\n\nDownload and open the project for this week:\n\n 04-exercise.zip: Download this file, unzip it, and double-click on 04-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 04-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-04.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 04-content.zip: Download this file, unzip it, and double-click on 04-content.Rproj to open it in RStudio.\n\nRename the Quarto file from 04-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-04.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1622,7 +1622,7 @@
     "href": "assignment/06-exercise.html#instructions",
     "title": "Exercise 06: Manipulating Data 1",
     "section": "Instructions",
-    "text": "Instructions\n\nDownload and open the project for this week:\n\n 06-exercise.zip: Download this file, unzip it, and double-click on 06-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 06-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-06.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 06-content.zip: Download this file, unzip it, and double-click on 06-content.Rproj to open it in RStudio.\n\nRename the Quarto file from 06-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-06.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1658,7 +1658,7 @@
     "href": "assignment/08-exercise.html#instructions",
     "title": "Exercise 08: Variable Associations 1",
     "section": "Instructions",
-    "text": "Instructions\n\nDownload and open the project for this week:\n\n 08-exercise.zip: Download this file, unzip it, and double-click on 08-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 08-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-08.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 08-content.zip: Download this file, unzip it, and double-click on 08-content.Rproj to open it in RStudio.\n\nRename the Quarto file from 08-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-08.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1694,7 +1694,7 @@
     "href": "assignment/10-exercise.html#instructions",
     "title": "Exercise 10: Regression Modelling 1",
     "section": "Instructions",
-    "text": "Instructions\n\nDownload and open the project for this week:\n\n 10-exercise.zip: Download this file, unzip it, and double-click on 10-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 10-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-10.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 10-content.zip: Download this file, unzip it, and double-click on 10-content.Rproj to open it in RStudio.\n\nRename the Quarto file from 10-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-10.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
@@ -1730,7 +1730,7 @@
     "href": "assignment/12-exercise.html#instructions",
     "title": "Exercise 12: Text as Data",
     "section": "Instructions",
-    "text": "Instructions\n\nDownload and open the project for this week:\n\n 12-exercise.zip: Download this file, unzip it, and double-click on 12-exercise.Rproj to open it in RStudio.\n\nRename the Quarto file from 12-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-12.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
+    "text": "Instructions\n\nDownload and open the project for this week:\n\n 12-content.zip: Download this file, unzip it, and double-click on 12-content.Rproj to open it in RStudio.\n\nRename the Quarto file from 12-exercise.qmd to something that includes your name, e.g. tanaka-yuki_exercise-12.qmd, and open it.\nComplete the Weekly Reflection questions and work through the exercises in the file. You can copy, paste, and adapt from the lesson — you don’t need to write everything from scratch!\nWhen you’re done, click the Render button at the top of the editing window to create an HTML file.\n\n\n\n\n\n\n\n\n\n\n\nUpload the rendered HTML file to Moodle by the deadline.",
     "crumbs": [
       "Assignments",
       "Exercises",
