@@ -15,7 +15,7 @@ Before starting this exercise, make sure you have worked through [the lesson for
 
 1. Download and open the project for this week:
 
-   - [{{< fa file-archive >}} `09-exercise.zip`](/projects/09-exercise.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `09-exercise.Rproj` to open it in RStudio.
+   - [{{< fa file-archive >}} `09-content.zip`](/files/content/09-content.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `09-content.Rproj` to open it in RStudio.
 
 2. Rename the Quarto file from `09-exercise.qmd` to something that includes your name, e.g. `tanaka-yuki_exercise-09.qmd`, and open it.
 

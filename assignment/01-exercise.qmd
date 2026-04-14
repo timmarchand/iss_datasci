@@ -15,7 +15,7 @@ Before starting this exercise, make sure you have worked through [the content fo
 
 1. Download and open the project for this week (this was probably done in class):
 
-   - [{{< fa file-archive >}} `01-content.zip`](/projects/01-exercise.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `01-content.Rproj` to open it in RStudio.
+   - [{{< fa file-archive >}} `01-content.zip`](/files/content/01-content.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `01-content.Rproj` to open it in RStudio.
 
 2. Rename the Quarto file from `01-weekly-notes.qmd` to something that includes your name, e.g. `tanaka-yuki_01-weekly-notes.qmd`, and open it.
 
