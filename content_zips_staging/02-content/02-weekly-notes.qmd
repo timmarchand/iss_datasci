@@ -35,6 +35,7 @@ pacman::p_load(tidyverse)
 
 *Write a short summary of the main ideas from this session. A few sentences is fine. These are your notes, so Japanese is also completely okay!*
 
+*You can add your reflections after taking the r4np-exercises too.*
 ------------------------------------------------------------------------
 
 # Code notes
