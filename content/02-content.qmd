@@ -14,7 +14,7 @@ Building on last week, we explore the core data structures in R — vectors, dat
 
 1. Download and open the content project for this week:
 
-   - [`02-content.zip`](/files/projects/02-content.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `02-content.Rproj` to open it in RStudio.
+   - [`02-content.zip`](/files/content/02-content.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `02-content.Rproj` to open it in RStudio.
 
 ------------------------------------------------------------------------
 
