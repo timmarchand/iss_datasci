@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-05-25">
+<meta name="dcterms.date" content="2026-05-18">
 
-<title>PS04: Tidy Data and Joining Tables – CLIL Seminar: Data Science</title>
+<title>PS04: Linear Regression — One Numerical Predictor – CLIL Seminar: Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/02-ps.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../project/04-ps.html">PS04: Tidy Data and Joining Tables</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/02-ps.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../project/04-ps.html">PS04: Linear Regression — One Numerical Predictor</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -226,13 +226,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/04-ps.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">PS04: Tidy Data and Joining Tables</span></a>
+ <span class="menu-text">PS04: Linear Regression — One Numerical Predictor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/05-ps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PS05: Basic Regression</span></a>
+ <span class="menu-text">PS05: Linear Regression — One Categorical Predictor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -264,9 +264,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
-  <li><a href="#ps04a-tidy-data-with-tidyr" id="toc-ps04a-tidy-data-with-tidyr" class="nav-link" data-scroll-target="#ps04a-tidy-data-with-tidyr">PS04a: Tidy data with tidyr</a></li>
-  <li><a href="#ps04b-joining-tables-with-dplyr" id="toc-ps04b-joining-tables-with-dplyr" class="nav-link" data-scroll-target="#ps04b-joining-tables-with-dplyr">PS04b: Joining tables with dplyr</a></li>
+  <li><a href="#worked-example-white-poverty-and-trump-support" id="toc-worked-example-white-poverty-and-trump-support" class="nav-link" data-scroll-target="#worked-example-white-poverty-and-trump-support">Worked example: white poverty and Trump support</a></li>
+  <li><a href="#independent-analysis-non-white-population-and-trump-support" id="toc-independent-analysis-non-white-population-and-trump-support" class="nav-link" data-scroll-target="#independent-analysis-non-white-population-and-trump-support">Independent analysis: non-white population and Trump support</a></li>
   </ul></li>
+  <li><a href="#saving-your-plots" id="toc-saving-your-plots" class="nav-link" data-scroll-target="#saving-your-plots">Saving your plots</a></li>
   </ul>
 </nav>
     </div>
@@ -274,9 +275,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 <script data-goatcounter="https://timbot.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/02-ps.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../project/04-ps.html">PS04: Tidy Data and Joining Tables</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/02-ps.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../project/04-ps.html">PS04: Linear Regression — One Numerical Predictor</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">PS04: Tidy Data and Joining Tables</h1>
+<h1 class="title">PS04: Linear Regression — One Numerical Predictor</h1>
 </div>
 
 
@@ -287,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 25, 2026</p>
+      <p class="date">May 18, 2026</p>
     </div>
   </div>
   
@@ -301,37 +302,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Practice reshaping data between wide and long formats with <code>tidyr</code>, and combining data frames using <code>dplyr</code> join functions.</p>
-<p>Read <a href="https://moderndive.com/4-tidy.html" target="_blank">Chapter 4</a> of ModernDive before attempting this problem set.</p>
+<p>Practice simple linear regression with one numerical predictor — including visualisation, correlation, model fitting, interpretation, and prediction — using demographic and voting data from the 2016 US presidential election.</p>
+<p>Read <a href="https://moderndive.com/5-regression.html" target="_blank">Chapter 5</a> of ModernDive before attempting this problem set.</p>
 <hr>
 </section>
 <section id="download" class="level2">
 <h2 class="anchored" data-anchor-id="download">Download</h2>
 <p>Download the problem set template, open it in RStudio, and complete the exercises directly in the document.</p>
-<p><a href="../files/projects/PS04-template.zip">PS04-template.zip</a></p>
+<p><a href="../files/projects/PS04.zip">PS04.zip</a></p>
 <hr>
 </section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <p>Run this at the top of your document to install and load the required packages:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, nycflights13)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(dplyr, ggplot2, readr, moderndive)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<section id="ps04a-tidy-data-with-tidyr" class="level3">
-<h3 class="anchored" data-anchor-id="ps04a-tidy-data-with-tidyr">PS04a: Tidy data with tidyr</h3>
-<p>Use pivot_longer() and pivot_wider() to reshape data.</p>
+<section id="worked-example-white-poverty-and-trump-support" class="level3">
+<h3 class="anchored" data-anchor-id="worked-example-white-poverty-and-trump-support">Worked example: white poverty and Trump support</h3>
+<p>Follow a guided regression analysis — visualisation, correlation, model fitting, interpretation, and prediction.</p>
 </section>
-<section id="ps04b-joining-tables-with-dplyr" class="level3">
-<h3 class="anchored" data-anchor-id="ps04b-joining-tables-with-dplyr">PS04b: Joining tables with dplyr</h3>
-<p>Use inner_join(), left_join(), and other join functions.</p>
+<section id="independent-analysis-non-white-population-and-trump-support" class="level3">
+<h3 class="anchored" data-anchor-id="independent-analysis-non-white-population-and-trump-support">Independent analysis: non-white population and Trump support</h3>
+<p>Apply the same workflow independently using a different explanatory variable.</p>
+<hr>
+</section>
+</section>
+<section id="saving-your-plots" class="level2">
+<h2 class="anchored" data-anchor-id="saving-your-plots">Saving your plots</h2>
+<p>Remember you can save any plots you create to the <code>figures/</code> folder using <code>ggsave()</code>. Use descriptive file names that reflect the content of the plot:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>non_white_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> trump, <span class="fu">aes</span>(<span class="at">x =</span> non_white, <span class="at">y =</span> trump_support)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/trump-support-vs-non-white.png"</span>, <span class="at">plot =</span> non_white_plot, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">16</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">height =</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 <p><em>When you are done, render to HTML and submit on Moodle. Name your file <code>PS04_yourname.html</code>.</em></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -742,8 +754,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../project/05-ps.html" class="pagination-link" aria-label="PS05: Basic Regression">
-        <span class="nav-page-text">PS05: Basic Regression</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../project/05-ps.html" class="pagination-link" aria-label="PS05: Linear Regression — One Categorical Predictor">
+        <span class="nav-page-text">PS05: Linear Regression — One Categorical Predictor</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

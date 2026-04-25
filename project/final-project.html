@@ -189,13 +189,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/04-ps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PS04: Tidy Data and Joining Tables</span></a>
+ <span class="menu-text">PS04: Linear Regression — One Numerical Predictor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/05-ps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PS05: Basic Regression</span></a>
+ <span class="menu-text">PS05: Linear Regression — One Categorical Predictor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -223,6 +223,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#download-the-project-template" id="toc-download-the-project-template" class="nav-link active" data-scroll-target="#download-the-project-template">Download the project template</a></li>
+  <li><a href="#project-folder-structure" id="toc-project-folder-structure" class="nav-link" data-scroll-target="#project-folder-structure">Project folder structure</a></li>
   <li><a href="#timeline" id="toc-timeline" class="nav-link" data-scroll-target="#timeline">Timeline</a></li>
   <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure">Project structure</a>
   <ul class="collapse">
@@ -267,8 +268,27 @@ ul.task-list li input[type="checkbox"] {
 <section id="download-the-project-template" class="level2">
 <h2 class="anchored" data-anchor-id="download-the-project-template">Download the project template</h2>
 <p>The template below guides you through each stage of the project. It includes example code and explanations for every section. Use it as your starting point.</p>
-<p><a href="../files/projects/data-project-template.zip">data-project-template.zip</a></p>
+<p><a href="../files/projects/data-project.zip">data-project.zip</a></p>
 <p>Unzip the file and open <code>data-project.Rproj</code> in RStudio to get started.</p>
+<hr>
+</section>
+<section id="project-folder-structure" class="level2">
+<h2 class="anchored" data-anchor-id="project-folder-structure">Project folder structure</h2>
+<p>Your project folder is organised as follows:</p>
+<pre><code>data-project/
+├── data-project.Rproj
+├── data-project.qmd
+├── data_raw/          # your original data file — never modify this
+├── data_processed/    # optional: cleaned data saved from R
+├── figures/           # plots saved with ggsave()
+└── scripts/           # optional: separate R scripts for long tasks</code></pre>
+<p>A few important habits:</p>
+<ul>
+<li><strong>Raw data is read-only.</strong> Place your downloaded dataset in <code>data_raw/</code> and never edit it directly. Always read from <code>data_raw/</code> in your code.</li>
+<li><strong>Save cleaned data to <code>data_processed/</code></strong> if your cleaning steps are complex — but for most projects, cleaning inside the <code>.qmd</code> is fine.</li>
+<li><strong>Save your plots</strong> to <code>figures/</code> using <code>ggsave()</code> with descriptive file names.</li>
+<li><strong>The <code>scripts/</code> folder</strong> is there if you need it — for example, if your data cleaning is very long and you want to keep it separate. Most students will not need it.</li>
+</ul>
 <hr>
 </section>
 <section id="timeline" class="level2">
@@ -309,7 +329,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="project-structure" class="level2">
 <h2 class="anchored" data-anchor-id="project-structure">Project structure</h2>
-<p>Your final project should follow this structure. The template walks you through each section with examples.</p>
+<p>The template walks you through each section with examples and prompts. <strong>The template is a guide, not a strict requirement</strong> — you are free to adapt the structure to suit your data and research question. What matters is that your final document tells a clear, well-supported story.</p>
 <section id="introduction" class="level3">
 <h3 class="anchored" data-anchor-id="introduction">1. Introduction</h3>
 <p>State your research question clearly. What are you trying to find out, and why is it interesting? Describe your dataset — where does it come from, what does it contain, and what are the key variables?</p>
@@ -411,7 +431,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="submission" class="level2">
 <h2 class="anchored" data-anchor-id="submission">Submission</h2>
 <p>Submit your rendered HTML file on Moodle by the deadline. Name your file <code>data-project_yourname.html</code>.</p>
-<p>Your document must be fully reproducible — the teacher should be able to re-render it from the source <code>.qmd</code> or <code>.Rmd</code> file and get the same output. Include your source file in the submission.</p>
+<p>Your document must be fully reproducible — the teacher should be able to re-render it from the source <code>.qmd</code> file and get the same output. Include your source <code>.qmd</code> file in your submission.</p>
 
 
 </section>

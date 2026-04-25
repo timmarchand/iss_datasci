@@ -226,13 +226,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/04-ps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PS04: Tidy Data and Joining Tables</span></a>
+ <span class="menu-text">PS04: Linear Regression — One Numerical Predictor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/05-ps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PS05: Basic Regression</span></a>
+ <span class="menu-text">PS05: Linear Regression — One Categorical Predictor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -264,11 +264,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
-  <li><a href="#ps02a-5ng1-scatterplots" id="toc-ps02a-5ng1-scatterplots" class="nav-link" data-scroll-target="#ps02a-5ng1-scatterplots">PS02a: 5NG#1: Scatterplots</a></li>
-  <li><a href="#ps02b-5ng2-linegraphs" id="toc-ps02b-5ng2-linegraphs" class="nav-link" data-scroll-target="#ps02b-5ng2-linegraphs">PS02b: 5NG#2: Linegraphs</a></li>
-  <li><a href="#ps02c-5ng3-histograms" id="toc-ps02c-5ng3-histograms" class="nav-link" data-scroll-target="#ps02c-5ng3-histograms">PS02c: 5NG#3: Histograms</a></li>
-  <li><a href="#ps02d-5ng4-boxplots" id="toc-ps02d-5ng4-boxplots" class="nav-link" data-scroll-target="#ps02d-5ng4-boxplots">PS02d: 5NG#4: Boxplots</a></li>
-  <li><a href="#ps02e-5ng5-barplots" id="toc-ps02e-5ng5-barplots" class="nav-link" data-scroll-target="#ps02e-5ng5-barplots">PS02e: 5NG#5: Barplots</a></li>
+  <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots">Scatterplots</a></li>
+  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms">Histograms</a></li>
+  <li><a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots">Boxplots</a></li>
+  <li><a href="#independent-practice" id="toc-independent-practice" class="nav-link" data-scroll-target="#independent-practice">Independent practice</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -304,44 +303,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Practice creating plots with <code>ggplot2</code> — histograms, barplots, scatterplots, boxplots, and linegraphs — using data from the <code>nycflights13</code> and <code>gapminder</code> packages.</p>
+<p>Practice creating plots with <code>ggplot2</code> — scatterplots, histograms, and boxplots — using data on births from the state of North Carolina.</p>
 <p>Read <a href="https://moderndive.com/2-viz.html" target="_blank">Chapter 2</a> of ModernDive before attempting this problem set.</p>
 <hr>
 </section>
 <section id="download" class="level2">
 <h2 class="anchored" data-anchor-id="download">Download</h2>
 <p>Download the problem set template, open it in RStudio, and complete the exercises directly in the document.</p>
-<p><a href="../files/projects/PS02-template.zip">PS02-template.zip</a></p>
+<p><a href="../files/projects/PS02.zip">PS02.zip</a></p>
 <hr>
 </section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <p>Run this at the top of your document to install and load the required packages:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, nycflights13, gapminder)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggplot2, dplyr, readr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<section id="ps02a-5ng1-scatterplots" class="level3">
-<h3 class="anchored" data-anchor-id="ps02a-5ng1-scatterplots">PS02a: 5NG#1: Scatterplots</h3>
-<p>Explore the relationship between two numerical variables.</p>
+<section id="scatterplots" class="level3">
+<h3 class="anchored" data-anchor-id="scatterplots">Scatterplots</h3>
+<p>Investigate relationships between numerical variables.</p>
 </section>
-<section id="ps02b-5ng2-linegraphs" class="level3">
-<h3 class="anchored" data-anchor-id="ps02b-5ng2-linegraphs">PS02b: 5NG#2: Linegraphs</h3>
-<p>Visualise trends over time.</p>
-</section>
-<section id="ps02c-5ng3-histograms" class="level3">
-<h3 class="anchored" data-anchor-id="ps02c-5ng3-histograms">PS02c: 5NG#3: Histograms</h3>
+<section id="histograms" class="level3">
+<h3 class="anchored" data-anchor-id="histograms">Histograms</h3>
 <p>Explore the distribution of a single numerical variable.</p>
 </section>
-<section id="ps02d-5ng4-boxplots" class="level3">
-<h3 class="anchored" data-anchor-id="ps02d-5ng4-boxplots">PS02d: 5NG#4: Boxplots</h3>
-<p>Compare distributions across groups.</p>
+<section id="boxplots" class="level3">
+<h3 class="anchored" data-anchor-id="boxplots">Boxplots</h3>
+<p>Compare distributions of a numerical variable across groups.</p>
 </section>
-<section id="ps02e-5ng5-barplots" class="level3">
-<h3 class="anchored" data-anchor-id="ps02e-5ng5-barplots">PS02e: 5NG#5: Barplots</h3>
-<p>Visualise counts and proportions.</p>
+<section id="independent-practice" class="level3">
+<h3 class="anchored" data-anchor-id="independent-practice">Independent practice</h3>
+<p>Choose appropriate plot types to answer open-ended questions.</p>
 <hr>
 <p><em>When you are done, render to HTML and submit on Moodle. Name your file <code>PS02_yourname.html</code>.</em></p>
 

@@ -404,7 +404,7 @@
     "href": "project/index.html#problem-sets",
     "title": "Projects",
     "section": "Problem sets",
-    "text": "Problem sets\nProblem sets are structured exercises that build your skills in data visualisation, wrangling, and statistical modelling using real datasets. They draw on material from ModernDive: Statistical Inference via Data Science.\n\nHow to complete a problem set\nEach problem set comes as a zipped folder containing an R Markdown (.Rmd) file. R Markdown is an older but widely used format for combining R code and text — you will encounter it frequently in the wild.\nYou can choose to complete the problem set with either the R Markdown (.Rmd) file file or the Quarto Markdown (.qmd) file - or both! That way you can learn the differences between the Knit and Render functions\nTo complete a problem set:\n\nDownload the zip file and unzip it on your computer\nOpen the .Rmd (or .qmd) file in RStudio by double-clicking it (or File &gt; Open File)\nRead through the document, write your code in the code chunks, and type your answers in the text sections\nWhen you are done, click the Knit button (or Ctrl/Cmd + Shift + K) to produce an HTML file\nSubmit the knitted HTML file on Moodle\n\n\n\n\n\n\n\nNoteRmd vs. Quarto\n\n\n\nThe problem set files use R Markdown (.Rmd), while the rest of this course uses Quarto (.qmd). They are very similar — the main difference is the Knit button in Rmd vs. the Render button in Quarto. Both produce the same kinds of output. Learning both is useful, as R Markdown is still widely used in research and industry.\n\n\n\n\n\nProblem set\nTopic\nDownload\n\n\n\n\nPS02\nData Visualisation\nPS02-template.zip\n\n\nPS03\nData Wrangling\nPS03-template.zip\n\n\nPS04\nLinear Regression: One Numerical Predictor\nPS04-template.zip\n\n\nPS05\nLinear Regression: One Categorical Predictor\nPS05-template.zip\n\n\nPS06\nMultiple Regression\nPS06-template.zip",
+    "text": "Problem sets\nProblem sets are structured exercises that build your skills in data visualisation, wrangling, and statistical modelling using real datasets. They draw on material from ModernDive: Statistical Inference via Data Science.\n\nHow to complete a problem set\nEach problem set comes as a zipped folder containing an R Markdown (.Rmd) file. R Markdown is an older but widely used format for combining R code and text — you will encounter it frequently in the wild.\nYou can choose to complete the problem set with either the R Markdown (.Rmd) file file or the Quarto Markdown (.qmd) file - or both! That way you can learn the differences between the Knit and Render functions\nTo complete a problem set:\n\nDownload the zip file and unzip it on your computer\nOpen the .Rmd (or .qmd) file in RStudio by double-clicking it (or File &gt; Open File)\nRead through the document, write your code in the code chunks, and type your answers in the text sections\nWhen you are done, click the Knit button (or Ctrl/Cmd + Shift + K) to produce an HTML file\nSubmit the knitted HTML file on Moodle\n\n\n\n\n\n\n\nNoteRmd vs. Quarto\n\n\n\nThe problem set files use R Markdown (.Rmd), while the rest of this course uses Quarto (.qmd). They are very similar — the main difference is the Knit button in Rmd vs. the Render button in Quarto. Both produce the same kinds of output. Learning both is useful, as R Markdown is still widely used in research and industry.\n\n\n\n\n\nProblem set\nTopic\nDownload\n\n\n\n\nPS02\nData Visualisation\nPS02.zip\n\n\nPS03\nData Wrangling\nPS03.zip\n\n\nPS04\nLinear Regression: One Numerical Predictor\nPS04.zip\n\n\nPS05\nLinear Regression: One Categorical Predictor\nPS05.zip\n\n\nPS06\nMultiple Regression\nPS06.zip",
     "crumbs": [
       "Projects",
       "Overview",
@@ -428,7 +428,7 @@
     "href": "project/06-ps.html",
     "title": "PS06: Multiple Regression",
     "section": "",
-    "text": "Fit and interpret multiple regression models with both numerical and categorical explanatory variables, including interaction effects.\nRead Chapter 6 of ModernDive before attempting this problem set.",
+    "text": "Practice multiple regression with both numerical and categorical predictors — including parallel slopes models, interaction models, model comparison using R², and residual analysis. The problem set has two parts: a guided analysis of US state income data, and an independent analysis of vole habitat preferences.\nRead Chapter 6 of ModernDive before attempting this problem set.",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -440,7 +440,7 @@
     "href": "project/06-ps.html#overview",
     "title": "PS06: Multiple Regression",
     "section": "",
-    "text": "Fit and interpret multiple regression models with both numerical and categorical explanatory variables, including interaction effects.\nRead Chapter 6 of ModernDive before attempting this problem set.",
+    "text": "Practice multiple regression with both numerical and categorical predictors — including parallel slopes models, interaction models, model comparison using R², and residual analysis. The problem set has two parts: a guided analysis of US state income data, and an independent analysis of vole habitat preferences.\nRead Chapter 6 of ModernDive before attempting this problem set.",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -452,7 +452,7 @@
     "href": "project/06-ps.html#download",
     "title": "PS06: Multiple Regression",
     "section": "Download",
-    "text": "Download\nDownload the problem set template, open it in RStudio, and complete the exercises directly in the document.\nPS06-template.zip",
+    "text": "Download\nDownload the problem set template, open it in RStudio, and complete the exercises directly in the document.\nPS06.zip",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -464,7 +464,7 @@
     "href": "project/06-ps.html#setup",
     "title": "PS06: Multiple Regression",
     "section": "Setup",
-    "text": "Setup\nRun this at the top of your document to install and load the required packages:\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(tidyverse, moderndive, broom)",
+    "text": "Setup\nRun this at the top of your document to install and load the required packages:\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(ggplot2, dplyr, moderndive, readr)",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -476,7 +476,19 @@
     "href": "project/06-ps.html#exercises",
     "title": "PS06: Multiple Regression",
     "section": "Exercises",
-    "text": "Exercises\n\nPS06a: One numerical and one categorical predictor\nFit a parallel slopes model.\n\n\nPS06b: Interaction models\nFit a model with an interaction term between predictors.\n\nWhen you are done, render to HTML and submit on Moodle. Name your file PS06_yourname.html.",
+    "text": "Exercises\n\nPart 1: Income, education, and urbanization\nModel median household income across US states using high-school education rate and urbanization level as predictors. Compare parallel slopes and interaction models.\n\n\nPart 2: Vole habitat\nApply multiple regression independently to ecological count data, using vegetation cover and soil type to predict vole populations.",
+    "crumbs": [
+      "Projects",
+      "Problem Sets",
+      "PS06: Multiple Regression"
+    ]
+  },
+  {
+    "objectID": "project/06-ps.html#saving-your-plots",
+    "href": "project/06-ps.html#saving-your-plots",
+    "title": "PS06: Multiple Regression",
+    "section": "Saving your plots",
+    "text": "Saving your plots\nSave any plots you create to the figures/ folder using ggsave(). Use descriptive file names that reflect the content of the plot:\nincome_plot &lt;- ggplot(data = hate_crimes, aes(x = hs, y = income, color = urbanization)) +\n  geom_point()\n\nggsave(\"figures/income-vs-hs-by-urbanization.png\", plot = income_plot,\n       width = 16/2, height = 9/2)\n\nWhen you are done, render to HTML and submit on Moodle. Name your file PS06_yourname.html.",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -486,61 +498,73 @@
   {
     "objectID": "project/04-ps.html",
     "href": "project/04-ps.html",
-    "title": "PS04: Tidy Data and Joining Tables",
+    "title": "PS04: Linear Regression — One Numerical Predictor",
     "section": "",
-    "text": "Practice reshaping data between wide and long formats with tidyr, and combining data frames using dplyr join functions.\nRead Chapter 4 of ModernDive before attempting this problem set.",
+    "text": "Practice simple linear regression with one numerical predictor — including visualisation, correlation, model fitting, interpretation, and prediction — using demographic and voting data from the 2016 US presidential election.\nRead Chapter 5 of ModernDive before attempting this problem set.",
     "crumbs": [
       "Projects",
       "Problem Sets",
-      "PS04: Tidy Data and Joining Tables"
+      "PS04: Linear Regression — One Numerical Predictor"
     ]
   },
   {
     "objectID": "project/04-ps.html#overview",
     "href": "project/04-ps.html#overview",
-    "title": "PS04: Tidy Data and Joining Tables",
+    "title": "PS04: Linear Regression — One Numerical Predictor",
     "section": "",
-    "text": "Practice reshaping data between wide and long formats with tidyr, and combining data frames using dplyr join functions.\nRead Chapter 4 of ModernDive before attempting this problem set.",
+    "text": "Practice simple linear regression with one numerical predictor — including visualisation, correlation, model fitting, interpretation, and prediction — using demographic and voting data from the 2016 US presidential election.\nRead Chapter 5 of ModernDive before attempting this problem set.",
     "crumbs": [
       "Projects",
       "Problem Sets",
-      "PS04: Tidy Data and Joining Tables"
+      "PS04: Linear Regression — One Numerical Predictor"
     ]
   },
   {
     "objectID": "project/04-ps.html#download",
     "href": "project/04-ps.html#download",
-    "title": "PS04: Tidy Data and Joining Tables",
+    "title": "PS04: Linear Regression — One Numerical Predictor",
     "section": "Download",
-    "text": "Download\nDownload the problem set template, open it in RStudio, and complete the exercises directly in the document.\nPS04-template.zip",
+    "text": "Download\nDownload the problem set template, open it in RStudio, and complete the exercises directly in the document.\nPS04.zip",
     "crumbs": [
       "Projects",
       "Problem Sets",
-      "PS04: Tidy Data and Joining Tables"
+      "PS04: Linear Regression — One Numerical Predictor"
     ]
   },
   {
     "objectID": "project/04-ps.html#setup",
     "href": "project/04-ps.html#setup",
-    "title": "PS04: Tidy Data and Joining Tables",
+    "title": "PS04: Linear Regression — One Numerical Predictor",
     "section": "Setup",
-    "text": "Setup\nRun this at the top of your document to install and load the required packages:\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(tidyverse, nycflights13)",
+    "text": "Setup\nRun this at the top of your document to install and load the required packages:\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(dplyr, ggplot2, readr, moderndive)",
     "crumbs": [
       "Projects",
       "Problem Sets",
-      "PS04: Tidy Data and Joining Tables"
+      "PS04: Linear Regression — One Numerical Predictor"
     ]
   },
   {
     "objectID": "project/04-ps.html#exercises",
     "href": "project/04-ps.html#exercises",
-    "title": "PS04: Tidy Data and Joining Tables",
+    "title": "PS04: Linear Regression — One Numerical Predictor",
     "section": "Exercises",
-    "text": "Exercises\n\nPS04a: Tidy data with tidyr\nUse pivot_longer() and pivot_wider() to reshape data.\n\n\nPS04b: Joining tables with dplyr\nUse inner_join(), left_join(), and other join functions.\n\nWhen you are done, render to HTML and submit on Moodle. Name your file PS04_yourname.html.",
+    "text": "Exercises\n\nWorked example: white poverty and Trump support\nFollow a guided regression analysis — visualisation, correlation, model fitting, interpretation, and prediction.\n\n\nIndependent analysis: non-white population and Trump support\nApply the same workflow independently using a different explanatory variable.",
     "crumbs": [
       "Projects",
       "Problem Sets",
-      "PS04: Tidy Data and Joining Tables"
+      "PS04: Linear Regression — One Numerical Predictor"
+    ]
+  },
+  {
+    "objectID": "project/04-ps.html#saving-your-plots",
+    "href": "project/04-ps.html#saving-your-plots",
+    "title": "PS04: Linear Regression — One Numerical Predictor",
+    "section": "Saving your plots",
+    "text": "Saving your plots\nRemember you can save any plots you create to the figures/ folder using ggsave(). Use descriptive file names that reflect the content of the plot:\nnon_white_plot &lt;- ggplot(data = trump, aes(x = non_white, y = trump_support)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE)\n\nggsave(\"figures/trump-support-vs-non-white.png\", plot = non_white_plot, \n       width = 16/2, height = 9/2)\n\nWhen you are done, render to HTML and submit on Moodle. Name your file PS04_yourname.html.",
+    "crumbs": [
+      "Projects",
+      "Problem Sets",
+      "PS04: Linear Regression — One Numerical Predictor"
     ]
   },
   {
@@ -548,7 +572,7 @@
     "href": "project/02-ps.html",
     "title": "PS02: Data Visualisation",
     "section": "",
-    "text": "Practice creating plots with ggplot2 — histograms, barplots, scatterplots, boxplots, and linegraphs — using data from the nycflights13 and gapminder packages.\nRead Chapter 2 of ModernDive before attempting this problem set.",
+    "text": "Practice creating plots with ggplot2 — scatterplots, histograms, and boxplots — using data on births from the state of North Carolina.\nRead Chapter 2 of ModernDive before attempting this problem set.",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -560,7 +584,7 @@
     "href": "project/02-ps.html#overview",
     "title": "PS02: Data Visualisation",
     "section": "",
-    "text": "Practice creating plots with ggplot2 — histograms, barplots, scatterplots, boxplots, and linegraphs — using data from the nycflights13 and gapminder packages.\nRead Chapter 2 of ModernDive before attempting this problem set.",
+    "text": "Practice creating plots with ggplot2 — scatterplots, histograms, and boxplots — using data on births from the state of North Carolina.\nRead Chapter 2 of ModernDive before attempting this problem set.",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -572,7 +596,7 @@
     "href": "project/02-ps.html#download",
     "title": "PS02: Data Visualisation",
     "section": "Download",
-    "text": "Download\nDownload the problem set template, open it in RStudio, and complete the exercises directly in the document.\nPS02-template.zip",
+    "text": "Download\nDownload the problem set template, open it in RStudio, and complete the exercises directly in the document.\nPS02.zip",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -584,7 +608,7 @@
     "href": "project/02-ps.html#setup",
     "title": "PS02: Data Visualisation",
     "section": "Setup",
-    "text": "Setup\nRun this at the top of your document to install and load the required packages:\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(tidyverse, nycflights13, gapminder)",
+    "text": "Setup\nRun this at the top of your document to install and load the required packages:\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(ggplot2, dplyr, readr)",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -596,7 +620,7 @@
     "href": "project/02-ps.html#exercises",
     "title": "PS02: Data Visualisation",
     "section": "Exercises",
-    "text": "Exercises\n\nPS02a: 5NG#1: Scatterplots\nExplore the relationship between two numerical variables.\n\n\nPS02b: 5NG#2: Linegraphs\nVisualise trends over time.\n\n\nPS02c: 5NG#3: Histograms\nExplore the distribution of a single numerical variable.\n\n\nPS02d: 5NG#4: Boxplots\nCompare distributions across groups.\n\n\nPS02e: 5NG#5: Barplots\nVisualise counts and proportions.\n\nWhen you are done, render to HTML and submit on Moodle. Name your file PS02_yourname.html.",
+    "text": "Exercises\n\nScatterplots\nInvestigate relationships between numerical variables.\n\n\nHistograms\nExplore the distribution of a single numerical variable.\n\n\nBoxplots\nCompare distributions of a numerical variable across groups.\n\n\nIndependent practice\nChoose appropriate plot types to answer open-ended questions.\n\nWhen you are done, render to HTML and submit on Moodle. Name your file PS02_yourname.html.",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -2329,7 +2353,7 @@
     "href": "project/03-ps.html",
     "title": "PS03: Data Wrangling",
     "section": "",
-    "text": "Practice the core dplyr verbs — filter(), summarize(), group_by(), mutate(), arrange(), and select() — using the nycflights13 dataset.\nRead Chapter 3 of ModernDive before attempting this problem set.",
+    "text": "Practice the core dplyr verbs — select(), filter(), mutate(), summarize(), arrange(), and group_by() — using the txhousing dataset, which contains monthly housing sales data for cities across Texas and comes with the ggplot2 package.\nRead Chapter 3 of ModernDive before attempting this problem set.",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -2341,7 +2365,7 @@
     "href": "project/03-ps.html#overview",
     "title": "PS03: Data Wrangling",
     "section": "",
-    "text": "Practice the core dplyr verbs — filter(), summarize(), group_by(), mutate(), arrange(), and select() — using the nycflights13 dataset.\nRead Chapter 3 of ModernDive before attempting this problem set.",
+    "text": "Practice the core dplyr verbs — select(), filter(), mutate(), summarize(), arrange(), and group_by() — using the txhousing dataset, which contains monthly housing sales data for cities across Texas and comes with the ggplot2 package.\nRead Chapter 3 of ModernDive before attempting this problem set.",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -2353,7 +2377,7 @@
     "href": "project/03-ps.html#download",
     "title": "PS03: Data Wrangling",
     "section": "Download",
-    "text": "Download\nDownload the problem set template, open it in RStudio, and complete the exercises directly in the document.\nPS03-template.zip",
+    "text": "Download\nDownload the problem set template, open it in RStudio, and complete the exercises directly in the document.\nPS03.zip",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -2365,7 +2389,7 @@
     "href": "project/03-ps.html#setup",
     "title": "PS03: Data Wrangling",
     "section": "Setup",
-    "text": "Setup\nRun this at the top of your document to install and load the required packages:\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(tidyverse, nycflights13)",
+    "text": "Setup\nRun this at the top of your document to install and load the required packages:\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(ggplot2, dplyr)",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -2377,7 +2401,7 @@
     "href": "project/03-ps.html#exercises",
     "title": "PS03: Data Wrangling",
     "section": "Exercises",
-    "text": "Exercises\n\nPS03a: filter()\nSubset rows based on conditions.\n\n\nPS03b: summarize() and group_by()\nCompute summary statistics by group.\n\n\nPS03c: mutate()\nCreate new variables from existing ones.\n\n\nPS03d: arrange() and select()\nSort rows and choose columns.\n\nWhen you are done, render to HTML and submit on Moodle. Name your file PS03_yourname.html.",
+    "text": "Exercises\n\nData wrangling review\nWorked examples of each dplyr verb using Austin and Abilene housing data.\n\n\nIndependent practice\nApply the verbs independently to answer questions about Texas housing trends.\n\nWhen you are done, render to HTML and submit on Moodle. Name your file PS03_yourname.html.",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -2387,61 +2411,73 @@
   {
     "objectID": "project/05-ps.html",
     "href": "project/05-ps.html",
-    "title": "PS05: Basic Regression",
+    "title": "PS05: Linear Regression — One Categorical Predictor",
     "section": "",
-    "text": "Fit and interpret simple linear regression models with one numerical or one categorical explanatory variable using the moderndive and broom packages.\nRead Chapter 5 of ModernDive before attempting this problem set.",
+    "text": "Practice linear regression with a single categorical predictor — including visualisation, model fitting, interpretation of intercepts and dummy variable coefficients, and residual analysis — using data on hate crimes recorded across US states in the 10 days after the 2016 presidential election.\nFor context, read the FiveThirtyEight article Higher Rates of Hate Crimes Are Tied to Income Inequality before attempting this problem set.\nRead Chapter 6 of ModernDive before attempting this problem set.",
     "crumbs": [
       "Projects",
       "Problem Sets",
-      "PS05: Basic Regression"
+      "PS05: Linear Regression — One Categorical Predictor"
     ]
   },
   {
     "objectID": "project/05-ps.html#overview",
     "href": "project/05-ps.html#overview",
-    "title": "PS05: Basic Regression",
+    "title": "PS05: Linear Regression — One Categorical Predictor",
     "section": "",
-    "text": "Fit and interpret simple linear regression models with one numerical or one categorical explanatory variable using the moderndive and broom packages.\nRead Chapter 5 of ModernDive before attempting this problem set.",
+    "text": "Practice linear regression with a single categorical predictor — including visualisation, model fitting, interpretation of intercepts and dummy variable coefficients, and residual analysis — using data on hate crimes recorded across US states in the 10 days after the 2016 presidential election.\nFor context, read the FiveThirtyEight article Higher Rates of Hate Crimes Are Tied to Income Inequality before attempting this problem set.\nRead Chapter 6 of ModernDive before attempting this problem set.",
     "crumbs": [
       "Projects",
       "Problem Sets",
-      "PS05: Basic Regression"
+      "PS05: Linear Regression — One Categorical Predictor"
     ]
   },
   {
     "objectID": "project/05-ps.html#download",
     "href": "project/05-ps.html#download",
-    "title": "PS05: Basic Regression",
+    "title": "PS05: Linear Regression — One Categorical Predictor",
     "section": "Download",
-    "text": "Download\nDownload the problem set template, open it in RStudio, and complete the exercises directly in the document.\nPS05-template.zip",
+    "text": "Download\nDownload the problem set template, open it in RStudio, and complete the exercises directly in the document.\nPS05.zip",
     "crumbs": [
       "Projects",
       "Problem Sets",
-      "PS05: Basic Regression"
+      "PS05: Linear Regression — One Categorical Predictor"
     ]
   },
   {
     "objectID": "project/05-ps.html#setup",
     "href": "project/05-ps.html#setup",
-    "title": "PS05: Basic Regression",
+    "title": "PS05: Linear Regression — One Categorical Predictor",
     "section": "Setup",
-    "text": "Setup\nRun this at the top of your document to install and load the required packages:\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(tidyverse, moderndive, broom)",
+    "text": "Setup\nRun this at the top of your document to install and load the required packages:\nif (!require(pacman)) install.packages(\"pacman\")\npacman::p_load(ggplot2, dplyr, moderndive, readr)",
     "crumbs": [
       "Projects",
       "Problem Sets",
-      "PS05: Basic Regression"
+      "PS05: Linear Regression — One Categorical Predictor"
     ]
   },
   {
     "objectID": "project/05-ps.html#exercises",
     "href": "project/05-ps.html#exercises",
-    "title": "PS05: Basic Regression",
+    "title": "PS05: Linear Regression — One Categorical Predictor",
     "section": "Exercises",
-    "text": "Exercises\n\nPS05a: One numerical explanatory variable\nFit a regression model with a single numerical predictor.\n\n\nPS05b: One categorical explanatory variable\nFit a regression model with a single categorical predictor.\n\nWhen you are done, render to HTML and submit on Moodle. Name your file PS05_yourname.html.",
+    "text": "Exercises\n\nPart 1: Hate crimes and Trump support\nModel hate crimes using a three-level categorical predictor.\n\n\nPart 2: Hate crimes and unemployment\nModel hate crimes using a two-level categorical predictor.\n\n\nPart 3: Hate crimes and household income\nModel hate crimes using median household income as a categorical predictor.",
     "crumbs": [
       "Projects",
       "Problem Sets",
-      "PS05: Basic Regression"
+      "PS05: Linear Regression — One Categorical Predictor"
+    ]
+  },
+  {
+    "objectID": "project/05-ps.html#saving-your-plots",
+    "href": "project/05-ps.html#saving-your-plots",
+    "title": "PS05: Linear Regression — One Categorical Predictor",
+    "section": "Saving your plots",
+    "text": "Saving your plots\nSave any plots you create to the figures/ folder using ggsave(). Use descriptive file names that reflect the content of the plot:\ntrump_plot &lt;- ggplot(data = hate_crimes, aes(x = trump_support, y = hate_crimes)) +\n  geom_boxplot()\n\nggsave(\"figures/hate-crimes-by-trump-support.png\", plot = trump_plot,\n       width = 16/2, height = 9/2)\n\nWhen you are done, render to HTML and submit on Moodle. Name your file PS05_yourname.html.",
+    "crumbs": [
+      "Projects",
+      "Problem Sets",
+      "PS05: Linear Regression — One Categorical Predictor"
     ]
   },
   {
@@ -2461,7 +2497,19 @@
     "href": "project/final-project.html#download-the-project-template",
     "title": "Data Project",
     "section": "Download the project template",
-    "text": "Download the project template\nThe template below guides you through each stage of the project. It includes example code and explanations for every section. Use it as your starting point.\ndata-project-template.zip\nUnzip the file and open data-project.Rproj in RStudio to get started.",
+    "text": "Download the project template\nThe template below guides you through each stage of the project. It includes example code and explanations for every section. Use it as your starting point.\ndata-project.zip\nUnzip the file and open data-project.Rproj in RStudio to get started.",
+    "crumbs": [
+      "Projects",
+      "Problem Sets",
+      "Data Project"
+    ]
+  },
+  {
+    "objectID": "project/final-project.html#project-folder-structure",
+    "href": "project/final-project.html#project-folder-structure",
+    "title": "Data Project",
+    "section": "Project folder structure",
+    "text": "Project folder structure\nYour project folder is organised as follows:\ndata-project/\n├── data-project.Rproj\n├── data-project.qmd\n├── data_raw/          # your original data file — never modify this\n├── data_processed/    # optional: cleaned data saved from R\n├── figures/           # plots saved with ggsave()\n└── scripts/           # optional: separate R scripts for long tasks\nA few important habits:\n\nRaw data is read-only. Place your downloaded dataset in data_raw/ and never edit it directly. Always read from data_raw/ in your code.\nSave cleaned data to data_processed/ if your cleaning steps are complex — but for most projects, cleaning inside the .qmd is fine.\nSave your plots to figures/ using ggsave() with descriptive file names.\nThe scripts/ folder is there if you need it — for example, if your data cleaning is very long and you want to keep it separate. Most students will not need it.",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -2485,7 +2533,7 @@
     "href": "project/final-project.html#project-structure",
     "title": "Data Project",
     "section": "Project structure",
-    "text": "Project structure\nYour final project should follow this structure. The template walks you through each section with examples.\n\n1. Introduction\nState your research question clearly. What are you trying to find out, and why is it interesting? Describe your dataset — where does it come from, what does it contain, and what are the key variables?\n\n\n2. Exploratory data analysis\nBefore fitting any models, explore your data visually and numerically. Include:\n\nSummary statistics for your key variables\nAt least two well-labelled plots that reveal something interesting about your data\n\n\n\n3. Statistical analysis\nFit at least one regression model to address your research question. Your analysis should include:\n\nA visualisation of the relationship between your outcome and explanatory variables\nA regression table with coefficient estimates\nAn interpretation of the coefficients in plain language\nA residual analysis to check model assumptions\n\n\n\n4. Discussion\nInterpret your findings in relation to your research question. Address:\n\nWhat do your results mean?\nWhat are the limitations of your analysis?\nWhat further questions does your work raise?\n\n\n\n5. Citations and references\nList any data sources, packages, and literature you have cited.",
+    "text": "Project structure\nThe template walks you through each section with examples and prompts. The template is a guide, not a strict requirement — you are free to adapt the structure to suit your data and research question. What matters is that your final document tells a clear, well-supported story.\n\n1. Introduction\nState your research question clearly. What are you trying to find out, and why is it interesting? Describe your dataset — where does it come from, what does it contain, and what are the key variables?\n\n\n2. Exploratory data analysis\nBefore fitting any models, explore your data visually and numerically. Include:\n\nSummary statistics for your key variables\nAt least two well-labelled plots that reveal something interesting about your data\n\n\n\n3. Statistical analysis\nFit at least one regression model to address your research question. Your analysis should include:\n\nA visualisation of the relationship between your outcome and explanatory variables\nA regression table with coefficient estimates\nAn interpretation of the coefficients in plain language\nA residual analysis to check model assumptions\n\n\n\n4. Discussion\nInterpret your findings in relation to your research question. Address:\n\nWhat do your results mean?\nWhat are the limitations of your analysis?\nWhat further questions does your work raise?\n\n\n\n5. Citations and references\nList any data sources, packages, and literature you have cited.",
     "crumbs": [
       "Projects",
       "Problem Sets",
@@ -2521,7 +2569,7 @@
     "href": "project/final-project.html#submission",
     "title": "Data Project",
     "section": "Submission",
-    "text": "Submission\nSubmit your rendered HTML file on Moodle by the deadline. Name your file data-project_yourname.html.\nYour document must be fully reproducible — the teacher should be able to re-render it from the source .qmd or .Rmd file and get the same output. Include your source file in the submission.",
+    "text": "Submission\nSubmit your rendered HTML file on Moodle by the deadline. Name your file data-project_yourname.html.\nYour document must be fully reproducible — the teacher should be able to re-render it from the source .qmd file and get the same output. Include your source .qmd file in your submission.",
     "crumbs": [
       "Projects",
       "Problem Sets",
