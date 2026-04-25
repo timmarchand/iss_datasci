@@ -12,7 +12,7 @@ We extend our toolkit for comparing groups, covering t-tests, chi-square tests, 
 
 ## Download
 
-Download the project for this week, unzip it, and double-click `09-content.Rproj` to open it in RStudio: [09-content.zip](/files/projects/09-content.zip)
+Download the project for this week, unzip it, and double-click `09-content.Rproj` to open it in RStudio: [09-content.zip](/files/content/09-content.zip)
 
 ------------------------------------------------------------------------
 

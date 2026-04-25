@@ -12,7 +12,7 @@ The final session is dedicated to completing and submitting your data project. W
 
 ## Download
 
-Download the project for this week, unzip it, and double-click `13-content.Rproj` to open it in RStudio: [13-content.zip](/files/projects/13-content.zip)
+Download the project for this week, unzip it, and double-click `13-content.Rproj` to open it in RStudio: [13-content.zip](/files/content/13-content.zip)
 
 ------------------------------------------------------------------------
 

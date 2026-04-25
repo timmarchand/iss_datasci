@@ -12,7 +12,7 @@ This week we investigate relationships between variables. We cover correlation â
 
 ## Download
 
-Download the project for this week, unzip it, and double-click `08-content.Rproj` to open it in RStudio: [08-content.zip](/files/projects/08-content.zip)
+Download the project for this week, unzip it, and double-click `08-content.Rproj` to open it in RStudio: [08-content.zip](/files/content/08-content.zip)
 
 ------------------------------------------------------------------------
 

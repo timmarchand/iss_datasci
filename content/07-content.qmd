@@ -12,7 +12,7 @@ We deepen our data wrangling skills with more advanced dplyr operations — join
 
 ## Download
 
-Download the project for this week, unzip it, and double-click `07-content.Rproj` to open it in RStudio: [07-content.zip](/files/projects/07-content.zip)
+Download the project for this week, unzip it, and double-click `07-content.Rproj` to open it in RStudio: [07-content.zip](/files/content/07-content.zip)
 
 ------------------------------------------------------------------------
 

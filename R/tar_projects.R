@@ -42,7 +42,7 @@ make_data_and_zip_projects <- list(
         zip::zip(
           zipfile = zip_output_path,
           files   = project_folder,
-          mode    = "cherry-pick"
+          mode    = "mirror"
         )
         zip_output_path
       },

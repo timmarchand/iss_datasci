@@ -12,7 +12,7 @@ We introduce simple linear regression — one of the most important tools in dat
 
 ## Download
 
-Download the project for this week, unzip it, and double-click `10-content.Rproj` to open it in RStudio: [10-content.zip](/files/projects/10-content.zip)
+Download the project for this week, unzip it, and double-click `10-content.Rproj` to open it in RStudio: [10-content.zip](/files/content/10-content.zip)
 
 ------------------------------------------------------------------------
 

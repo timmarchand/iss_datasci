@@ -12,7 +12,7 @@ We extend regression to multiple predictors â€” both numerical and categorical â
 
 ## Download
 
-Download the project for this week, unzip it, and double-click `11-content.Rproj` to open it in RStudio: [11-content.zip](/files/projects/11-content.zip)
+Download the project for this week, unzip it, and double-click `11-content.Rproj` to open it in RStudio: [11-content.zip](/files/content/11-content.zip)
 
 ------------------------------------------------------------------------
 

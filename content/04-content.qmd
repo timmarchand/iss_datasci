@@ -14,7 +14,7 @@ We take a step back from R syntax to think carefully about how data is collected
 
 1. Download and open the content project for this week:
 
-   - [`04-content.zip`](/files/projects/04-content.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `04-content.Rproj` to open it in RStudio.
+   - [`04-content.zip`](/files/content/04-content.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `04-content.Rproj` to open it in RStudio.
 
 ------------------------------------------------------------------------
 

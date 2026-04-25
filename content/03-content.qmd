@@ -14,7 +14,7 @@ This week we learn to communicate data visually using ggplot2. We cover the gram
 
 1. Download and open the content project for this week:
 
-   - [`03-content.zip`](/files/projects/03-content.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `03-content.Rproj` to open it in RStudio.
+   - [`03-content.zip`](/files/content/03-content.zip): Download this file, [*unzip it*](/resource/unzipping.qmd), and double-click on `03-content.Rproj` to open it in RStudio.
 
 ------------------------------------------------------------------------
 

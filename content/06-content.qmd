@@ -12,7 +12,7 @@ We return to data wrangling with a focus on reshaping data using tidyr. This wee
 
 ## Download
 
-Download the project for this week, unzip it, and double-click `06-content.Rproj` to open it in RStudio: [06-content.zip](/files/projects/06-content.zip)
+Download the project for this week, unzip it, and double-click `06-content.Rproj` to open it in RStudio: [06-content.zip](/files/content/06-content.zip)
 
 ------------------------------------------------------------------------
 
