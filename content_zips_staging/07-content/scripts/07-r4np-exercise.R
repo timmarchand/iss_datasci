@@ -1,5 +1,5 @@
 ## R for Non-Programmers (r4np) Exercises ----
-## Session 02 | Chapter 8: Descriptive statistics
+## Session 07 | Chapter 7: Data wrangling Continued...
 ## -----------------------------------------------
 ## This script launches the interactive r4np exercises
 ## for this week in a separate browser window.
@@ -17,7 +17,8 @@ pacman::p_load_current_gh("ddauber/r4np", "rstudio/gradethis")
 ## This will open an interactive tutorial in your browser.
 ## Work through the exercises there, then come back to
 ## your weekly notes QMD to write your reflection.
-learnr::run_tutorial("ex_descriptive_statistics", package = "r4np")
+learnr::run_tutorial("ex_data_wrangling", package = "r4np")
+
 
 ## -----------------------------------------------
 ## NOTE: The tutorial runs in your browser but is

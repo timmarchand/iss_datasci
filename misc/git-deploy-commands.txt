@@ -1,6 +1,6 @@
 # Save your underlying code changes
 git add .
-git commit -m "add PS zip staging"
+git commit -m "update content tar pipelines"
 git push origin main
 
 # Publish the newly built HTML slides to the live website

@@ -6,12 +6,12 @@ content_zips <- tibble::tibble(
     sym       = syms(janitor::make_clean_names(paste0("content_", name))),
     zip_sym   = syms(janitor::make_clean_names(paste0("zip_content_", name))),
     zip_out   = as.character(here_rel("files", "content", paste0(name, ".zip"))),
-    files_sym = syms(janitor::make_clean_names(paste0("files_content_", name)))  # NEW
+    files_sym = syms(janitor::make_clean_names(paste0("files_content_", name)))
   )
 
 make_and_zip_content <- list(
   
-  # NEW: track the file listing for each content folder
+  # Track the file listing for each content folder
   tar_eval(
     tar_target(target_name, list.files(content_folder, recursive = TRUE)),
     values = list(
@@ -36,7 +36,7 @@ make_and_zip_content <- list(
     tar_target(
       target_name,
       {
-        files_content_name  # NEW: forces dependency on file listing
+        force(files_sym_name)
         out_dir <- here_rel("files", "content")
         if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
         zip::zip(
@@ -52,7 +52,7 @@ make_and_zip_content <- list(
       target_name      = content_zips$zip_sym,
       content_folder   = content_zips$path,
       zip_output_path  = content_zips$zip_out,
-      files_content_name = content_zips$files_sym  # NEW
+      files_sym_name   = content_zips$files_sym
     )
   )
 )
