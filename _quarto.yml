@@ -6,6 +6,7 @@ project:
     - "!slides/"
     - "!lesson/"
     - "!content_zips_staging/"
+    - "!project_zips_staging/"
     - "!exercises/"
     - "!files/projects/"
   resources:
@@ -100,11 +101,6 @@ website:
           contents:
             - text: "13: Data project completion and course review"
               file: content/13-content.qmd
-              
-- section: "Project"
-  contents:
-    - text: "13: Data project completion and course review"
-      file: content/13-content.qmd
 
     - title: "Lessons"
       contents:
@@ -143,18 +139,21 @@ website:
               file: lesson/12-lesson.qmd
             - text: "13: Data project completion and course review"
               file: lesson/13-lesson.qmd
+
     - title: "Projects"
       contents:
-        - project/index.qmd
+        - section: "Overview"
+          contents:
+            - project/index.qmd
         - section: "Problem Sets"
           contents:
-          - project/02-ps.qmd
-          - project/03-ps.qmd
-          - project/04-ps.qmd
-          - project/05-ps.qmd
-          - project/06-ps.qmd
-          - project/final-project.qmd
-      
+            - project/02-ps.qmd
+            - project/03-ps.qmd
+            - project/04-ps.qmd
+            - project/05-ps.qmd
+            - project/06-ps.qmd
+            - project/final-project.qmd
+
     - title: "Videos"
       contents:
         - section: "Overview"

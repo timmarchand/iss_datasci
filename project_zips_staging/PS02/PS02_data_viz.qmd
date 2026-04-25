@@ -1,0 +1,236 @@
+---
+title: "Problem Set 02: Data Visualisation"
+author: "WRITE YOUR NAME HERE"
+date: today
+format:
+  html:
+    toc: true
+    toc-float: true
+    embed-resources: true
+    df-print: kable
+    theme: lumen
+    code-download: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE,
+                      fig.width = 16/2.5, fig.height = 9/2.5)
+```
+
+In this problem set we will use the `ggplot2` package to generate graphics. The "Grammar of Graphics" is the theoretical basis for the `ggplot2` package. Much like how we construct sentences in any language by using a linguistic grammar (nouns, verbs, etc.), the grammar of graphics allows us to specify the components of a statistical graphic.
+
+In short, the grammar tells us that:
+
+> A statistical graphic is a `mapping` of `data` variables to `aes`thetic attributes of `geom`etric objects.
+
+We can break a graphic into the following three **essential** components:
+
+- `data`: the dataset comprised of variables that we plot
+- `geom`: the type of `geom`etric objects we see in our plot (points, lines, bars, etc.)
+- `aes`: aesthetic attributes of the geometric object that we can perceive on a graphic. For example, x/y position, colour, shape, and size. Each assigned aesthetic attribute can be mapped to a variable in our dataset.
+
+---
+
+## Setup
+
+Run this code block first to install and load the necessary packages.
+
+```{r libraries}
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(ggplot2, dplyr, readr)
+```
+
+## The data
+
+Today we will practise data visualisation using data on births from the state of North Carolina. Run the code below to load the data.
+
+```{r load-data}
+nc <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTm2WZwNBoQdZhMgot7urbtu8eG7tzAq-60ZJsQ_nupykCAcW0OXebVpHksPWyR4x8xJTVQ8KAulAFS/pub?gid=202410847&single=true&output=csv")
+```
+
+The dataset contains 800 observations (rows) and 13 variables (columns). Each case is a single birth.
+
+## How to look at data in R
+
+### Take a glimpse
+
+```{r glimpse, eval=FALSE}
+glimpse(nc)
+```
+
+**Question 1.** What type of variable is R treating `habit` as? What about `visits`?
+
+**Answer:**
+
+---
+
+## Types of graphs
+
+### Scatterplots
+
+Scatterplots allow you to investigate the relationship between two **numerical** variables.
+
+```{r scatter-example, fig.height=3, fig.width=4, warning=FALSE}
+ggplot(data = nc, aes(x = weeks, y = weight)) +
+  geom_point()
+```
+
+We can add axis labels and a title with a `labs()` layer:
+
+```{r scatter-labels, eval=FALSE}
+ggplot(data = nc, aes(x = weeks, y = weight)) +
+  geom_point() +
+  labs(x = "Length of pregnancy (in weeks)",
+       y = "Birth weight of baby (lbs)",
+       title = "Relationship between pregnancy duration and newborn weight")
+```
+
+**Question 2.** Is there a positive or negative relationship between `weeks` and `weight`?
+
+**Answer:**
+
+**Question 3.** Make a scatterplot with `weeks` on the x axis and `gained` (weight gained by the mother during pregnancy) on the y axis. Include axis labels with units and a title.
+
+```{r q3}
+# Your code here
+
+```
+
+**Question 4.** Study the code and plot below. Answer the following with text:
+
+**A.** What did adding `color = premie` inside `aes()` accomplish?
+
+**B.** How many variables are now displayed on this plot?
+
+**C.** What appears to be roughly the pregnancy length cutoff for classifying a newborn as a premie versus full term?
+
+```{r scatter-color, fig.height=3, fig.width=5, warning=FALSE}
+ggplot(data = nc, aes(x = weeks, y = gained, color = premie)) +
+  geom_point() +
+  labs(x = "Pregnancy length (wks)", y = "Maternal weight gain (lbs)")
+```
+
+**Answer:**
+
+**Question 5.** Make a scatterplot with mother's age (`mage`) on the x axis and newborn birth weight (`weight`) on the y axis. Colour the points by the baby's gender (`gender`). Does there appear to be any strong relationship between a mother's age and the weight of her newborn?
+
+```{r q5}
+# Your code here
+
+```
+
+**Answer:**
+
+---
+
+### Histograms
+
+Histograms show how many values of a **single numerical** variable fall in specified bins — useful for understanding the distribution of your data.
+
+```{r hist-example, fig.height=3, fig.width=5}
+ggplot(data = nc, aes(x = weeks)) +
+  geom_histogram(binwidth = 1, color = "white", fill = "steelblue")
+```
+
+**Question 6.** Inspect the histogram of `weeks` and answer the following:
+
+**A.** The y axis is labelled **count**. What is specifically being counted?
+
+**B.** What appears to be roughly the average length of pregnancies in weeks?
+
+**C.** If we changed the binwidth to 100, how many bins would there be? Roughly how many cases would be in each bin?
+
+**Answer:**
+
+**Question 7.** Make a histogram of newborn birth `weight` (in lbs). Include a title and axis labels.
+
+```{r q7}
+# Your code here
+
+```
+
+### Faceting
+
+Faceting creates small multiples of the same plot split by a categorical variable.
+
+```{r facet-example, fig.height=3, fig.width=4, warning=FALSE}
+ggplot(data = nc, aes(x = weeks)) +
+  geom_histogram(binwidth = 1, color = "white", fill = "steelblue") +
+  facet_wrap(~ mature, ncol = 1)
+```
+
+**Question 8.** Make a histogram of newborn birth `weight` split by the baby's `gender`. Set the binwidth to 0.5. Which gender appears to have a slightly larger average birth weight?
+
+```{r q8}
+# Your code here
+
+```
+
+**Answer:**
+
+---
+
+### Boxplots
+
+Boxplots compare distributions of a numerical variable across groups.
+
+```{r boxplot-example, fig.height=3, fig.width=4, warning=FALSE}
+ggplot(data = nc, aes(x = gender, y = gained)) +
+  geom_boxplot(fill = "sienna")
+```
+
+**Question 9.** Make a boxplot of weight `gained` by moms, split by `mature` status. Include axis labels and a title. Is the **median** weight gain larger for younger or older moms?
+
+```{r q9}
+# Your code here
+
+```
+
+**Answer:**
+
+**Question 10.** Make a boxplot of pregnancy duration in `weeks` by smoking `habit`. Is the duration of pregnancy more **variable** for smokers or non-smokers?
+
+```{r q10}
+# Your code here
+
+```
+
+**Answer:**
+
+---
+
+## Independent practice
+
+For each question below, choose the most appropriate plot type, create the plot, and answer the question with text.
+
+**Question 11.** Is the variable `fage` (father's age) symmetrical, or does it have a skew?
+
+```{r q11}
+# Your code here
+
+```
+
+**Answer:**
+
+**Question 12.** Is the median birth `weight` of babies greater for white or non-white mothers (variable `whitemom`)?
+
+```{r q12}
+# Your code here
+
+```
+
+**Answer:**
+
+**Question 13.** As a mother's age (`mage`) increases, does the duration of pregnancy (`weeks`) appear to decrease?
+
+```{r q13}
+# Your code here
+
+```
+
+**Answer:**
+
+---
+
+
+*When you are done, render this document to HTML and submit on Moodle. Name your file `PS02_yourname.html`.*
