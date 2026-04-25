@@ -394,6 +394,8 @@
     "section": "",
     "text": "This section contains two types of work: problem sets and the data project.",
     "crumbs": [
+      "Projects",
+      "Overview",
       "Projects"
     ]
   },
@@ -404,6 +406,8 @@
     "section": "Problem sets",
     "text": "Problem sets\nProblem sets are structured exercises that build your skills in data visualisation, wrangling, and statistical modelling using real datasets. They draw on material from ModernDive: Statistical Inference via Data Science.\n\nHow to complete a problem set\nEach problem set comes as a zipped folder containing an R Markdown (.Rmd) file. R Markdown is an older but widely used format for combining R code and text — you will encounter it frequently in the wild.\nYou can choose to complete the problem set with either the R Markdown (.Rmd) file file or the Quarto Markdown (.qmd) file - or both! That way you can learn the differences between the Knit and Render functions\nTo complete a problem set:\n\nDownload the zip file and unzip it on your computer\nOpen the .Rmd (or .qmd) file in RStudio by double-clicking it (or File &gt; Open File)\nRead through the document, write your code in the code chunks, and type your answers in the text sections\nWhen you are done, click the Knit button (or Ctrl/Cmd + Shift + K) to produce an HTML file\nSubmit the knitted HTML file on Moodle\n\n\n\n\n\n\n\nNoteRmd vs. Quarto\n\n\n\nThe problem set files use R Markdown (.Rmd), while the rest of this course uses Quarto (.qmd). They are very similar — the main difference is the Knit button in Rmd vs. the Render button in Quarto. Both produce the same kinds of output. Learning both is useful, as R Markdown is still widely used in research and industry.\n\n\n\n\n\nProblem set\nTopic\nDownload\n\n\n\n\nPS02\nData Visualisation\nPS02-template.zip\n\n\nPS03\nData Wrangling\nPS03-template.zip\n\n\nPS04\nLinear Regression: One Numerical Predictor\nPS04-template.zip\n\n\nPS05\nLinear Regression: One Categorical Predictor\nPS05-template.zip\n\n\nPS06\nMultiple Regression\nPS06-template.zip",
     "crumbs": [
+      "Projects",
+      "Overview",
       "Projects"
     ]
   },
@@ -414,6 +418,8 @@
     "section": "Data project",
     "text": "Data project\nThe data project is the main assessment for this course — there is no final exam. Working independently, you will find a real dataset, explore it using the tools you have learned, and write up your findings as a fully reproducible Quarto document.\nSee the Final Project page for full guidelines, the assessment rubric, and the project template.",
     "crumbs": [
+      "Projects",
+      "Overview",
       "Projects"
     ]
   },
@@ -858,7 +864,7 @@
     "crumbs": [
       "Content",
       "Project",
-      "Data Project Completion and Course Review"
+      "13: Data project completion and course review"
     ]
   },
   {
@@ -870,7 +876,7 @@
     "crumbs": [
       "Content",
       "Project",
-      "Data Project Completion and Course Review"
+      "13: Data project completion and course review"
     ]
   },
   {
@@ -882,7 +888,7 @@
     "crumbs": [
       "Content",
       "Project",
-      "Data Project Completion and Course Review"
+      "13: Data project completion and course review"
     ]
   },
   {
@@ -894,7 +900,7 @@
     "crumbs": [
       "Content",
       "Project",
-      "Data Project Completion and Course Review"
+      "13: Data project completion and course review"
     ]
   },
   {
@@ -906,7 +912,7 @@
     "crumbs": [
       "Content",
       "Project",
-      "Data Project Completion and Course Review"
+      "13: Data project completion and course review"
     ]
   },
   {
@@ -918,7 +924,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 2"
+      "11: Regression modelling 2"
     ]
   },
   {
@@ -930,7 +936,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 2"
+      "11: Regression modelling 2"
     ]
   },
   {
@@ -942,7 +948,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 2"
+      "11: Regression modelling 2"
     ]
   },
   {
@@ -954,7 +960,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 2"
+      "11: Regression modelling 2"
     ]
   },
   {
@@ -966,7 +972,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 2"
+      "11: Regression modelling 2"
     ]
   },
   {
@@ -978,7 +984,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 2"
+      "9: Variable associations 2"
     ]
   },
   {
@@ -990,7 +996,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 2"
+      "9: Variable associations 2"
     ]
   },
   {
@@ -1002,7 +1008,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 2"
+      "9: Variable associations 2"
     ]
   },
   {
@@ -1014,7 +1020,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 2"
+      "9: Variable associations 2"
     ]
   },
   {
@@ -1026,7 +1032,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 2"
+      "9: Variable associations 2"
     ]
   },
   {
@@ -1038,7 +1044,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 2"
+      "7: Manipulating data 2"
     ]
   },
   {
@@ -1050,7 +1056,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 2"
+      "7: Manipulating data 2"
     ]
   },
   {
@@ -1062,7 +1068,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 2"
+      "7: Manipulating data 2"
     ]
   },
   {
@@ -1074,7 +1080,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 2"
+      "7: Manipulating data 2"
     ]
   },
   {
@@ -1086,7 +1092,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 2"
+      "7: Manipulating data 2"
     ]
   },
   {
@@ -1098,7 +1104,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Visualising Probability"
+      "5: Visualising probability"
     ]
   },
   {
@@ -1110,7 +1116,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Visualising Probability"
+      "5: Visualising probability"
     ]
   },
   {
@@ -1122,7 +1128,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Visualising Probability"
+      "5: Visualising probability"
     ]
   },
   {
@@ -1134,7 +1140,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Visualising Probability"
+      "5: Visualising probability"
     ]
   },
   {
@@ -1146,7 +1152,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Visualising Probability"
+      "5: Visualising probability"
     ]
   },
   {
@@ -1158,7 +1164,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 2: Data Visualisation"
+      "3: R basics 2 — Data visualisation"
     ]
   },
   {
@@ -1170,7 +1176,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 2: Data Visualisation"
+      "3: R basics 2 — Data visualisation"
     ]
   },
   {
@@ -1182,7 +1188,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 2: Data Visualisation"
+      "3: R basics 2 — Data visualisation"
     ]
   },
   {
@@ -1194,7 +1200,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 2: Data Visualisation"
+      "3: R basics 2 — Data visualisation"
     ]
   },
   {
@@ -1206,7 +1212,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 2: Data Visualisation"
+      "3: R basics 2 — Data visualisation"
     ]
   },
   {
@@ -1218,7 +1224,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "Course Introduction: Data Types, R and RStudio"
+      "1: Course introduction, data types, R and RStudio"
     ]
   },
   {
@@ -1230,7 +1236,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "Course Introduction: Data Types, R and RStudio"
+      "1: Course introduction, data types, R and RStudio"
     ]
   },
   {
@@ -1242,7 +1248,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "Course Introduction: Data Types, R and RStudio"
+      "1: Course introduction, data types, R and RStudio"
     ]
   },
   {
@@ -1254,7 +1260,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "Course Introduction: Data Types, R and RStudio"
+      "1: Course introduction, data types, R and RStudio"
     ]
   },
   {
@@ -1266,7 +1272,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "Course Introduction: Data Types, R and RStudio"
+      "1: Course introduction, data types, R and RStudio"
     ]
   },
   {
@@ -1278,7 +1284,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "Course Introduction: Data Types, R and RStudio"
+      "1: Course introduction, data types, R and RStudio"
     ]
   },
   {
@@ -1794,7 +1800,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 1: Vectors, Data Frames and Lists"
+      "2: R basics 1 — Vectors, data frames, lists, basic scripts"
     ]
   },
   {
@@ -1806,7 +1812,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 1: Vectors, Data Frames and Lists"
+      "2: R basics 1 — Vectors, data frames, lists, basic scripts"
     ]
   },
   {
@@ -1818,7 +1824,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 1: Vectors, Data Frames and Lists"
+      "2: R basics 1 — Vectors, data frames, lists, basic scripts"
     ]
   },
   {
@@ -1830,7 +1836,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 1: Vectors, Data Frames and Lists"
+      "2: R basics 1 — Vectors, data frames, lists, basic scripts"
     ]
   },
   {
@@ -1842,7 +1848,7 @@
     "crumbs": [
       "Content",
       "Foundations",
-      "R Basics 1: Vectors, Data Frames and Lists"
+      "2: R basics 1 — Vectors, data frames, lists, basic scripts"
     ]
   },
   {
@@ -1854,7 +1860,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Sampling and Probability"
+      "4: Sampling and probability"
     ]
   },
   {
@@ -1866,7 +1872,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Sampling and Probability"
+      "4: Sampling and probability"
     ]
   },
   {
@@ -1878,7 +1884,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Sampling and Probability"
+      "4: Sampling and probability"
     ]
   },
   {
@@ -1890,7 +1896,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Sampling and Probability"
+      "4: Sampling and probability"
     ]
   },
   {
@@ -1902,7 +1908,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Sampling and Probability"
+      "4: Sampling and probability"
     ]
   },
   {
@@ -1914,7 +1920,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 1: Data Project Introduction"
+      "6: Manipulating data 1 — Data project intro"
     ]
   },
   {
@@ -1926,7 +1932,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 1: Data Project Introduction"
+      "6: Manipulating data 1 — Data project intro"
     ]
   },
   {
@@ -1938,7 +1944,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 1: Data Project Introduction"
+      "6: Manipulating data 1 — Data project intro"
     ]
   },
   {
@@ -1950,7 +1956,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 1: Data Project Introduction"
+      "6: Manipulating data 1 — Data project intro"
     ]
   },
   {
@@ -1962,7 +1968,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Manipulating Data 1: Data Project Introduction"
+      "6: Manipulating data 1 — Data project intro"
     ]
   },
   {
@@ -1974,7 +1980,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 1"
+      "8: Variable associations 1"
     ]
   },
   {
@@ -1986,7 +1992,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 1"
+      "8: Variable associations 1"
     ]
   },
   {
@@ -1998,7 +2004,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 1"
+      "8: Variable associations 1"
     ]
   },
   {
@@ -2010,7 +2016,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 1"
+      "8: Variable associations 1"
     ]
   },
   {
@@ -2022,7 +2028,7 @@
     "crumbs": [
       "Content",
       "Core Concepts",
-      "Variable Associations 1"
+      "8: Variable associations 1"
     ]
   },
   {
@@ -2034,7 +2040,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 1"
+      "10: Regression modelling 1"
     ]
   },
   {
@@ -2046,7 +2052,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 1"
+      "10: Regression modelling 1"
     ]
   },
   {
@@ -2058,7 +2064,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 1"
+      "10: Regression modelling 1"
     ]
   },
   {
@@ -2070,7 +2076,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 1"
+      "10: Regression modelling 1"
     ]
   },
   {
@@ -2082,7 +2088,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Regression Modelling 1"
+      "10: Regression modelling 1"
     ]
   },
   {
@@ -2094,7 +2100,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Text as Data"
+      "12: Text as data"
     ]
   },
   {
@@ -2106,7 +2112,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Text as Data"
+      "12: Text as data"
     ]
   },
   {
@@ -2118,7 +2124,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Text as Data"
+      "12: Text as data"
     ]
   },
   {
@@ -2130,7 +2136,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Text as Data"
+      "12: Text as data"
     ]
   },
   {
@@ -2142,7 +2148,7 @@
     "crumbs": [
       "Content",
       "Advanced Topics",
-      "Text as Data"
+      "12: Text as data"
     ]
   },
   {
