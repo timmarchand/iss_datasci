@@ -1,6 +1,6 @@
 # Save your underlying code changes
 git add .
-git commit -m "update conent-01 to include WorldPhones"
+git commit -m "add PS zip staging"
 git push origin main
 
 # Publish the newly built HTML slides to the live website

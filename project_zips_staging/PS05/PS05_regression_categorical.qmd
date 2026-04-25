@@ -1,0 +1,241 @@
+---
+title: "Problem Set 05: Linear Regression — One Categorical Predictor"
+author: "WRITE YOUR NAME HERE"
+date: today
+format:
+  html:
+    toc: true
+    toc-float: true
+    embed-resources: true
+    df-print: kable
+    theme: lumen
+    code-download: true
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE,
+                      fig.width = 16/2, fig.height = 9/2)
+```
+
+## Background
+
+In this problem set we model data on hate crimes recorded across US states in the 10 days after the 2016 presidential election, as measured by the Southern Poverty Law Center (SPLC).
+
+For context, see the FiveThirtyEight article: [Higher Rates of Hate Crimes Are Tied to Income Inequality](https://fivethirtyeight.com/features/higher-rates-of-hate-crimes-are-tied-to-income-inequality/) (January 2017).
+
+We will use regression models with a **single categorical** explanatory variable.
+
+---
+
+## Setup
+
+```{r libraries}
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(ggplot2, dplyr, moderndive, readr)
+```
+
+## The data
+
+```{r load-data}
+hate_crimes <- read_csv("data/hate_crimes.csv")
+```
+
+```{r glimpse, eval=FALSE}
+glimpse(hate_crimes)
+```
+
+Each row is a US state. The outcome variable is `hate_crimes` (hate crimes per 100,000 individuals). We examine three categorical explanatory variables:
+
+- `trump_support` — level of Trump support: `low`, `medium`, or `high`
+- `unemployment` — level of unemployment: `low` or `high`
+- `median_house_inc` — median household income: `low` or `high`
+
+---
+
+## Part 1: Hate crimes and Trump support
+
+### Question 1A
+
+Create a visualisation to explore the relationship between `hate_crimes` and `trump_support`. Include axis labels and a title.
+
+Note: due to alphabetical ordering, the baseline (reference) group is `high`. We will keep this ordering as-is throughout.
+
+```{r q1a}
+# Your code here
+
+```
+
+### Question 1B
+
+Comment on the relationship between these two variables. Is this what you would have expected?
+
+**Answer:**
+
+### Question 2
+
+Fit a regression model for `hate_crimes ~ trump_support` and generate the regression table.
+
+```{r q2}
+# Your code here
+
+```
+
+### Question 3A
+
+What does the intercept represent in this regression table?
+
+**Answer:**
+
+### Question 3B
+
+What does the model estimate as the number of hate crimes per 100,000 people in states with **low** Trump support?
+
+**Answer:**
+
+### Question 3C
+
+Does the model estimate that hate crimes are more frequent in states with **low** or **high** Trump support?
+
+**Answer:**
+
+### Question 3D
+
+How much greater were hate crimes in **medium** Trump-support states compared to **high** Trump-support states?
+
+**Answer:**
+
+### Question 3E
+
+What are the three possible fitted values $\hat{y}$ for this model? Use `get_regression_points()` to explore if unsure.
+
+```{r q3e, eval=FALSE}
+# Your code here
+
+```
+
+**Answer:**
+
+### Question 3F
+
+The code below calculates the group means of `hate_crimes` for each level of `trump_support`. How do these compare to the three possible fitted values from Question 3E?
+
+```{r q3f}
+hate_crimes %>%
+  group_by(trump_support) %>%
+  summarize(mean_hate_crimes = mean(hate_crimes, na.rm = TRUE))
+```
+
+**Answer:**
+
+---
+
+The regression equation for this model is:
+
+$$\hat{y} = 0.191 + 0.269 \times \mathbf{1}_{\text{low}}(x) + 0.031 \times \mathbf{1}_{\text{med}}(x)$$
+
+### Question 4
+
+Solve the regression equation for a state where `trump_support` is **high**.
+
+**Answer:**
+
+### Question 5
+
+Which 5 states had the highest rate of hate crimes? What was the level of Trump support in these 5 states? Do these results surprise you?
+
+```{r q5}
+# Your code here
+
+```
+
+**Answer:**
+
+---
+
+## Part 2: Hate crimes and unemployment
+
+### Question 6
+
+Create a visualisation to explore the relationship between `hate_crimes` and `unemployment`. Include axis labels and a title.
+
+```{r q6}
+# Your code here
+
+```
+
+### Question 7A
+
+Fit a regression model for `hate_crimes ~ unemployment` and generate the regression table.
+
+```{r q7a}
+# Your code here
+
+```
+
+### Question 7B
+
+Write out the regression equation for this model.
+
+**Answer:**
+
+### Question 7C
+
+What does the intercept represent in this regression table?
+
+**Answer:**
+
+### Question 7D
+
+What does the model estimate as the number of hate crimes per 100,000 people in states with **low** unemployment?
+
+**Answer:**
+
+### Question 7E
+
+What are the two possible fitted values $\hat{y}$ for this model? Why are there only two this time instead of three?
+
+**Answer:**
+
+### Question 8
+
+Use `get_regression_points()` to generate a table of fitted values and residuals for the `hate_crimes ~ unemployment` model. Examine the first row: how are the residuals calculated?
+
+```{r q8, eval=FALSE}
+# Your code here
+
+```
+
+**Answer:**
+
+---
+
+## Part 3: Hate crimes and household income
+
+### Question 9A
+
+Fit a regression model for `hate_crimes ~ median_house_inc` and generate the regression table.
+
+```{r q9a}
+# Your code here
+
+```
+
+### Question 9B
+
+Were there more hate crimes in states with **high** or **low** median household incomes? How large was the difference?
+
+**Answer:**
+
+### Question 10
+
+Run `get_regression_points()` for the `hate_crimes ~ median_house_inc` model and examine the data for Maine (row 2). Did the model **overpredict** or **underpredict** the hate crime level for Maine?
+
+```{r q10, eval=FALSE}
+# Your code here
+
+```
+
+**Answer:**
+
+---
+
+*When you are done, render this document to HTML and submit on Moodle. Name your file `PS05_yourname.html`.*

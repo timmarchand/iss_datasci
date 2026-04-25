@@ -1,13 +1,15 @@
 ---
-title: "PS05: Basic Regression"
-date: "2026-06-08"
+title: "PS05: Linear Regression — One Categorical Predictor"
+date: "2026-05-25"
 ---
 
 ## Overview
 
-Fit and interpret simple linear regression models with one numerical or one categorical explanatory variable using the `moderndive` and `broom` packages.
+Practice linear regression with a single categorical predictor — including visualisation, model fitting, interpretation of intercepts and dummy variable coefficients, and residual analysis — using data on hate crimes recorded across US states in the 10 days after the 2016 presidential election.
 
-Read [Chapter 5](https://moderndive.com/5-regression.html){target="_blank"} of ModernDive before attempting this problem set.
+For context, read the FiveThirtyEight article [Higher Rates of Hate Crimes Are Tied to Income Inequality](https://fivethirtyeight.com/features/higher-rates-of-hate-crimes-are-tied-to-income-inequality/){target="_blank"} before attempting this problem set.
+
+Read [Chapter 6](https://moderndive.com/6-multiple-regression.html){target="_blank"} of ModernDive before attempting this problem set.
 
 ------------------------------------------------------------------------
 
@@ -15,7 +17,7 @@ Read [Chapter 5](https://moderndive.com/5-regression.html){target="_blank"} of M
 
 Download the problem set template, open it in RStudio, and complete the exercises directly in the document.
 
-[PS05-template.zip](/files/projects/PS05-template.zip)
+[PS05.zip](/files/projects/PS05.zip)
 
 ------------------------------------------------------------------------
 
@@ -25,21 +27,35 @@ Run this at the top of your document to install and load the required packages:
 
 ```r
 if (!require(pacman)) install.packages("pacman")
-pacman::p_load(tidyverse, moderndive, broom)
+pacman::p_load(ggplot2, dplyr, moderndive, readr)
 ```
 
 ------------------------------------------------------------------------
 
 ## Exercises
 
-### PS05a: One numerical explanatory variable
+### Part 1: Hate crimes and Trump support
+Model hate crimes using a three-level categorical predictor.
 
-Fit a regression model with a single numerical predictor.
+### Part 2: Hate crimes and unemployment
+Model hate crimes using a two-level categorical predictor.
 
-### PS05b: One categorical explanatory variable
+### Part 3: Hate crimes and household income
+Model hate crimes using median household income as a categorical predictor.
 
-Fit a regression model with a single categorical predictor.
+------------------------------------------------------------------------
 
+## Saving your plots
+
+Save any plots you create to the `figures/` folder using `ggsave()`. Use descriptive file names that reflect the content of the plot:
+
+```r
+trump_plot <- ggplot(data = hate_crimes, aes(x = trump_support, y = hate_crimes)) +
+  geom_boxplot()
+
+ggsave("figures/hate-crimes-by-trump-support.png", plot = trump_plot,
+       width = 16/2, height = 9/2)
+```
 
 ------------------------------------------------------------------------
 

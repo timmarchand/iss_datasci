@@ -1,0 +1,273 @@
+---
+title: "Data Project"
+author: "WRITE YOUR NAME HERE"
+date: today
+format:
+  html:
+    toc: true
+    toc-float: true
+    embed-resources: true
+    df-print: kable
+    theme: lumen
+    code-download: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE,
+                      fig.width = 16/2, fig.height = 9/2)
+```
+
+::: {.callout-note}
+### This is a template — adapt it freely
+
+This document is a starting point, not a rigid structure. You are encouraged 
+to add sections, rename headings, include extra plots, or reorganise the flow 
+to suit your data and research question. What matters is that your final 
+document tells a clear, well-supported story.
+:::
+
+::: {.callout-important}
+### Folder structure
+
+Your project folder is organised like this:
+
+```
+data-project/
+├── data-project.Rproj
+├── data-project.qmd
+├── data_raw/          # your original data file — never modify this
+├── data_processed/    # optional: save cleaned data here
+├── figures/           # save plots here with ggsave()
+└── scripts/           # optional: separate R scripts for long tasks
+```
+
+Always place your downloaded data in `data_raw/` and read from there in your 
+code. Never edit raw data files directly.
+:::
+
+```{r libraries}
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(ggplot2, dplyr, readr, moderndive)
+```
+
+---
+
+# Pre-submission checks
+
+*Complete the Pre sections below and share with your teacher at the deadlines
+listed on the project page. You can delete this note from your final submission.*
+
+## Pre_1: Research question
+
+*State your research question clearly. What are you trying to find out, and 
+why is it interesting or important?*
+
+**Research question:**
+
+## Pre_2: Data description
+
+*Describe your dataset. Where does it come from? What does it contain? How 
+many rows and columns does it have? What are the key variables you plan to use?*
+
+**Data source:**
+
+**Description:**
+
+**Key variables:**
+
+- Outcome variable:
+- Numerical predictor(s):
+- Categorical predictor(s):
+
+## Pre_3: Load your data
+
+*Load your dataset here. Place your raw data file in `data_raw/` and read it 
+from there. Use `glimpse()` to check the structure looks as expected.*
+
+```{r load-data}
+# Your code here
+# e.g. my_data <- read_csv("data_raw/my-dataset.csv")
+
+```
+
+```{r glimpse, eval=FALSE}
+# glimpse(my_data)
+```
+
+*Does the data look as expected? Note any immediate issues (wrong variable 
+types, unexpected values, missing data).*
+
+---
+
+## Pre_4: Data cleaning
+
+*Clean and prepare your data here. Common tasks include renaming variables, 
+filtering out unwanted rows, handling missing values, and creating new variables 
+with `mutate()`. Explain what you are doing and why.*
+
+::: {.callout-tip}
+If your cleaning steps are very long, consider moving them to a separate script 
+in the `scripts/` folder and sourcing it here with `source("scripts/clean.R")`.
+:::
+
+```{r clean-data}
+# Your code here
+
+```
+
+*Optionally, save your cleaned data to `data_processed/` for future reference:*
+
+```{r save-clean, eval=FALSE}
+# write_csv(my_data_clean, "data_processed/my-dataset-clean.csv")
+```
+
+## Pre_5: Summary statistics
+
+*Calculate summary statistics for your key variables. Use `summarize()` and 
+`group_by()` where appropriate. Comment on anything interesting or unexpected.*
+
+```{r summary-stats}
+# Your code here
+
+```
+
+## Pre_6: Exploratory plots
+
+*Create at least two plots that reveal something interesting about your data. 
+Each plot should have a title and clear axis labels. Write a sentence or two 
+below each plot explaining what it shows.*
+
+```{r plot-1}
+# Your code here
+
+```
+
+*What does this plot show?*
+
+```{r plot-2}
+# Your code here
+
+```
+
+*What does this plot show?*
+
+```{r save-plots, eval=FALSE}
+# Save your plots to the figures/ folder
+# ggsave("figures/descriptive-name.png", plot = plot_name, 
+#         width = 16/2, height = 9/2)
+```
+
+---
+
+# Final write-up
+
+*The sections below are your final submission. Revise and polish your work 
+from the Pre sections above. You can delete the Pre sections from your final 
+submission if you prefer a cleaner document — or keep them to show your 
+process. Either is fine.*
+
+## 1. Introduction
+
+*Write 2–3 paragraphs introducing your project. Cover:*
+
+- *Your research question and why it is interesting*
+- *Where your data comes from and what it contains*
+- *The key variables you will analyse*
+
+## 2. Exploratory data analysis
+
+*Present your summary statistics and exploratory plots in polished form. 
+Each plot should be publication-ready — clear labels, informative title, 
+appropriate colours. Write a short interpretation below each one.*
+
+### Summary statistics
+
+```{r final-summary}
+# Your code here
+
+```
+
+### Visualisations
+
+```{r final-plot-1}
+# Your code here
+
+```
+
+*Interpretation:*
+
+```{r final-plot-2}
+# Your code here
+
+```
+
+*Interpretation:*
+
+## 3. Statistical analysis
+
+*Fit at least one regression model to address your research question. Walk 
+the reader through your analysis step by step.*
+
+### Visualising the relationship
+
+```{r model-plot}
+# Your code here
+
+```
+
+*What does this plot suggest about the relationship between your variables?*
+
+### Fitting the model
+
+```{r model}
+# Your code here
+# e.g. my_model <- lm(outcome ~ predictor1 + predictor2, data = my_data)
+
+```
+
+### Regression table
+
+```{r regression-table}
+# Your code here
+# e.g. get_regression_table(my_model)
+
+```
+
+*Interpret the intercept and each slope estimate in plain language. What do 
+the numbers actually mean in the context of your data?*
+
+### Residual analysis
+
+```{r residuals}
+# Your code here
+# e.g. get_regression_points(my_model)
+
+```
+
+*Are there any obvious patterns in the residuals? Any unusually large 
+residuals? What does this tell you about the model fit?*
+
+## 4. Discussion
+
+*Interpret your overall findings in relation to your research question. 
+Aim for 2–3 paragraphs.*
+
+**What do your results mean?**
+
+**What are the limitations of your analysis?**
+
+**What further questions does your work raise?**
+
+## 5. Citations and references
+
+*List your data sources, R packages used, and any literature cited.*
+
+- **Data:** 
+- **Packages:** 
+- **References:**
+
+---
+
+*When you are done, render this document to HTML and submit on Moodle. 
+Name your file `data-project_yourname.html`. Include this `.qmd` source 
+file in your submission.*

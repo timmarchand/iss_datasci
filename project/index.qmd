@@ -32,11 +32,11 @@ The problem set files use **R Markdown** (`.Rmd`), while the rest of this course
 
 | Problem set | Topic | Download |
 |:---|:---|:---|
-| [PS02](02-ps.qmd) | Data Visualisation | [PS02-template.zip](/files/projects/PS02-template.zip) |
-| [PS03](03-ps.qmd) | Data Wrangling | [PS03-template.zip](/files/projects/PS03-template.zip) |
-| [PS04](04-ps.qmd) | Linear Regression: One Numerical Predictor | [PS04-template.zip](/files/projects/PS04-template.zip) |
-| [PS05](05-ps.qmd) | Linear Regression: One Categorical Predictor | [PS05-template.zip](/files/projects/PS05-template.zip) |
-| [PS06](06-ps.qmd) | Multiple Regression | [PS06-template.zip](/files/projects/PS06-template.zip) |
+| [PS02](02-ps.qmd) | Data Visualisation | [PS02.zip](/files/projects/PS02.zip) |
+| [PS03](03-ps.qmd) | Data Wrangling | [PS03.zip](/files/projects/PS03.zip) |
+| [PS04](04-ps.qmd) | Linear Regression: One Numerical Predictor | [PS04.zip](/files/projects/PS04.zip) |
+| [PS05](05-ps.qmd) | Linear Regression: One Categorical Predictor | [PS05.zip](/files/projects/PS05.zip) |
+| [PS06](06-ps.qmd) | Multiple Regression | [PS06.zip](/files/projects/PS06.zip) |
 
 ---
 

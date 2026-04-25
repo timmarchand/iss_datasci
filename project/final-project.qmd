@@ -12,9 +12,32 @@ Working independently, you will find a real dataset, explore it using the tools 
 
 The template below guides you through each stage of the project. It includes example code and explanations for every section. Use it as your starting point.
 
-[data-project-template.zip](/files/projects/data-project-template.zip)
+[data-project.zip](/files/projects/data-project.zip)
 
 Unzip the file and open `data-project.Rproj` in RStudio to get started.
+
+------------------------------------------------------------------------
+
+## Project folder structure
+
+Your project folder is organised as follows:
+
+```
+data-project/
+├── data-project.Rproj
+├── data-project.qmd
+├── data_raw/          # your original data file — never modify this
+├── data_processed/    # optional: cleaned data saved from R
+├── figures/           # plots saved with ggsave()
+└── scripts/           # optional: separate R scripts for long tasks
+```
+
+A few important habits:
+
+- **Raw data is read-only.** Place your downloaded dataset in `data_raw/` and never edit it directly. Always read from `data_raw/` in your code.
+- **Save cleaned data to `data_processed/`** if your cleaning steps are complex — but for most projects, cleaning inside the `.qmd` is fine.
+- **Save your plots** to `figures/` using `ggsave()` with descriptive file names.
+- **The `scripts/` folder** is there if you need it — for example, if your data cleaning is very long and you want to keep it separate. Most students will not need it.
 
 ------------------------------------------------------------------------
 
@@ -32,7 +55,7 @@ Work on your project progressively throughout the semester rather than leaving i
 
 ## Project structure
 
-Your final project should follow this structure. The template walks you through each section with examples.
+The template walks you through each section with examples and prompts. **The template is a guide, not a strict requirement** — you are free to adapt the structure to suit your data and research question. What matters is that your final document tells a clear, well-supported story.
 
 ### 1. Introduction
 
@@ -105,4 +128,4 @@ A good dataset has between 100 and 10,000 rows, contains a mix of numerical and 
 
 Submit your rendered HTML file on Moodle by the deadline. Name your file `data-project_yourname.html`.
 
-Your document must be fully reproducible — the teacher should be able to re-render it from the source `.qmd` or `.Rmd` file and get the same output. Include your source file in the submission.
+Your document must be fully reproducible — the teacher should be able to re-render it from the source `.qmd` file and get the same output. Include your source `.qmd` file in your submission.

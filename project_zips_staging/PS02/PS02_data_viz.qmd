@@ -42,10 +42,10 @@ pacman::p_load(ggplot2, dplyr, readr)
 
 ## The data
 
-Today we will practise data visualisation using data on births from the state of North Carolina. Run the code below to load the data.
+Today we will practise data visualisation using data on births from the state of North Carolina. Run the code below to load the data. Note the `read_csv()` function is directed to the file path of `data` folder and then `north_carolina_births.csv` file.
 
 ```{r load-data}
-nc <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTm2WZwNBoQdZhMgot7urbtu8eG7tzAq-60ZJsQ_nupykCAcW0OXebVpHksPWyR4x8xJTVQ8KAulAFS/pub?gid=202410847&single=true&output=csv")
+nc <- read_csv("data/north_carolina_births.csv")
 ```
 
 The dataset contains 800 observations (rows) and 13 variables (columns). Each case is a single birth.
@@ -232,5 +232,37 @@ For each question below, choose the most appropriate plot type, create the plot,
 
 ---
 
+---
+
+## Saving your plots
+
+When you are happy with a plot, you can save it to the `figures/` folder using `ggsave()`.
+Run `ggsave()` immediately after the code chunk that creates the plot:
+
+```r
+ggplot(data = nc, aes(x = weeks, y = weight)) +
+  geom_point()
+
+ggsave("figures/weight-vs-weeks.png", width = 16/2.5, height = 9/2.5)
+```
+
+Alternatively, you can save the plot as an object in your environment first and then pass it to `ggsave()` explicitly:
+
+```r
+weight_vs_weeks <- ggplot(data = nc, aes(x = weeks, y = weight)) +
+  geom_point()
+
+ggsave("figures/weight-vs-weeks.png", plot = weight_vs_weeks, width = 16/2.5, height = 9/2.5)
+```
+
+This second approach is safer — it saves exactly the plot you intend regardless of what else you may have run in between.
+
+A few tips:
+
+- Always use descriptive names that reflect the content of the plot, like `"figures/weight-vs-weeks.png"` or `"figures/birthweight-by-gender.png"` — avoid vague names like `"figures/plot1.png"`
+- The `width` and `height` arguments here match the default figure size used in this document — feel free to adjust them, or leave the arguments blank if the default is okay.
+- You can also save as `.pdf` or `.jpg` by changing the file extension
+
+---
 
 *When you are done, render this document to HTML and submit on Moodle. Name your file `PS02_yourname.html`.*

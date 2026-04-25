@@ -5,7 +5,7 @@ date: "2026-05-11"
 
 ## Overview
 
-Practice the core `dplyr` verbs — `filter()`, `summarize()`, `group_by()`, `mutate()`, `arrange()`, and `select()` — using the `nycflights13` dataset.
+Practice the core `dplyr` verbs — `select()`, `filter()`, `mutate()`, `summarize()`, `arrange()`, and `group_by()` — using the `txhousing` dataset, which contains monthly housing sales data for cities across Texas and comes with the `ggplot2` package.
 
 Read [Chapter 3](https://moderndive.com/3-wrangling.html){target="_blank"} of ModernDive before attempting this problem set.
 
@@ -15,7 +15,7 @@ Read [Chapter 3](https://moderndive.com/3-wrangling.html){target="_blank"} of Mo
 
 Download the problem set template, open it in RStudio, and complete the exercises directly in the document.
 
-[PS03-template.zip](/files/projects/PS03-template.zip)
+[PS03.zip](/files/projects/PS03.zip)
 
 ------------------------------------------------------------------------
 
@@ -25,29 +25,18 @@ Run this at the top of your document to install and load the required packages:
 
 ```r
 if (!require(pacman)) install.packages("pacman")
-pacman::p_load(tidyverse, nycflights13)
+pacman::p_load(ggplot2, dplyr)
 ```
 
 ------------------------------------------------------------------------
 
 ## Exercises
 
-### PS03a: filter()
+### Data wrangling review
+Worked examples of each `dplyr` verb using Austin and Abilene housing data.
 
-Subset rows based on conditions.
-
-### PS03b: summarize() and group_by()
-
-Compute summary statistics by group.
-
-### PS03c: mutate()
-
-Create new variables from existing ones.
-
-### PS03d: arrange() and select()
-
-Sort rows and choose columns.
-
+### Independent practice
+Apply the verbs independently to answer questions about Texas housing trends.
 
 ------------------------------------------------------------------------
 

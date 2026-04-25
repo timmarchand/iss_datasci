@@ -1,0 +1,214 @@
+---
+title: "Problem Set 03: Data Wrangling"
+author: "WRITE YOUR NAME HERE"
+date: today
+format:
+  html:
+    toc: true
+    toc-float: true
+    embed-resources: true
+    df-print: kable
+    theme: lumen
+    code-download: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+In this problem set we will practise the key data manipulation tasks for describing, summarising, and working with data. We will specifically review the following functions from the `dplyr` package:
+
+- `select()` — extract columns
+- `filter()` — subset rows by condition
+- `mutate()` — create new variables
+- `summarize()` — compute summary statistics
+- `arrange()` — sort rows
+- `group_by()` — group data before summarising
+- `|>` — the pipe operator
+
+---
+
+## Setup
+
+Run this code block first.
+
+```{r libraries}
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(ggplot2, dplyr)
+```
+
+## The data
+
+```{r load-data, eval=FALSE}
+data(txhousing)
+glimpse(txhousing)
+```
+
+These data are about housing in Texas. Each row is monthly data for a given city in a given year.
+
+**Question 1.** Open the data viewer (`View(txhousing)` in the console, or click the name in the Environment pane). What is the last city listed in the dataset (row 8602)?
+
+**Answer:**
+
+**Question 2.** Type `?txhousing` in the console. What information does the `listings` variable contain?
+
+**Answer:**
+
+---
+
+## Data wrangling review
+
+### select()
+
+Extract specific columns. The `-` sign means "all columns *except* this one":
+
+```{r select-example}
+txhousing <- txhousing |> select(-date)
+```
+
+### filter()
+
+Keep only rows matching a condition:
+
+```{r filter-example}
+austin_12 <- txhousing |> filter(year == 2012, city == "Austin")
+```
+
+Use `|` for "or":
+
+```{r filter-or}
+aust_ab <- txhousing |> filter(city == "Austin" | city == "Abilene")
+```
+
+### mutate()
+
+Add new columns:
+
+```{r mutate-example}
+txhousing <- txhousing |>
+  mutate(vol_100k = volume / 100000)
+```
+
+### summarize()
+
+Reduce a column to a summary statistic:
+
+```{r summarize-example}
+austin_12 |> summarize(x_bar_sales = mean(sales),
+                        sd_sales    = sd(sales),
+                        min_vol     = min(volume),
+                        max_vol     = max(volume),
+                        mdn_list    = median(listings),
+                        iqr_list    = IQR(listings),
+                        sample_size = n())
+```
+
+### arrange()
+
+Sort rows in descending order:
+
+```{r arrange-example, eval=FALSE}
+austin_12 |>
+  arrange(desc(volume))
+```
+
+### group_by()
+
+Calculate summary statistics per group:
+
+```{r groupby-example}
+aust_ab |>
+  group_by(city) |>
+  summarize(x_bar_sales = mean(sales))
+```
+
+---
+
+## Independent practice
+
+### Basic syntax
+
+**Question 3.** Write a code chunk to remove the `inventory` variable from `txhousing`. Save the result back as `txhousing`.
+
+```{r q3}
+# Your code here
+
+```
+
+**Question 4.** Make a dataset called `dallas_sub` that includes data only from Dallas in 2012 and 2013.
+
+```{r q4}
+# Your code here
+
+```
+
+**Question 5.** Add a column to `dallas_sub` called `prct_sold` that calculates the percentage of listings that were sold (`sales / listings * 100`). Save the result back as `dallas_sub`.
+
+```{r q5}
+# Your code here
+
+```
+
+**Question 6.** Calculate the **average** percentage of listings sold in Dallas **in each month of the year** using `dallas_sub`. Save the result as `dallas_summary`.
+
+```{r q6}
+# Your code here
+
+```
+
+**Question 7.** Arrange `dallas_summary` in descending order by average percentage sold. Which month had the greatest percentage of houses sold?
+
+```{r q7}
+# Your code here
+
+```
+
+**Answer:**
+
+---
+
+### More advanced wrangling
+
+**Question 8.** Run the code below, study it, and explain in your own words what it calculates.
+
+```{r q8, eval=FALSE}
+txhousing |>
+  filter(year == 2012 | year == 2013, city == "Dallas") |>
+  mutate(prct_sold = sales / listings * 100) |>
+  group_by(month) |>
+  summarize(mean_prct_sold = mean(prct_sold)) |>
+  arrange(desc(mean_prct_sold))
+```
+
+**Answer:**
+
+**Question 9.** In January 2015, what city had the fewest houses listed for sale?
+
+```{r q9}
+# Your code here
+
+```
+
+**Answer:**
+
+**Question 10.** In 2012, in which month were the most houses sold in Texas?
+
+```{r q10}
+# Your code here
+
+```
+
+**Answer:**
+
+**Question 11.** Generate a single table showing the total number of houses sold in **Austin** in 2000 and 2001 combined, and the total number sold in **Dallas** in 2000 and 2001 combined.
+
+*Hint: `sum()` adds values.*
+
+```{r q11}
+# Your code here
+
+```
+
+---
+
+*When you are done, render this document to HTML and submit on Moodle. Name your file `PS03_yourname.html`.*

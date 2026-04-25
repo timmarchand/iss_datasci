@@ -1,13 +1,13 @@
 ---
-title: "PS04: Tidy Data and Joining Tables"
-date: "2026-05-25"
+title: "PS04: Linear Regression — One Numerical Predictor"
+date: "2026-05-18"
 ---
 
 ## Overview
 
-Practice reshaping data between wide and long formats with `tidyr`, and combining data frames using `dplyr` join functions.
+Practice simple linear regression with one numerical predictor — including visualisation, correlation, model fitting, interpretation, and prediction — using demographic and voting data from the 2016 US presidential election.
 
-Read [Chapter 4](https://moderndive.com/4-tidy.html){target="_blank"} of ModernDive before attempting this problem set.
+Read [Chapter 5](https://moderndive.com/5-regression.html){target="_blank"} of ModernDive before attempting this problem set.
 
 ------------------------------------------------------------------------
 
@@ -15,7 +15,7 @@ Read [Chapter 4](https://moderndive.com/4-tidy.html){target="_blank"} of ModernD
 
 Download the problem set template, open it in RStudio, and complete the exercises directly in the document.
 
-[PS04-template.zip](/files/projects/PS04-template.zip)
+[PS04.zip](/files/projects/PS04.zip)
 
 ------------------------------------------------------------------------
 
@@ -25,21 +25,33 @@ Run this at the top of your document to install and load the required packages:
 
 ```r
 if (!require(pacman)) install.packages("pacman")
-pacman::p_load(tidyverse, nycflights13)
+pacman::p_load(dplyr, ggplot2, readr, moderndive)
 ```
 
 ------------------------------------------------------------------------
 
 ## Exercises
 
-### PS04a: Tidy data with tidyr
+### Worked example: white poverty and Trump support
+Follow a guided regression analysis — visualisation, correlation, model fitting, interpretation, and prediction.
 
-Use pivot_longer() and pivot_wider() to reshape data.
+### Independent analysis: non-white population and Trump support
+Apply the same workflow independently using a different explanatory variable.
 
-### PS04b: Joining tables with dplyr
+------------------------------------------------------------------------
 
-Use inner_join(), left_join(), and other join functions.
+## Saving your plots
 
+Remember you can save any plots you create to the `figures/` folder using `ggsave()`. Use descriptive file names that reflect the content of the plot:
+
+```r
+non_white_plot <- ggplot(data = trump, aes(x = non_white, y = trump_support)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+
+ggsave("figures/trump-support-vs-non-white.png", plot = non_white_plot, 
+       width = 16/2, height = 9/2)
+```
 
 ------------------------------------------------------------------------
 

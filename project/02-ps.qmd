@@ -5,7 +5,7 @@ date: "2026-04-27"
 
 ## Overview
 
-Practice creating plots with `ggplot2` — histograms, barplots, scatterplots, boxplots, and linegraphs — using data from the `nycflights13` and `gapminder` packages.
+Practice creating plots with `ggplot2` — scatterplots, histograms, and boxplots — using data on births from the state of North Carolina.
 
 Read [Chapter 2](https://moderndive.com/2-viz.html){target="_blank"} of ModernDive before attempting this problem set.
 
@@ -15,7 +15,7 @@ Read [Chapter 2](https://moderndive.com/2-viz.html){target="_blank"} of ModernDi
 
 Download the problem set template, open it in RStudio, and complete the exercises directly in the document.
 
-[PS02-template.zip](/files/projects/PS02-template.zip)
+[PS02.zip](/files/projects/PS02.zip)
 
 ------------------------------------------------------------------------
 
@@ -25,33 +25,24 @@ Run this at the top of your document to install and load the required packages:
 
 ```r
 if (!require(pacman)) install.packages("pacman")
-pacman::p_load(tidyverse, nycflights13, gapminder)
+pacman::p_load(ggplot2, dplyr, readr)
 ```
 
 ------------------------------------------------------------------------
 
 ## Exercises
 
-### PS02a: 5NG#1: Scatterplots
+### Scatterplots
+Investigate relationships between numerical variables.
 
-Explore the relationship between two numerical variables.
-
-### PS02b: 5NG#2: Linegraphs
-
-Visualise trends over time.
-
-### PS02c: 5NG#3: Histograms
-
+### Histograms
 Explore the distribution of a single numerical variable.
 
-### PS02d: 5NG#4: Boxplots
+### Boxplots
+Compare distributions of a numerical variable across groups.
 
-Compare distributions across groups.
-
-### PS02e: 5NG#5: Barplots
-
-Visualise counts and proportions.
-
+### Independent practice
+Choose appropriate plot types to answer open-ended questions.
 
 ------------------------------------------------------------------------
 

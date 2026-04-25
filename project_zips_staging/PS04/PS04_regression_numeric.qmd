@@ -1,0 +1,202 @@
+---
+title: "Problem Set 04: Linear Regression — One Numerical Predictor"
+author: "WRITE YOUR NAME HERE"
+date: today
+format:
+  html:
+    toc: true
+    toc-float: true
+    embed-resources: true
+    df-print: kable
+    theme: lumen
+    code-download: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE,
+                      fig.width = 16/2, fig.height = 9/2)
+```
+
+## Background
+
+For this problem set you will first run through a worked example of simple linear regression, answering questions along the way. Then you will work through a regression analysis independently.
+
+We will look at demographic data recorded for 48 US voting regions just after the 2016 presidential election. We will investigate which variables are associated with the percentage of voters that supported Donald Trump.
+
+---
+
+## Setup
+
+```{r libraries}
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(dplyr, ggplot2, readr, moderndive)
+```
+
+## The data
+
+```{r load-data, message=FALSE}
+trump <- read_csv("data/trump_voters_2016.csv")
+```
+
+Use `glimpse()` or the data viewer to explore the data. The variables include:
+
+- `hs_ed` — percentage of adults with a high school education
+- `poverty` — percentage of white households in poverty
+- `non_white` — percentage of people identifying as a person of colour
+- `trump_support` — percentage of votes for Trump in 2016 (the outcome variable)
+
+All percentages are expressed as values between 0 and 100.
+
+---
+
+## Worked example: white poverty and Trump support
+
+### Visualisation
+
+```{r scatter-poverty, fig.height=3, fig.width=5}
+ggplot(data = trump, aes(y = trump_support, x = poverty)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Percentage of white households in poverty",
+       y = "Percentage of voters supporting Trump",
+       title = "White poverty and Trump support in the US")
+```
+
+**Question 1.** Does the relationship appear to be positive or negative? Does it look reasonably linear?
+
+**Answer:**
+
+---
+
+### Correlation coefficient
+
+```{r correlation}
+trump %>%
+  summarise(r = cor(trump_support, poverty))
+```
+
+---
+
+### Running a linear regression model
+
+```{r model-poverty}
+poverty_mod <- lm(trump_support ~ poverty, data = trump)
+```
+
+### Regression table
+
+```{r reg-table}
+get_regression_table(poverty_mod)
+```
+
+The intercept and slope can be interpreted as:
+
+- When poverty is 0%, the predicted average Trump support is 30.81%
+- For every 1 percentage point increase in poverty, Trump support is associated with an increase of 2.059 percentage points
+
+---
+
+### Making predictions
+
+Our regression equation is:
+
+$$\widehat{\text{trump\_support}} = 30.806 + 2.059 \times \text{poverty}$$
+
+To predict Trump support at 15% white poverty:
+
+```{r predict-example}
+y_hat <- 30.8064 + 2.0591 * 15
+y_hat
+```
+
+**Question 2.** We found a positive correlation. Is it reasonable to conclude that policies increasing white poverty would *cause* an increase in Trump support? Explain why or why not.
+
+**Answer:**
+
+**Question 3.** What percentage of Trump support would you expect at 6% white poverty?
+
+```{r q3}
+# Your code here
+
+```
+
+**Answer:**
+
+**Question 4.** Do you think it is a good idea to predict Trump support at 85% white poverty using this regression equation? Explain your reasoning.
+
+**Answer:**
+
+---
+
+### Residuals
+
+Residuals are the difference between the observed value and the value predicted by the model:
+
+$$\text{residual} = y - \hat{y}$$
+
+```{r residuals, eval=FALSE}
+get_regression_points(poverty_mod)
+```
+
+---
+
+## Independent analysis
+
+Use the same `trump` dataset for Questions 5–10, with `non_white` as the explanatory variable and `trump_support` as the outcome.
+
+**Question 5.** Create a scatterplot with a best-fitting line, with `non_white` on the x axis and `trump_support` on the y axis. Include an informative title and axis labels.
+
+```{r q5}
+# Your code here
+
+```
+
+**Question 6.** Do you expect the correlation coefficient between `non_white` and `trump_support` to be positive or negative? Test your prediction.
+
+```{r q6}
+# Your code here
+
+```
+
+**Answer:**
+
+**Question 7.** Run a linear regression with `non_white` as the explanatory variable and `trump_support` as the outcome. Interpret the intercept and slope estimates.
+
+```{r q7}
+# Your code here
+
+```
+
+**Answer:**
+
+**Question 8.** Using the regression equation (not a visual estimate), predict Trump support for a region where 70% of people identify as a person of colour.
+
+```{r q8}
+# Your code here
+
+```
+
+**Answer:**
+
+**Question 9.** Based on the scatterplots and correlation coefficients, which explanatory variable (`non_white` or `poverty`) appears to be a better predictor of Trump support? Explain.
+
+**Answer:**
+
+**Question 10.** Consider a region where 61% of people identify as non-white.
+
+**A.** What would the model predict as Trump support in that region?
+
+**B.** The observed value for that region is 30%. Was the prediction an overestimate or an underestimate? By how much?
+
+**C.** In other words, what is the residual?
+
+```{r q10}
+# Your code here
+
+```
+
+**Answer:**
+
+---
+
+*When you are done, render this document to HTML and submit on Moodle. Name your file `PS04_yourname.html`.*

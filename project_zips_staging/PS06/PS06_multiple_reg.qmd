@@ -1,0 +1,250 @@
+---
+title: "Problem Set 06: Multiple Regression"
+author: "WRITE YOUR NAME HERE"
+date: today
+format:
+  html:
+    toc: true
+    toc-float: true
+    embed-resources: true
+    df-print: kable
+    theme: lumen
+    code-download: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE,
+                      fig.width = 16/2, fig.height = 9/2)
+```
+
+## Background
+
+We will again use the hate crimes data from Problem Set 05. This week we fit regression models with **both** a numerical and a categorical explanatory variable.
+
+The outcome variable this week is `income` — the median household income in each US state. The explanatory variables are:
+
+- `hs` — percentage of adults aged 25+ with a high school degree (numerical)
+- `urbanization` — level of urbanization in the state: `low` or `high` (categorical)
+
+---
+
+## Setup
+
+```{r libraries}
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(ggplot2, dplyr, moderndive, readr)
+```
+
+## The data
+
+```{r load-data}
+hate_crimes <- read_csv("data/hate_crimes.csv")
+```
+
+```{r glimpse, eval=FALSE}
+glimpse(hate_crimes)
+```
+
+---
+
+## Income, education, and urbanization
+
+### Question 1
+
+Create a visualisation comparing median household `income` at **low** and **high** levels of urbanization (do not include `hs` in this plot). Include axis labels and a title.
+
+```{r q1}
+# Your code here
+
+```
+
+### Question 2A
+
+Create a scatterplot showing:
+
+- `income` on the y axis
+- `hs` on the x axis
+- Points coloured by `urbanization`
+- **Parallel** regression lines using `geom_parallel_slopes()` from the `moderndive` package
+
+```{r q2a}
+# Your code here
+
+```
+
+### Question 2B
+
+Do you think the relationship between `hs` and `income` is strong or weak? Linear or non-linear?
+
+**Answer:**
+
+### Question 2C
+
+Which regression line (high or low urbanization) appears to have the larger intercept?
+
+**Answer:**
+
+### Question 3A
+
+Create the same scatterplot again, but this time use `geom_smooth(method = "lm")` to draw separate, non-parallel regression lines for each urbanization group.
+
+```{r q3a}
+# Your code here
+
+```
+
+### Question 3B
+
+How do the slopes in Question 3A compare to the parallel slopes in Question 2A? Are they fairly similar or quite different?
+
+**Answer:**
+
+### Question 3C
+
+Based on the two plots, do you think a **parallel slopes** model or an **interaction model** would be more appropriate here?
+
+**Answer:**
+
+---
+
+### Question 4A
+
+Fit both of the following models:
+
+1. A parallel slopes model: `income ~ hs + urbanization`
+2. An interaction model: `income ~ hs * urbanization`
+
+Save the output of each `lm()` call.
+
+```{r q4a}
+# Your code here
+
+```
+
+### Question 4B
+
+Use `get_regression_summaries()` to find the unadjusted R² for each model. Report both values.
+
+```{r q4b}
+# Your code here
+
+```
+
+**Answer:**
+
+### Question 4C
+
+Compare the **adjusted** R² for each model. Which model do you prefer? Does this agree with your visual assessment in Question 3C?
+
+**Answer:**
+
+---
+
+*For Questions 5–9, base your answers on your preferred model from Question 4.*
+
+### Question 5A
+
+Generate the regression table using `get_regression_table()`. Is the intercept the same for high and low urbanization states? Is the slope the same?
+
+```{r q5a}
+# Your code here
+
+```
+
+**Answer:**
+
+### Question 5B
+
+What is the slope and intercept for states with **high** urbanization?
+
+**Answer:**
+
+### Question 5C
+
+What is the slope and intercept for states with **low** urbanization?
+
+**Answer:**
+
+### Question 5D
+
+Is median household income greater in states with lower or higher urbanization? By how much?
+
+**Answer:**
+
+### Question 5E
+
+For every 1 percentage point increase in high-school educated adults, what is the associated increase in median household income?
+
+**Answer:**
+
+### Question 6
+
+Predict the median household income for a state with **high** urbanization where 85% of adults have a high school degree.
+
+**Answer:**
+
+### Question 7
+
+Predict the median household income for a state with **low** urbanization where 85% of adults have a high school degree.
+
+**Answer:**
+
+### Question 8
+
+Predict the median household income for a state with **low** urbanization where 30% of adults have a high school degree.
+
+**Answer:**
+
+### Question 9
+
+Use `get_regression_points()` to look at the data for Maine (row 2). What was Maine's observed `income`? What did your model predict? What is the residual? Did the model over- or underestimate?
+
+```{r q9}
+# Your code here
+
+```
+
+**Answer:**
+
+---
+
+## Independent analysis: vole habitat
+
+Wildlife biologists want to understand habitat preferences of a declining vole species. They counted voles at 56 random study sites and recorded:
+
+- `voles` — vole count at each site
+- `veg` — percent cover of vegetation
+- `soil` — whether the site is `moist` or `dry`
+
+```{r load-voles}
+vole_trapping <- read_csv("http://bit.ly/2IgDF0E")
+```
+
+Fit an appropriate regression model with `voles` as the outcome variable and `veg` and `soil` as explanatory variables. Use the results to answer Questions 10–12.
+
+```{r vole-model}
+# Your code here
+
+```
+
+### Question 10
+
+Would protecting a site with high vegetation cover be a more effective way to preserve the vole population than a site with low vegetation cover? Why?
+
+**Answer:**
+
+### Question 11
+
+Dry sites are cheaper to purchase and maintain. If a conservation organisation buys dry sites, roughly what minimum percent cover of vegetation do they need to maintain to support a population of about 30 voles?
+
+**Answer:**
+
+### Question 12
+
+The Nature Conservancy is considering a site with **moist** soil and **40% vegetation cover**. Using the regression equation, what vole population might this site support?
+
+**Answer:**
+
+---
+
+*When you are done, render this document to HTML and submit on Moodle. Name your file `PS06_yourname.html`.*

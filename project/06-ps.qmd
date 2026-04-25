@@ -1,11 +1,11 @@
 ---
 title: "PS06: Multiple Regression"
-date: "2026-06-22"
+date: "2026-06-01"
 ---
 
 ## Overview
 
-Fit and interpret multiple regression models with both numerical and categorical explanatory variables, including interaction effects.
+Practice multiple regression with both numerical and categorical predictors — including parallel slopes models, interaction models, model comparison using R², and residual analysis. The problem set has two parts: a guided analysis of US state income data, and an independent analysis of vole habitat preferences.
 
 Read [Chapter 6](https://moderndive.com/6-multiple-regression.html){target="_blank"} of ModernDive before attempting this problem set.
 
@@ -15,7 +15,7 @@ Read [Chapter 6](https://moderndive.com/6-multiple-regression.html){target="_bla
 
 Download the problem set template, open it in RStudio, and complete the exercises directly in the document.
 
-[PS06-template.zip](/files/projects/PS06-template.zip)
+[PS06.zip](/files/projects/PS06.zip)
 
 ------------------------------------------------------------------------
 
@@ -25,21 +25,32 @@ Run this at the top of your document to install and load the required packages:
 
 ```r
 if (!require(pacman)) install.packages("pacman")
-pacman::p_load(tidyverse, moderndive, broom)
+pacman::p_load(ggplot2, dplyr, moderndive, readr)
 ```
 
 ------------------------------------------------------------------------
 
 ## Exercises
 
-### PS06a: One numerical and one categorical predictor
+### Part 1: Income, education, and urbanization
+Model median household income across US states using high-school education rate and urbanization level as predictors. Compare parallel slopes and interaction models.
 
-Fit a parallel slopes model.
+### Part 2: Vole habitat
+Apply multiple regression independently to ecological count data, using vegetation cover and soil type to predict vole populations.
 
-### PS06b: Interaction models
+------------------------------------------------------------------------
 
-Fit a model with an interaction term between predictors.
+## Saving your plots
 
+Save any plots you create to the `figures/` folder using `ggsave()`. Use descriptive file names that reflect the content of the plot:
+
+```r
+income_plot <- ggplot(data = hate_crimes, aes(x = hs, y = income, color = urbanization)) +
+  geom_point()
+
+ggsave("figures/income-vs-hs-by-urbanization.png", plot = income_plot,
+       width = 16/2, height = 9/2)
+```
 
 ------------------------------------------------------------------------
 
