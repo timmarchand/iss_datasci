@@ -30,19 +30,20 @@ make_and_zip_content <- list(
         out_dir <- here_rel("files", "content")
         if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
         zip::zip(
-          zipfile = zip_output_path,
-          files   = list.files(content_folder, recursive = TRUE, full.names = TRUE),
-          mode    = "mirror"
+          zipfile = here::here(zip_output_path),
+          files   = basename(content_folder),
+          mode    = "mirror",
+          root    = here::here("content_zips_staging")
         )
         zip_output_path
       },
       format = "file"
     ),
     values = list(
-      target_name    = content_zips$zip_sym,
-      content_folder = content_zips$path,
+      target_name     = content_zips$zip_sym,
+      content_folder  = content_zips$path,
       zip_output_path = content_zips$zip_out,
-      input_files    = content_zips$sym
+      input_files     = content_zips$sym
     )
   )
 )
