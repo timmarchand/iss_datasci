@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-05-12">
 
-<title>Sampling and Probability – CLIL Seminar: Data Science</title>
+<title>Data Wrangling – CLIL Seminar: Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -138,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/04-content.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="../content/04-content.html">4: Sampling and probability</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/01-content.html">Foundations</a></li><li class="breadcrumb-item"><a href="../content/04-content.html">4: R basics 3: Data wrangling</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -194,6 +194,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">3: R basics 2 — Data visualisation</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/04-content.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">4: R basics 3: Data wrangling</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -205,12 +211,6 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../content/04-content.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">4: Sampling and probability</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/05-content.html" class="sidebar-item-text sidebar-link">
@@ -310,9 +310,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 <script data-goatcounter="https://timbot.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/04-content.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="../content/04-content.html">4: Sampling and probability</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/01-content.html">Foundations</a></li><li class="breadcrumb-item"><a href="../content/04-content.html">4: R basics 3: Data wrangling</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Sampling and Probability</h1>
+<h1 class="title">Data Wrangling</h1>
 </div>
 
 
@@ -337,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>We take a step back from R syntax to think carefully about how data is collected and what probability means. We use Monte Carlo simulation to build intuition about randomness, sampling, and the behaviour of statistics across repeated samples.</p>
+<p>We take a first step in using R for data engineering by finding out how to wrangle data into a suitable form for subsequent analysis. For this we use one of the core <code>tidyverse</code> packages <code>dplyr</code>, which contains a host of functions - or verbs - for data manipulation.</p>
 <hr>
 </section>
 <section id="download" class="level2">
@@ -358,12 +358,12 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>R for Non-Programmers
+<span class="screen-reader-only">Tip</span>Exploring Data Science with R
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><a href="https://r4np.com/09_sources_of_bias.html" target="_blank">Chapter 9: Sources of bias: Sampling, outliers, normality and other conundrums</a></li>
+<li><a href="https://ds4world.cs.miami.edu/data-transformation" target="_blank">Chapter 2: Data Transformnation</a></li>
 </ul>
 </div>
 </div>
@@ -371,21 +371,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="slides" class="level2">
 <h2 class="anchored" data-anchor-id="slides">Slides</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Slides for this session will appear here.</p>
-</div>
-</div>
 <div class="ratio ratio-16x9">
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSxCVVFWKeTVnZ-1k3AZRbaFw8GK9FoNJU6H7s6Zm-BPOKVEYT-7rte39D3EWT6Q79Fq3Jety-0BgwF/pubembed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTz99ttwBSxgZDnMiceedLsiwjunSRApULOBbdgu0uimhv0oimSrGQiz5x1Zsmz0czblFy_kbLe-ohe/pubembed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="1707" height="989" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
 </iframe>
 </div>
 

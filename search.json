@@ -768,18 +768,39 @@
     "text": "The videos below are selected to support and extend the concepts covered in this week’s lesson and r4np reading. Watch them before or after working through the exercises."
   },
   {
-    "objectID": "example/07-example.html#the-5-verbs-of-dplyr-revisit",
-    "href": "example/07-example.html#the-5-verbs-of-dplyr-revisit",
+    "objectID": "example/07-example.html#monte-carlo-simulation",
+    "href": "example/07-example.html#monte-carlo-simulation",
     "title": "Manipulating Data 2",
-    "section": "The 5 verbs of dplyr (revisit)",
-    "text": "The 5 verbs of dplyr (revisit)\nReturning to dplyr with more complex examples — grouped summaries, joins, and chained pipelines."
+    "section": "Monte Carlo simulation",
+    "text": "Monte Carlo simulation\nHow to use random sampling and repeated simulation to estimate probabilities — a powerful technique that underpins much of modern data science."
   },
   {
-    "objectID": "example/07-example.html#advanced-wrangling-tidy-billboard-100",
-    "href": "example/07-example.html#advanced-wrangling-tidy-billboard-100",
+    "objectID": "example/07-example.html#the-birthday-paradox",
+    "href": "example/07-example.html#the-birthday-paradox",
     "title": "Manipulating Data 2",
-    "section": "Advanced wrangling: tidy Billboard 100",
-    "text": "Advanced wrangling: tidy Billboard 100\nA worked example of advanced data wrangling using dplyr, stringr, and tidyr on Billboard chart data. See the full example linked below."
+    "section": "The birthday paradox",
+    "text": "The birthday paradox\nA famous probability puzzle that demonstrates how our intuitions about chance can be surprisingly wrong."
+  },
+  {
+    "objectID": "example/07-example.html#simulating-pi",
+    "href": "example/07-example.html#simulating-pi",
+    "title": "Manipulating Data 2",
+    "section": "Simulating pi",
+    "text": "Simulating pi\nHow Monte Carlo methods can be used to estimate the value of pi — a beautiful illustration of simulation in action."
+  },
+  {
+    "objectID": "example/07-example.html#binomial-distribution",
+    "href": "example/07-example.html#binomial-distribution",
+    "title": "Manipulating Data 2",
+    "section": "Binomial distribution",
+    "text": "Binomial distribution\nAn explanation of the binomial distribution and when to use it to model discrete probability outcomes."
+  },
+  {
+    "objectID": "example/07-example.html#poisson-distribution",
+    "href": "example/07-example.html#poisson-distribution",
+    "title": "Manipulating Data 2",
+    "section": "Poisson distribution",
+    "text": "Poisson distribution\nThe Poisson distribution and its use for modelling the number of events occurring in a fixed interval of time or space."
   },
   {
     "objectID": "example/05-example.html",
@@ -1608,7 +1629,7 @@
     "crumbs": [
       "Assignments",
       "Exercises",
-      "4: Sampling and probability"
+      "4: R basics 3"
     ]
   },
   {
@@ -1620,7 +1641,7 @@
     "crumbs": [
       "Assignments",
       "Exercises",
-      "4: Sampling and probability"
+      "4: R basics 3"
     ]
   },
   {
@@ -1632,7 +1653,7 @@
     "crumbs": [
       "Assignments",
       "Exercises",
-      "4: Sampling and probability"
+      "4: R basics 3"
     ]
   },
   {
@@ -1878,61 +1899,61 @@
   {
     "objectID": "content/04-content.html",
     "href": "content/04-content.html",
-    "title": "Sampling and Probability",
+    "title": "Data Wrangling",
     "section": "",
-    "text": "We take a step back from R syntax to think carefully about how data is collected and what probability means. We use Monte Carlo simulation to build intuition about randomness, sampling, and the behaviour of statistics across repeated samples.",
+    "text": "We take a first step in using R for data engineering by finding out how to wrangle data into a suitable form for subsequent analysis. For this we use one of the core tidyverse packages dplyr, which contains a host of functions - or verbs - for data manipulation.",
     "crumbs": [
       "Content",
-      "Core Concepts",
-      "4: Sampling and probability"
+      "Foundations",
+      "4: R basics 3: Data wrangling"
     ]
   },
   {
     "objectID": "content/04-content.html#overview",
     "href": "content/04-content.html#overview",
-    "title": "Sampling and Probability",
+    "title": "Data Wrangling",
     "section": "",
-    "text": "We take a step back from R syntax to think carefully about how data is collected and what probability means. We use Monte Carlo simulation to build intuition about randomness, sampling, and the behaviour of statistics across repeated samples.",
+    "text": "We take a first step in using R for data engineering by finding out how to wrangle data into a suitable form for subsequent analysis. For this we use one of the core tidyverse packages dplyr, which contains a host of functions - or verbs - for data manipulation.",
     "crumbs": [
       "Content",
-      "Core Concepts",
-      "4: Sampling and probability"
+      "Foundations",
+      "4: R basics 3: Data wrangling"
     ]
   },
   {
     "objectID": "content/04-content.html#download",
     "href": "content/04-content.html#download",
-    "title": "Sampling and Probability",
+    "title": "Data Wrangling",
     "section": "Download",
     "text": "Download\n\nDownload and open the content project for this week:\n\n04-content.zip: Download this file, unzip it, and double-click on 04-content.Rproj to open it in RStudio.",
     "crumbs": [
       "Content",
-      "Core Concepts",
-      "4: Sampling and probability"
+      "Foundations",
+      "4: R basics 3: Data wrangling"
     ]
   },
   {
     "objectID": "content/04-content.html#readings",
     "href": "content/04-content.html#readings",
-    "title": "Sampling and Probability",
+    "title": "Data Wrangling",
     "section": "Readings",
-    "text": "Readings\n\n\n\n\n\n\nTipR for Non-Programmers\n\n\n\n\nChapter 9: Sources of bias: Sampling, outliers, normality and other conundrums",
+    "text": "Readings\n\n\n\n\n\n\nTipExploring Data Science with R\n\n\n\n\nChapter 2: Data Transformnation",
     "crumbs": [
       "Content",
-      "Core Concepts",
-      "4: Sampling and probability"
+      "Foundations",
+      "4: R basics 3: Data wrangling"
     ]
   },
   {
     "objectID": "content/04-content.html#slides",
     "href": "content/04-content.html#slides",
-    "title": "Sampling and Probability",
+    "title": "Data Wrangling",
     "section": "Slides",
-    "text": "Slides\n\n\n\n\n\n\nNote\n\n\n\nSlides for this session will appear here.",
+    "text": "Slides",
     "crumbs": [
       "Content",
-      "Core Concepts",
-      "4: Sampling and probability"
+      "Foundations",
+      "4: R basics 3: Data wrangling"
     ]
   },
   {
@@ -2216,39 +2237,18 @@
     "text": "The videos below are selected to support and extend the concepts covered in this week’s lesson and r4np reading. Watch them before or after working through the exercises."
   },
   {
-    "objectID": "example/04-example.html#monte-carlo-simulation",
-    "href": "example/04-example.html#monte-carlo-simulation",
+    "objectID": "example/04-example.html#the-5-verbs-of-dplyr-revisit",
+    "href": "example/04-example.html#the-5-verbs-of-dplyr-revisit",
     "title": "Sampling and Probability",
-    "section": "Monte Carlo simulation",
-    "text": "Monte Carlo simulation\nHow to use random sampling and repeated simulation to estimate probabilities — a powerful technique that underpins much of modern data science."
+    "section": "The 5 verbs of dplyr (revisit)",
+    "text": "The 5 verbs of dplyr (revisit)\nReturning to dplyr with more complex examples — grouped summaries, joins, and chained pipelines."
   },
   {
-    "objectID": "example/04-example.html#the-birthday-paradox",
-    "href": "example/04-example.html#the-birthday-paradox",
+    "objectID": "example/04-example.html#advanced-wrangling-tidy-billboard-100",
+    "href": "example/04-example.html#advanced-wrangling-tidy-billboard-100",
     "title": "Sampling and Probability",
-    "section": "The birthday paradox",
-    "text": "The birthday paradox\nA famous probability puzzle that demonstrates how our intuitions about chance can be surprisingly wrong."
-  },
-  {
-    "objectID": "example/04-example.html#simulating-pi",
-    "href": "example/04-example.html#simulating-pi",
-    "title": "Sampling and Probability",
-    "section": "Simulating pi",
-    "text": "Simulating pi\nHow Monte Carlo methods can be used to estimate the value of pi — a beautiful illustration of simulation in action."
-  },
-  {
-    "objectID": "example/04-example.html#binomial-distribution",
-    "href": "example/04-example.html#binomial-distribution",
-    "title": "Sampling and Probability",
-    "section": "Binomial distribution",
-    "text": "Binomial distribution\nAn explanation of the binomial distribution and when to use it to model discrete probability outcomes."
-  },
-  {
-    "objectID": "example/04-example.html#poisson-distribution",
-    "href": "example/04-example.html#poisson-distribution",
-    "title": "Sampling and Probability",
-    "section": "Poisson distribution",
-    "text": "Poisson distribution\nThe Poisson distribution and its use for modelling the number of events occurring in a fixed interval of time or space."
+    "section": "Advanced wrangling: tidy Billboard 100",
+    "text": "Advanced wrangling: tidy Billboard 100\nA worked example of advanced data wrangling using dplyr, stringr, and tidyr on Billboard chart data. See the full example linked below."
   },
   {
     "objectID": "example/06-example.html",
@@ -3032,8 +3032,8 @@
     "text": "The videos below are selected to support and extend the concepts covered this week. Watch them before or after working through the exercises.",
     "crumbs": [
       "Videos",
-      "Core concepts",
-      "4: Sampling and probability"
+      "Foundations",
+      "4: R basics 3: Data wrangling"
     ]
   },
   {
@@ -3044,8 +3044,8 @@
     "text": "Introduction to Probability\nA clear conceptual overview of probability — what it means, how it is calculated, and why it matters for data analysis.",
     "crumbs": [
       "Videos",
-      "Core concepts",
-      "4: Sampling and probability"
+      "Foundations",
+      "4: R basics 3: Data wrangling"
     ]
   },
   {
@@ -3056,8 +3056,8 @@
     "text": "Monte Carlo Simulation\nHow to use random sampling and repeated simulation to estimate probabilities — a powerful technique that underpins much of modern data science.",
     "crumbs": [
       "Videos",
-      "Core concepts",
-      "4: Sampling and probability"
+      "Foundations",
+      "4: R basics 3: Data wrangling"
     ]
   },
   {
