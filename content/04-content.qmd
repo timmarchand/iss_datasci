@@ -1,12 +1,12 @@
 ---
-title: "Sampling and Probability"
+title: "Data Wrangling"
 date: "2026-05-12"
 date_end: "2026-05-18"
 ---
 
 ## Overview
 
-We take a step back from R syntax to think carefully about how data is collected and what probability means. We use Monte Carlo simulation to build intuition about randomness, sampling, and the behaviour of statistics across repeated samples.
+We take a first step in using R for data engineering by finding out how to wrangle data into a suitable form for subsequent analysis. For this we use one of the core `tidyverse` packages `dplyr`, which contains a host of functions - or verbs - for data manipulation.
 
 ------------------------------------------------------------------------
 
@@ -21,8 +21,8 @@ We take a step back from R syntax to think carefully about how data is collected
 ## Readings
 
 ::: {.callout-tip}
-### R for Non-Programmers
-- [Chapter 9: Sources of bias: Sampling, outliers, normality and other conundrums](https://r4np.com/09_sources_of_bias.html){target="_blank"}
+### Exploring Data Science with R
+- [Chapter 2: Data Transformnation](https://ds4world.cs.miami.edu/data-transformation){target="_blank"}
 :::
 
 
@@ -30,10 +30,6 @@ We take a step back from R syntax to think carefully about how data is collected
 
 ## Slides
 
-::: {.callout-note}
-Slides for this session will appear here.
-:::
-
 ::: {.ratio .ratio-16x9}
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSxCVVFWKeTVnZ-1k3AZRbaFw8GK9FoNJU6H7s6Zm-BPOKVEYT-7rte39D3EWT6Q79Fq3Jety-0BgwF/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTz99ttwBSxgZDnMiceedLsiwjunSRApULOBbdgu0uimhv0oimSrGQiz5x1Zsmz0czblFy_kbLe-ohe/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="1707" height="989" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 :::

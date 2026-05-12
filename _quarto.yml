@@ -75,10 +75,10 @@ website:
               file: content/02-content.qmd
             - text: "3: R basics 2 — Data visualisation"
               file: content/03-content.qmd
+            - text: "4: R basics 3: Data wrangling"
+              file: content/04-content.qmd
         - section: "Core Concepts"
           contents:
-            - text: "4: Sampling and probability"
-              file: content/04-content.qmd
             - text: "5: Visualising probability"
               file: content/05-content.qmd
             - text: "6: Manipulating data 1 — Data project intro"
@@ -115,10 +115,10 @@ website:
               file: lesson/02-lesson.qmd
             - text: "3: R basics 2 — Data visualisation"
               file: lesson/03-lesson.qmd
+            - text: "4: R basics 3: Data wrangling"
+              file: lesson/04-lesson.qmd
         - section: "Core concepts"
           contents:
-            - text: "4: Sampling and probability"
-              file: lesson/04-lesson.qmd
             - text: "5: Visualising probability"
               file: lesson/05-lesson.qmd
             - text: "6: Manipulating data 1 — Data project intro"
@@ -167,10 +167,10 @@ website:
               file: video/02-video.qmd
             - text: "3: R basics 2 — Data visualisation"
               file: video/03-video.qmd
+            - text: "4: R basics 3: Data wrangling"
+              file: video/04-video.qmd
         - section: "Core concepts"
           contents:
-            - text: "4: Sampling and probability"
-              file: video/04-video.qmd
             - text: "5: Visualising probability"
               file: video/05-video.qmd
             - text: "6: Manipulating data 1 — Data project intro"
@@ -205,7 +205,7 @@ website:
               file: assignment/02-exercise.qmd
             - text: "3: R basics 2"
               file: assignment/03-exercise.qmd
-            - text: "4: Sampling and probability"
+            - text: "4: R basics 3"
               file: assignment/04-exercise.qmd
             - text: "5: Visualising probability"
               file: assignment/05-exercise.qmd

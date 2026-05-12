@@ -8,21 +8,52 @@ The videos below are selected to support and extend the concepts covered in [thi
 
 ---
 
-## The 5 verbs of dplyr (revisit)
 
-Returning to dplyr with more complex examples — grouped summaries, joins, and chained pipelines.
+## Monte Carlo simulation
+
+How to use random sampling and repeated simulation to estimate probabilities — a powerful technique that underpins much of modern data science.
 
 ::: {.ratio .ratio-16x9}
-<iframe src="https://www.youtube-nocookie.com/embed/sVISY_27znA" title="The 5 verbs of dplyr (revisit)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/7ESK5SaP-bc" title="Monte Carlo simulation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 :::
 
 ---
 
-## Advanced wrangling: tidy Billboard 100
+## The birthday paradox
 
-A worked example of advanced data wrangling using dplyr, stringr, and tidyr on Billboard chart data. See the full example linked below.
+A famous probability puzzle that demonstrates how our intuitions about chance can be surprisingly wrong.
 
 ::: {.ratio .ratio-16x9}
-<iframe src="https://www.youtube-nocookie.com/embed/bArPxj5xhso" title="Advanced wrangling: tidy Billboard 100" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/KtT_cgMzHx8" title="The birthday paradox" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## Simulating pi
+
+How Monte Carlo methods can be used to estimate the value of pi — a beautiful illustration of simulation in action.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/g06ecTJGY7U" title="Simulating pi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## Binomial distribution
+
+An explanation of the binomial distribution and when to use it to model discrete probability outcomes.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/e04_wUoscBU" title="Binomial distribution" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::
+
+---
+
+## Poisson distribution
+
+The Poisson distribution and its use for modelling the number of events occurring in a fixed interval of time or space.
+
+::: {.ratio .ratio-16x9}
+<iframe src="https://www.youtube-nocookie.com/embed/cPOChr_kuQs" title="Poisson distribution" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 :::
 
