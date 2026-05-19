@@ -1,0 +1,789 @@
+---
+title: "Monte Carlo Simulation & Descriptive Statistics"
+format: html
+editor: source
+---
+
+## Overview
+
+This lesson covers three connected topics:
+
+1. **Sampling and Monte Carlo simulation** — using `sample()`, `replicate()`, and custom functions to simulate dice rolls and explore the Central Limit Theorem
+2. **Descriptive statistics** — exploring a real class height dataset alongside official Japanese survey data
+3. **Classic Monte Carlo examples** — estimating π and simulating the Birthday Paradox
+
+---
+
+## Setup
+
+```{r load-packages}
+#| message: false
+pacman::p_load(tidyverse, gridExtra,skimr, modelsummary)
+```
+
+```{r load-data}
+#| message: false
+# Japanese height survey data
+jpn_ht <- read_csv("https://tinyurl.com/iss-jpn-height-web")
+
+# Class questionnaire data — live Google Sheet export
+dat <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQul_g9GtsSj-30sQ2hOE_rixxy8gH6AdhawcT5AoRJodJdGZnBgqtwgDAmfab0CJ1AjmFCrKmVw5MA/pub?gid=1799592268&single=true&output=csv")
+```
+
+```{r rename-columns}
+# Rename to something manageable
+names(dat) <- c("completed", "height", "month", "date", "visit1",
+                ">14", "n_africa1", "visit2", "<96", "n_africa2", "iss_datasci")
+```
+
+```{r wrangle-data}
+#| message: false
+# Merge split columns, derive birthday parity, convert logicals, tidy selection
+dat <- dat |>
+  mutate(visit      = coalesce(visit1, visit2),
+         n_africa   = coalesce(n_africa1, n_africa2),
+         birthday   = ifelse(is.na(visit1), "even", "odd"),
+         iss_datasci = iss_datasci == "Yes") |>
+  select(completed, iss_datasci, height, month, date, birthday, visit, n_africa)
+
+# Convert month names to numbers
+dat <- dat |>
+  mutate(month = match(month, month.name))
+```
+
+::: {.callout-tip}
+## Challenge — explore the dataframe
+- What are the three ways to call `View()`?
+- What is another function (not `View()`) that gives you a quick look at a dataframe?
+:::
+
+```{r save-data}
+#| eval: false
+# Save both datasets locally — only needs to run once
+# After this, you can read from data/ instead of the web
+write_csv(jpn_ht, "data/jpn_ht.csv")
+write_csv(dat,    "data/africa_guess.csv")
+```
+
+---
+
+## Part 1 — Sampling and replicating
+
+Monte Carlo simulation (also called bootstrapping) uses repeated random sampling
+to explore probability. It is the conceptual foundation of many machine learning methods.
+
+### 1.1 `sample()` basics
+
+```{r sample-names}
+# Change these to match the actual class members!
+names <- c("member_1", "member_2", "member_3", "member_4")
+
+# Pick two names without replacement
+sample(names, size = 2, replace = FALSE)
+
+# Pick five with replacement (same name can come up more than once)
+sample(names, size = 5, replace = TRUE)
+```
+
+::: {.callout-note}
+## Question
+Results will differ each time because sampling is random. How do we make random
+results reproducible? What does `set.seed()` actually do?
+:::
+
+```{r sample-set-seed}
+set.seed(111)
+sample(names, size = 2, replace = FALSE)
+sample(names, size = 5, replace = TRUE)
+```
+
+### 1.2 Simulating dice
+
+```{r dice-single}
+# Rolling one die
+sample(1:6, 1)
+
+# Rolling two dice
+sample(1:6, size = 2, replace = TRUE)
+```
+
+::: {.callout-note}
+## Question
+Why do we need `replace = TRUE` when rolling two dice, but not when picking
+two names from a list?
+:::
+
+```{r dice-sum}
+# Save the roll and sum it
+roll <- sample(1:6, size = 2, replace = TRUE)
+roll
+sum(roll)
+
+# Same in one line
+sum(sample(1:6, size = 2, replace = TRUE))
+```
+
+### 1.3 Functions and `replicate()`
+
+```{r two-dice-function}
+# A function that rolls two dice and returns their sum
+two_dice <- function() {
+  roll <- sample(1:6, size = 2, replace = TRUE)
+  return(sum(roll))
+}
+two_dice()
+```
+
+```{r replicate-intro}
+#| eval: false
+# replicate() runs a function n times and returns the results as a vector
+# Here we use getwd() as a harmless example
+replicate(n = 3, getwd())
+```
+
+::: {.callout-note}
+## Question
+`replicate()` is shown here with `getwd()` as a safe demonstration.
+What does `getwd()` return, and why is it a useful choice for illustrating `replicate()`?
+:::
+
+```{r replicate-dice}
+# Roll two dice four times
+replicate(n = 4, two_dice())
+
+# Save as a vector and summarise
+scores <- replicate(n = 4, two_dice())
+scores
+
+mean(scores)
+median(scores)
+range(scores)   # lowest and highest values
+table(scores)   # frequency table
+sd(scores)
+hist(scores)    # quick base-R histogram
+```
+
+::: {.callout-tip}
+## DIY 1
+Change the `n` value below and observe how the histogram changes.
+What trend do you notice as `n` gets larger?
+:::
+
+```{r diy-replicate}
+#| eval: false
+scores <- replicate(n = ____, two_dice())
+hist(scores)
+```
+
+---
+
+## Part 2 — Plotting simulations
+
+### 2.1 Why ggplot needs a dataframe
+
+```{r ggplot-error}
+#| eval: false
+# This errors because ggplot expects a dataframe, not a vector
+ggplot(data = scores, aes(x = scores)) +
+  geom_histogram()
+```
+
+::: {.callout-note}
+## Question
+What is the exact error message produced above, and what does it tell you
+about how ggplot works differently from base-R `hist()`?
+:::
+
+```{r scores-as-df}
+# Wrap scores in a tibble alongside names to use with ggplot
+scores <- replicate(n = 4, two_dice())
+df <- tibble(name  = names,
+             score = scores)
+
+# Histogram
+ggplot(df, aes(x = score)) +
+  geom_histogram(binwidth = 1, colour = "white") +
+  scale_x_continuous(breaks = 0:12, limits = c(1, 12))
+
+# Bar chart — one bar per person
+ggplot(df, aes(x = name, y = score)) +
+  geom_col() +
+  scale_y_continuous(breaks = 0:12, limits = c(0, 12))
+```
+
+### 2.2 A simulation function
+
+```{r test-2-dice-function}
+# Wraps replicate() and two_dice() into a single function that returns a df
+test_2_dice <- function(n) {
+  tibble(roll  = 1:n,
+         score = replicate(n, two_dice()))
+}
+
+t_5    <- test_2_dice(5)
+t_50   <- test_2_dice(50)
+t_5000 <- test_2_dice(5000)
+
+mean(t_5$score)
+mean(t_50$score)
+mean(t_5000$score)
+
+median(t_5$score)
+median(t_50$score)
+median(t_5000$score)
+```
+
+::: {.callout-note}
+## Question
+As `n` increases, what happens to the mean and median? What statistical principle
+does this illustrate?
+:::
+
+```{r pipe-into-ggplot}
+# Because test_2_dice() returns a df, you can pipe straight into ggplot
+test_2_dice(20) |>
+  ggplot() +
+  aes(x = score) +
+  geom_histogram(binwidth = 1, colour = "white")
+```
+
+::: {.callout-note}
+## Question
+The original script uses `%>%` here rather than `|>`. What is the difference
+between the two pipe operators? Does it matter here?
+:::
+
+### 2.3 A plotting function
+
+```{r plot-2-dice-function}
+plot_2_dice <- function(n) {
+  test <- tibble(throw = 1:n,
+                 score = replicate(n, two_dice()))
+  ggplot(test) +
+    aes(x = score) +
+    geom_histogram(binwidth = 1L, fill = "#0c4c8a", colour = "white") +
+    scale_x_continuous(breaks = 0:12, limits = c(0, 14)) +
+    ggtitle(paste("Histogram after", n, "rolls")) +
+    theme_minimal()
+}
+```
+
+::: {.callout-tip}
+## DIY
+Call `plot_2_dice()` with different values of `n`. What trend do you notice
+as `n` increases? What shape does the distribution approach?
+:::
+
+```{r plot-2-dice-diy}
+#| eval: false
+plot_2_dice(____)
+```
+
+### 2.4 Comparing with the normal distribution
+
+```{r norm-2-dice-function}
+norm_2_dice <- function(n) {
+  test <- tibble(throw = 1:n,
+                 score = replicate(n, two_dice()))
+
+  # Histogram
+  p1 <- ggplot(test) +
+    aes(x = score) +
+    geom_histogram(binwidth = 1L, fill = "#0c4c8a", colour = "white") +
+    scale_x_continuous(breaks = 0:12, limits = c(0, 14)) +
+    ggtitle(paste("Histogram after", n, "rolls")) +
+    theme_minimal()
+
+  # Density plot overlaid with a theoretical normal distribution
+  p2 <- ggplot(test) +
+    aes(x = score) +
+    geom_density(fill = "#0c4c8a", alpha = 0.5,
+                 adjust = logb(n, 50)) +  # bandwidth scales with sample size
+    scale_x_continuous(breaks = 0:12, limits = c(0, 14)) +
+    ggtitle("Density plot vs Normal distribution") +
+    theme_minimal() +
+    stat_function(colour = "red",
+                  fun = dnorm,
+                  args = list(mean = mean(test$score), sd = sd(test$score)))
+
+  grid.arrange(p1, p2, nrow = 1)
+}
+```
+
+::: {.callout-note}
+## Questions
+- What does `adjust = logb(n, 50)` do to the density bandwidth? Why scale it with `n`?
+- What does `stat_function()` add to the plot? What arguments does `dnorm` need?
+:::
+
+```{r norm-2-dice-demo}
+norm_2_dice(10)
+```
+
+```{r norm-2-dice-map}
+# Run norm_2_dice() for several values of n and stack the results
+rolls <- as.list(c(5, 50, 500, 5000, 50000))
+plots <- map(rolls, ~ norm_2_dice(.x))
+do.call(grid.arrange, c(plots, list(ncol = 1)))
+```
+
+::: {.callout-note}
+## Questions
+- What does `map()` do here? Why does `rolls` need to be a list?
+- What does `do.call(grid.arrange, ...)` do? Why can't you just call `grid.arrange(plots)`?
+- What pattern do you see across the five plots as `n` grows?
+:::
+
+---
+
+## Part 3 — Exploring the class height data
+
+### 3.1 Subsetting and summary statistics
+
+```{r subset-data}
+df_all   <- dat
+df_class <- dat |> filter(iss_datasci)  # only this class's responses
+```
+
+```{r summary-dollar}
+# Extracting a column as a vector using $
+df_class$height
+mean(df_class$height)
+median(df_class$height)
+max(df_class$height)
+min(df_class$height)
+var(df_class$height)
+sd(df_class$height)
+IQR(df_class$height)
+```
+
+```{r summary-attach}
+# attach() lets you refer to columns by name without the df$ prefix
+# Useful for exploratory work on a single df — but always detach() afterwards!
+attach(df_class)
+
+mean(height)
+median(height)
+max(height)
+min(height)
+var(height)
+sd(height)
+IQR(height)
+
+detach(df_class)
+```
+
+::: {.callout-note}
+## Question
+What are the risks of using `attach()`? Why is it important to call `detach()` when finished?
+:::
+
+```{r height-summary-df}
+attach(df_class)
+
+class_height_summary <- tibble(
+  mean   = mean(height),
+  median = median(height),
+  max    = max(height),
+  min    = min(height),
+  var    = var(height),
+  sd     = sd(height),
+  IQR    = IQR(height)
+)
+class_height_summary
+
+detach(df_class)
+```
+You can also use a base R function to get a `summary` of your data:
+
+```{r summary-base}
+summary(df_class)
+```
+
+::: {.callout-note}
+## Going further — richer summaries
+Base R's `summary()` is a good starting point, but specialist packages give you
+more detail and better formatting. Try these two alternatives and compare what
+each adds.
+:::
+
+```{r summary-skimr}
+#| eval: false
+# install if needed: install.packages("skimr")
+skimr::skim(df_class)
+```
+
+```{r summary-modelsummary}
+#| eval: false
+# install if needed: install.packages("modelsummary")
+modelsummary::datasummary_skim(df_class)
+```
+
+### 3.2 Frequency tables
+
+```{r frequency-tables}
+attach(df_class)
+
+# Raw frequency count — note the alphabetical default ordering
+table(month)
+
+# Better: make month a factor with meaningful level order
+table(factor(month, levels = month.name))
+
+# Proportions — note: prop.table() needs a table object, not a raw factor
+round(prop.table(table(month)), 2)
+
+detach(df_class)
+```
+
+::: {.callout-note}
+## Questions
+- Why does `prop.table(month)` produce an error but `prop.table(table(month))` works?
+- The comment says functions "work from the centre out, like in Excel" — what does this mean?
+:::
+
+::: {.callout-tip}
+## Challenge
+Repeat the summary statistics and frequency table exploration above using `df_all`
+instead of `df_class`. Do you notice anything odd?
+:::
+
+---
+
+### 3.3 Visualising height — class data
+
+```{r boxplot-class}
+ggplot(df_class) +
+  aes(x = "", y = height, fill = birthday) +
+  geom_boxplot() +
+  scale_fill_hue() +
+  labs(x = "Birthday", y = "Height in cm",
+       title = paste("Boxplot of height by odd/even birthday —",
+                     nrow(df_class), "responses")) +
+  theme_minimal()
+```
+
+::: {.callout-note}
+## Question
+The title shows the sample size. Is `n` large enough to draw a reliable conclusion
+about whether birthday parity is related to height?
+:::
+
+```{r density-class-combined}
+ggplot(df_class) +
+  aes(x = height) +
+  geom_density(adjust = 0.5, fill = "#0c4c8a") +
+  labs(x = "Height in cm", y = "Probability Density",
+       title = paste("Density plot of class height, n =", nrow(df_class))) +
+  theme_minimal()
+```
+
+::: {.callout-note}
+## Question
+The density plot looks bimodal (two peaks). What might explain this shape
+in a class of university students?
+:::
+
+```{r density-class-by-birthday}
+ggplot(df_class) +
+  aes(x = height, fill = birthday) +
+  geom_density(adjust = 0.5, alpha = 0.5) +
+  geom_rug(aes(colour = birthday)) +
+  labs(x = "Height in cm", y = "Probability Density",
+       title = paste("Density plot by birthday parity, n =", nrow(df_class))) +
+  theme_minimal()
+```
+
+::: {.callout-note}
+## Question
+What does `geom_rug()` add? When is it useful compared to just using the density curve?
+:::
+
+### 3.4 Visualising height — full dataset and outlier removal
+
+```{r density-all-combined}
+ggplot(df_all) +
+  aes(x = height) +
+  geom_density(adjust = 1, fill = "#0c4c8a") +
+  labs(x = "Height in cm", y = "Probability Density",
+       title = paste("Density plot of all responses, n =", nrow(df_all))) +
+  theme_minimal()
+```
+
+```{r density-all-by-birthday}
+ggplot(df_all) +
+  aes(x = height, fill = birthday) +
+  geom_density(adjust = 1, alpha = 0.5) +
+  geom_rug(aes(colour = birthday)) +
+  labs(x = "Height in cm", y = "Probability Density",
+       title = paste("Height by birthday parity — all responses, n =", nrow(df_all))) +
+  theme_minimal()
+```
+
+```{r boxplot-all-with-outlier}
+ggplot(df_all) +
+  aes(x = "", y = height, fill = birthday) +
+  geom_boxplot() +
+  scale_fill_hue() +
+  labs(x = "Birthday", y = "Height in cm",
+       title = paste("Boxplot — all responses, n =", nrow(df_all))) +
+  theme_minimal()
+```
+
+::: {.callout-note}
+## Question
+An outlier is clearly visible. What is likely the cause? Is it always appropriate
+to remove outliers — what factors should you consider before doing so?
+:::
+
+```{r remove-outlier}
+# tidyverse approach
+df_all <- df_all |> filter(height > 7)
+
+# Equivalent base-R approach (shown for comparison)
+# df_all <- df_all[df_all$height > 7, ]
+```
+
+```{r boxplot-all-clean}
+ggplot(df_all) +
+  aes(x = "", y = height, fill = birthday) +
+  geom_boxplot() +
+  scale_fill_hue() +
+  labs(x = "Birthday date", y = "Height in cm",
+       title = "Boxplot of height by odd/even birthday") +
+  theme_minimal()
+```
+
+```{r density-all-clean}
+ggplot(df_all) +
+  aes(x = height, fill = birthday) +
+  geom_density(adjust = 1, alpha = 0.5) +
+  geom_rug(aes(colour = birthday)) +
+  labs(x = "Height in cm", y = "Probability Density",
+       title = "Are heights related to birthday dates?",
+       fill = "birthday date") +
+  theme_minimal()
+```
+
+::: {.callout-note}
+## Question
+After removing the outlier, the two groups overlap considerably. What does
+this suggest about the relationship between birthday parity and height?
+:::
+
+### 3.5 Comparing with official Japanese height data
+
+```{r jpn-glimpse}
+#| eval: false
+# The commented-out block below shows how jpn_ht was originally generated —
+# shown for transparency, not for running. The data is already available via the URL.
+
+# m_norm  <- round(rnorm(n = 1708, mean = 172,   sd = 5.42), 1)
+# f_norm  <- round(rnorm(n = 1559, mean = 158.7, sd = 5.3),  1)
+# jpn_ht  <- tibble(id     = sample(1:3267, 3267, replace = FALSE),
+#                   sex    = c(rep("male", 1708), rep("female", 1559)),
+#                   height = c(m_norm, f_norm)) |>
+#   arrange(id)
+# write_csv(jpn_ht, "data/jpn_height_survey.csv")
+```
+
+```{r jpn-glimpse-live}
+glimpse(jpn_ht)
+```
+
+```{r jpn-density-combined}
+p1 <- ggplot(jpn_ht) +
+  aes(x = height) +
+  geom_density(adjust = 1, fill = "steelblue") +
+  labs(x = "Height in cm", y = "Probability Density",
+       title = paste("Density plot of heights in Japan, n =", nrow(jpn_ht))) +
+  theme_minimal()
+p1
+```
+
+::: {.callout-note}
+## Question
+The plot looks bimodal. Before looking at the next plot, what variable do you
+think is driving the two peaks?
+:::
+
+```{r jpn-density-by-sex}
+p2 <- ggplot(jpn_ht) +
+  aes(x = height, fill = sex) +
+  geom_density(adjust = 1L, alpha = 0.5) +
+  labs(x = "Height in cm", y = "Probability Density") +
+  scale_fill_hue() +
+  theme(legend.position = "bottom")
+p2
+
+gridExtra::grid.arrange(p1, p2)
+```
+
+```{r jpn-boxplot}
+ggplot(jpn_ht) +
+  aes(x = "", y = height, fill = sex) +
+  geom_boxplot() +
+  scale_fill_hue() +
+  labs(y = "Height in cm", title = "Boxplot of heights in Japan") +
+  theme(axis.title.x = element_blank())
+```
+
+::: {.callout-note}
+## Question
+With ~3,000 data points, we feel confident that male and female heights
+form two distinct populations even without running a formal statistical test.
+Why does a larger sample give us more confidence? What test might you use
+to confirm this formally?
+:::
+
+```{r compare-means}
+compare_heights <- tibble(
+  class_average  = mean(df_class$height),
+  survey_average = mean(df_all$height),
+  jpn_average    = mean(jpn_ht$height)
+)
+compare_heights
+```
+
+::: {.callout-note}
+## Question
+Did the larger all-respondents sample do a better job of matching the
+Japanese population average than the class-only sample? What does this
+suggest about sample size and representativeness?
+:::
+
+---
+
+## Part 4 — Further Monte Carlo examples
+
+### 4.1 Estimating π
+
+The area of a unit circle is π. If we scatter random points uniformly inside a
+2×2 square and count how many fall within the unit circle, the ratio gives us an
+estimate of π/4.
+
+```{r pi-estimate}
+set.seed(314)
+n <- 1000000
+
+x <- runif(n, min = -1, max = 1)
+y <- runif(n, min = -1, max = 1)
+z <- sqrt(x^2 + y^2)   # distance from origin
+
+# Estimate π: 4 × (proportion of points inside the circle)
+4 * sum(z <= 1) / length(z)
+```
+
+```{r pi-plot}
+#| warning: false
+InOut <- as.factor(ifelse(z <= 1, "In", "Out"))
+plot(x, y, col = InOut, main = "Estimating π with Monte Carlo", pch = ".")
+```
+
+::: {.callout-note}
+## Questions
+- Why does the formula `4 × sum(z <= 1) / n` give an estimate of π?
+- How accurate is the estimate? What happens to accuracy as `n` increases?
+- Why do we use `runif()` here rather than `rnorm()`?
+:::
+
+### 4.2 The Birthday Paradox
+
+::: {.callout-note}
+## Background
+In a group of just 23 people, the probability that at least two share a birthday
+is over 50% — much higher than most people's intuition suggests. R has a built-in
+function to compute this mathematically, and we can verify it with simulation.
+:::
+
+```{r birthday-builtin}
+# R's built-in mathematical solution
+pbirthday(n = 23,  coincident = 2)
+pbirthday(n = 100, coincident = 2)
+```
+
+::: {.callout-note}
+## Question
+`pbirthday(n = 23)` returns ~0.507. Does that match your intuition?
+Why do you think people tend to underestimate this probability?
+:::
+
+```{r birthday-simulation}
+#| message: false
+# Monte Carlo approach: simulate 10,000 trials for each group size
+people <- seq(2, 100, 2)   # group sizes: even numbers from 2 to 100
+trial  <- 1:10000
+
+# Cross every group size with every trial number
+trials <- crossing(trial, people)
+
+# For each row: generate random birthdays and check for duplicates
+chance_summary <- trials |>
+  mutate(
+    birthday = map(people, ~ sample(365, ., replace = TRUE)),
+    multiple = map_lgl(birthday, ~ any(duplicated(.)))
+  ) |>
+  group_by(people) |>
+  summarise(chance = mean(multiple))
+```
+
+::: {.callout-note}
+## Questions
+- What does `crossing()` produce? Why do we need every combination of trial and group size?
+- What does `map_lgl()` do differently from `map()`?
+- Why does `sample(365, ., replace = TRUE)` use `replace = TRUE`?
+:::
+
+```{r birthday-plot}
+ggplot(chance_summary, aes(people, chance)) +
+  geom_line() +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(x = "Group size",
+       y = "Probability two people share a birthday") +
+  theme_minimal()
+```
+
+```{r birthday-compare}
+# Compare simulated probabilities with the mathematical formula
+probs <- tibble(
+  people     = people,
+  math       = map_dbl(people, stats::pbirthday),
+  sim        = chance_summary$chance,
+  difference = math - sim
+)
+
+# Simulated curve
+p <- probs |>
+  ggplot(aes(people, sim)) +
+  geom_line() +
+  theme_minimal()
+p
+
+# Overlay the mathematical curve in red
+p + geom_line(aes(y = math, colour = "mathematical"))
+```
+
+```{r birthday-difference}
+# How close was the simulation to the maths?
+probs |>
+  ggplot(aes(people, difference)) +
+  geom_point() +
+  geom_smooth() +
+  labs(x = "Group size", y = "Math − Simulation",
+       title = "Difference between mathematical and simulated probabilities") +
+  theme_minimal()
+```
+
+::: {.callout-note}
+## Questions
+- How close does the simulation come to the mathematical result?
+- Where is the difference largest, and why might that be?
+- How would you reduce the difference further?
+:::
+
+---
+
+## Further reading
+
+- Descriptive statistics in R, including advanced summary functions:
+  <https://www.statsandr.com/blog/descriptive-statistics-in-r/#advanced-descriptive-statistics>
