@@ -1,0 +1,1017 @@
+---
+title: "Associations Between Variables"
+format:
+  html:
+    toc: true
+    embed-resources: true
+    code-tools: true
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## Overview
+
+This lesson covers four types of variable association, each with its own
+visualisation approach, statistical test, and regression framing:
+
+| Predictor type | Outcome type | Test family | Plot |
+|----|----|----|----|
+| Categorical (2 groups) | Continuous | t-test | Boxplot |
+| Categorical (3+ groups) | Continuous | ANOVA | Boxplot / histogram |
+| Categorical | Categorical | Chi-squared | Bar / mosaic |
+| Continuous | Continuous | Correlation / regression | Scatter |
+
+::: callout-note
+**All of these can be unified under the linear model framework using
+`lm()`**.
+:::
+
+------------------------------------------------------------------------
+
+## Setup
+
+```{r load-packages}
+#| message: false
+# install.packages("pak")  # uncomment and run once if pak is not installed
+pacman::p_load(
+  tidyverse,
+  ggpubr,        # stat_compare_means() and stat_cor() for annotating plots
+  infer,         # tidy statistical tests on dataframes
+  vcd,           # chi-squared residual shading in mosaic plots
+  broom,         # tidy() to convert test output into dataframes
+  moderndive,    # readable regression tables: get_regression_*()
+  marginaleffects, # modern effects plots, replacing sjPlot
+  gapminder,      # gapminder dataset
+  pak        # to load ggmosaic
+)
+
+# ggmosaic is not on CRAN — install from GitHub once, then load normally
+pak::pak("haleyjeppson/ggmosaic")
+library(ggmosaic)
+```
+
+```{r load-data}
+#| message: false
+# Load from local file if available — otherwise fall back to the web
+if (file.exists("data/random_qs.csv")) {
+  dat <- read_csv("data/random_qs.csv")
+} else {
+  dat <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQul_g9GtsSj-30sQ2hOE_rixxy8gH6AdhawcT5AoRJodJdGZnBgqtwgDAmfab0CJ1AjmFCrKmVw5MA/pub?gid=1799592268&single=true&output=csv")
+
+  dat <- dat |>
+    set_names(c("timestamp", "height", "month", "date", "visit1", ">14",
+                "guess1", "visit2", "<96", "guess2", "data_sci")) |>
+    mutate(
+      visit        = coalesce(visit1, visit2),
+      visit        = str_detect(visit, "Yes"),
+      guess        = coalesce(guess1, guess2),
+      data_sci     = str_detect(data_sci, "Yes"),
+      timestamp    = lubridate::mdy_hms(timestamp),
+      date         = parse_number(date),
+      odd          = date %% 2 == 1
+    ) |>
+    unite("birthday", c(month, date), sep = " ") |>
+    mutate(birthday_24 = str_c(birthday, " 2024") |> lubridate::mdy()) |>
+    select(timestamp, height, birthday, visit, guess, data_sci, odd, birthday_24)
+
+  write_csv(dat, "data/random_qs.csv")
+}
+```
+
+```{r load-resume}
+#| message: false
+resume <- read_csv("https://tinyurl.com/iss-racial-disc-web")
+```
+
+```{r load-gapminder}
+gapminder <- gapminder::gapminder
+```
+
+### Checking and cleaning the height data
+
+Before any analysis, it is good practice to check for anomalies in the
+data. The `arrange()` call below sorts by height ascending so that any
+suspicious values appear at the top.
+
+```{r check-height}
+dat |> arrange(height)
+```
+
+::: callout-note
+## Question
+
+What looks wrong with the height data? What are two plausible
+explanations for the anomalous value(s)?
+:::
+
+There are two reasonable strategies for dealing with the problem:
+
+```{r height-fix-options}
+#| eval: false
+# Option A: simply filter out anything implausibly small
+dat |>
+  filter(height > 7) |>
+  arrange(height)
+
+# Option B: assume values under 100 are in metres and convert,
+# then replace anything still implausible with NA
+dat |>
+  mutate(height = ifelse(height < 100, height * 100, height)) |>
+  mutate(height = na_if(height, height > 200))
+```
+
+We use Option B to preserve as many observations as possible, saving the
+result as a new working dataframe `df`.
+
+```{r create-df}
+df <- dat |>
+  mutate(height = ifelse(height < 100, height * 100, height)) |>
+  mutate(height = na_if(height, 700))
+```
+
+------------------------------------------------------------------------
+
+## Part 1 — Continuous \~ categorical: birthday parity and Africa guess
+
+The first question is whether people born on an odd-numbered date give
+different guesses for the number of countries in Africa compared with
+those born on an even-numbered date. This is a classic two-group
+comparison: one continuous outcome variable (`guess`) and one binary
+categorical predictor (`odd`).
+
+### Visualisation
+
+A boxplot is the natural first step — it shows the median, spread, and
+any outliers for each group side by side.
+
+```{r boxplot-guess-odd}
+ggplot(df) +
+  aes(x = "", y = guess, fill = odd) +
+  geom_boxplot() +
+  scale_fill_hue() +
+  labs(x = "Birthday date",
+       y = "Guess: number of countries in Africa",
+       title = "Africa guess by odd/even birthday") +
+  theme_minimal() +
+  ggpubr::stat_compare_means(method = "t.test")  # use label.x and label.y to control label placement
+```
+
+::: callout-note
+## Questions
+
+-   Do the plots suggest a difference between the two groups?
+-   `stat_compare_means()` adds the test result directly to the plot.
+    What does the p-value tell you here?
+:::
+
+### t-test
+
+The t-test asks whether the difference in means between two groups is
+larger than would be expected by chance. The base-R `t.test()` works on
+vectors, so we first split the dataframe into two groups and extract the
+relevant column.
+
+```{r t-test-split}
+df_odd  <- df |> filter(odd)
+df_even <- df |> filter(!odd)
+```
+
+```{r t-test-base}
+t.test(df_even$guess, df_odd$guess)
+```
+
+The output gives us the mean for each group and a 95% confidence
+interval for the difference. If that interval crosses zero, we cannot
+rule out that there is no real difference. We can pipe the result into
+`broom::tidy()` for a cleaner single-row table.
+
+```{r t-test-tidy}
+t.test(df_even$guess, df_odd$guess) |>
+  broom::tidy()
+```
+
+The columns mean:
+
+-   `estimate` — difference in means between the two groups
+-   `estimate1` / `estimate2` — mean of group 1 and group 2 respectively
+-   `statistic` — the t-score
+-   `parameter` — degrees of freedom
+-   `conf.low` / `conf.high` — bounds of the 95% confidence interval
+
+The `infer` package lets us run the same test directly on the dataframe
+without splitting it first, using a formula interface that matches
+`lm()`.
+
+```{r t-test-infer}
+df |>
+  infer::t_test(formula = guess ~ odd)
+```
+
+### Regression framing
+
+Any t-test result can be reproduced exactly using a linear regression
+model. This matters because `lm()` generalises to many more situations
+than `t.test()` does.
+
+```{r lm-guess-odd}
+cat_model <- lm(guess ~ odd, data = df)
+summary(cat_model)
+```
+
+```{r lm-guess-odd-moderndive}
+get_regression_summaries(cat_model)
+get_regression_table(cat_model)
+```
+
+The regression table tells us:
+
+-   `(Intercept)` estimate — predicted value for the base category (even
+    birthdays), equivalent to the group mean
+-   `oddTRUE` estimate — predicted *change* when moving from even to odd
+-   `statistic` — t-value (identical to the t-test above)
+-   `lower_ci` / `upper_ci` — 95% confidence interval around each
+    estimate
+
+```{r lm-guess-odd-points}
+get_regression_points(cat_model)
+```
+
+`guess_hat` shows the model's predicted value for each observation (the
+group mean), and `residual` shows how far the actual response was from
+that prediction.
+
+------------------------------------------------------------------------
+
+## Part 2 — Continuous \~ multi-categorical: continent and life expectancy
+
+When the categorical predictor has more than two levels, we move from a
+t-test to an ANOVA (Analysis of Variance). The logic is the same — we
+are asking whether group means differ more than chance would predict —
+but now we are comparing several groups simultaneously.
+
+```{r gapminder-2007}
+gapminder2007 <- gapminder |>
+  filter(year == 2007) |>
+  select(country, lifeExp, continent, gdpPercap)
+
+glimpse(gapminder2007)
+```
+
+### Visualisation
+
+```{r histogram-lifeexp-continent}
+ggplot(gapminder2007, aes(x = lifeExp)) +
+  geom_histogram(binwidth = 5, color = "white") +
+  labs(x = "Life expectancy",
+       y = "Number of countries",
+       title = "Distribution of life expectancies by continent (2007)") +
+  facet_wrap(~continent, nrow = 2)
+```
+
+```{r boxplot-lifeexp-continent}
+ggplot(gapminder2007, aes(x = continent, y = lifeExp)) +
+  geom_boxplot() +
+  labs(x = "Continent", y = "Life expectancy",
+       title = "Life expectancy by continent (2007)") +
+  ggpubr::stat_compare_means(method = "anova") +
+  theme_minimal()
+```
+
+::: callout-note
+## Question
+
+The ANOVA p-value tells you whether *any* group differs from the others
+— but not *which* groups differ. What follow-up test would you use to
+find out?
+:::
+
+```{r summary-lifeexp-continent}
+lifeExp_by_continent <- gapminder2007 |>
+  group_by(continent) |>
+  summarise(median = median(lifeExp),
+            mean   = mean(lifeExp))
+lifeExp_by_continent
+```
+
+### Regression framing
+
+```{r lm-lifeexp-continent}
+lifeExp_model <- lm(lifeExp ~ continent, data = gapminder2007)
+summary(lifeExp_model)
+get_regression_summaries(lifeExp_model)
+get_regression_table(lifeExp_model)
+get_regression_points(lifeExp_model, ID = "country")
+```
+
+::: callout-note
+## Questions
+
+-   Which continent is the base (reference) category in the regression
+    output, and how can you tell?
+-   What does the estimate for `continentEurope` represent?
+:::
+
+### Effects plot
+
+Rather than reading the table of estimates, an effects plot shows the
+model's predicted values with confidence intervals — much easier to
+interpret visually.
+
+```{r effects-lifeexp-continent}
+marginaleffects::plot_predictions(lifeExp_model, condition = "continent") +
+  labs(x = "Continent", y = "Predicted life expectancy",
+       title = "Model predictions: life expectancy by continent (2007)") +
+  theme_minimal()
+```
+
+------------------------------------------------------------------------
+
+## Part 3 — Categorical \~ categorical
+
+When both variables are categorical, we use a contingency table and a
+chi-squared test. The question is whether the *joint* distribution of
+two variables differs from what we would expect if they were
+independent.
+
+### Birthday parity and Japan visit
+
+A quick sanity check: is there any association between birthday parity
+and whether a respondent has visited Japan? There should not be — this
+is a useful null result to practise with.
+
+```{r contingency-odd-visit}
+# Frequency counts for each variable individually
+table(df$odd)
+table(df$visit)
+
+# Contingency table: rows = odd/even, columns = visited Japan
+table(df$odd, df$visit)
+```
+
+```{r chisq-odd-visit}
+# Chi-squared test via summary() on the table
+summary(table(df$odd, df$visit))
+```
+
+::: callout-note
+## Question
+
+The output includes the message "Chi-squared approximation may be
+incorrect." What causes this warning, and what alternative test does the
+script use instead?
+:::
+
+```{r fisher-odd-visit}
+# Fisher's exact test — more reliable when cell counts are small
+fisher.test(df$odd, df$visit)
+```
+
+```{r chisq-infer-odd-visit}
+# Tidy alternative with infer
+df |>
+  infer::chisq_test(formula = odd ~ visit)
+```
+
+### Visualising the joint distribution
+
+```{r bar-odd-visit}
+ggplot(df) +
+  aes(x = visit, fill = odd) +
+  geom_bar() +
+  scale_fill_viridis_d(option = "cividis") +
+  coord_flip() +
+  theme_minimal()
+```
+
+```{r mosaic-odd-visit}
+ggplot(df) +
+  geom_mosaic(aes(x = product(visit, odd), fill = odd)) +
+  labs(x = "Visited Japan", y = "Odd birthday",
+       title = "Birthday parity vs Japan visit") +
+  theme_mosaic() +
+  theme(legend.position = "none")
+```
+
+::: callout-note
+## `vcd::mosaic()` and Pearson residuals
+
+`geom_mosaic()` fits naturally into a ggplot workflow, but it does not
+show which cells drive a significant chi-squared result. For that,
+`vcd::mosaic(shade = TRUE)` is uniquely useful: it colours tiles by
+their **Pearson residual**, which measures how far each observed cell
+count is from what we would expect if the two variables were completely
+independent.
+
+$$r = \frac{\text{observed} - \text{expected}}{\sqrt{\text{expected}}}$$
+
+-   **Blue tiles** (positive residual) — the cell occurs *more* often
+    than independence predicts
+-   **Red tiles** (negative residual) — the cell occurs *less* often
+    than independence predicts
+-   **Pale/unshaded tiles** — the cell is close to what independence
+    would expect
+
+The colour intensity reflects the size of the residual. Cells with \|r\|
+\> 2 are noteworthy; \|r\| \> 4 is striking. This makes `vcd::mosaic()`
+particularly useful *after* a significant chi-squared result, to
+identify which specific combinations of categories are driving it.
+
+```{r mosaic-odd-visit-vcd}
+vcd::mosaic(~odd + visit,
+            direction = c("v", "h"),
+            data = df,
+            shade = TRUE)
+```
+
+The pale tiles here confirm what the chi-squared test already told us:
+birthday parity and Japan visit are not meaningfully associated.
+:::
+
+------------------------------------------------------------------------
+
+### Real-world example: racial discrimination in the labour market
+
+> Bertrand & Mullainathan (2004) sent fictitious résumés to employers in
+> response to newspaper ads. The résumés were identical in all respects
+> except the applicant's name — some were stereotypically associated
+> with Black candidates, others with White candidates. The outcome
+> variable was whether the employer called back. This design allows any
+> difference in callback rates to be attributed to the name alone, i.e.
+> to racial discrimination.
+
+```{r glimpse-resume}
+glimpse(resume)
+```
+
+Note that `call` is stored as a numeric 0/1 variable. We will need to
+convert it to a factor or logical before using it with `infer`.
+
+```{r contingency-resume}
+# Raw counts
+table(resume$race, resume$call)
+
+# Percentages, rounded to one decimal place
+round(prop.table(table(resume$race, resume$call)) * 100, 1)
+
+# Chi-squared test
+summary(table(resume$race, resume$call))
+```
+
+```{r chisq-resume-infer}
+#| error: true
+# This errors because infer expects a categorical response variable
+resume |>
+  infer::chisq_test(call ~ race)
+```
+
+::: callout-note
+## Question
+
+Read the error message carefully. What does it tell you about how
+`infer` expects the response variable to be stored? How do we fix it?
+:::
+
+```{r chisq-resume-infer-fixed}
+resume |>
+  mutate(call = as.factor(call)) |>
+  infer::chisq_test(call ~ race)
+```
+
+### Visualising the résumé data
+
+```{r bar-resume-numeric}
+# First attempt — call is numeric, so ggplot treats it as a continuous scale
+resume |>
+  ggplot(aes(x = race, fill = call)) +
+  geom_bar() +
+  scale_fill_viridis_d(option = "cividis") +
+  coord_flip() +
+  theme_minimal()
+```
+
+::: callout-note
+## Question
+
+The plot above does not look right. Run `class(resume$race)` and
+`class(resume$call)`. What is the problem, and why does converting
+`call` to logical fix it?
+:::
+
+```{r bar-resume-logical}
+resume |>
+  mutate(call = as.logical(call)) |>
+  ggplot(aes(x = race, fill = call)) +
+  geom_bar() +
+  scale_fill_viridis_d(option = "cividis") +
+  coord_flip() +
+  theme_minimal()
+```
+
+```{r mosaic-resume}
+ggplot(resume |> mutate(call = as.logical(call))) +
+  geom_mosaic(aes(x = product(call, race), fill = call)) +
+  labs(x = "Race", y = "Called back",
+       title = "Callback rate by race") +
+  theme_mosaic()
+```
+
+Now let's add residual shading to see which cells are driving the
+significant chi-squared result.
+
+```{r mosaic-resume-vcd}
+# shade = TRUE colours tiles by Pearson residual
+# Blue = more callbacks than independence would predict
+# Red  = fewer callbacks than independence would predict
+vcd::mosaic(~race + call,
+            direction = c("v", "h"),
+            data = resume,
+            shade = TRUE)
+```
+
+The blue tile for White names × called back and the red tile for Black
+names × called back show precisely where the disparity lies: White
+applicants were called back *more* than independence would predict,
+while Black applicants were called back *less*. The residuals make the
+direction of discrimination visible at a glance, in a way that the
+chi-squared p-value alone cannot.
+
+### Regression framing
+
+Because `call` is coded as 0/1, we can treat it as a numeric outcome and
+fit `lm()` — the results are equivalent to the chi-squared test.
+
+```{r lm-resume}
+cat_cat_model <- lm(call ~ race, data = resume)
+summary(cat_cat_model)
+get_regression_summaries(cat_cat_model)
+get_regression_table(cat_cat_model)
+```
+
+The regression table tells us:
+
+-   `(Intercept)` estimate — the mean callback rate for the base
+    category (Black names)
+-   `racewhite` estimate — the *additional* callback probability for
+    White names
+-   The F-statistic from `get_regression_summaries()` is approximately
+    equal to the chi-squared statistic from the table above
+
+------------------------------------------------------------------------
+
+::: callout-tip
+## DIY challenge — sex and racial discrimination
+
+Using `dplyr`, create a new dataframe `res_2` that combines `race` and
+`sex` into a single `applicant` column (e.g. "black_female",
+"white_male").
+
+Steps: 1. Take the `resume` dataframe 2. `group_by(race, sex)` 3.
+`mutate()` a new column called `applicant` using `paste()` to combine
+the strings 4. `ungroup()` 5. `select()` only `applicant` and `call`
+
+Then use a chi-squared test and a mosaic plot to ask: is there evidence
+of racial discrimination for both sexes?
+:::
+
+------------------------------------------------------------------------
+
+## Part 4 — Continuous \~ continuous: correlation and regression
+
+When both variables are continuous, we describe their relationship with
+a correlation coefficient and model it with a regression line.
+
+### Height and Africa guess
+
+Does a person's height predict their guess for the number of African
+countries? Almost certainly not — but it is a useful dataset to practise
+with since we already know it well.
+
+```{r scatter-height-guess}
+ggplot(df) +
+  aes(x = height, y = guess) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  ggpubr::stat_cor(method = "spearman") +
+  theme_minimal()
+```
+
+```{r cor-test-height-guess}
+cor.test(df$height, df$guess, method = "pearson") |>
+  broom::tidy()
+```
+
+The output columns mean:
+
+-   `estimate` — the correlation coefficient (r), ranging from −1 to 1
+-   `statistic` — the t-score used to test whether r differs from zero
+-   `parameter` — degrees of freedom
+-   `conf.low` / `conf.high` — 95% confidence interval around r
+
+If the confidence interval crosses zero, we cannot rule out that there
+is no real relationship.
+
+::: callout-note
+## Question
+
+The confidence interval for the height–guess correlation crosses zero.
+What does this mean for our conclusion about the relationship? Note also
+that correlation tests assume the variables are approximately normally
+distributed. How would you check that assumption before running the
+test?
+:::
+
+```{r lm-height-guess}
+cont_model <- lm(formula = guess ~ height, data = df)
+summary(cont_model)
+get_regression_summaries(cont_model)
+get_regression_table(cont_model)
+get_regression_points(cont_model)
+```
+
+The regression line can be drawn manually using the intercept and slope
+estimates from `get_regression_table()`. Extending the x-axis to zero
+makes the intercept visible.
+
+```{r scatter-height-guess-extended}
+ggplot(df) +
+  aes(x = height, y = guess) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  xlim(0, 200) +
+  ggpubr::stat_cor(method = "pearson") +
+  theme_minimal()
+```
+
+::: callout-tip
+## DIY
+
+Add `geom_abline()` to the plot above, using the intercept and slope
+values from `get_regression_table(cont_model)`. Does the line match
+`geom_smooth()`?
+:::
+
+------------------------------------------------------------------------
+
+### Real-world example: GDP per capita and life expectancy
+
+```{r cor-gdp-lifeexp}
+# Pearson correlation (assumes linearity and normality)
+cor(gapminder$gdpPercap, gapminder$lifeExp)
+
+# Kendall's tau — a rank-based alternative for non-normal data
+cor(gapminder$gdpPercap, gapminder$lifeExp, method = "kendall")
+
+# Full test with confidence intervals
+cor.test(gapminder$gdpPercap, gapminder$lifeExp, method = "pearson") |>
+  broom::tidy()
+```
+
+```{r scatter-gdp-lifeexp}
+gapminder |>
+  ggplot(aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  ggpubr::stat_cor(label.y = 130) +
+  theme_minimal()
+```
+
+::: callout-note
+## Question
+
+The regression line does not fit the data well at the lower end of GDP.
+Before reading on, look at the scatter plot and think about what
+transformation might improve the fit.
+:::
+
+Checking the distributions of both variables reveals the problem:
+`gdpPercap` is heavily right-skewed, violating the normality assumption
+of the Pearson correlation.
+
+```{r histograms-gdp-lifeexp}
+ggplot(gapminder, aes(x = lifeExp)) +
+  geom_histogram() +
+  theme_minimal()
+
+ggplot(gapminder, aes(x = gdpPercap)) +
+  geom_histogram() +
+  theme_minimal()
+```
+
+A log transformation pulls the long right tail in and makes the
+distribution much more symmetric.
+
+```{r histogram-log-gdp}
+ggplot(gapminder, aes(x = log2(gdpPercap))) +
+  geom_histogram() +
+  theme_minimal()
+```
+
+```{r scatter-log-gdp-lifeexp}
+gapminder |>
+  ggplot(aes(x = log(gdpPercap), y = lifeExp)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  ggpubr::stat_cor() +
+  theme_minimal()
+```
+
+::: callout-note
+## Question
+
+The R value increases from 0.58 to 0.81 after the log transformation.
+What does this tell you about the relationship between GDP and life
+expectancy — is it linear or does it follow a different curve?
+:::
+
+### Two regression models compared
+
+```{r lm-gdp-lifeexp-raw}
+gdp_life_model01 <- lm(lifeExp ~ gdpPercap, data = gapminder)
+summary(gdp_life_model01)
+get_regression_summaries(gdp_life_model01)
+get_regression_table(gdp_life_model01)
+```
+
+```{r gapminder-log}
+gapminder_log <- gapminder |>
+  mutate(log_gdp = log(gdpPercap))
+```
+
+```{r lm-gdp-lifeexp-log}
+gdp_life_model02 <- lm(lifeExp ~ log_gdp, data = gapminder_log)
+summary(gdp_life_model02)
+get_regression_summaries(gdp_life_model02)
+get_regression_table(gdp_life_model02)
+get_regression_points(gdp_life_model02)
+```
+
+------------------------------------------------------------------------
+
+## Package summaries
+
+The sections below provide a consolidated reference for each package
+used in this lesson. Use them as a cheat sheet when working on your own
+analyses.
+
+### `moderndive` — readable regression tables
+
+`moderndive` wraps `lm()` output into three clean functions. First, fit
+your models:
+
+```{r package-summary-models}
+# Rebuild all models for the summary section
+cat_model       <- lm(guess ~ odd, data = df)
+multi_cat_model <- lm(lifeExp ~ continent, data = gapminder2007)
+cat_cat_model   <- lm(call ~ race, data = resume)
+cont_model      <- lm(guess ~ height, data = df)
+gdp_log_model   <- lm(lifeExp ~ log_gdp, data = gapminder_log)
+```
+
+`get_regression_summaries()` — overall model fit:
+
+```{r moderndive-summaries}
+get_regression_summaries(cat_model)
+get_regression_summaries(multi_cat_model)
+get_regression_summaries(cat_cat_model)
+get_regression_summaries(cont_model)
+get_regression_summaries(gdp_log_model)
+```
+
+-   `r_squared` — correlation coefficient (closer to 1 = stronger
+    relationship)
+-   `adj_r_squared` — adjusted for the number of predictors
+-   `mse` / `rmse` / `sigma` — measures of model error (lower is better)
+-   `statistic` — F-statistic
+-   `p_value` — is the overall model significant?
+-   `nobs` — number of observations
+
+`get_regression_table()` — coefficient estimates:
+
+```{r moderndive-tables}
+get_regression_table(cat_model)
+get_regression_table(multi_cat_model)
+get_regression_table(cat_cat_model)
+get_regression_table(cont_model)
+get_regression_table(gdp_log_model)
+```
+
+-   First row (`Intercept`) — predicted value for the base category, or
+    when all continuous predictors equal zero
+-   Subsequent rows — predicted *change* for each one-unit increase
+    (continuous) or shift from base to that category (categorical)
+-   `lower_ci` / `upper_ci` — 95% confidence interval around each
+    estimate
+
+`get_regression_points()` — observed vs fitted values:
+
+```{r moderndive-points}
+get_regression_points(cat_model)
+get_regression_points(multi_cat_model, ID = "country")
+get_regression_points(cat_cat_model)
+get_regression_points(cont_model)
+get_regression_points(gdp_log_model)
+```
+
+-   `_hat` columns — the model's predicted value for each observation
+-   `residual` — the difference between the predicted and actual value
+
+------------------------------------------------------------------------
+
+### `infer` — tidy statistical tests
+
+`infer` lets you run statistical tests directly on a dataframe using a
+formula interface, avoiding the need to extract vectors manually.
+
+```{r package-summary-infer}
+# t-test
+df |>
+  infer::t_test(formula = guess ~ odd)
+
+# chi-squared test (response variable must be a factor)
+resume |>
+  mutate(call = factor(call)) |>
+  infer::chisq_test(call ~ race)
+```
+
+------------------------------------------------------------------------
+
+### `broom` — tidy output from base-R tests
+
+`broom::tidy()` converts the messy list output of base-R test functions
+into a clean single-row dataframe, making it easy to compare results or
+include them in a report.
+
+```{r package-summary-broom}
+# t-test
+t.test(df_even$guess, df_odd$guess) |>
+  broom::tidy()
+
+# correlation test
+cor.test(df$height, df$guess, method = "pearson") |>
+  broom::tidy()
+
+# linear model coefficients
+lm(guess ~ odd, data = df) |>
+  broom::tidy()
+
+# ANOVA
+aov(formula = gdpPercap ~ continent, data = gapminder2007) |>
+  broom::tidy()
+```
+
+------------------------------------------------------------------------
+
+### `ggmosaic` and `vcd` — mosaic plots
+
+Two packages produce mosaic plots, and they complement each other well.
+
+**`ggmosaic::geom_mosaic()`** is a proper ggplot geom, so it accepts the
+usual `theme_*()`, `scale_*()`, and `labs()` layers and sits
+consistently alongside the rest of a ggplot-based analysis. The key
+syntax difference from other geoms is `aes(x = product(var1, var2))`,
+which tells ggmosaic how to divide the plot into tiles.
+
+```{r package-summary-ggmosaic}
+ggplot(resume |> mutate(call = as.logical(call))) +
+  geom_mosaic(aes(x = product(call, race), fill = call)) +
+  labs(x = "Race", y = "Called back") +
+  theme_mosaic()
+```
+
+**`vcd::mosaic(shade = TRUE)`** adds something `geom_mosaic()` cannot
+easily replicate: automatic **Pearson residual shading**. After a
+significant chi-squared test, this tells you not just *that* there is an
+association, but *which specific cells* are responsible for it.
+
+The Pearson residual for each cell is:
+
+$$r = \frac{\text{observed} - \text{expected}}{\sqrt{\text{expected}}}$$
+
+where "expected" is the count you would predict if the two variables
+were completely independent. The colour legend in the plot shows the
+residual thresholds: by convention, \|r\| \> 2 is noteworthy and \|r\|
+\> 4 is striking.
+
+-   **Blue** = more observations than independence predicts
+    (over-represented)
+-   **Red** = fewer observations than independence predicts
+    (under-represented)
+-   **Pale** = close to what independence would expect
+
+```{r package-summary-vcd}
+vcd::mosaic(~race + call,
+            direction = c("v", "h"),
+            data = resume,
+            shade = TRUE)
+```
+
+A practical workflow: use `geom_mosaic()` for exploratory visualisation
+and reporting (it blends with your other ggplots), then switch to
+`vcd::mosaic(shade = TRUE)` after a significant chi-squared result to
+diagnose which cells are driving it.
+
+------------------------------------------------------------------------
+
+### `marginaleffects` — effects plots
+
+`marginaleffects` is the modern replacement for `sjPlot::plot_model()`.
+Rather than jumping straight to a plot, it first produces a tidy
+dataframe of predicted values that you can inspect, then pass to ggplot
+if you want a custom figure. `plot_predictions()` is a convenience
+wrapper that does both steps at once.
+
+```{r package-summary-marginaleffects}
+# Categorical predictor: predicted group means with confidence intervals
+plot_predictions(cat_model, condition = "odd") +
+  theme_minimal()
+
+# Multi-categorical predictor
+plot_predictions(multi_cat_model, condition = "continent") +
+  theme_minimal()
+
+# Categorical ~ categorical: predicted callback rates by race
+plot_predictions(cat_cat_model, condition = "race") +
+  theme_minimal()
+
+# Continuous predictor: predicted regression line with confidence band
+plot_predictions(cont_model, condition = "height") +
+  theme_minimal()
+
+# Log-transformed continuous predictor
+plot_predictions(gdp_log_model, condition = "log_gdp") +
+  theme_minimal()
+```
+
+If you want the underlying predicted values as a dataframe rather than a
+plot, use `predictions()` instead:
+
+```{r marginaleffects-predictions-df}
+#| eval: false
+marginaleffects::predictions(multi_cat_model,
+                             newdata = datagrid(continent = unique)) |>
+  as_tibble()
+```
+
+------------------------------------------------------------------------
+
+### `ggpubr` — annotating plots with test results
+
+`ggpubr::stat_compare_means()` adds a statistical test result directly
+to a ggplot as a text annotation.
+
+```{r package-summary-ggpubr-ttest}
+# Two-group comparison: specify method = "t.test" for a parametric test
+ggplot(df) +
+  aes(x = "", y = guess, fill = odd) +
+  geom_boxplot() +
+  scale_fill_hue() +
+  labs(x = "Birthday date",
+       y = "Guess: countries in Africa",
+       title = "Africa guess by odd/even birthday") +
+  theme_minimal() +
+  ggpubr::stat_compare_means(method = "t.test")
+
+# Omitting method uses the non-parametric Wilcoxon test by default — safer
+# when the normality assumption is uncertain
+ggplot(df) +
+  aes(x = "", y = guess, fill = odd) +
+  geom_boxplot() +
+  scale_fill_hue() +
+  labs(x = "Birthday date",
+       y = "Guess: countries in Africa",
+       title = "Africa guess by odd/even birthday") +
+  theme_minimal() +
+  ggpubr::stat_compare_means()
+```
+
+```{r package-summary-ggpubr-anova}
+# Multi-group comparison with ANOVA
+# With multiple x categories, label.x refers to the category index (1, 2, 3...)
+# so label.x = 2 places the label above the second continent
+ggplot(gapminder2007, aes(x = continent, y = lifeExp)) +
+  geom_boxplot() +
+  labs(x = "Continent", y = "Life expectancy",
+       title = "Life expectancy by continent") +
+  ggpubr::stat_compare_means(method = "anova", label.x = 4, label.y = 45) +
+  theme_minimal()
+
+# Default non-parametric (Kruskal-Wallis) version
+ggplot(gapminder2007, aes(x = continent, y = lifeExp)) +
+  geom_boxplot() +
+  labs(x = "Continent", y = "Life expectancy",
+       title = "Life expectancy by continent") +
+  ggpubr::stat_compare_means(label.x = 4, label.y = 45) +
+  theme_minimal()
+```
+
+::: callout-note
+## Parametric vs non-parametric tests
+
+The parametric versions (t-test, ANOVA) assume the data are
+approximately normally distributed. When that assumption is uncertain —
+especially with small samples — the non-parametric alternatives
+(Wilcoxon, Kruskal-Wallis) are safer because they make no distributional
+assumptions. As a rule of thumb, use non-parametric tests unless you
+have a good reason to believe normality holds.
+:::
